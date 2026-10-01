@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { site } from "@/lib/content";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+const montserrat = Montserrat({ subsets: ["latin"], variable: "--font-montserrat", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -20,12 +20,12 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#0a2350",
+  themeColor: "#015f86",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es-AR" className={inter.variable}>
+    <html lang="es-AR" className={montserrat.variable}>
       <body className="font-sans antialiased">{children}</body>
     </html>
   );

@@ -56,14 +56,14 @@ export default function Home() {
                 Salud digestiva para todos
               </span>
               <h1 className="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-navy-900 sm:text-5xl lg:text-6xl">
-                El cáncer colorrectal <span className="text-brand-600">se puede prevenir.</span>
+                El cáncer colorrectal <span className="text-brand-500">se puede prevenir.</span>
               </h1>
               <p className="mt-6 max-w-xl text-lg text-navy-900/70 sm:text-xl">
                 La detección temprana salva vidas. En Fundación Gedyt trabajamos para que cada persona en Argentina
                 acceda a una salud digestiva de calidad, sin barreras sociales, culturales ni económicas.
               </p>
               <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <a href={donateUrl} className="rounded-full bg-brand-600 px-7 py-3.5 text-center font-semibold text-white shadow-lg shadow-brand-600/25 transition hover:bg-navy-800">
+                <a href={donateUrl} className="rounded-full bg-brand-600 px-7 py-3.5 text-center font-semibold text-white shadow-lg shadow-brand-600/25 transition hover:bg-navy-900">
                   Doná y salvá vidas
                 </a>
                 <a href="#empresas" className="rounded-full bg-white px-7 py-3.5 text-center font-semibold text-navy-900 ring-1 ring-navy-900/15 transition hover:ring-brand-500">
@@ -88,10 +88,6 @@ export default function Home() {
                 <a href="#contacto" className="mt-8 inline-block font-semibold text-sky-accent hover:underline">
                   Consultanos cómo hacerlo →
                 </a>
-              </div>
-              <div className="absolute -bottom-8 -right-4 hidden rounded-2xl bg-white px-5 py-4 shadow-xl ring-1 ring-navy-900/5 sm:block">
-                <p className="text-3xl font-extrabold text-brand-600">+10.000</p>
-                <p className="text-sm text-navy-900/70">personas testeadas en Misiones</p>
               </div>
             </div>
           </div>

@@ -1,19 +1,20 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { donateUrl, nav, site } from "@/lib/content";
 
 export function Logo({ light = false }: { light?: boolean }) {
   return (
-    <a href="#inicio" className="flex items-center gap-2.5" aria-label={site.name}>
-      <svg viewBox="0 0 64 64" className="h-9 w-9" aria-hidden>
-        <rect width="64" height="64" rx="14" fill={light ? "#ffffff" : "#0a2350"} />
-        <path d="M32 14c-8 9-14 16-14 24a14 14 0 0 0 28 0c0-8-6-15-14-24z" fill="#5cc8f2" />
-      </svg>
-      <span className={`leading-tight ${light ? "text-white" : "text-navy-900"}`}>
-        <span className="block text-[11px] font-medium uppercase tracking-[0.18em] opacity-70">Fundación</span>
-        <span className="block text-lg font-extrabold tracking-tight">Gedyt</span>
-      </span>
+    <a href="#inicio" className="flex items-center" aria-label={site.name}>
+      <Image
+        src={light ? "/logo-white.png" : "/logo.png"}
+        alt={site.name}
+        width={837}
+        height={192}
+        priority={!light}
+        className="h-9 w-auto sm:h-10"
+      />
     </a>
   );
 }
@@ -49,7 +50,7 @@ export default function Header() {
           ))}
           <a
             href={donateUrl}
-            className="rounded-full bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-navy-800"
+            className="rounded-full bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-navy-900"
           >
             Doná
           </a>

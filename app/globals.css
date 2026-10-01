@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-navy-950: #061733;
-  --color-navy-900: #0a2350;
-  --color-navy-800: #0f3170;
-  --color-brand-600: #1b5fd1;
-  --color-brand-500: #2d74e6;
-  --color-brand-100: #dce9fb;
-  --color-brand-50: #f0f6fe;
-  --color-sky-accent: #5cc8f2;
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  /* Paleta del logo: azul petróleo #015f86 y celeste #3fa5d4 */
+  --color-navy-950: #00293b;
+  --color-navy-900: #01405c;
+  --color-navy-800: #015f86;
+  --color-brand-600: #015f86;
+  --color-brand-500: #3fa5d4;
+  --color-brand-100: #d6ecf7;
+  --color-brand-50: #eef7fc;
+  --color-sky-accent: #3fa5d4;
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
