@@ -43,6 +43,86 @@ export const nav = [
   { href: "#contacto", label: "Contacto" },
 ];
 
+// Banners del inicio (carrusel). Las fotos van en /public/banners.
+export type Slide = {
+  id: string;
+  eyebrow: string;
+  title: string;
+  highlight: string;
+  text: string;
+  image?: string;
+  imageAlt?: string;
+  // Encuadre de la foto (CSS object-position) y dónde termina el fundido hacia el texto
+  imagePosition?: string;
+  fade?: string;
+  // Ilustración a usar cuando no hay foto
+  art?: "ribbon" | "board";
+  badge?: { value: string; label: string };
+  primary: { label: string; href: string; interest?: string };
+  secondary?: { label: string; href: string; interest?: string };
+};
+
+export const slides: Slide[] = [
+  {
+    id: "test-fit",
+    eyebrow: "Prevenir también es cuidar",
+    title: "Porque detectar a tiempo puede hacer la diferencia,",
+    highlight: "trabajamos para que la prevención llegue a más personas.",
+    text: "Test FIT simple y no invasivo, con acompañamiento médico para cada resultado.",
+    image: "/banners/test-fit.webp",
+    imageAlt: "Mascota del test FIT de Fundación Gedyt",
+    imagePosition: "15% center",
+    fade: "16%",
+    primary: { label: "Conocé nuestra Fundación", href: "#que-hacemos" },
+    secondary: { label: "Hacete el test FIT", href: "#contacto", interest: "otro" },
+  },
+  {
+    id: "noche-azul",
+    eyebrow: "Gala a beneficio",
+    title: "Noche Azul 2026:",
+    highlight: "una noche para salvar vidas.",
+    text: "La sexta edición de nuestra gala reunió a referentes del espectáculo, el deporte y las empresas para impulsar la detección temprana.",
+    image: "/banners/noche-azul.webp",
+    imageAlt: "Invitados de la gala Noche Azul 2026",
+    imagePosition: "center 25%",
+    badge: { value: "$290M", label: "recaudados para prevención" },
+    primary: { label: "Ver más", href: "https://www.infobae.com/tendencias/2026/09/16/noche-azul-como-fue-la-gala-solidaria-que-impulsa-la-prevencion-y-deteccion-temprana-del-cancer-de-colon/" },
+    secondary: { label: "Quiero ser sponsor", href: "#contacto", interest: "empresa" },
+  },
+  {
+    id: "fondo-comun",
+    eyebrow: "Fondo Común",
+    title: "Sé parte del Fondo Común de",
+    highlight: "Prevención y Detección Temprana de Cáncer de Colon.",
+    text: "Tu aporte se transforma en tests, campañas y seguimiento médico para quienes más lo necesitan.",
+    art: "ribbon",
+    badge: { value: "9 de 10", label: "casos se curan si se detectan a tiempo" },
+    primary: { label: "Quiero aportar", href: "#donar" },
+    secondary: { label: "Cómo funciona", href: "#contacto", interest: "donacion" },
+  },
+  {
+    id: "mujeres",
+    eyebrow: "Reconocimiento",
+    title: "Premio a Mujeres Destacadas en",
+    highlight: "Gastroenterología & Endoscopía Digestiva.",
+    text: "Visibilizamos y reconocemos el liderazgo de las mujeres que transforman la especialidad.",
+    image: "/banners/mujeres.webp",
+    imageAlt: "Médicas gastroenterólogas",
+    imagePosition: "60% center",
+    primary: { label: "Ver más", href: "https://fundaciongedyt.org.ar/mujeres-en-gastroenterologia/" },
+    secondary: { label: "Consultanos", href: "#contacto", interest: "profesional" },
+  },
+  {
+    id: "consejo",
+    eyebrow: "Gobernanza y liderazgo",
+    title: "Integrá el Consejo Directivo de",
+    highlight: "Fundación Gedyt.",
+    text: "Convocamos a personas con trayectoria, redes y compromiso genuino para conducir la estrategia de la Fundación y el futuro de la prevención.",
+    art: "board",
+    primary: { label: "Iniciar mi postulación", href: "#contacto", interest: "consejo" },
+  },
+];
+
 export const features = [
   {
     eyebrow: "Detección precoz",
@@ -172,6 +252,7 @@ export const footerLinks = {
 
 export const interests = [
   { value: "empresa", label: "Programa para mi empresa" },
+  { value: "consejo", label: "Postulación al Consejo Directivo" },
   { value: "donacion", label: "Quiero donar" },
   { value: "profesional", label: "Capacitación profesional" },
   { value: "prensa", label: "Gobierno, prensa o alianzas" },

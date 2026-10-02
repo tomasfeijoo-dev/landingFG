@@ -29,3 +29,13 @@ body {
 ::selection {
   background: var(--color-brand-100);
 }
+
+/* Fundido de la imagen de los banners hacia el texto */
+.hero-visual {
+  mask-image: linear-gradient(to bottom, #000 55%, transparent);
+}
+@media (min-width: 1024px) {
+  .hero-visual {
+    mask-image: linear-gradient(to right, transparent 0%, #000 var(--fade, 38%));
+  }
+}

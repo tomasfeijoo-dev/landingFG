@@ -1,4 +1,5 @@
 import Header, { Logo } from "@/components/Header";
+import HeroCarousel from "@/components/HeroCarousel";
 import ContactForm from "@/components/ContactForm";
 import Donate from "@/components/Donate";
 import Icon from "@/components/Icon";
@@ -51,38 +52,6 @@ function ArrowLink({ href, interest, children, className = "" }: { href: string;
   );
 }
 
-function TestIllustration() {
-  return (
-    <svg viewBox="0 0 320 200" className="h-full w-full" aria-hidden>
-      <defs>
-        <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#d6ecf7" />
-          <stop offset="1" stopColor="#3fa5d4" />
-        </linearGradient>
-        <linearGradient id="cap" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#3fa5d4" />
-          <stop offset="1" stopColor="#015f86" />
-        </linearGradient>
-      </defs>
-      <rect width="320" height="200" fill="url(#bg)" />
-      <circle cx="260" cy="40" r="70" fill="#ffffff" opacity="0.18" />
-      <circle cx="40" cy="190" r="60" fill="#ffffff" opacity="0.15" />
-      <g transform="translate(118 26) rotate(-8)">
-        <rect x="8" y="34" width="72" height="118" rx="18" fill="#ffffff" />
-        <rect x="8" y="34" width="72" height="118" rx="18" fill="#015f86" opacity="0.05" />
-        <rect x="20" y="78" width="48" height="30" rx="6" fill="#eef7fc" />
-        <rect x="27" y="86" width="34" height="4" rx="2" fill="#3fa5d4" />
-        <rect x="27" y="95" width="22" height="4" rx="2" fill="#3fa5d4" opacity="0.5" />
-        <rect x="0" y="6" width="88" height="34" rx="12" fill="url(#cap)" />
-        <rect x="10" y="12" width="68" height="4" rx="2" fill="#ffffff" opacity="0.35" />
-        <circle cx="32" cy="128" r="5" fill="#01405c" />
-        <circle cx="56" cy="128" r="5" fill="#01405c" />
-        <path d="M36 140 q8 7 16 0" stroke="#01405c" strokeWidth="3.5" fill="none" strokeLinecap="round" />
-      </g>
-    </svg>
-  );
-}
-
 function Ribbon() {
   return (
     <svg viewBox="0 0 120 160" className="h-36 w-28" aria-hidden>
@@ -98,84 +67,12 @@ export default function Home() {
     <>
       <Header />
       <main id="inicio">
-        {/* Hero */}
+        {/* Banners de campañas */}
         <section className="bg-gradient-to-b from-brand-50/60 to-white px-4 pt-6 sm:px-6 sm:pt-10">
-          <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-50 via-white to-brand-100/60 px-6 pt-12 pb-28 ring-1 ring-brand-100 sm:px-12 sm:pt-16 lg:pb-36">
-            <svg className="pointer-events-none absolute inset-0 hidden h-full w-full lg:block" viewBox="0 0 1200 600" preserveAspectRatio="none" aria-hidden>
-              <path d="M760 80 C 880 -20, 1100 40, 1140 160" stroke="#3fa5d4" strokeWidth="26" fill="none" strokeLinecap="round" opacity="0.85" />
-              <path d="M820 560 C 980 480, 1120 520, 1210 430" stroke="#3fa5d4" strokeWidth="22" fill="none" strokeLinecap="round" opacity="0.6" />
-            </svg>
-            <div className="relative grid items-center gap-12 lg:grid-cols-[1.2fr_1fr]">
-              <div>
-                <Eyebrow chip>Prevenir también es cuidar</Eyebrow>
-                <h1 className="mt-6 text-3xl font-extrabold leading-[1.12] tracking-tight text-navy-900 sm:text-5xl">
-                  Detectar a tiempo hace la diferencia.{" "}
-                  <span className="text-cta">Trabajamos para que la prevención llegue a más personas.</span>
-                </h1>
-                <p className="mt-6 max-w-xl text-lg text-navy-900/70">
-                  El cáncer colorrectal se cura en el <strong className="text-navy-900">90% de los casos</strong> si se
-                  detecta a tiempo. Desde la Fundación acercamos tests no invasivos, acompañamiento médico y
-                  colonoscopías oportunas a toda la comunidad.
-                </p>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <a href="#que-hacemos" className="rounded-full bg-navy-900 px-7 py-3.5 text-center font-semibold text-white shadow-lg shadow-navy-900/20 transition hover:bg-navy-950">
-                    Conocé la Fundación
-                  </a>
-                  <InterestLink
-                    href="#contacto"
-                    interest="otro"
-                    className="flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-semibold text-cta ring-1 ring-cta/40 transition hover:ring-cta"
-                  >
-                    <Icon name="flask" className="h-5 w-5" />
-                    Hacete el test FIT
-                  </InterestLink>
-                </div>
-                <div className="mt-10 flex items-center gap-3">
-                  <div className="flex -space-x-2">
-                    {[
-                      { icon: "stethoscope", bg: "#01405c" },
-                      { icon: "shield", bg: "#015f86" },
-                      { icon: "heart", bg: "#3fa5d4" },
-                    ].map((a) => (
-                      <span key={a.icon} className="flex h-9 w-9 items-center justify-center rounded-full text-white ring-2 ring-white" style={{ background: a.bg }}>
-                        <Icon name={a.icon} className="h-4 w-4" />
-                      </span>
-                    ))}
-                  </div>
-                  <p className="max-w-sm text-xs text-navy-900/60">
-                    Respaldo científico de Gedyt, centro de Gastroenterología, Endoscopía Diagnóstica y Terapéutica desde 2001.
-                  </p>
-                </div>
-              </div>
-
-              <div className="relative mx-auto w-full max-w-md">
-                <div className="overflow-hidden rounded-3xl bg-white shadow-2xl shadow-navy-900/15 ring-1 ring-navy-900/5">
-                  <div className="relative aspect-[16/10]">
-                    <TestIllustration />
-                    <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy-900/70 to-transparent p-5 pt-12">
-                      <span className="rounded bg-cta px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-white">Test simple y no invasivo</span>
-                      <p className="mt-2 text-sm font-semibold text-white">Sin dieta previa ni internación.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between gap-4 p-5">
-                    <div className="flex items-center gap-3">
-                      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-50 text-cta">
-                        <Icon name="shield" className="h-5 w-5" />
-                      </span>
-                      <div>
-                        <p className="text-sm font-bold text-navy-900">Para mayores de 45 años</p>
-                        <p className="text-xs text-navy-900/60">o con antecedentes familiares</p>
-                      </div>
-                    </div>
-                    <ArrowLink href="#contacto" interest="otro">Consultá</ArrowLink>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <HeroCarousel />
 
           {/* Tarjetas de programas superpuestas al hero */}
-          <div id="programas" className="relative mx-auto -mt-20 grid max-w-6xl scroll-mt-28 gap-5 md:grid-cols-3 lg:-mt-24">
+          <div id="programas" className="relative z-40 mx-auto mt-8 grid max-w-6xl scroll-mt-28 gap-5 md:grid-cols-3">
             {features.map((f) => (
               <article key={f.title} className="flex flex-col rounded-3xl bg-white p-7 shadow-xl shadow-navy-900/5 ring-1 ring-navy-900/5">
                 <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-cta">
