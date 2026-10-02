@@ -1,5 +1,5 @@
 // Contenido editable de la landing. Cambiá textos, cifras y links acá
-// sin tocar los componentes.
+// sin tocar los componentes. Los "TODO" son datos a confirmar o completar.
 
 export const site = {
   name: "Fundación Gedyt",
@@ -14,98 +14,166 @@ export const contact = {
   phone: "+54 9 11 4095-6148",
   whatsapp: "5491140956148",
   hours: "Lunes a viernes de 9 a 16 h",
+  hoursShort: "Lun a Vie 9 a 16 h",
+  // TODO: completar la dirección de la sede si se quiere mostrar
+  address: "",
   social: {
     linkedin: "https://ar.linkedin.com/company/fundacion-gedyt",
     facebook: "https://www.facebook.com/Fundacion.Gedyt/",
   },
 };
 
-// TODO: reemplazar por el link real de donaciones (Mercado Pago, transferencia, etc.)
+// TODO: reemplazar por el link real de Mercado Pago (o la plataforma que usen).
 export const donateUrl = "#contacto";
 
+// TODO: confirmar montos sugeridos de donación mensual.
+export const donationAmounts = [
+  { value: "5000", label: "$5.000 / mes" },
+  { value: "10000", label: "$10.000 / mes", highlight: "1 test FIT" },
+  { value: "25000", label: "$25.000 / mes" },
+  { value: "otro", label: "Monto a elección" },
+];
+
 export const nav = [
-  { href: "#nosotros", label: "Nosotros" },
+  { href: "#inicio", label: "Inicio" },
+  { href: "#programas", label: "Programas" },
   { href: "#que-hacemos", label: "Qué hacemos" },
-  { href: "#empresas", label: "Empresas" },
-  { href: "#noche-azul", label: "Noche Azul" },
+  { href: "#sumate", label: "Sumate" },
+  { href: "#novedades", label: "Novedades" },
   { href: "#contacto", label: "Contacto" },
 ];
 
-export const stats = [
-  { value: "90%", label: "de los casos de cáncer colorrectal se curan si se detectan a tiempo" },
-  { value: "+10.000", label: "personas testeadas con Q-FIT en el programa de Misiones" },
-  { value: "45+", label: "años: la edad a partir de la cual se recomienda el control" },
-  { value: "2018", label: "año en que nace la Fundación, con más de 20 años de trayectoria Gedyt" },
-];
-
-export const programs = [
+export const features = [
   {
-    title: "Prevención y detección temprana",
-    text: "Campañas de concientización y testeos con test de sangre oculta en materia fecal (Q-FIT), con seguimiento de cada caso positivo hasta su videocolonoscopía.",
-    icon: "shield",
+    eyebrow: "Detección precoz",
+    title: "Test FIT",
+    text: "Test inmunológico de sangre oculta en materia fecal: simple, no invasivo y sin dieta previa. Cada resultado positivo tiene seguimiento médico.",
+    cta: "Consultá por el test",
+    href: "#contacto",
+    interest: "otro",
+    icon: "flask",
   },
   {
-    title: "Programas provinciales",
-    text: "Articulación público-privada para llevar el screening a las provincias. En Misiones, más de 10.000 personas ya fueron testeadas.",
-    icon: "map",
+    eyebrow: "Salud en el trabajo",
+    title: "Prevenir es cuidar",
+    text: "El primer programa de prevención del cáncer colorrectal para empresas: charlas, testeo voluntario y seguimiento activo.",
+    cta: "Sumá tu organización",
+    href: "#contacto",
+    interest: "empresa",
+    icon: "building",
   },
   {
+    eyebrow: "Docencia y formación",
     title: "Formación profesional",
     text: "Hands On con estaciones de simulación para gastroenterólogos y endoscopistas, y entrenamiento para asistentes de endoscopía.",
+    cta: "Ver capacitaciones",
+    href: "#contacto",
+    interest: "profesional",
     icon: "graduation",
   },
+];
+
+export const impact = [
   {
-    title: "Mujeres en Gastroenterología",
-    text: "Un espacio para impulsar el desarrollo, la visibilidad y el liderazgo de las mujeres en la especialidad.",
+    value: "+10.000",
+    label: "personas testeadas",
+    text: "con test Q-FIT en el Programa de Prevención de la Provincia de Misiones.",
     icon: "users",
   },
   {
-    title: "Investigación y publicaciones",
-    text: "Acciones basadas en evidencia: investigación, publicaciones y anuarios para mejorar la eficiencia y el acceso a la atención.",
-    icon: "book",
+    value: "90%",
+    label: "de los casos se curan",
+    text: "cuando el cáncer colorrectal se detecta a tiempo. Por eso insistimos en el control.",
+    icon: "shield",
   },
   {
-    title: "Comunidad",
-    text: "Información clara para pacientes y familias: síntomas, factores de riesgo y cuándo hacerse el control.",
+    value: "$290M",
+    label: "recaudados en la Noche Azul 2026",
+    text: "destinados a sostener y ampliar los programas de detección temprana en el país.",
     icon: "heart",
   },
 ];
 
-export const companySteps = [
-  { title: "Charla informativa", text: "Una charla virtual o presencial para toda la comunidad de trabajo." },
-  { title: "Testeo voluntario", text: "Entrega de tests Q-FIT a colaboradores mayores de 45 años, simple y no invasivo." },
-  { title: "Seguimiento activo", text: "Acompañamos cada resultado positivo hasta el diagnóstico y la atención médica." },
-  { title: "Reporte de impacto", text: "Informe de participación y resultados para tu área de RR.HH. y sustentabilidad." },
-];
+export const campaign = {
+  eyebrow: "Campaña permanente de concientización",
+  title: "El cáncer colorrectal se puede prevenir",
+  text: "El lazo azul une a médicos, pacientes y familias en la lucha contra el cáncer colorrectal. Afecta principalmente a mayores de 45 años, pero detectado a tiempo, 9 de cada 10 casos se curan.",
+  cta: "Pedí información sobre el test",
+  note: "Simple, no invasivo y sin internación.",
+};
 
-export const helpOptions = [
+export const lines = [
   {
-    title: "Doná",
-    text: "Cada aporte financia tests, campañas y seguimiento de pacientes que no tienen acceso.",
-    cta: "Quiero donar",
-    href: donateUrl,
-    interest: "donacion",
+    eyebrow: "Programas provinciales",
+    title: "Prevención en Misiones",
+    text: "Articulación público-privada con la provincia: más de 10.000 personas testeadas y seguimiento de cada caso positivo con videocolonoscopía.",
+    cta: "Llevar el programa a mi provincia",
+    interest: "prensa",
   },
   {
-    title: "Sumá tu empresa",
-    text: "Implementá “Prevenir es cuidar” o acompañá como sponsor de nuestras campañas y de la Noche Azul.",
-    cta: "Quiero sumar mi empresa",
-    href: "#contacto",
+    eyebrow: "Alianzas con empresas",
+    title: "Prevenir es cuidar",
+    text: "Empresas como Pan American Energy ya lo implementaron: más de 160 colaboradores mayores de 50 años participaron del testeo interno.",
+    cta: "Implementarlo en mi empresa",
     interest: "empresa",
   },
   {
-    title: "Participá como profesional",
-    text: "Capacitaciones, Hands On y redes de trabajo para profesionales de la salud digestiva.",
-    cta: "Quiero capacitarme",
-    href: "#contacto",
-    interest: "profesional",
+    eyebrow: "Eventos solidarios",
+    title: "Noche Azul",
+    text: "Nuestra gala anual reúne a referentes del espectáculo, el deporte y el mundo empresarial para poner en agenda la prevención. Ya van 6 ediciones.",
+    cta: "Quiero ser sponsor",
+    interest: "empresa",
   },
 ];
+
+export const network = [
+  { title: "Empresas aliadas", text: "RSE y salud de colaboradores", icon: "building" },
+  { title: "Gobiernos y municipios", text: "Programas territoriales", icon: "map" },
+  { title: "Sociedades médicas", text: "Formación y protocolos", icon: "stethoscope" },
+  { title: "Donantes particulares", text: "Aportes que salvan vidas", icon: "heart" },
+];
+
+export const news = [
+  {
+    tag: "Prevención",
+    title: "Cáncer de colon: el 90% de los casos se puede prevenir y curar",
+    text: "Por qué el control a partir de los 45 años y la detección temprana cambian el pronóstico.",
+    href: "https://fundaciongedyt.org.ar/2024/11/22/cancer-de-colon-el-90-de-los-casos-se-puede-prevenir-y-curar/",
+  },
+  {
+    tag: "Institucional",
+    title: "Anuario 2024: innovación y compromiso en la tarea de prevenir",
+    text: "Los programas, alianzas y resultados de la Fundación durante el último año.",
+    href: "https://fundaciongedyt.org.ar/old/wp-content/uploads/2024/11/fundacion-gedyt-v02-digital.pdf",
+  },
+  {
+    tag: "Noche Azul",
+    title: "Así fue la sexta edición de la gala solidaria",
+    text: "Una noche para impulsar la prevención y la detección temprana del cáncer de colon.",
+    href: "https://www.infobae.com/tendencias/2026/09/16/noche-azul-como-fue-la-gala-solidaria-que-impulsa-la-prevencion-y-deteccion-temprana-del-cancer-de-colon/",
+  },
+];
+
+export const footerLinks = {
+  Programas: [
+    { label: "Test FIT", href: "#programas" },
+    { label: "Prevenir es cuidar", href: "#que-hacemos" },
+    { label: "Programas provinciales", href: "#que-hacemos" },
+    { label: "Formación profesional", href: "#programas" },
+    { label: "Noche Azul", href: "#que-hacemos" },
+  ],
+  Institucional: [
+    { label: "Nuestro impacto", href: "#impacto" },
+    { label: "Sumate a la red", href: "#sumate" },
+    { label: "Doná", href: "#donar" },
+    { label: "Novedades", href: "#novedades" },
+  ],
+};
 
 export const interests = [
   { value: "empresa", label: "Programa para mi empresa" },
   { value: "donacion", label: "Quiero donar" },
   { value: "profesional", label: "Capacitación profesional" },
-  { value: "prensa", label: "Prensa / alianzas" },
-  { value: "otro", label: "Otra consulta" },
+  { value: "prensa", label: "Gobierno, prensa o alianzas" },
+  { value: "otro", label: "Consulta sobre el test / otra" },
 ];

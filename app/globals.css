@@ -10,12 +10,15 @@
   --color-brand-100: #d6ecf7;
   --color-brand-50: #eef7fc;
   --color-sky-accent: #3fa5d4;
+  /* Celeste más profundo para botones con texto blanco (contraste AA) */
+  --color-cta: #137ab0;
+  --color-cta-hover: #0e6896;
   --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 6rem;
 }
 
 body {
