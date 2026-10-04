@@ -1,13 +1,15 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Icon from "@/components/Icon";
 import { contact, nav, site } from "@/lib/content";
 
 export function Logo({ light = false }: { light?: boolean }) {
   return (
-    <a href="#inicio" className="flex items-center" aria-label={site.name}>
+    <Link href="/" className="flex items-center" aria-label={site.name}>
       <Image
         src={light ? "/logo-white.png" : "/logo.png"}
         alt={site.name}
@@ -16,7 +18,7 @@ export function Logo({ light = false }: { light?: boolean }) {
         priority={!light}
         className="h-9 w-auto sm:h-10"
       />
-    </a>
+    </Link>
   );
 }
 
@@ -52,6 +54,11 @@ function TopBar() {
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
+
+  // Cerrar el menú móvil al cambiar de página
+  useEffect(() => setOpen(false), [pathname]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 36);
@@ -67,26 +74,27 @@ export default function Header() {
         <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6">
           <Logo />
           <nav className="hidden items-center gap-7 lg:flex">
-            {nav.map((item, i) => (
-              <a
+            {nav.map((item) => (
+              <Link
                 key={item.href}
                 href={item.href}
+                aria-current={isActive(item.href) ? "page" : undefined}
                 className={`border-b-2 py-1 text-sm font-medium transition hover:text-cta ${
-                  i === 0 ? "border-cta text-cta" : "border-transparent text-navy-900/80"
+                  isActive(item.href) ? "border-cta text-cta" : "border-transparent text-navy-900/80"
                 }`}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </nav>
           <div className="hidden items-center gap-3 lg:flex">
-            <a href="#sumate" className="rounded-full px-5 py-2.5 text-sm font-semibold text-navy-900 ring-1 ring-navy-900/15 transition hover:ring-cta">
+            <Link href="/sumate" className="rounded-full px-5 py-2.5 text-sm font-semibold text-navy-900 ring-1 ring-navy-900/15 transition hover:ring-cta">
               Sumate
-            </a>
-            <a href="#donar" className="flex items-center gap-2 rounded-full bg-cta px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-cta/25 transition hover:bg-cta-hover">
+            </Link>
+            <Link href="/donar" className="flex items-center gap-2 rounded-full bg-cta px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-cta/25 transition hover:bg-cta-hover">
               <Icon name="heart" className="h-4 w-4" />
               Doná hoy
-            </a>
+            </Link>
           </div>
           <button
             type="button"
@@ -103,17 +111,22 @@ export default function Header() {
         {open && (
           <nav className="border-t border-navy-900/10 px-4 pb-5 lg:hidden">
             {nav.map((item) => (
-              <a key={item.href} href={item.href} onClick={() => setOpen(false)} className="block py-3 text-base font-medium text-navy-900">
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={isActive(item.href) ? "page" : undefined}
+                className={`block border-l-2 py-3 pl-3 text-base font-medium ${isActive(item.href) ? "border-cta text-cta" : "border-transparent text-navy-900"}`}
+              >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <div className="mt-3 grid grid-cols-2 gap-3">
-              <a href="#sumate" onClick={() => setOpen(false)} className="rounded-full py-3 text-center font-semibold text-navy-900 ring-1 ring-navy-900/15">
+              <Link href="/sumate" className="rounded-full py-3 text-center font-semibold text-navy-900 ring-1 ring-navy-900/15">
                 Sumate
-              </a>
-              <a href="#donar" onClick={() => setOpen(false)} className="rounded-full bg-cta py-3 text-center font-semibold text-white">
+              </Link>
+              <Link href="/donar" className="rounded-full bg-cta py-3 text-center font-semibold text-white">
                 Doná hoy
-              </a>
+              </Link>
             </div>
           </nav>
         )}

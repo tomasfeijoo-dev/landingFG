@@ -39,3 +39,32 @@ body {
     mask-image: linear-gradient(to right, transparent 0%, #000 var(--fade, 38%));
   }
 }
+
+/* Festejo de donación */
+@keyframes pop-in {
+  0% { opacity: 0; transform: scale(0.7) translateY(20px); }
+  60% { opacity: 1; transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+@keyframes clap-up {
+  0% { opacity: 0; transform: translateY(0) scale(0.5); }
+  15% { opacity: 1; }
+  50% { transform: translateY(-50px) scale(1.15) rotate(-10deg); }
+  100% { opacity: 0; transform: translateY(-110px) scale(0.9) rotate(10deg); }
+}
+@keyframes medal-in {
+  0% { opacity: 0; transform: translateY(-40px) rotate(-25deg) scale(0.5); }
+  60% { opacity: 1; transform: translateY(4px) rotate(8deg) scale(1.08); }
+  100% { transform: translateY(0) rotate(0) scale(1); }
+}
+@keyframes sparkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.pop-in { animation: pop-in 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.2) both; }
+.clap { opacity: 0; animation: clap-up 1.8s ease-out 2 both; }
+.medal { animation: medal-in 0.9s cubic-bezier(0.2, 0.9, 0.3, 1.2) 0.15s both; transform-origin: 50% 0; }
+.sparkle { animation: sparkle 1.2s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .pop-in, .clap, .medal, .sparkle { animation: none; opacity: 1; }
+}

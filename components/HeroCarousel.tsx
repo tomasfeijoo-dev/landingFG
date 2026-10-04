@@ -3,22 +3,17 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import Icon from "@/components/Icon";
+import InterestLink from "@/components/InterestLink";
 import { slides, type Slide } from "@/lib/content";
 
 const INTERVAL = 7000;
 
-function pickInterest(interest?: string) {
-  if (interest) window.dispatchEvent(new CustomEvent("pick-interest", { detail: interest }));
-}
-
 function CtaLink({ cta, variant, tabIndex }: { cta: Slide["primary"]; variant: "primary" | "secondary"; tabIndex: number }) {
-  const external = cta.href.startsWith("http");
   return (
-    <a
+    <InterestLink
       href={cta.href}
+      interest={cta.interest}
       tabIndex={tabIndex}
-      onClick={() => pickInterest(cta.interest)}
-      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className={
         variant === "primary"
           ? "inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-3.5 font-semibold text-white shadow-lg shadow-navy-900/20 transition hover:bg-navy-950"
@@ -27,7 +22,7 @@ function CtaLink({ cta, variant, tabIndex }: { cta: Slide["primary"]; variant: "
     >
       {cta.label}
       {variant === "primary" && <Icon name="arrow" className="h-4 w-4" />}
-    </a>
+    </InterestLink>
   );
 }
 
@@ -53,32 +48,6 @@ function SatinRibbon() {
   );
 }
 
-// Mesa del Consejo: avatares alrededor de un núcleo con el isotipo.
-function BoardIllustration() {
-  const seats = [0, 60, 120, 180, 240, 300];
-  const colors = ["#01405c", "#015f86", "#3fa5d4", "#015f86", "#01405c", "#3fa5d4"];
-  return (
-    <svg viewBox="0 0 400 400" className="h-[88%] w-auto" aria-hidden>
-      <circle cx="200" cy="200" r="150" fill="none" stroke="#3fa5d4" strokeWidth="2" strokeDasharray="6 10" opacity="0.6" />
-      <circle cx="200" cy="200" r="92" fill="#ffffff" />
-      <circle cx="200" cy="200" r="92" fill="none" stroke="#d6ecf7" strokeWidth="14" />
-      <text x="200" y="214" textAnchor="middle" fontSize="44" fontWeight="800" fill="#015f86" fontFamily="var(--font-montserrat)">FG</text>
-      {seats.map((deg, i) => {
-        const r = (deg * Math.PI) / 180;
-        const x = 200 + 150 * Math.cos(r);
-        const y = 200 + 150 * Math.sin(r);
-        return (
-          <g key={deg} transform={`translate(${x} ${y})`}>
-            <circle r="34" fill={colors[i]} stroke="#ffffff" strokeWidth="6" />
-            <circle cy="-8" r="11" fill="#ffffff" opacity="0.95" />
-            <path d="M-17 18 a17 14 0 0 1 34 0" fill="#ffffff" opacity="0.95" />
-          </g>
-        );
-      })}
-    </svg>
-  );
-}
-
 function Visual({ slide, priority }: { slide: Slide; priority: boolean }) {
   return (
     <div
@@ -97,7 +66,7 @@ function Visual({ slide, priority }: { slide: Slide; priority: boolean }) {
         />
       ) : (
         <div className="flex h-full w-full items-center justify-center py-4 bg-[radial-gradient(circle_at_60%_45%,#d6ecf7_0%,#eef7fc_45%,transparent_70%)]">
-          {slide.art === "board" ? <BoardIllustration /> : <SatinRibbon />}
+          <SatinRibbon />
         </div>
       )}
     </div>

@@ -9,8 +9,10 @@ export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [interest, setInterest] = useState("empresa");
 
-  // Los botones de "Cómo ayudar" preseleccionan el motivo (ver InterestLink).
+  // Los botones del sitio preseleccionan el motivo con /contacto?motivo=... (ver InterestLink).
   useEffect(() => {
+    const motivo = new URLSearchParams(window.location.search).get("motivo");
+    if (motivo && interests.some((i) => i.value === motivo)) setInterest(motivo);
     const onPick = (e: Event) => setInterest((e as CustomEvent<string>).detail);
     window.addEventListener("pick-interest", onPick);
     return () => window.removeEventListener("pick-interest", onPick);

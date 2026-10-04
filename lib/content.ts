@@ -24,23 +24,29 @@ export const contact = {
 };
 
 // TODO: reemplazar por el link real de Mercado Pago (o la plataforma que usen).
-export const donateUrl = "#contacto";
+export const donateUrl = "/contacto?motivo=donacion";
 
-// TODO: confirmar montos sugeridos de donación mensual.
-export const donationAmounts = [
-  { value: "5000", label: "$5.000 / mes" },
-  { value: "10000", label: "$10.000 / mes", highlight: "1 test FIT" },
-  { value: "25000", label: "$25.000 / mes" },
-  { value: "otro", label: "Monto a elección" },
+// TODO: pegar el link del video de YouTube de Bárbara contando su historia.
+export const barbaraVideoUrl = "";
+
+// Opciones de donación: cada test Q-FIT cuesta $95.000.
+export type DonationTier = "plata" | "oro" | "platino";
+export type DonationOption = { value: string; label: string; tests?: number; tier?: DonationTier };
+
+export const donationOptions: DonationOption[] = [
+  { value: "95000", label: "$95.000", tests: 1, tier: "plata" },
+  { value: "190000", label: "$190.000", tests: 2, tier: "oro" },
+  { value: "475000", label: "$475.000", tests: 5, tier: "platino" },
+  { value: "otro", label: "Otro monto" },
 ];
 
 export const nav = [
-  { href: "#inicio", label: "Inicio" },
-  { href: "#programas", label: "Programas" },
-  { href: "#que-hacemos", label: "Qué hacemos" },
-  { href: "#sumate", label: "Sumate" },
-  { href: "#novedades", label: "Novedades" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "/", label: "Inicio" },
+  { href: "/programas", label: "Programas" },
+  { href: "/que-hacemos", label: "Qué hacemos" },
+  { href: "/sumate", label: "Sumate" },
+  { href: "/novedades", label: "Novedades" },
+  { href: "/contacto", label: "Contacto" },
 ];
 
 // Banners del inicio (carrusel). Las fotos van en /public/banners.
@@ -56,7 +62,7 @@ export type Slide = {
   imagePosition?: string;
   fade?: string;
   // Ilustración a usar cuando no hay foto
-  art?: "ribbon" | "board";
+  art?: "ribbon";
   badge?: { value: string; label: string };
   primary: { label: string; href: string; interest?: string };
   secondary?: { label: string; href: string; interest?: string };
@@ -73,8 +79,8 @@ export const slides: Slide[] = [
     imageAlt: "Mascota del test FIT de Fundación Gedyt",
     imagePosition: "15% center",
     fade: "16%",
-    primary: { label: "Conocé nuestra Fundación", href: "#que-hacemos" },
-    secondary: { label: "Hacete el test FIT", href: "#contacto", interest: "otro" },
+    primary: { label: "Conocé nuestra Fundación", href: "/que-hacemos" },
+    secondary: { label: "Hacete el test FIT", href: "/contacto", interest: "otro" },
   },
   {
     id: "noche-azul",
@@ -83,11 +89,11 @@ export const slides: Slide[] = [
     highlight: "una noche para salvar vidas.",
     text: "La sexta edición de nuestra gala reunió a referentes del espectáculo, el deporte y las empresas para impulsar la detección temprana.",
     image: "/banners/noche-azul.webp",
-    imageAlt: "Invitados de la gala Noche Azul 2026",
-    imagePosition: "center 25%",
+    imageAlt: "Brindis en la gala Noche Azul 2026",
+    imagePosition: "center 30%",
     badge: { value: "$290M", label: "recaudados para prevención" },
-    primary: { label: "Ver más", href: "https://www.infobae.com/tendencias/2026/09/16/noche-azul-como-fue-la-gala-solidaria-que-impulsa-la-prevencion-y-deteccion-temprana-del-cancer-de-colon/" },
-    secondary: { label: "Quiero ser sponsor", href: "#contacto", interest: "empresa" },
+    primary: { label: "Ver más", href: "/que-hacemos" },
+    secondary: { label: "Quiero ser sponsor", href: "/contacto", interest: "empresa" },
   },
   {
     id: "fondo-comun",
@@ -97,8 +103,8 @@ export const slides: Slide[] = [
     text: "Tu aporte se transforma en tests, campañas y seguimiento médico para quienes más lo necesitan.",
     art: "ribbon",
     badge: { value: "9 de 10", label: "casos se curan si se detectan a tiempo" },
-    primary: { label: "Quiero aportar", href: "#donar" },
-    secondary: { label: "Cómo funciona", href: "#contacto", interest: "donacion" },
+    primary: { label: "Quiero aportar", href: "/donar" },
+    secondary: { label: "Cómo funciona", href: "/contacto", interest: "donacion" },
   },
   {
     id: "mujeres",
@@ -107,10 +113,10 @@ export const slides: Slide[] = [
     highlight: "Gastroenterología & Endoscopía Digestiva.",
     text: "Visibilizamos y reconocemos el liderazgo de las mujeres que transforman la especialidad.",
     image: "/banners/mujeres.webp",
-    imageAlt: "Médicas gastroenterólogas",
-    imagePosition: "60% center",
-    primary: { label: "Ver más", href: "https://fundaciongedyt.org.ar/mujeres-en-gastroenterologia/" },
-    secondary: { label: "Consultanos", href: "#contacto", interest: "profesional" },
+    imageAlt: "Entrega del Premio a Mujeres Destacadas en Gastroenterología",
+    imagePosition: "center 25%",
+    primary: { label: "Ver más", href: "/programas" },
+    secondary: { label: "Consultanos", href: "/contacto", interest: "profesional" },
   },
   {
     id: "consejo",
@@ -118,8 +124,10 @@ export const slides: Slide[] = [
     title: "Integrá el Consejo Directivo de",
     highlight: "Fundación Gedyt.",
     text: "Convocamos a personas con trayectoria, redes y compromiso genuino para conducir la estrategia de la Fundación y el futuro de la prevención.",
-    art: "board",
-    primary: { label: "Iniciar mi postulación", href: "#contacto", interest: "consejo" },
+    image: "/banners/consejo.webp",
+    imageAlt: "Reunión de trabajo alrededor de una mesa",
+    imagePosition: "center 40%",
+    primary: { label: "Iniciar mi postulación", href: "/contacto", interest: "consejo" },
   },
 ];
 
@@ -129,7 +137,7 @@ export const features = [
     title: "Test FIT",
     text: "Test inmunológico de sangre oculta en materia fecal: simple, no invasivo y sin dieta previa. Cada resultado positivo tiene seguimiento médico.",
     cta: "Consultá por el test",
-    href: "#contacto",
+    href: "/contacto",
     interest: "otro",
     icon: "flask",
   },
@@ -138,7 +146,7 @@ export const features = [
     title: "Prevenir es cuidar",
     text: "El primer programa de prevención del cáncer colorrectal para empresas: charlas, testeo voluntario y seguimiento activo.",
     cta: "Sumá tu organización",
-    href: "#contacto",
+    href: "/contacto",
     interest: "empresa",
     icon: "building",
   },
@@ -147,7 +155,7 @@ export const features = [
     title: "Formación profesional",
     text: "Hands On con estaciones de simulación para gastroenterólogos y endoscopistas, y entrenamiento para asistentes de endoscopía.",
     cta: "Ver capacitaciones",
-    href: "#contacto",
+    href: "/contacto",
     interest: "profesional",
     icon: "graduation",
   },
@@ -203,6 +211,7 @@ export const lines = [
     text: "Nuestra gala anual reúne a referentes del espectáculo, el deporte y el mundo empresarial para poner en agenda la prevención. Ya van 6 ediciones.",
     cta: "Quiero ser sponsor",
     interest: "empresa",
+    image: "/banners/noche-azul.webp",
   },
 ];
 
@@ -222,9 +231,11 @@ export const news = [
   },
   {
     tag: "Institucional",
-    title: "Anuario 2024: innovación y compromiso en la tarea de prevenir",
+    title: "Anuario 2026: innovación y compromiso en la tarea de prevenir",
     text: "Los programas, alianzas y resultados de la Fundación durante el último año.",
-    href: "https://fundaciongedyt.org.ar/old/wp-content/uploads/2024/11/fundacion-gedyt-v02-digital.pdf",
+    // TODO: reemplazar por el link al PDF del Anuario 2026
+    href: "https://fundaciongedyt.org.ar/publicaciones/",
+    image: "/images/anuario-2026.webp",
   },
   {
     tag: "Noche Azul",
@@ -236,17 +247,17 @@ export const news = [
 
 export const footerLinks = {
   Programas: [
-    { label: "Test FIT", href: "#programas" },
-    { label: "Prevenir es cuidar", href: "#que-hacemos" },
-    { label: "Programas provinciales", href: "#que-hacemos" },
-    { label: "Formación profesional", href: "#programas" },
-    { label: "Noche Azul", href: "#que-hacemos" },
+    { label: "Test FIT", href: "/programas" },
+    { label: "Prevenir es cuidar", href: "/que-hacemos" },
+    { label: "Programas provinciales", href: "/que-hacemos" },
+    { label: "Formación profesional", href: "/programas" },
+    { label: "Noche Azul", href: "/que-hacemos" },
   ],
   Institucional: [
-    { label: "Nuestro impacto", href: "#impacto" },
-    { label: "Sumate a la red", href: "#sumate" },
-    { label: "Doná", href: "#donar" },
-    { label: "Novedades", href: "#novedades" },
+    { label: "Nuestro impacto", href: "/#impacto" },
+    { label: "Sumate a la red", href: "/sumate" },
+    { label: "Doná", href: "/donar" },
+    { label: "Novedades", href: "/novedades" },
   ],
 };
 
