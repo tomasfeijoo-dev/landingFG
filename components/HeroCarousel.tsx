@@ -54,7 +54,23 @@ function Visual({ slide, priority }: { slide: Slide; priority: boolean }) {
       className="hero-visual absolute inset-x-0 top-0 h-60 sm:h-72 lg:inset-y-0 lg:right-0 lg:left-auto lg:h-auto lg:w-[56%]"
       style={slide.fade ? ({ "--fade": slide.fade } as React.CSSProperties) : undefined}
     >
-      {slide.image ? (
+      {slide.image && slide.zoomOut ? (
+        <>
+          {/* Foto alejada: se ve completa y el resto se rellena con la misma foto desenfocada */}
+          <Image src={slide.image} alt="" fill sizes="56vw" className="scale-110 object-cover blur-2xl" aria-hidden />
+          <div className="absolute inset-x-0" style={{ top: `${(slide.zoomOut / 2) * 100}%`, bottom: `${(slide.zoomOut / 2) * 100}%` }}>
+            <Image
+              src={slide.image}
+              alt={slide.imageAlt ?? ""}
+              fill
+              priority={priority}
+              sizes="(min-width: 1024px) 56vw, 100vw"
+              className="object-contain drop-shadow-2xl"
+              style={{ objectPosition: slide.imagePosition ?? "center" }}
+            />
+          </div>
+        </>
+      ) : slide.image ? (
         <Image
           src={slide.image}
           alt={slide.imageAlt ?? ""}

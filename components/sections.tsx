@@ -38,36 +38,29 @@ export function ProgramCards() {
   );
 }
 
-function Ribbon() {
-  return (
-    <svg viewBox="0 0 120 160" className="h-36 w-28" aria-hidden>
-      {/* Lazo azul: la tira trasera primero, la delantera encima */}
-      <path d="M28 148 L72 74 C84 54 80 22 60 22 C40 22 36 54 48 74 L60 94" fill="none" stroke="#3fa5d4" strokeWidth="18" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M56 87 L92 148" fill="none" stroke="#ffffff" strokeWidth="18" strokeLinecap="round" />
-    </svg>
-  );
-}
-
 export function CampaignBanner() {
   return (
-    <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 p-8 text-white shadow-2xl shadow-navy-900/20 sm:p-12">
-      <div className="pointer-events-none absolute -right-16 top-1/2 h-80 w-80 -translate-y-1/2 rounded-full bg-white/5 ring-1 ring-white/10" />
-      <div className="relative grid items-center gap-10 md:grid-cols-[1.6fr_1fr]">
-        <div>
+    <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-navy-950 via-navy-900 to-[#1b6189] text-white shadow-2xl shadow-navy-900/20 md:min-h-[26rem]">
+      {/* Foto a la derecha, fundida hacia el texto */}
+      <div className="campaign-visual relative h-56 sm:h-72 md:absolute md:inset-y-0 md:right-0 md:h-auto md:w-[58%]">
+        <Image
+          src="/images/campana-concientizacion.webp"
+          alt="Emoji sonriente junto al lazo azul de la prevención"
+          fill
+          sizes="(min-width: 768px) 58vw, 100vw"
+          className="object-cover object-[35%_center]"
+        />
+      </div>
+      <div className="relative p-8 sm:p-12 md:w-[55%]">
+        <div className="max-w-xl">
           <Eyebrow chip light>{campaign.eyebrow}</Eyebrow>
           <h3 className="mt-5 text-2xl font-extrabold tracking-tight sm:text-4xl">{campaign.title}</h3>
-          <p className="mt-4 max-w-xl text-white/75">{campaign.text}</p>
+          <p className="mt-4 max-w-xl text-white/85">{campaign.text}</p>
           <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
             <ButtonLink href="/contacto" interest="otro" variant="cta">
               {campaign.cta} <Icon name="arrow" className="h-4 w-4" />
             </ButtonLink>
-            <span className="text-sm text-white/55">{campaign.note}</span>
-          </div>
-        </div>
-        <div className="hidden justify-center md:flex">
-          <div className="flex h-60 w-48 flex-col items-center justify-center rounded-3xl bg-white/5 ring-1 ring-white/20 backdrop-blur">
-            <Ribbon />
-            <p className="mt-3 text-xs font-medium text-white/70">Símbolo de la prevención</p>
+            <span className="text-sm text-white/70">{campaign.note}</span>
           </div>
         </div>
       </div>

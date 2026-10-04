@@ -68,3 +68,29 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .pop-in, .clap, .medal, .sparkle { animation: none; opacity: 1; }
 }
+
+/* Carrusel de logos */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-50% - 0.5rem)); }
+}
+.marquee {
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+.marquee-track { animation: marquee linear infinite; }
+.marquee-reverse { animation-direction: reverse; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .marquee { overflow-x: auto; }
+  .marquee-track { animation: none; }
+}
+
+/* Banner de campaña: la foto se funde hacia el texto */
+.campaign-visual {
+  mask-image: linear-gradient(to bottom, #000 60%, transparent);
+}
+@media (min-width: 768px) {
+  .campaign-visual {
+    mask-image: linear-gradient(to right, transparent 0%, #000 30%);
+  }
+}

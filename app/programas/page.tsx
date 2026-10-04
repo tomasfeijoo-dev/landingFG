@@ -28,7 +28,7 @@ export default function ProgramasPage() {
         <div className="mx-auto grid max-w-6xl items-center gap-10 overflow-hidden rounded-[2rem] bg-white shadow-xl shadow-navy-900/5 ring-1 ring-navy-900/5 lg:grid-cols-2">
           <div className="relative aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[26rem]">
             <Image
-              src="/banners/mujeres.webp"
+              src="/banners/mujeres-premio.webp"
               alt="Entrega del Premio a Mujeres Destacadas en Gastroenterología"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"

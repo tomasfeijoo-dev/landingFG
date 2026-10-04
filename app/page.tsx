@@ -3,6 +3,7 @@ import HeroCarousel from "@/components/HeroCarousel";
 import Icon from "@/components/Icon";
 import { CampaignBanner, ContactSection, ImpactSection, NetworkSection } from "@/components/sections";
 import { ButtonLink, Eyebrow } from "@/components/ui";
+import { anuarioUrl } from "@/lib/content";
 
 export default function Home() {
   return (
@@ -31,8 +32,8 @@ export default function Home() {
               <ButtonLink href="/que-hacemos" variant="light">
                 Ver todo lo que hacemos <Icon name="arrow" className="h-4 w-4" />
               </ButtonLink>
-              <ButtonLink href="/programas" variant="light">
-                Programas
+              <ButtonLink href={anuarioUrl} variant="light">
+                Ver anuario 2026 <Icon name="arrow" className="h-4 w-4" />
               </ButtonLink>
             </div>
           </div>

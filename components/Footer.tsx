@@ -1,11 +1,23 @@
 import Link from "next/link";
 import { Logo } from "@/components/Header";
 import Icon from "@/components/Icon";
+import LogoMarquee from "@/components/LogoMarquee";
+import { institutions, sponsors } from "@/lib/logos";
 import { contact, footerLinks, site } from "@/lib/content";
 
 export default function Footer() {
   return (
-    <footer className="bg-white px-4 pt-16 pb-8 sm:px-6">
+    <footer className="bg-white px-4 pt-14 pb-8 sm:px-6">
+      <div className="mx-auto mb-14 max-w-7xl border-b border-navy-900/10 pb-12">
+        <p className="mb-6 text-center text-lg font-bold text-navy-900">Nos acompañan</p>
+        <LogoMarquee
+          size="sm"
+          groups={[
+            { title: "Sponsors", logos: sponsors },
+            { title: "Instituciones de salud", logos: institutions },
+          ]}
+        />
+      </div>
       <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
         <div>
           <Logo />

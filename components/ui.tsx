@@ -70,7 +70,7 @@ export function ButtonLink({
 }
 
 // Encabezado de las páginas internas, con el lazo ondulado de la marca.
-export function PageHeader({ eyebrow, title, text }: { eyebrow: string; title: string; text?: string }) {
+export function PageHeader({ eyebrow, title, text, children }: { eyebrow: string; title: string; text?: string; children?: React.ReactNode }) {
   return (
     <section className="px-4 pt-6 sm:px-6 sm:pt-10">
       <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#f1f4f7] via-white to-brand-50 px-6 py-14 ring-1 ring-brand-100 sm:px-12 sm:py-20 lg:px-16">
@@ -90,6 +90,7 @@ export function PageHeader({ eyebrow, title, text }: { eyebrow: string; title: s
           <h1 className="mt-5 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-5xl">{title}</h1>
           {text && <p className="mt-4 text-lg text-navy-900/70">{text}</p>}
         </div>
+        {children && <div className="relative mt-12">{children}</div>}
       </div>
     </section>
   );

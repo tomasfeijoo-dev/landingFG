@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Donate from "@/components/Donate";
 import Icon from "@/components/Icon";
+import LogoMarquee from "@/components/LogoMarquee";
 import { NetworkSection } from "@/components/sections";
 import { ButtonLink, Eyebrow, PageHeader } from "@/components/ui";
+import { institutions, sponsors } from "@/lib/logos";
 
 export const metadata: Metadata = {
   title: "Sumate",
@@ -17,7 +19,14 @@ export default function SumatePage() {
         eyebrow="Sumate"
         title="Hay muchas formas de ser parte"
         text="Como organización, profesional, donante o integrando el Consejo Directivo: cada aporte acerca la prevención a más personas."
-      />
+      >
+        <LogoMarquee
+          groups={[
+            { title: "Sponsors", logos: sponsors },
+            { title: "Instituciones de salud", logos: institutions },
+          ]}
+        />
+      </PageHeader>
 
       <section className="px-4 py-16 sm:px-6 sm:py-20">
         <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
