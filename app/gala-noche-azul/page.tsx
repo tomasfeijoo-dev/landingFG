@@ -49,52 +49,49 @@ function Title({ children, tone = "dark" }: { children: React.ReactNode; tone?: 
 export default function GalaPage() {
   return (
     <div className="bg-white pb-2">
-      {/* Hero */}
-      <section className="px-4 pt-6 sm:px-6 sm:pt-10">
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-[#050f2b] text-white shadow-2xl shadow-navy-950/40">
-          <Image src="/gala/cielo.webp" alt="" fill priority sizes="(min-width: 1280px) 1280px, 100vw" className="object-cover" />
+      {/* Hero: banner a todo el ancho */}
+      <section className="bg-[#103151] text-white">
+        <h1 className="sr-only">Gala a beneficio Noche Azul 2026 — Juntos podemos prevenir el cáncer de colon</h1>
+        <div className="relative w-full overflow-hidden">
+          <Image
+            src="/gala/banner-2026.webp"
+            alt="Gala a beneficio Noche Azul 2026. Juntos podemos prevenir el cáncer de colon. Alvear Palace Hotel — Av. Alvear 1891, CABA"
+            width={1198}
+            height={652}
+            priority
+            sizes="100vw"
+            className="h-auto max-h-[80vh] min-h-[16rem] w-full object-cover"
+          />
           <Stars />
-          <div className="relative flex min-h-[34rem] flex-col items-center justify-center px-6 py-16 text-center sm:min-h-[38rem]">
-            <Image src="/logo-white.png" alt="Fundación Gedyt" width={837} height={192} className="h-9 w-auto opacity-95 sm:h-11" />
-            <p className="mt-10 text-sm font-semibold uppercase tracking-[0.35em] text-white/85">Save the date</p>
-            <span className="mt-3 h-px w-20 bg-white/40" />
-            <p className="mt-4 flex flex-wrap items-center justify-center gap-x-3 text-lg font-medium uppercase tracking-[0.2em] sm:text-2xl">
-              <Icon name="calendar" className="h-5 w-5 text-sky-accent" />
-              15 de septiembre 2026 · 20 hs
-            </p>
-            <p className="mt-6 text-sm font-semibold uppercase tracking-[0.35em] text-white/75">Gala a beneficio</p>
-            <h1 className={`${script.className} mt-2 bg-gradient-to-b from-white to-[#cfe0ff] bg-clip-text text-7xl leading-[1.15] text-transparent drop-shadow-[0_0_25px_rgba(143,208,240,0.35)] sm:text-9xl`}>
-              Noche Azul
-            </h1>
-            <p className="mt-4 text-sm font-medium uppercase tracking-[0.2em] text-white/85 sm:text-base">Juntos podemos prevenir el cáncer de colon</p>
-            <p className="mt-4 flex items-center gap-2 text-sm uppercase tracking-[0.15em] text-white/75">
-              <Icon name="pin" className="h-4 w-4 flex-none" />
-              Alvear Palace Hotel — Av. Alvear 1891, CABA
-            </p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <a
-                href={nocheAzul.reserveUrl}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 font-semibold text-navy-900 shadow-lg shadow-black/30 transition hover:bg-brand-50"
-              >
-                Reservá tu lugar <Icon name="arrow" className="h-4 w-4" />
-              </a>
-              <a
-                href={nocheAzul.modalidadesUrl}
-                className="inline-flex items-center justify-center rounded-full bg-white/10 px-8 py-3.5 font-semibold text-white ring-1 ring-white/30 backdrop-blur transition hover:bg-white/20"
-              >
-                Ver modalidades de participación
-              </a>
-            </div>
-          </div>
-          {/* Navegación interna de la gala */}
-          <nav className="relative flex flex-wrap justify-center gap-2 border-t border-white/10 px-4 py-4">
-            {subnav.map((n) => (
-              <a key={n.href} href={n.href} className="rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white/75 transition hover:bg-white/10 hover:text-white">
-                {n.label}
-              </a>
-            ))}
-          </nav>
         </div>
+        <div className="relative flex flex-col items-center px-6 pt-2 pb-10 text-center">
+          <p className="flex flex-wrap items-center justify-center gap-x-3 text-base font-medium uppercase tracking-[0.2em] sm:text-xl">
+            <Icon name="calendar" className="h-5 w-5 text-sky-accent" />
+            15 de septiembre 2026 · 20 hs
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a
+              href={nocheAzul.reserveUrl}
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 font-semibold text-navy-900 shadow-lg shadow-black/30 transition hover:bg-brand-50"
+            >
+              Reservá tu lugar <Icon name="arrow" className="h-4 w-4" />
+            </a>
+            <a
+              href={nocheAzul.modalidadesUrl}
+              className="inline-flex items-center justify-center rounded-full bg-white/10 px-8 py-3.5 font-semibold text-white ring-1 ring-white/30 backdrop-blur transition hover:bg-white/20"
+            >
+              Ver modalidades de participación
+            </a>
+          </div>
+        </div>
+        {/* Navegación interna de la gala */}
+        <nav className="relative flex flex-wrap justify-center gap-2 border-t border-white/10 px-4 py-4">
+          {subnav.map((n) => (
+            <a key={n.href} href={n.href} className="rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white/75 transition hover:bg-white/10 hover:text-white">
+              {n.label}
+            </a>
+          ))}
+        </nav>
       </section>
 
         {/* Una noche que cambia historias */}
