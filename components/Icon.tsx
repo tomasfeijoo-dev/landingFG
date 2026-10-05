@@ -11,6 +11,15 @@ const paths: Record<string, React.ReactNode> = {
   check: <path d="M20 6L9 17l-5-5" />,
   book: <path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2V5zm0 16a2 2 0 012-2h13" />,
   play: <path d="M7 4.5v15l12-7.5z" />,
+  drop: <path d="M12 3c-3.5 4.5-6 8-6 11a6 6 0 0012 0c0-3-2.5-6.5-6-11z" />,
+  pulse: <path d="M3 12h4l2-5 4 10 2-5h6" />,
+  scale: <path d="M5 21h14M7 21l1-14h8l1 14M9 7a3 3 0 016 0M12 12v3" />,
+  leaf: <path d="M5 19c0-8 5-13 14-14 0 9-5 14-13 14zm0 0l7-7" />,
+  meat: <path d="M15 4a5 5 0 015 5c0 5-6 9-11 9a5 5 0 01-5-5c0-5 5-9 11-9zM6 18l-3 3m10-9a2 2 0 100-4 2 2 0 000 4z" />,
+  smoke: <path d="M3 15h14v3H3zM20 15v3M17 9c0-2 2-2 2-4M20 9c0-2 1-3 0-5M3 3l18 18" />,
+  run: <path d="M13 4a2 2 0 100-.01M7 21l3-6 3 2v4M10 15l1-5 3 2 3-1M8 9l3-1" />,
+  glass: <path d="M7 3h10l-1 7a4 4 0 01-8 0zM12 14v6M8 21h8M3 3l18 18" />,
+  help: <path d="M12 21a9 9 0 100-18 9 9 0 000 18zm-2.5-11.5a2.5 2.5 0 115 0c0 1.7-2.5 2-2.5 4M12 17h.01" />,
   instagram: (
     <path
       fillRule="evenodd"
