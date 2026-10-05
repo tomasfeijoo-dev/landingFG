@@ -1,5 +1,4 @@
 // Contenido de la página Campaña ("¿Cómo está tu Colon?"), según fundaciongedyt.org.ar/comoestatucolon.
-// TODO: revisar con la Fundación las cifras marcadas (se leyeron de una captura de baja resolución).
 
 export const hero = {
   date: "31 de marzo",
@@ -11,13 +10,13 @@ export const hero = {
 export const cifras = {
   intro: "En Argentina es el segundo cáncer más frecuente y el segundo de mayor mortalidad.",
   rings: [
-    { value: 4, label: "de la población se realiza el test" }, // TODO confirmar
-    { value: 10, label: "de los diagnosticados presentan antecedentes" }, // TODO confirmar
+    { value: 29, label: "de la población se realiza el test" },
+    { value: 75, label: "de los diagnosticados no presentan antecedentes" },
   ],
-  highlight: { value: 11, label: "de los casos pueden prevenirse y curarse si se detectan a tiempo" }, // TODO confirmar
+  highlight: { value: 90, label: "de los casos pueden prevenirse y curarse si son detectados a tiempo" },
   boxes: [
-    { value: "5.328", label: "casos nuevos por año" }, // TODO confirmar
-    { value: "2.486", label: "muertes por año" }, // TODO confirmar
+    { value: "15.000", label: "casos nuevos por año" },
+    { value: "7.000", label: "muertes por año" },
   ],
   gender: "Su incidencia es levemente mayor en hombres que en mujeres.",
 };
