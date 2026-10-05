@@ -61,6 +61,23 @@ export default function Header() {
   const pathname = usePathname();
   const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 
+  // "Doná hoy" lleva a la sección de donación del inicio. Si ya estamos en el
+  // inicio, desplaza suave; si no, navega y el efecto de abajo hace el scroll.
+  function goToDonate(e: React.MouseEvent) {
+    setOpen(false);
+    if (pathname === "/") {
+      e.preventDefault();
+      document.getElementById("donar")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.replaceState(null, "", "/#donar");
+    }
+  }
+
+  useEffect(() => {
+    if (pathname !== "/" || window.location.hash !== "#donar") return;
+    const t = setTimeout(() => document.getElementById("donar")?.scrollIntoView({ behavior: "smooth", block: "start" }), 150);
+    return () => clearTimeout(t);
+  }, [pathname]);
+
   // Cerrar el menú móvil al cambiar de página
   useEffect(() => setOpen(false), [pathname]);
 
@@ -92,7 +109,7 @@ export default function Header() {
             ))}
           </nav>
           <div className="hidden items-center gap-3 lg:flex">
-            <Link href="/donar" className="flex items-center gap-2 whitespace-nowrap rounded-full bg-cta px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-cta/25 transition hover:bg-cta-hover">
+            <Link href="/#donar" scroll={false} onClick={goToDonate} className="flex items-center gap-2 whitespace-nowrap rounded-full bg-cta px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-cta/25 transition hover:bg-cta-hover">
               <Icon name="heart" className="h-4 w-4" />
               Doná hoy
             </Link>
@@ -122,7 +139,7 @@ export default function Header() {
               </Link>
             ))}
             <div className="mt-3">
-              <Link href="/donar" className="block rounded-full bg-cta py-3 text-center font-semibold text-white">
+              <Link href="/#donar" scroll={false} onClick={goToDonate} className="block rounded-full bg-cta py-3 text-center font-semibold text-white">
                 Doná hoy
               </Link>
             </div>
