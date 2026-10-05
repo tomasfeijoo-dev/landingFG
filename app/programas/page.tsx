@@ -15,23 +15,19 @@ export const metadata: Metadata = {
 export default function ProgramasPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="Programas"
-        title="Iniciativas en salud digestiva"
-        background={<ArgentinaMap focusX={0.7} fade="bg-gradient-to-r from-white/95 via-white/75 to-white/0 max-md:to-white/50" />}
-      />
-
-      <section className="px-4 py-16 sm:px-6 sm:py-20">
-        <p className="reveal mx-auto max-w-3xl text-center text-xl leading-relaxed text-navy-900/75">
-          {iniciativas.before}
-          <strong className="text-navy-900">{iniciativas.bold}</strong>
-          {iniciativas.after}
-        </p>
-      </section>
+      {/* El banner queda por encima del fondo azul de la sección de programas */}
+      <div className="relative z-10">
+        <PageHeader
+          eyebrow="Programas"
+          title="Iniciativas en salud digestiva"
+          text={iniciativas.before + iniciativas.bold + iniciativas.after}
+          background={<ArgentinaMap focusX={0.7} fade="bg-gradient-to-r from-white/95 via-white/75 to-white/0 max-md:to-white/50" />}
+        />
+      </div>
 
       {/* Nuestros programas */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 px-4 py-16 sm:px-6 sm:py-20">
-        <svg className="pointer-events-none absolute -top-10 -right-20 hidden h-72 w-[36rem] md:block" viewBox="0 0 300 160" aria-hidden>
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 -mt-40 px-4 pt-56 pb-16 sm:px-6 sm:pb-20">
+        <svg className="pointer-events-none absolute top-32 -right-20 hidden h-72 w-[36rem] md:block" viewBox="0 0 300 160" aria-hidden>
           <path d="M10 -10 C 60 90, 170 110, 210 60 C 240 20, 200 -5, 180 25 C 155 65, 230 120, 320 100" stroke="#3fa5d4" strokeWidth="12" fill="none" strokeLinecap="round" opacity="0.5" />
         </svg>
         <div className="pointer-events-none absolute -bottom-40 -left-40 h-[28rem] w-[28rem] rounded-full border-[48px] border-white/5" aria-hidden />
