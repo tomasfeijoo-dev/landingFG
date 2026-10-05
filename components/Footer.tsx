@@ -1,4 +1,3 @@
-import FooterLogos from "@/components/FooterLogos";
 import { Logo } from "@/components/Header";
 import Icon from "@/components/Icon";
 import { contact, site, socialLinks } from "@/lib/content";
@@ -6,7 +5,6 @@ import { contact, site, socialLinks } from "@/lib/content";
 export default function Footer() {
   return (
     <footer>
-      <FooterLogos />
       <div className="bg-gradient-to-r from-navy-800 via-[#1b85b8] to-sky-accent px-4 py-14 text-white sm:px-6">
         <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.2fr_1.4fr_1fr]">
           <div>
