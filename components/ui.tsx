@@ -80,6 +80,7 @@ export function PageHeader({
   imageAlt = "",
   imagePosition = "center",
   background,
+  fullWidth = false,
   children,
 }: {
   eyebrow: string;
@@ -89,12 +90,18 @@ export function PageHeader({
   imageAlt?: string;
   imagePosition?: string;
   background?: React.ReactNode;
+  /** Banner a todo el ancho de la web, sin bordes redondeados */
+  fullWidth?: boolean;
   children?: React.ReactNode;
 }) {
   const plain = !image && !background;
   return (
-    <section className="px-4 pt-6 sm:px-6 sm:pt-10">
-      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#f1f4f7] via-white to-brand-50 ring-1 ring-brand-100">
+    <section className={fullWidth ? "" : "px-4 pt-6 sm:px-6 sm:pt-10"}>
+      <div
+        className={`relative overflow-hidden bg-gradient-to-br from-[#f1f4f7] via-white to-brand-50 ${
+          fullWidth ? "" : "mx-auto max-w-7xl rounded-[2rem] ring-1 ring-brand-100"
+        }`}
+      >
         <div className="relative md:min-h-[24rem]">
           {background}
           {image && (
@@ -118,7 +125,7 @@ export function PageHeader({
               <div className="pointer-events-none absolute -right-10 -bottom-14 hidden h-36 w-36 rounded-full border-[22px] border-navy-800/80 md:block" aria-hidden />
             </>
           )}
-          <div className={`relative px-6 sm:px-12 lg:px-16 ${image ? "flex min-h-[22rem] items-end pt-24 pb-12 sm:min-h-[26rem] md:items-center md:py-20" : background ? "py-24 sm:py-28 md:max-w-[52%]" : "py-14 sm:py-20"}`}>
+          <div className={`relative px-6 sm:px-12 lg:px-16 ${fullWidth ? "mx-auto max-w-7xl" : ""} ${image ? "flex min-h-[22rem] items-end pt-24 pb-12 sm:min-h-[26rem] md:items-center md:py-20" : background ? "py-24 sm:py-28 md:max-w-[52%]" : "py-14 sm:py-20"}`}>
             <div className="max-w-2xl">
               <Eyebrow chip light={!!image}>{eyebrow}</Eyebrow>
               <h1 className={`mt-5 text-3xl font-extrabold tracking-tight sm:text-5xl ${image ? "text-white drop-shadow-sm" : "text-navy-900"}`}>{title}</h1>

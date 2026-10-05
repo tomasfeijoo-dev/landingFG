@@ -53,6 +53,7 @@ export default function InstitucionalPage() {
         image="/images/equipo-gala.webp"
         imageAlt="Equipo de la Fundación Gedyt"
         imagePosition="center 35%"
+        fullWidth
       />
 
       {/* Misión, visión y valores */}
@@ -156,11 +157,11 @@ export default function InstitucionalPage() {
       </section>
 
       {/* Conocé nuestro trabajo */}
-      <section className="px-4 sm:px-6">
-        <div className="reveal relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 px-6 py-14 text-white shadow-2xl shadow-navy-900/20 sm:px-12">
-          <svg className="pointer-events-none absolute -top-6 -right-10 hidden h-48 w-96 md:block" viewBox="0 0 300 160" aria-hidden>
-            <path d="M10 -10 C 60 90, 170 110, 210 60 C 240 20, 200 -5, 180 25 C 155 65, 230 120, 320 100" stroke="#3fa5d4" strokeWidth="14" fill="none" strokeLinecap="round" opacity="0.7" />
-          </svg>
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 px-6 py-16 text-white sm:px-12 sm:py-20">
+        <svg className="pointer-events-none absolute -top-4 -right-10 hidden h-48 w-96 md:block" viewBox="0 0 300 160" aria-hidden>
+          <path d="M10 -10 C 60 90, 170 110, 210 60 C 240 20, 200 -5, 180 25 C 155 65, 230 120, 320 100" stroke="#3fa5d4" strokeWidth="14" fill="none" strokeLinecap="round" opacity="0.7" />
+        </svg>
+        <div className="reveal relative mx-auto max-w-6xl">
           <h2 className="relative text-center text-3xl font-extrabold tracking-tight sm:text-4xl">Conocé nuestro trabajo</h2>
           <div className="relative mt-10 grid gap-10 lg:grid-cols-[2fr_1fr]">
             <div>
