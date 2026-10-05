@@ -14,7 +14,7 @@ import { allies, institutions, sponsors } from "@/lib/logos";
 export function PrevenirCard() {
   const actions = [
     { label: "Donar hoy", href: "/donar", icon: "heart" },
-    { label: "Programas", href: "/programas", icon: "flask" },
+    { label: "Programas", href: "/programas", icon: "rocket" },
     { label: "Campaña", href: "/campana", icon: "shield" },
   ];
   return (
@@ -31,19 +31,19 @@ export function PrevenirCard() {
             digestiva.
           </p>
         </div>
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="flex flex-col gap-3">
           {actions.map((a, i) => (
             <InterestLink
               key={a.label}
               href={a.href}
-              className={`group flex items-center gap-4 rounded-2xl px-5 py-4 sm:flex-col sm:justify-center sm:gap-3 sm:p-6 sm:text-center shadow-sm ring-1 transition hover:-translate-y-1 hover:shadow-xl ${
+              className={`group flex items-center gap-4 rounded-2xl px-5 py-4 shadow-sm ring-1 transition hover:translate-x-1 hover:shadow-xl ${
                 i === 0 ? "bg-cta text-white ring-cta hover:bg-cta-hover" : "bg-white text-navy-900 ring-navy-900/5 hover:ring-cta/40"
               }`}
             >
               <span className={`flex h-12 w-12 items-center justify-center rounded-xl ${i === 0 ? "bg-white/15" : "bg-brand-50 text-cta"}`}>
                 <Icon name={a.icon} className="h-6 w-6" />
               </span>
-              <span className="flex items-center gap-1.5 font-bold">
+              <span className="flex flex-1 items-center justify-between gap-1.5 text-lg font-bold">
                 {a.label}
                 <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-0.5" />
               </span>

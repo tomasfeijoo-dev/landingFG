@@ -11,6 +11,7 @@ const paths: Record<string, React.ReactNode> = {
   check: <path d="M20 6L9 17l-5-5" />,
   book: <path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2V5zm0 16a2 2 0 012-2h13" />,
   play: <path d="M7 4.5v15l12-7.5z" />,
+  rocket: <path d="M5 15c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1-.1-2.9a2.1 2.1 0 00-2.9-.1zM12 15l-3-3a22 22 0 012-4A12.9 12.9 0 0122 2c0 2.7-.8 7.5-6 11a22.4 22.4 0 01-4 2zM9 12H4s.6-3 2-4c1.6-1.1 5 0 5 0M12 15v5s3-.6 4-2c1.1-1.6 0-5 0-5" />,
   chart: <path d="M3 21h18M5 17l4-4 3 3 7-7m0 0h-4m4 0v4M6 21v-4m4 4v-6m4 6v-4m4 4V12" />,
   handshake: <path d="M8 11l3-3a2 2 0 013 0l5 5a2 2 0 010 3l-1 1M3 12l5-5 2 1M3 12l6 6a2 2 0 003 0l1-1M9 15l2 2m1-4l2 2" />,
   institution: <path d="M3 10l9-6 9 6M5 10v8m4-8v8m6-8v8m4-8v8M3 21h18" />,
