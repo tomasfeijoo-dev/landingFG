@@ -12,30 +12,41 @@ import { allies, institutions, sponsors } from "@/lib/logos";
 // lo que cambia es el diseño y la experiencia.
 
 export function PrevenirCard() {
+  const actions = [
+    { label: "Donar hoy", href: "/donar", icon: "heart" },
+    { label: "Programas", href: "/programas", icon: "flask" },
+    { label: "Campaña", href: "/campana", icon: "shield" },
+  ];
   return (
     <section className="px-4 pt-12 sm:px-6 sm:pt-16">
-      <div className="reveal relative mx-auto max-w-5xl overflow-hidden rounded-[2rem] bg-white px-6 py-12 text-center shadow-xl shadow-navy-900/5 ring-1 ring-brand-100 sm:px-12">
-        <svg className="pointer-events-none absolute -top-6 -right-10 hidden h-40 w-72 md:block" viewBox="0 0 300 160" aria-hidden>
-          <path d="M10 -10 C 60 90, 170 110, 210 60 C 240 20, 200 -5, 180 25 C 155 65, 230 120, 320 100" stroke="#3fa5d4" strokeWidth="14" fill="none" strokeLinecap="round" opacity="0.8" />
-        </svg>
-        <h2 className="relative text-3xl font-extrabold tracking-tight text-navy-800 sm:text-4xl">Prevenir también es cuidar.</h2>
-        <p className="relative mx-auto mt-4 max-w-3xl text-lg text-navy-900/70">
-          Trabajamos para que <strong className="text-navy-900">más personas accedan a prevención, diagnóstico temprano y atención de calidad</strong> en salud
-          digestiva.
-        </p>
-        <div className="relative mt-8 grid gap-3 sm:grid-cols-3">
-          {[
-            { label: "Donar hoy", href: "/donar", icon: "heart" },
-            { label: "Programas", href: "/programas", icon: "flask" },
-            { label: "Campaña", href: "/campana", icon: "shield" },
-          ].map((b) => (
+      <div className="reveal relative mx-auto grid max-w-7xl items-center gap-10 overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-50 via-white to-brand-50/60 px-6 py-12 ring-1 ring-brand-100 sm:px-12 lg:grid-cols-[1.1fr_1fr] lg:px-16 lg:py-14">
+        <div>
+          <span className="inline-flex items-center gap-2 rounded-full bg-brand-100/70 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-cta">
+            <Icon name="shield" className="h-4 w-4" />
+            Prevención
+          </span>
+          <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">Prevenir también es cuidar.</h2>
+          <p className="mt-4 max-w-xl text-lg text-navy-900/70">
+            Trabajamos para que <strong className="text-navy-900">más personas accedan a prevención, diagnóstico temprano y atención de calidad</strong> en salud
+            digestiva.
+          </p>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-3">
+          {actions.map((a, i) => (
             <InterestLink
-              key={b.label}
-              href={b.href}
-              className="group flex items-center justify-center gap-2 rounded-full bg-cta px-6 py-3.5 font-semibold text-white shadow-lg shadow-cta/20 transition hover:-translate-y-0.5 hover:bg-cta-hover"
+              key={a.label}
+              href={a.href}
+              className={`group flex items-center gap-4 rounded-2xl px-5 py-4 sm:flex-col sm:justify-center sm:gap-3 sm:p-6 sm:text-center shadow-sm ring-1 transition hover:-translate-y-1 hover:shadow-xl ${
+                i === 0 ? "bg-cta text-white ring-cta hover:bg-cta-hover" : "bg-white text-navy-900 ring-navy-900/5 hover:ring-cta/40"
+              }`}
             >
-              <Icon name={b.icon} className="h-5 w-5" />
-              {b.label}
+              <span className={`flex h-12 w-12 items-center justify-center rounded-xl ${i === 0 ? "bg-white/15" : "bg-brand-50 text-cta"}`}>
+                <Icon name={a.icon} className="h-6 w-6" />
+              </span>
+              <span className="flex items-center gap-1.5 font-bold">
+                {a.label}
+                <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-0.5" />
+              </span>
             </InterestLink>
           ))}
         </div>
