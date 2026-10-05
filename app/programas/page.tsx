@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import ArgentinaMap from "@/components/ArgentinaMap";
-import Donate from "@/components/Donate";
+import DonateBanner from "@/components/DonateBanner";
 import Icon from "@/components/Icon";
 import InterestLink from "@/components/InterestLink";
 import { PageHeader } from "@/components/ui";
@@ -84,7 +84,7 @@ export default function ProgramasPage() {
         </div>
       </section>
 
-      <Donate />
+      <DonateBanner />
     </>
   );
 }

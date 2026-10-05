@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Donate from "@/components/Donate";
+import DonateBanner from "@/components/DonateBanner";
 import Icon from "@/components/Icon";
 import { PageHeader } from "@/components/ui";
 import { anuarios, consejo, equipo, institucionalEmail, publicacionesUrl, quienesSomos, type Person } from "@/lib/institucional";
@@ -197,7 +197,7 @@ export default function InstitucionalPage() {
         </div>
       </section>
 
-      <Donate />
+      <DonateBanner />
     </>
   );
 }

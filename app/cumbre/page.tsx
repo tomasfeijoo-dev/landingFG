@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Donate from "@/components/Donate";
+import DonateBanner from "@/components/DonateBanner";
 import Icon from "@/components/Icon";
 import { ButtonLink, PageHeader } from "@/components/ui";
 import { homeLinks } from "@/lib/content";
@@ -24,7 +24,7 @@ export default function CumbrePage() {
           Reviví la edición 2024 <Icon name="arrow" className="h-4 w-4" />
         </ButtonLink>
       </PageHeader>
-      <Donate />
+      <DonateBanner />
     </>
   );
 }

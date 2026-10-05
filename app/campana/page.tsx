@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ArgentinaMap from "@/components/ArgentinaMap";
+import Donate from "@/components/Donate";
 import { CampaignBanner, ImpactSection, LinesCards } from "@/components/sections";
 import Icon from "@/components/Icon";
 import { ButtonLink, Eyebrow, PageHeader } from "@/components/ui";
@@ -41,6 +42,8 @@ export default function CampanaPage() {
       <div className="bg-brand-50/60">
         <ImpactSection />
       </div>
+
+      <Donate />
     </>
   );
 }

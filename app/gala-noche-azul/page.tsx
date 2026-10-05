@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Donate from "@/components/Donate";
+import DonateBanner from "@/components/DonateBanner";
 import Icon from "@/components/Icon";
 import { NocheAzulRecap } from "@/components/sections";
 import { ButtonLink, PageHeader } from "@/components/ui";
@@ -33,7 +33,7 @@ export default function GalaPage() {
           </ButtonLink>
         </div>
       </section>
-      <Donate />
+      <DonateBanner />
     </>
   );
 }
