@@ -7,8 +7,8 @@ export default function DonateBanner() {
   return (
     <section className="px-4 py-16 sm:px-6 sm:py-20">
       <div className="reveal relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
-        <Image src="/images/abrazo.webp" alt="" fill sizes="(min-width: 1280px) 1280px, 100vw" className="object-cover object-[70%_center]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-900/70 to-navy-900/40" />
+        <Image src="/images/abrazo.webp" alt="" fill sizes="(min-width: 1280px) 1280px, 100vw" className="object-cover object-[70%_center] grayscale" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-900/85 to-navy-800/65" />
         <div className="relative flex flex-col items-start gap-8 px-6 py-12 text-white sm:px-12 md:flex-row md:items-center md:justify-between lg:px-16">
           <div className="max-w-2xl">
             <h2 className="text-2xl font-extrabold tracking-tight sm:text-4xl">Sumate a nuestra campaña de prevención y detección temprana</h2>
