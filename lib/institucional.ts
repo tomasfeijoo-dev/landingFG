@@ -23,14 +23,14 @@ export const consejo: Person[] = [
 // TODO: completar foto (/public/equipo/...) y link de LinkedIn de cada persona.
 export const equipo: Person[] = [
   { role: "Directora Ejecutiva", name: "Maria Emilia Caro", linkedin: "https://ar.linkedin.com/in/emiliacaro" },
-  { role: "Directora Operativa", name: "Isabela Esersky" },
-  { role: "Directora Administrativa", name: "Lorena Tokatlian" },
+  { role: "Directora Operativa", name: "Isabela Esersky", linkedin: "https://www.linkedin.com/in/isabelaesersky/" },
+  { role: "Directora Administrativa", name: "Lorena Tokatlian", linkedin: "https://www.linkedin.com/in/lorena-tokatlian-03589922/" },
   { role: "Dirección de Comunicación y Asuntos Institucionales", name: "Juliana Casse", linkedin: "https://ar.linkedin.com/in/juliana-casse-01934031" },
   { role: "Asistente de Programas", name: "Sofia Chuchurru", linkedin: "https://www.linkedin.com/in/sofiachuchurru/" },
-  { role: "Asistente de Procesos de Programas", name: "Nicolás Padovan" },
-  { role: "Dirección de Programa de Mujeres", name: "Marcela González" },
-  { role: "Co-Director del Proyecto de Misiones", name: "Gonzalo Coria" },
-  { role: "Comité de Fundraising", name: "Florencia Torres" },
+  { role: "Asistente de Procesos de Programas", name: "Nicolás Padovan", linkedin: "https://www.linkedin.com/in/nicolas-padovan-81b5a6213/" },
+  { role: "Dirección de Programa de Mujeres", name: "Marcela González", linkedin: "https://www.linkedin.com/in/marcela-gonzalez-a3260615/" },
+  { role: "Co-Director del Proyecto de Misiones", name: "Gonzalo Coria", linkedin: "https://www.linkedin.com/company/fundacion-gedyt/" },
+  { role: "Comité de Fundraising", name: "Florencia Torres", linkedin: "https://www.linkedin.com/in/florencia-torres-66422378/" },
 ];
 
 export const institucionalEmail = "asuntosinstitucionales@fundaciongedyt.org.ar";
