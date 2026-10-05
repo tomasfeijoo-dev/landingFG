@@ -53,45 +53,6 @@ function Ring({ value, label }: { value: number; label: string }) {
   );
 }
 
-function PolypDiagram() {
-  const steps = [
-    { label: "Mucosa", r: 0 },
-    { label: "Desarrollo de un pólipo", r: 22 },
-    { label: "Cáncer", r: 38 },
-  ];
-  return (
-    <svg viewBox="0 0 420 220" className="w-full" aria-label="Evolución de la mucosa a pólipo y cáncer">
-      <path d="M0 170 Q 105 150 210 170 T 420 170 V220 H0z" fill="#d6ecf7" />
-      <path d="M0 170 Q 105 150 210 170 T 420 170" stroke="#3fa5d4" strokeWidth="4" fill="none" />
-      {steps.map((s, i) => {
-        const x = 75 + i * 135;
-        return (
-          <g key={s.label}>
-            {s.r > 0 && (
-              <>
-                <rect x={x - 5} y={170 - s.r - 10} width="10" height={s.r + 10} rx="5" fill={i === 2 ? "#01405c" : "#015f86"} />
-                <circle cx={x} cy={170 - s.r - 12} r={s.r} fill={i === 2 ? "#01405c" : "#3fa5d4"} />
-                {i === 2 && <circle cx={x} cy={170 - s.r - 12} r={s.r + 8} fill="none" stroke="#f43f5e" strokeWidth="3" strokeDasharray="6 6" />}
-              </>
-            )}
-            <line x1={x} y1="34" x2={x} y2={s.r ? 170 - 2 * s.r - 24 : 150} stroke="#3fa5d4" strokeDasharray="3 4" />
-            <text x={x} y="14" textAnchor="middle" fontSize="11" fontWeight="700" fill="#137ab0" fontFamily="var(--font-montserrat)">
-              {s.label.split(" ").length > 2 ? (
-                <>
-                  <tspan x={x} dy="0">{s.label.split(" ").slice(0, 2).join(" ").toUpperCase()}</tspan>
-                  <tspan x={x} dy="13">{s.label.split(" ").slice(2).join(" ").toUpperCase()}</tspan>
-                </>
-              ) : (
-                s.label.toUpperCase()
-              )}
-            </text>
-          </g>
-        );
-      })}
-    </svg>
-  );
-}
-
 export default function CampanaPage() {
   return (
     <>
@@ -189,7 +150,13 @@ export default function CampanaPage() {
             <p className="mt-4 text-lg leading-relaxed text-navy-900/75">{queEs.text}</p>
           </div>
           <div className="reveal rounded-3xl bg-white p-6 shadow-xl shadow-navy-900/5 ring-1 ring-navy-900/5">
-            <PolypDiagram />
+            <Image
+              src="/images/polipo-diagrama.png"
+              alt="Evolución de la mucosa del colon: desarrollo de un pólipo y cáncer"
+              width={600}
+              height={400}
+              className="h-auto w-full"
+            />
           </div>
         </div>
       </section>
