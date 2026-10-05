@@ -11,50 +11,6 @@ import { allies, institutions, sponsors } from "@/lib/logos";
 // Secciones del inicio. Los textos son los mismos que hoy tiene fundaciongedyt.org.ar;
 // lo que cambia es el diseño y la experiencia.
 
-export function PrevenirCard() {
-  const actions = [
-    { label: "Donar hoy", href: "/donar", icon: "heart" },
-    { label: "Programas", href: "/programas", icon: "rocket" },
-    { label: "Campaña", href: "/campana", icon: "shield" },
-  ];
-  return (
-    <section className="px-4 pt-12 sm:px-6 sm:pt-16">
-      <div className="reveal relative mx-auto grid max-w-7xl items-center gap-10 overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-50 via-white to-brand-50/60 px-6 py-12 ring-1 ring-brand-100 sm:px-12 lg:grid-cols-[1.1fr_1fr] lg:px-16 lg:py-14">
-        <div>
-          <span className="inline-flex items-center gap-2 rounded-full bg-brand-100/70 px-3 py-1 text-xs font-semibold uppercase tracking-[0.14em] text-cta">
-            <Icon name="shield" className="h-4 w-4" />
-            Prevención
-          </span>
-          <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">Prevenir también es cuidar.</h2>
-          <p className="mt-4 max-w-xl text-lg text-navy-900/70">
-            Trabajamos para que <strong className="text-navy-900">más personas accedan a prevención, diagnóstico temprano y atención de calidad</strong> en salud
-            digestiva.
-          </p>
-        </div>
-        <div className="flex flex-col gap-3">
-          {actions.map((a, i) => (
-            <InterestLink
-              key={a.label}
-              href={a.href}
-              className={`group flex items-center gap-4 rounded-2xl px-5 py-4 shadow-sm ring-1 transition hover:translate-x-1 hover:shadow-xl ${
-                i === 0 ? "bg-cta text-white ring-cta hover:bg-cta-hover" : "bg-white text-navy-900 ring-navy-900/5 hover:ring-cta/40"
-              }`}
-            >
-              <span className={`flex h-12 w-12 items-center justify-center rounded-xl ${i === 0 ? "bg-white/15" : "bg-brand-50 text-cta"}`}>
-                <Icon name={a.icon} className="h-6 w-6" />
-              </span>
-              <span className="flex flex-1 items-center justify-between gap-1.5 text-lg font-bold">
-                {a.label}
-                <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-0.5" />
-              </span>
-            </InterestLink>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export function QueHacemosHome() {
   return (
     <section className="relative overflow-hidden px-4 py-20 sm:px-6 sm:py-28">

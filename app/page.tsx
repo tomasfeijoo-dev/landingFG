@@ -1,7 +1,7 @@
 import Donate from "@/components/Donate";
 import HeroCarousel from "@/components/HeroCarousel";
 import Icon from "@/components/Icon";
-import { ConsorcioSection, PrevenirCard, StatsAndHighlights } from "@/components/HomeSections";
+import { ConsorcioSection, StatsAndHighlights } from "@/components/HomeSections";
 import { CampaignBanner, ImpactSection } from "@/components/sections";
 import { ButtonLink, Eyebrow } from "@/components/ui";
 
@@ -12,7 +12,6 @@ export default function Home() {
       <section>
         <HeroCarousel />
       </section>
-      <PrevenirCard />
 
       <div id="impacto">
         <ImpactSection />
