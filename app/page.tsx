@@ -12,11 +12,11 @@ export default function Home() {
       <section className="bg-gradient-to-b from-brand-50/60 to-white px-4 pt-6 sm:px-6 sm:pt-10">
         <HeroCarousel />
       </section>
+      <PrevenirCard />
+
       <div id="impacto">
         <ImpactSection />
       </div>
-
-      <PrevenirCard />
       {/* Qué hacemos: resumen con acceso a la página completa */}
       <section className="bg-brand-50/70 px-4 py-20 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-6xl">
