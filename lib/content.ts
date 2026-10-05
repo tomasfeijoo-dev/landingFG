@@ -68,7 +68,7 @@ export const nocheAzul = {
 // TODO: link del video de Bárbara. Sirve un link de YouTube o el link para compartir
 // de un archivo de Google Drive (drive.google.com/file/d/.../view) con acceso
 // "Cualquier persona con el enlace". Se abre en un modal dentro del sitio.
-export const barbaraVideoUrl = "";
+export const barbaraVideoUrl = "https://drive.google.com/file/d/1sWxDyVdYLQdj69VhEuLrOipXpf-I2CuN/view?usp=sharing";
 
 // Opciones de donación: cada test Q-FIT cuesta $95.000.
 export type DonationTier = "plata" | "oro" | "platino";
