@@ -56,7 +56,7 @@ export default function ContactForm() {
     "mt-1.5 w-full rounded-xl border border-navy-900/15 bg-white px-4 py-3 text-navy-950 outline-none transition placeholder:text-navy-900/40 focus:border-brand-500 focus:ring-4 focus:ring-brand-100";
 
   return (
-    <form onSubmit={onSubmit} className="rounded-2xl bg-white p-6 shadow-xl sm:p-8">
+    <form onSubmit={onSubmit} className="reveal rounded-2xl bg-white p-6 shadow-xl sm:p-8">
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="block text-sm font-medium text-navy-900">
           Nombre y apellido

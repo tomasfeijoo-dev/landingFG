@@ -9,6 +9,7 @@ const paths: Record<string, React.ReactNode> = {
   stethoscope: <path d="M6 3v6a4 4 0 008 0V3M10 13v2a5 5 0 0010 0v-2m0 0a2 2 0 100-4 2 2 0 000 4z" />,
   arrow: <path d="M5 12h14m-6-6l6 6-6 6" />,
   check: <path d="M20 6L9 17l-5-5" />,
+  play: <path d="M7 4.5v15l12-7.5z" />,
   phone: <path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" />,
   mail: <path d="M4 6h16v12H4zM4 7l8 6 8-6" />,
   clock: <path d="M12 21a9 9 0 100-18 9 9 0 000 18zm0-13v4l3 2" />,
@@ -19,7 +20,7 @@ const paths: Record<string, React.ReactNode> = {
   facebook: <path d="M14 8h3V4h-3a4 4 0 00-4 4v2H7v4h3v7h4v-7h3l1-4h-4V8z" />,
 };
 
-const filled = new Set(["linkedin", "facebook"]);
+const filled = new Set(["linkedin", "facebook", "play"]);
 
 export default function Icon({ name, className = "h-6 w-6" }: { name: string; className?: string }) {
   const solid = filled.has(name);

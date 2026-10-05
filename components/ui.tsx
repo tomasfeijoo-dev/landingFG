@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Icon from "@/components/Icon";
 import InterestLink from "@/components/InterestLink";
 
@@ -62,35 +63,69 @@ export function ButtonLink({
     <InterestLink
       href={href}
       interest={interest}
-      className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold transition ${styles}`}
+      className={`inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3 font-semibold transition ${styles}`}
     >
       {children}
     </InterestLink>
   );
 }
 
-// Encabezado de las páginas internas, con el lazo ondulado de la marca.
-export function PageHeader({ eyebrow, title, text, children }: { eyebrow: string; title: string; text?: string; children?: React.ReactNode }) {
+// Encabezado de las páginas internas. Puede llevar una foto (a la derecha, fundida
+// hacia el texto) o un fondo animado (por ejemplo el mapa), y contenido extra abajo.
+export function PageHeader({
+  eyebrow,
+  title,
+  text,
+  image,
+  imageAlt = "",
+  imagePosition = "center",
+  background,
+  children,
+}: {
+  eyebrow: string;
+  title: string;
+  text?: string;
+  image?: string;
+  imageAlt?: string;
+  imagePosition?: string;
+  background?: React.ReactNode;
+  children?: React.ReactNode;
+}) {
+  const plain = !image && !background;
   return (
     <section className="px-4 pt-6 sm:px-6 sm:pt-10">
-      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#f1f4f7] via-white to-brand-50 px-6 py-14 ring-1 ring-brand-100 sm:px-12 sm:py-20 lg:px-16">
-        <svg className="pointer-events-none absolute inset-0 hidden h-full w-full md:block" viewBox="0 0 1200 320" preserveAspectRatio="none" aria-hidden>
-          <path
-            d="M760 -20 C 820 90, 960 120, 1020 60 C 1070 10, 1020 -20, 990 20 C 950 70, 1040 140, 1220 120"
-            stroke="#3fa5d4"
-            strokeWidth="18"
-            fill="none"
-            strokeLinecap="round"
-            opacity="0.85"
-          />
-        </svg>
-        <div className="pointer-events-none absolute -right-10 -bottom-14 hidden h-36 w-36 rounded-full border-[22px] border-navy-800/80 md:block" aria-hidden />
-        <div className="relative max-w-2xl">
-          <Eyebrow chip>{eyebrow}</Eyebrow>
-          <h1 className="mt-5 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-5xl">{title}</h1>
-          {text && <p className="mt-4 text-lg text-navy-900/70">{text}</p>}
+      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#f1f4f7] via-white to-brand-50 ring-1 ring-brand-100">
+        <div className="relative md:min-h-[24rem]">
+          {background}
+          {image && (
+            <div className="photo-fade relative h-56 sm:h-72 md:absolute md:inset-y-0 md:right-0 md:h-auto md:w-[58%]">
+              <Image src={image} alt={imageAlt} fill priority sizes="(min-width: 768px) 58vw, 100vw" className="object-cover" style={{ objectPosition: imagePosition }} />
+            </div>
+          )}
+          {plain && (
+            <>
+              <svg className="pointer-events-none absolute inset-0 hidden h-full w-full md:block" viewBox="0 0 1200 320" preserveAspectRatio="none" aria-hidden>
+                <path
+                  d="M760 -20 C 820 90, 960 120, 1020 60 C 1070 10, 1020 -20, 990 20 C 950 70, 1040 140, 1220 120"
+                  stroke="#3fa5d4"
+                  strokeWidth="18"
+                  fill="none"
+                  strokeLinecap="round"
+                  opacity="0.85"
+                />
+              </svg>
+              <div className="pointer-events-none absolute -right-10 -bottom-14 hidden h-36 w-36 rounded-full border-[22px] border-navy-800/80 md:block" aria-hidden />
+            </>
+          )}
+          <div className={`relative px-6 sm:px-12 lg:px-16 ${image ? "pt-6 pb-12 sm:pb-16 md:max-w-[48%] md:py-20" : background ? "py-24 sm:py-28 md:max-w-[52%]" : "py-14 sm:py-20"}`}>
+            <div className="max-w-2xl">
+              <Eyebrow chip>{eyebrow}</Eyebrow>
+              <h1 className="mt-5 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-5xl">{title}</h1>
+              {text && <p className="mt-4 text-lg text-navy-900/70">{text}</p>}
+            </div>
+          </div>
         </div>
-        {children && <div className="relative mt-12">{children}</div>}
+        {children && <div className="relative px-6 pb-12 sm:px-12 sm:pb-14 lg:px-16">{children}</div>}
       </div>
     </section>
   );

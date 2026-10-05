@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect } from "react";
 import Icon from "@/components/Icon";
 import InterestLink from "@/components/InterestLink";
-import { barbaraVideoUrl, donateUrl, type DonationOption } from "@/lib/content";
+import { openBarbaraVideo } from "@/components/VideoModal";
+import { donateUrl, type DonationOption } from "@/lib/content";
 
 const BLUES = ["#015f86", "#3fa5d4", "#01405c", "#7cc4e6", "#d6ecf7"];
 const TIER_NAME = { plata: "Plata", oro: "Oro", platino: "Platino" } as const;
@@ -154,15 +156,22 @@ export default function DonationCelebration({ option, onClose }: { option: Donat
             <p className="mt-5 text-xl font-bold text-navy-900">En el próximo paso ingresá el monto.</p>
             <p className="mt-3 text-navy-900/70">
               Al igual que{" "}
-              {barbaraVideoUrl ? (
-                <a href={barbaraVideoUrl} target="_blank" rel="noopener noreferrer" className="font-bold text-cta underline underline-offset-2">
-                  Bárbara
-                </a>
-              ) : (
-                <strong className="text-navy-900">Bárbara</strong>
-              )}
+              <button type="button" onClick={openBarbaraVideo} className="font-bold text-cta underline underline-offset-2 hover:text-cta-hover">
+                Bárbara
+              </button>
               , muchas personas están esperando para hacerse un control que les salve la vida.
             </p>
+            <button
+              type="button"
+              onClick={openBarbaraVideo}
+              className="mx-auto mt-5 flex items-center gap-3 rounded-full bg-brand-50 py-1.5 pr-5 pl-1.5 text-sm font-semibold text-navy-900 ring-1 ring-brand-100 transition hover:bg-brand-100"
+            >
+              <span className="relative h-10 w-10 overflow-hidden rounded-full">
+                <Image src="/images/barbara.webp" alt="" fill sizes="40px" className="object-cover object-[50%_30%]" />
+              </span>
+              <Icon name="play" className="h-4 w-4 text-cta" />
+              Mirá la historia de Bárbara
+            </button>
           </>
         )}
 

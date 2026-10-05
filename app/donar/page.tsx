@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Donate from "@/components/Donate";
 import { ImpactSection } from "@/components/sections";
-import { PageHeader } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Doná",
@@ -11,12 +10,7 @@ export const metadata: Metadata = {
 export default function DonarPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="Doná"
-        title="Tu aporte salva vidas"
-        text="Cada test Q-FIT permite detectar a tiempo el cáncer colorrectal, que se cura en 9 de cada 10 casos cuando se diagnostica temprano."
-      />
-      <Donate />
+      <Donate first />
       <ImpactSection />
     </>
   );

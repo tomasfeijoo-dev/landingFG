@@ -5,9 +5,10 @@ import { useCallback, useState } from "react";
 import DonationCelebration from "@/components/DonationCelebration";
 import Icon from "@/components/Icon";
 import InterestLink from "@/components/InterestLink";
+import { openBarbaraVideo } from "@/components/VideoModal";
 import { donateUrl, donationOptions, type DonationOption } from "@/lib/content";
 
-export default function Donate() {
+export default function Donate({ first = false }: { first?: boolean }) {
   const [selected, setSelected] = useState<string | null>(null);
   // Cada click vuelve a disparar el festejo, aunque se repita la opción.
   const [celebration, setCelebration] = useState<{ option: DonationOption; n: number } | null>(null);
@@ -19,12 +20,24 @@ export default function Donate() {
   }
 
   return (
-    <section id="donar" className="px-4 py-20 sm:px-6 sm:py-24">
-      <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
-        <Image src="/images/abrazo.webp" alt="Dos personas abrazándose" fill sizes="(min-width: 1152px) 1152px, 100vw" className="object-cover object-[70%_center]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-900/65 to-navy-900/0" />
+    <section id="donar" className={`px-4 sm:px-6 ${first ? "pt-6 pb-16 sm:pt-10 sm:pb-20" : "py-20 sm:py-24"}`}>
+      <div className="reveal relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 shadow-2xl shadow-navy-900/20">
+        {/* Bárbara: su cara y el acceso a su historia en video */}
+        <div className="photo-fade relative h-72 sm:h-96 md:absolute md:inset-y-0 md:right-0 md:h-auto md:w-[46%]">
+          <Image src="/images/barbara.webp" alt="Bárbara, paciente que compartió su historia con la Fundación" fill sizes="(min-width: 768px) 46vw, 100vw" className="object-cover object-[45%_25%]" />
+        </div>
+        <button
+          type="button"
+          onClick={openBarbaraVideo}
+          className="group absolute top-56 right-5 z-10 flex items-center gap-3 rounded-full bg-white/95 py-2 pr-5 pl-2 text-sm font-semibold text-navy-900 shadow-xl transition hover:bg-white sm:top-80 md:top-auto md:right-8 md:bottom-8"
+        >
+          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-cta text-white transition group-hover:scale-110">
+            <Icon name="play" className="ml-0.5 h-4 w-4" />
+          </span>
+          Mirá la historia de Bárbara
+        </button>
 
-        <div className="relative max-w-2xl px-6 py-14 text-white sm:px-12 sm:py-16 lg:px-16">
+        <div className="relative px-6 pt-4 pb-14 text-white sm:px-12 sm:pb-16 md:max-w-[58%] md:py-16 lg:px-16">
           <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur">
             <Icon name="heart" className="h-7 w-7" />
           </span>

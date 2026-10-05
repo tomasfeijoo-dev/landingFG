@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
+import CountUp from "@/components/CountUp";
 import Icon from "@/components/Icon";
 import InterestLink from "@/components/InterestLink";
 import { slides, type Slide } from "@/lib/content";
@@ -163,7 +164,9 @@ export default function HeroCarousel() {
               </div>
               {s.badge && (
                 <div className="absolute top-4 right-4 z-20 hidden rounded-2xl bg-white/95 px-4 py-3 shadow-xl ring-1 ring-navy-900/5 backdrop-blur sm:block sm:px-5 sm:py-4 lg:top-auto lg:right-16 lg:bottom-24">
-                  <p className="text-2xl font-extrabold text-cta sm:text-3xl">{s.badge.value}</p>
+                  <p className="text-2xl font-extrabold text-cta sm:text-3xl">
+                    <CountUp value={s.badge.value} />
+                  </p>
                   <p className="text-xs text-navy-900/65 sm:text-sm">{s.badge.label}</p>
                 </div>
               )}

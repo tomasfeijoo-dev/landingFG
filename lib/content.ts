@@ -29,7 +29,9 @@ export const donateUrl = "/contacto?motivo=donacion";
 // TODO: pedirle a Juli el link al Anuario 2026 digital (se usa en todos los botones y tarjetas del anuario).
 export const anuarioUrl = "https://fundaciongedyt.org.ar/publicaciones/";
 
-// TODO: pegar el link del video de YouTube de Bárbara contando su historia.
+// TODO: link del video de Bárbara. Sirve un link de YouTube o el link para compartir
+// de un archivo de Google Drive (drive.google.com/file/d/.../view) con acceso
+// "Cualquier persona con el enlace". Se abre en un modal dentro del sitio.
 export const barbaraVideoUrl = "";
 
 // Opciones de donación: cada test Q-FIT cuesta $95.000.
@@ -94,7 +96,9 @@ export const slides: Slide[] = [
     text: "La sexta edición de nuestra gala reunió a referentes del espectáculo, el deporte y las empresas para impulsar la detección temprana.",
     image: "/banners/noche-azul-brindis.webp",
     imageAlt: "Brindis en la gala Noche Azul 2026",
-    zoomOut: 0.3,
+    zoomOut: 0.2,
+    imagePosition: "left center",
+    fade: "26%",
     badge: { value: "$290M", label: "recaudados para prevención" },
     primary: { label: "Ver más", href: "/que-hacemos" },
     secondary: { label: "Quiero ser sponsor", href: "/contacto", interest: "empresa" },
@@ -190,8 +194,8 @@ export const campaign = {
   eyebrow: "Campaña permanente de concientización",
   title: "El cáncer colorrectal se puede prevenir",
   text: "El lazo azul une a médicos, pacientes y familias en la lucha contra el cáncer colorrectal. Afecta principalmente a mayores de 45 años, pero detectado a tiempo, 9 de cada 10 casos se curan.",
-  cta: "Pedí información sobre el test",
-  note: "Simple, no invasivo y sin internación.",
+  cta: "Más info sobre el test",
+  note: "Simple, no invasivo y sin preparación.",
 };
 
 export const lines = [

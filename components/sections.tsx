@@ -1,5 +1,7 @@
 import Image from "next/image";
+import ArgentinaMap from "@/components/ArgentinaMap";
 import ContactForm from "@/components/ContactForm";
+import CountUp from "@/components/CountUp";
 import Icon from "@/components/Icon";
 import { ArrowLink, ButtonLink, Eyebrow } from "@/components/ui";
 import { campaign, contact, features, impact, lines, network, news } from "@/lib/content";
@@ -18,7 +20,7 @@ export function ProgramCards() {
   return (
     <div className="grid gap-6 md:grid-cols-3">
       {features.map((f) => (
-        <article key={f.title} className="flex flex-col rounded-3xl bg-white p-7 shadow-xl shadow-navy-900/5 ring-1 ring-navy-900/5">
+        <article key={f.title} className="reveal flex flex-col rounded-3xl bg-white p-7 shadow-xl shadow-navy-900/5 ring-1 ring-navy-900/5">
           <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-cta">
             <Icon name={f.icon} />
           </span>
@@ -40,7 +42,7 @@ export function ProgramCards() {
 
 export function CampaignBanner() {
   return (
-    <div className="relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-navy-950 via-navy-900 to-[#1b6189] text-white shadow-2xl shadow-navy-900/20 md:min-h-[26rem]">
+    <div className="reveal relative overflow-hidden rounded-[2rem] bg-gradient-to-br from-navy-950 via-navy-900 to-[#1b6189] text-white shadow-2xl shadow-navy-900/20 md:min-h-[26rem]">
       {/* Foto a la derecha, fundida hacia el texto */}
       <div className="campaign-visual relative h-56 sm:h-72 md:absolute md:inset-y-0 md:right-0 md:h-auto md:w-[58%]">
         <Image
@@ -76,7 +78,7 @@ export function LinesCards() {
         return (
           <article
             key={l.title}
-            className={`group relative flex min-h-[22rem] flex-col overflow-hidden rounded-3xl p-7 shadow-sm ring-1 ring-navy-900/5 ${photo ? "text-white" : "bg-white"}`}
+            className={`reveal group relative flex min-h-[22rem] flex-col overflow-hidden rounded-3xl p-7 shadow-sm ring-1 ring-navy-900/5 ${photo ? "text-white" : "bg-white"}`}
           >
             {photo && <PhotoBackground src={photo} alt={l.title} />}
             <div className="relative flex flex-1 flex-col">
@@ -110,11 +112,13 @@ export function ImpactSection() {
         </div>
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {impact.map((s) => (
-            <div key={s.value} className="rounded-3xl bg-gradient-to-b from-brand-50 to-white p-8 text-center ring-1 ring-brand-100">
+            <div key={s.value} className="reveal rounded-3xl bg-gradient-to-b from-brand-50 to-white p-8 text-center ring-1 ring-brand-100">
               <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-white text-cta shadow-sm">
                 <Icon name={s.icon} className="h-5 w-5" />
               </span>
-              <p className="mt-5 text-5xl font-extrabold tracking-tight text-cta">{s.value}</p>
+              <p className="mt-5 text-5xl font-extrabold tracking-tight text-cta">
+                <CountUp value={s.value} />
+              </p>
               <p className="mt-2 font-bold text-navy-900">{s.label}</p>
               <p className="mt-2 text-sm text-navy-900/60">{s.text}</p>
             </div>
@@ -127,13 +131,28 @@ export function ImpactSection() {
 
 export function NetworkSection({ withLink = false }: { withLink?: boolean }) {
   return (
-    <div className="mx-auto grid max-w-6xl items-center gap-10 rounded-[2rem] bg-gradient-to-br from-brand-50 to-white p-8 ring-1 ring-brand-100 sm:p-12 lg:grid-cols-[1.2fr_1fr]">
-      <div>
+    <div className="reveal relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] ring-1 ring-brand-100 lg:min-h-[32rem]">
+      {/* Fondo: mapa animado que recorre los lugares donde trabajamos */}
+      <ArgentinaMap focusX={0.72} fade="bg-gradient-to-r from-white/95 via-white/80 to-white/0 max-lg:to-white/60" />
+      <div className="relative p-8 sm:p-12 lg:max-w-[56%]">
         <Eyebrow chip>Alianzas y red de prevención</Eyebrow>
         <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">Sumate a la red de prevención de Fundación Gedyt</h2>
-        <p className="mt-4 text-lg text-navy-900/65">
+        <p className="mt-4 text-lg text-navy-900/70">
           Convocamos a empresas, gobiernos, sociedades médicas y personas que quieran comprometerse con el futuro de la salud digestiva en el país.
         </p>
+        <div className="mt-6 grid grid-cols-2 gap-3">
+          {network.map((n) => (
+            <div key={n.title} className="flex items-center gap-3 rounded-2xl bg-white/90 p-3 shadow-sm ring-1 ring-navy-900/5 backdrop-blur">
+              <span className="flex h-9 w-9 flex-none items-center justify-center rounded-xl bg-brand-50 text-cta">
+                <Icon name={n.icon} className="h-5 w-5" />
+              </span>
+              <div>
+                <p className="text-sm font-bold leading-tight text-navy-900">{n.title}</p>
+                <p className="mt-0.5 text-[11px] leading-tight text-navy-900/55">{n.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <ButtonLink href="/contacto" interest="empresa">
             Sumá tu organización <Icon name="arrow" className="h-4 w-4" />
@@ -142,17 +161,6 @@ export function NetworkSection({ withLink = false }: { withLink?: boolean }) {
             {withLink ? "Conocé cómo sumarte" : "Quiero ser donante"}
           </ButtonLink>
         </div>
-      </div>
-      <div className="grid grid-cols-2 gap-4">
-        {network.map((n) => (
-          <div key={n.title} className="rounded-2xl bg-white p-5 text-center shadow-sm ring-1 ring-navy-900/5">
-            <span className="mx-auto flex h-10 w-10 items-center justify-center text-cta">
-              <Icon name={n.icon} />
-            </span>
-            <p className="mt-2 text-sm font-bold text-navy-900">{n.title}</p>
-            <p className="mt-1 text-xs text-navy-900/55">{n.text}</p>
-          </div>
-        ))}
       </div>
     </div>
   );
@@ -169,7 +177,7 @@ export function NewsCards() {
             href={n.href}
             target="_blank"
             rel="noopener noreferrer"
-            className={`group relative flex min-h-[20rem] flex-col overflow-hidden rounded-3xl p-7 shadow-sm ring-1 ring-navy-900/5 transition hover:-translate-y-1 hover:shadow-lg ${
+            className={`reveal group relative flex min-h-[20rem] flex-col overflow-hidden rounded-3xl p-7 shadow-sm ring-1 ring-navy-900/5 transition hover:-translate-y-1 hover:shadow-lg ${
               photo ? "text-white" : "bg-white"
             }`}
           >

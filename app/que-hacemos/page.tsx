@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ArgentinaMap from "@/components/ArgentinaMap";
 import { CampaignBanner, ImpactSection, LinesCards } from "@/components/sections";
 import Icon from "@/components/Icon";
 import { ButtonLink, Eyebrow, PageHeader } from "@/components/ui";
@@ -16,6 +17,7 @@ export default function QueHacemosPage() {
         eyebrow="Qué hacemos"
         title="Líneas de prevención activas"
         text="Articulamos la excelencia médica de Gedyt con el acceso equitativo a la salud digestiva en toda la Argentina."
+        background={<ArgentinaMap focusX={0.7} fade="bg-gradient-to-r from-white/95 via-white/75 to-white/0 max-md:to-white/50" />}
       />
 
       <section className="px-4 py-16 sm:px-6 sm:py-20">

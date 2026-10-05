@@ -15,6 +15,9 @@ export default function NovedadesPage() {
         eyebrow="Información médica confiable"
         title="Notas de salud y novedades"
         text="Prevención, publicaciones y lo que pasa en la Fundación."
+        image="/images/nota-infobae.webp"
+        imageAlt="Nota de Infobae con el Dr. Luis Caro, presidente de la Fundación Gedyt"
+        imagePosition="center 30%"
       />
       <section className="px-4 py-16 sm:px-6 sm:py-20">
         <div className="mx-auto max-w-6xl">

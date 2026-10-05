@@ -16,6 +16,9 @@ export default function ProgramasPage() {
         eyebrow="Programas"
         title="Prevención, salud en el trabajo y formación"
         text="De la detección temprana con el test FIT a la capacitación de profesionales: así llevamos la prevención del cáncer colorrectal a más personas."
+        image="/images/hands-on.webp"
+        imageAlt="Médico joven practicando endoscopía en un Hands-On junto a una enfermera"
+        imagePosition="30% center"
       />
 
       <section className="px-4 py-16 sm:px-6 sm:py-20">
@@ -25,7 +28,7 @@ export default function ProgramasPage() {
       </section>
 
       <section className="px-4 pb-20 sm:px-6 sm:pb-28">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 overflow-hidden rounded-[2rem] bg-white shadow-xl shadow-navy-900/5 ring-1 ring-navy-900/5 lg:grid-cols-2">
+        <div className="reveal mx-auto grid max-w-6xl items-center gap-10 overflow-hidden rounded-[2rem] bg-white shadow-xl shadow-navy-900/5 ring-1 ring-navy-900/5 lg:grid-cols-2">
           <div className="relative aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[26rem]">
             <Image
               src="/banners/mujeres-premio.webp"

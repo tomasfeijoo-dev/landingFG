@@ -3,6 +3,8 @@ import { Montserrat } from "next/font/google";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Newsletter from "@/components/Newsletter";
+import RevealObserver from "@/components/RevealObserver";
+import VideoModal from "@/components/VideoModal";
 import { site } from "@/lib/content";
 import "./globals.css";
 
@@ -37,6 +39,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Newsletter />
         <Footer />
+        <VideoModal />
+        <RevealObserver />
       </body>
     </html>
   );

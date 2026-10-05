@@ -15,10 +15,15 @@ export const metadata: Metadata = {
 export default function SumatePage() {
   return (
     <>
+      <Donate first />
+
       <PageHeader
         eyebrow="Sumate"
         title="Hay muchas formas de ser parte"
         text="Como organización, profesional, donante o integrando el Consejo Directivo: cada aporte acerca la prevención a más personas."
+        image="/images/equipo-gala.webp"
+        imageAlt="Equipo de la Fundación Gedyt en la gala Noche Azul"
+        imagePosition="center 35%"
       >
         <LogoMarquee
           groups={[
@@ -29,7 +34,7 @@ export default function SumatePage() {
       </PageHeader>
 
       <section className="px-4 py-16 sm:px-6 sm:py-20">
-        <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
+        <div className="reveal relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
           <Image
             src="/banners/consejo.webp"
             alt="Reunión de trabajo alrededor de una mesa"
@@ -54,11 +59,9 @@ export default function SumatePage() {
         </div>
       </section>
 
-      <section className="px-4 sm:px-6">
+      <section className="px-4 pb-20 sm:px-6 sm:pb-28">
         <NetworkSection />
       </section>
-
-      <Donate />
     </>
   );
 }
