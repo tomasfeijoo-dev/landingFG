@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import ArgentinaMap from "@/components/ArgentinaMap";
 import Donate from "@/components/Donate";
 import Icon from "@/components/Icon";
 import InterestLink from "@/components/InterestLink";
@@ -14,7 +15,11 @@ export const metadata: Metadata = {
 export default function ProgramasPage() {
   return (
     <>
-      <PageHeader eyebrow="Programas" title="Iniciativas en salud digestiva" image="/images/prog-equipo.webp" imageAlt="Equipo de profesionales de la salud con la Fundación Gedyt" imagePosition="center 30%" />
+      <PageHeader
+        eyebrow="Programas"
+        title="Iniciativas en salud digestiva"
+        background={<ArgentinaMap focusX={0.7} fade="bg-gradient-to-r from-white/95 via-white/75 to-white/0 max-md:to-white/50" />}
+      />
 
       <section className="px-4 py-16 sm:px-6 sm:py-20">
         <p className="reveal mx-auto max-w-3xl text-center text-xl leading-relaxed text-navy-900/75">
