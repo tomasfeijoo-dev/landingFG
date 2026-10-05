@@ -16,11 +16,11 @@ export default function DonateBanner() {
           </div>
           <Link
             href="/donar"
-            className="group relative flex h-36 w-36 flex-none flex-col items-center justify-center gap-1 rounded-full bg-cta text-center font-extrabold uppercase tracking-wide text-white shadow-2xl shadow-black/30 ring-4 ring-white/20 transition hover:scale-105 hover:bg-cta-hover"
+            className="group flex flex-none items-center gap-2 whitespace-nowrap rounded-full bg-cta px-8 py-4 font-semibold text-white shadow-lg shadow-black/20 transition hover:bg-cta-hover"
           >
-            <span className="absolute inset-0 animate-ping rounded-full bg-cta/30 [animation-duration:2.4s]" aria-hidden />
-            <Icon name="heart" className="relative h-6 w-6" />
-            <span className="relative">Doná acá</span>
+            <Icon name="heart" className="h-5 w-5" />
+            Doná acá
+            <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-0.5" />
           </Link>
         </div>
       </div>
