@@ -33,7 +33,7 @@ export default function Newsletter() {
             <Icon name="mail" />
           </div>
           <div>
-            <p className="text-xl font-bold text-white sm:text-2xl">Sumate para recibir recursos y novedades.</p>
+            <p className="text-base font-bold text-white sm:text-lg">Sumate para recibir recursos y novedades.</p>
           </div>
         </div>
         {status === "ok" ? (
