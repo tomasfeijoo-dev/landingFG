@@ -55,6 +55,10 @@ export const homeLinks = {
 
 // Noche Azul 2026: galería y cobertura de prensa
 export const nocheAzul = {
+  email: "gala@fundaciongedyt.org.ar",
+  // TODO: link de compra de entradas (Mercado Pago) y de modalidades de participación
+  reserveUrl: "mailto:gala@fundaciongedyt.org.ar?subject=Reserva%20Noche%20Azul",
+  modalidadesUrl: "mailto:gala@fundaciongedyt.org.ar?subject=Modalidades%20de%20participaci%C3%B3n",
   // TODO: link a la galería completa de fotos (Google Photos, Drive, Flickr, etc.)
   galleryUrl: "https://www.facebook.com/Fundacion.Gedyt/photos",
   pressUrl:
