@@ -3,7 +3,7 @@ import { Logo } from "@/components/Header";
 import Icon from "@/components/Icon";
 import LogoMarquee from "@/components/LogoMarquee";
 import { institutions, sponsors } from "@/lib/logos";
-import { contact, footerLinks, site } from "@/lib/content";
+import { contact, footerLinks, site, socialLinks } from "@/lib/content";
 
 export default function Footer() {
   return (
@@ -25,10 +25,7 @@ export default function Footer() {
             Organización sin fines de lucro, académica, científico-educativa y de investigación, dedicada a la salud digestiva en Argentina.
           </p>
           <div className="mt-5 flex gap-2">
-            {[
-              { href: contact.social.linkedin, icon: "linkedin", label: "LinkedIn" },
-              { href: contact.social.facebook, icon: "facebook", label: "Facebook" },
-            ].map((s) => (
+            {socialLinks.map((s) => (
               <a
                 key={s.label}
                 href={s.href}

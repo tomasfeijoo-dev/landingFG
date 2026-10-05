@@ -23,6 +23,14 @@ export const contact = {
   },
 };
 
+// Redes sociales (barra superior y footer), en este orden
+export const socialLinks = [
+  { label: "Facebook", icon: "facebook", href: "https://www.facebook.com/Fundacion.Gedyt/" },
+  { label: "Instagram", icon: "instagram", href: "https://www.instagram.com/fundacion.gedyt/" },
+  { label: "LinkedIn", icon: "linkedin", href: "https://ar.linkedin.com/company/fundacion-gedyt" },
+  { label: "YouTube", icon: "youtube", href: "https://www.youtube.com/channel/UCkPo2QxFCO7ZIxCi3bBLQwQ" },
+];
+
 // TODO: reemplazar por el link real de Mercado Pago (o la plataforma que usen).
 export const donateUrl = "/contacto?motivo=donacion";
 

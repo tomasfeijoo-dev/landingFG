@@ -10,6 +10,18 @@ const paths: Record<string, React.ReactNode> = {
   arrow: <path d="M5 12h14m-6-6l6 6-6 6" />,
   check: <path d="M20 6L9 17l-5-5" />,
   play: <path d="M7 4.5v15l12-7.5z" />,
+  instagram: (
+    <path
+      fillRule="evenodd"
+      d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm0 2a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H7zm5 3.5a4.5 4.5 0 110 9 4.5 4.5 0 010-9zm0 2a2.5 2.5 0 100 5 2.5 2.5 0 000-5zm5.3-4a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+    />
+  ),
+  youtube: (
+    <path
+      fillRule="evenodd"
+      d="M21.6 7.2a2.7 2.7 0 00-1.9-1.9C18 4.8 12 4.8 12 4.8s-6 0-7.7.5a2.7 2.7 0 00-1.9 1.9C2 8.9 2 12 2 12s0 3.1.4 4.8a2.7 2.7 0 001.9 1.9c1.7.5 7.7.5 7.7.5s6 0 7.7-.5a2.7 2.7 0 001.9-1.9c.4-1.7.4-4.8.4-4.8s0-3.1-.4-4.8zM10 15.2V8.8l5.2 3.2z"
+    />
+  ),
   phone: <path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" />,
   mail: <path d="M4 6h16v12H4zM4 7l8 6 8-6" />,
   clock: <path d="M12 21a9 9 0 100-18 9 9 0 000 18zm0-13v4l3 2" />,
@@ -17,10 +29,10 @@ const paths: Record<string, React.ReactNode> = {
   card: <path d="M3 6h18v12H3zM3 10h18M7 15h3" />,
   sparkle: <path d="M12 3v4m0 10v4M3 12h4m10 0h4M6 6l2.5 2.5m7 7L18 18M6 18l2.5-2.5m7-7L18 6" />,
   linkedin: <path d="M4 9h3v11H4zM5.5 4a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM10 9h3v1.6c.5-.9 1.7-1.8 3.4-1.8 3 0 3.6 2 3.6 4.6V20h-3v-5.8c0-1.4-.3-2.5-1.7-2.5s-2.3 1-2.3 2.5V20h-3z" />,
-  facebook: <path d="M14 8h3V4h-3a4 4 0 00-4 4v2H7v4h3v7h4v-7h3l1-4h-4V8z" />,
+  facebook: <path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.32l-.53 3.5h-2.8V24C19.62 23.1 24 18.1 24 12.07" />,
 };
 
-const filled = new Set(["linkedin", "facebook", "play"]);
+const filled = new Set(["linkedin", "facebook", "play", "instagram", "youtube"]);
 
 export default function Icon({ name, className = "h-6 w-6" }: { name: string; className?: string }) {
   const solid = filled.has(name);

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import Icon from "@/components/Icon";
-import { contact, nav, site } from "@/lib/content";
+import { contact, nav, site, socialLinks } from "@/lib/content";
 
 export function Logo({ light = false }: { light?: boolean }) {
   return (
@@ -36,15 +36,19 @@ function TopBar() {
             {contact.email}
           </a>
         </div>
-        <div className="flex items-center gap-5">
-          <span className="hidden items-center gap-1.5 lg:flex">
-            <Icon name="clock" className="h-3.5 w-3.5" />
-            {contact.hoursShort}
-          </span>
-          <span className="hidden items-center gap-2 rounded-full bg-white/10 px-3 py-0.5 font-medium text-white sm:flex">
-            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            Campaña de prevención activa
-          </span>
+        <div className="flex items-center gap-1">
+          {socialLinks.map((s) => (
+            <a
+              key={s.label}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={s.label}
+              className="flex h-8 w-8 items-center justify-center rounded-full text-white transition hover:bg-white/15"
+            >
+              <Icon name={s.icon} className="h-[18px] w-[18px]" />
+            </a>
+          ))}
         </div>
       </div>
     </div>
