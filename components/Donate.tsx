@@ -4,9 +4,9 @@ import Image from "next/image";
 import { useCallback, useRef, useState } from "react";
 import DonationCelebration from "@/components/DonationCelebration";
 import Icon from "@/components/Icon";
-import InterestLink from "@/components/InterestLink";
 import { openBarbaraVideo } from "@/components/VideoModal";
-import { donateUrl, donationOptions, mercadoPagoLinks, type DonationOption } from "@/lib/content";
+import BankTransferModal from "@/components/BankTransferModal";
+import { donarOnlineUrl, donationOptions, type DonationOption } from "@/lib/content";
 
 const STEPS = ["Elegí el monto", "Pagar y terminar"];
 
@@ -70,12 +70,13 @@ export default function Donate({ first = false }: { first?: boolean }) {
   // Cada click vuelve a disparar el festejo, aunque se repita la opción.
   const [celebration, setCelebration] = useState<{ option: DonationOption; n: number } | null>(null);
   const close = useCallback(() => setCelebration(null), []);
+  const [transfer, setTransfer] = useState(false);
+  const closeTransfer = useCallback(() => setTransfer(false), []);
   const topRef = useRef<HTMLDivElement>(null);
 
   const option = donationOptions.find((o) => o.value === selected);
   const isCustom = selected === "otro";
   const amount = isCustom ? Number(custom.replace(/\D/g, "")) : Number(selected);
-  const payUrl = (recurring ? mercadoPagoLinks.mensual : mercadoPagoLinks.unica) || donateUrl;
   const canPay = !isCustom || amount >= 1000;
 
   function pick(o: DonationOption) {
@@ -218,23 +219,25 @@ export default function Donate({ first = false }: { first?: boolean }) {
               <RecurringSwitch on={recurring} onChange={setRecurring} />
 
               <div className="flex flex-1 flex-col gap-3 sm:flex-row lg:justify-end">
-                <InterestLink
-                  href={canPay ? payUrl : "#donar"}
+                <a
+                  href={canPay ? donarOnlineUrl : "#donar"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl bg-cta px-7 py-3.5 font-semibold text-white shadow-lg shadow-black/20 transition hover:bg-cta-hover ${
                     canPay ? "" : "pointer-events-none opacity-50"
                   }`}
                 >
                   <Icon name="card" className="h-5 w-5" />
-                  Pagar con Mercado Pago
-                </InterestLink>
-                <InterestLink
-                  href="/contacto"
-                  interest="donacion"
+                  Donar online
+                </a>
+                <button
+                  type="button"
+                  onClick={() => setTransfer(true)}
                   className="flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl bg-white/10 px-6 py-3.5 font-semibold text-white ring-1 ring-white/30 backdrop-blur transition hover:bg-white/20"
                 >
                   <Icon name="bank" className="h-5 w-5" />
                   Transferencia bancaria
-                </InterestLink>
+                </button>
               </div>
             </div>
           )}
@@ -250,6 +253,7 @@ export default function Donate({ first = false }: { first?: boolean }) {
         </div>
       </div>
 
+      {transfer && <BankTransferModal onClose={closeTransfer} />}
       {celebration && <DonationCelebration key={celebration.n} option={celebration.option} onClose={close} onPay={goToPay} />}
     </section>
   );

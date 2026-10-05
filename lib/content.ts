@@ -34,6 +34,20 @@ export const socialLinks = [
 // TODO: reemplazar por el link real de Mercado Pago (o la plataforma que usen).
 export const donateUrl = "/contacto?motivo=donacion";
 
+// Donación online (plataforma DonarOnline)
+export const donarOnlineUrl = "https://donaronline.org/fundacion-gedyt/fundacion-gedyt?preview=true";
+
+// Datos para depósito o transferencia
+export const bankTransfer = {
+  banco: "SANTANDER",
+  cuit: "30-71575140-9",
+  sucursal: "163",
+  cuenta: "163-016309/5",
+  tipo: "Cuenta Corriente",
+  moneda: "Pesos",
+  cbu: "0720163520000001630954",
+};
+
 // TODO: links de Mercado Pago para la donación mensual (suscripción) y la de única vez.
 // Mientras estén vacíos, el botón lleva a donateUrl.
 export const mercadoPagoLinks = {
