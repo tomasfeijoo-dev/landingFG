@@ -15,10 +15,9 @@ export const quienesSomos = {
 
 export type Person = { role: string; name: string; photo?: string; linkedin?: string };
 
-// TODO: foto del Dr. Cecilio Cerisoli.
 export const consejo: Person[] = [
-  { role: "Presidente", name: "Dr. Luis Caro", photo: "/equipo/luis-caro.webp" },
-  { role: "Tesorero", name: "Dr. Cecilio Cerisoli" },
+  { role: "Presidente", name: "Dr. Luis Caro", photo: "/equipo/luis-caro-v2.webp" },
+  { role: "Tesorero", name: "Dr. Cecilio Cerisoli", photo: "/equipo/cecilio-cerisoli.webp" },
 ];
 
 // TODO: completar foto (/public/equipo/...) y link de LinkedIn de cada persona.

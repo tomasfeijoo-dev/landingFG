@@ -20,10 +20,10 @@ export default function RevealObserver() {
       { rootMargin: "0px 0px -8% 0px", threshold: 0.08 },
     );
     const watch = () =>
-      document.querySelectorAll<HTMLElement>(".reveal:not(.is-visible)").forEach((el) => {
+      document.querySelectorAll<HTMLElement>(".reveal:not(.is-visible), .reveal-pop:not(.is-visible)").forEach((el) => {
         if (el.dataset.revealWatched) return;
         el.dataset.revealWatched = "1";
-        const siblings = el.parentElement ? Array.from(el.parentElement.children).filter((c) => c.classList.contains("reveal")) : [];
+        const siblings = el.parentElement ? Array.from(el.parentElement.children).filter((c) => c.classList.contains("reveal") || c.classList.contains("reveal-pop")) : [];
         el.style.setProperty("--reveal-delay", `${Math.min(siblings.indexOf(el), 5) * 70}ms`);
         io.observe(el);
       });

@@ -174,3 +174,42 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .step-in { animation: none; }
 }
+
+/* Tarjetas del equipo: entrada con desenfoque y brillo al pasar el mouse */
+.reveal-pop {
+  opacity: 0;
+  transform: scale(0.94);
+  filter: blur(8px);
+  transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.2, 0.8, 0.3, 1), filter 0.6s ease-out, box-shadow 0.4s;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal-pop.is-visible { opacity: 1; transform: none; filter: none; }
+.team-card { box-shadow: 0 1px 2px rgb(1 64 92 / 0.06); }
+.team-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #3fa5d4, #015f86, #8fd0f0);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.team-card:hover { box-shadow: 0 18px 40px -16px rgb(1 64 92 / 0.35); }
+.team-card:hover::before { opacity: 1; }
+.team-sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, rgb(63 165 212 / 0.14) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.9s ease;
+  pointer-events: none;
+}
+.team-card:hover .team-sheen { transform: translateX(120%); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal-pop { opacity: 1; transform: none; filter: none; transition: none; }
+  .team-sheen { display: none; }
+}

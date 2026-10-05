@@ -88,17 +88,24 @@ export default function InstitucionalPage() {
       {/* Consejo de administración */}
       <section className="relative overflow-hidden bg-brand-50/70 px-4 py-20 sm:px-6 sm:py-24">
         <div className="pointer-events-none absolute -bottom-40 -left-40 hidden h-[26rem] w-[26rem] rounded-full border-[48px] border-navy-800/90 lg:block" aria-hidden />
-        <div className="relative mx-auto max-w-4xl">
+        <div className="relative mx-auto max-w-5xl">
           <SectionTitle eyebrow="Gobierno de la Fundación">Consejo de administración</SectionTitle>
-          <div className="mx-auto mt-12 grid max-w-2xl gap-8 sm:grid-cols-2">
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
             {consejo.map((p) => (
-              <article key={p.name} className="reveal group rounded-[2rem] bg-white p-4 shadow-xl shadow-navy-900/10 ring-1 ring-navy-900/5 transition hover:-translate-y-1">
-                <div className="relative">
-                  <Avatar person={p} size="lg" />
-                  <div className="absolute inset-x-3 bottom-3 rounded-2xl bg-white/90 px-4 py-3 text-center shadow-lg backdrop-blur">
-                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-cta">{p.role}</p>
-                    <p className="mt-0.5 text-lg font-extrabold text-navy-900">{p.name}</p>
-                  </div>
+              <article key={p.name} className="reveal group relative aspect-[16/10] overflow-hidden rounded-[2rem] bg-navy-900 shadow-2xl shadow-navy-900/20">
+                {p.photo && (
+                  <Image
+                    src={p.photo}
+                    alt={p.name}
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover object-top transition duration-700 group-hover:scale-105"
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-900/25 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6 text-center text-white sm:p-8">
+                  <p className="text-2xl font-extrabold tracking-tight drop-shadow sm:text-3xl">{p.name}</p>
+                  <p className="mt-1 text-base text-white/85 sm:text-lg">{p.role}</p>
                 </div>
               </article>
             ))}
@@ -112,11 +119,14 @@ export default function InstitucionalPage() {
           <SectionTitle eyebrow="Las personas detrás de cada programa">Nuestro equipo de trabajo</SectionTitle>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {equipo.map((p) => (
-              <article key={p.name} className="reveal group flex items-center gap-4 rounded-3xl bg-white p-4 shadow-sm ring-1 ring-navy-900/5 transition hover:-translate-y-1 hover:shadow-xl">
-                <Avatar person={p} size="sm" />
-                <div className="min-w-0 flex-1">
+              <article key={p.name} className="team-card reveal-pop group relative flex items-center gap-4 overflow-hidden rounded-3xl bg-white p-4 ring-1 ring-navy-900/5">
+                <span className="team-sheen" aria-hidden />
+                <div className="relative transition duration-500 group-hover:scale-105">
+                  <Avatar person={p} size="sm" />
+                </div>
+                <div className="relative min-w-0 flex-1">
                   <p className="font-extrabold text-navy-900">{p.name}</p>
-                  <p className="mt-0.5 text-sm leading-snug text-navy-900/60">{p.role}</p>
+                  <p className="mt-0.5 text-sm leading-snug text-navy-900/60 transition group-hover:text-cta">{p.role}</p>
                 </div>
                 {p.linkedin ? (
                   <a
@@ -124,12 +134,12 @@ export default function InstitucionalPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`LinkedIn de ${p.name}`}
-                    className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-brand-50 text-cta transition hover:bg-cta hover:text-white"
+                    className="relative flex h-10 w-10 flex-none items-center justify-center rounded-full bg-brand-50 text-cta transition group-hover:bg-cta group-hover:text-white"
                   >
                     <Icon name="linkedin" className="h-4 w-4" />
                   </a>
                 ) : (
-                  <span className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-brand-50 text-cta/50" aria-hidden>
+                  <span className="relative flex h-10 w-10 flex-none items-center justify-center rounded-full bg-brand-50 text-cta/50" aria-hidden>
                     <Icon name="linkedin" className="h-4 w-4" />
                   </span>
                 )}
