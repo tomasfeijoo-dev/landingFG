@@ -30,15 +30,6 @@ body {
   background: var(--color-brand-100);
 }
 
-/* Fundido de la imagen de los banners hacia el texto */
-.hero-visual {
-  mask-image: linear-gradient(to bottom, #000 55%, transparent);
-}
-@media (min-width: 1024px) {
-  .hero-visual {
-    mask-image: linear-gradient(to right, transparent 0%, #000 var(--fade, 38%));
-  }
-}
 
 /* Festejo de donación */
 @keyframes pop-in {
@@ -85,15 +76,6 @@ body {
   .marquee-track { animation: none; }
 }
 
-/* Banner de campaña: la foto se funde hacia el texto */
-.campaign-visual {
-  mask-image: linear-gradient(to bottom, #000 60%, transparent);
-}
-@media (min-width: 768px) {
-  .campaign-visual {
-    mask-image: linear-gradient(to right, transparent 0%, #000 30%);
-  }
-}
 
 /* Pin activo del mapa */
 @keyframes map-pulse {
@@ -126,4 +108,75 @@ body {
   .photo-fade {
     mask-image: linear-gradient(to right, transparent 0%, #000 32%);
   }
+}
+
+/* Filtro azul de los banners con foto: intenso a la izquierda, suave a la derecha */
+.banner-tint {
+  background: linear-gradient(to top, rgb(0 41 59 / 0.75) 0%, rgb(0 41 59 / 0.35) 55%, rgb(0 41 59 / 0.2) 100%);
+}
+@media (min-width: 1024px) {
+  .banner-tint {
+    background: linear-gradient(to right, rgb(0 41 59 / 0.82) 0%, rgb(1 64 92 / 0.55) 40%, rgb(1 95 134 / 0.12) 100%);
+  }
+}
+
+/* Emoji del banner de concientización */
+@keyframes emoji-enter {
+  0% { transform: translateX(200%) rotate(-20deg); }
+  16% { transform: translateX(150%) rotate(-26deg); }
+  26% { transform: translateX(168%) rotate(-16deg); }
+  38% { transform: translateX(140%) rotate(-28deg); }
+  48% { transform: translateX(150%) rotate(-22deg); }
+  72% { transform: translateX(-7%) rotate(9deg); }
+  84% { transform: translateX(3%) rotate(-4deg); }
+  100% { transform: translateX(0) rotate(0); }
+}
+@keyframes emoji-idle {
+  0%, 100% { transform: translateY(0) rotate(0) scale(1, 1); }
+  8% { transform: translateY(0) scale(1.08, 0.9); }
+  20% { transform: translateY(-28px) rotate(-6deg) scale(0.94, 1.08); }
+  32% { transform: translateY(0) scale(1.07, 0.93); }
+  42% { transform: translateY(0) rotate(0) scale(1, 1); }
+  56% { transform: rotate(-9deg); }
+  68% { transform: rotate(8deg); }
+  80% { transform: rotate(-3deg); }
+  90% { transform: rotate(0); }
+}
+@keyframes emoji-shadow {
+  0%, 100%, 42% { transform: translateX(-50%) scale(1); opacity: 1; }
+  20% { transform: translateX(-50%) scale(0.7); opacity: 0.5; }
+}
+@keyframes hand-in {
+  from { opacity: 0; transform: scale(0.3) rotate(-30deg); }
+  to { opacity: 1; transform: scale(1) rotate(0); }
+}
+@keyframes hand-wave {
+  from { transform: rotate(-18deg); }
+  to { transform: rotate(22deg); }
+}
+@keyframes hand-out {
+  to { opacity: 0; transform: scale(0.4); }
+}
+.emoji-enter { animation: emoji-enter 4.4s cubic-bezier(0.45, 0, 0.25, 1) 0.4s both; }
+.emoji-idle { transform-origin: 50% 100%; animation: emoji-idle 3.4s ease-in-out 5.6s infinite both; }
+.emoji-shadow { animation: emoji-shadow 3.4s ease-in-out 5.6s infinite both; }
+.emoji-hand {
+  transform-origin: 70% 90%;
+  animation: hand-in 0.35s ease-out 4.2s both, hand-wave 0.32s ease-in-out 4.55s 7 alternate both, hand-out 0.4s ease-in 6.9s forwards;
+}
+.emoji-anim { animation-play-state: paused; }
+.is-visible .emoji-anim { animation-play-state: running; }
+@media (prefers-reduced-motion: reduce) {
+  .emoji-anim { animation: none !important; }
+  .emoji-hand { display: none; }
+}
+
+/* Cursor que señala la opción más elegida */
+@keyframes cursor-bounce {
+  0%, 100% { transform: translate(0, 0) rotate(-12deg); }
+  50% { transform: translate(-9px, -9px) rotate(-12deg); }
+}
+.cursor-bounce { animation: cursor-bounce 1.6s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .cursor-bounce { animation: none; }
 }

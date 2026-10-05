@@ -16,7 +16,7 @@ export default function ContactoPage() {
         text="Respondemos de lunes a viernes de 9 a 16 h."
         image="/images/manos.webp"
         imageAlt="Dos manos que se sostienen"
-        imagePosition="center 45%"
+        imagePosition="center 52%"
       />
       <ContactSection />
     </>

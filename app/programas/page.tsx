@@ -18,7 +18,7 @@ export default function ProgramasPage() {
         text="De la detección temprana con el test FIT a la capacitación de profesionales: así llevamos la prevención del cáncer colorrectal a más personas."
         image="/images/hands-on.webp"
         imageAlt="Médico joven practicando endoscopía en un Hands-On junto a una enfermera"
-        imagePosition="30% center"
+        imagePosition="center 40%"
       />
 
       <section className="px-4 py-16 sm:px-6 sm:py-20">

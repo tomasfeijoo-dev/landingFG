@@ -29,6 +29,14 @@ export const donateUrl = "/contacto?motivo=donacion";
 // TODO: pedirle a Juli el link al Anuario 2026 digital (se usa en todos los botones y tarjetas del anuario).
 export const anuarioUrl = "https://fundaciongedyt.org.ar/publicaciones/";
 
+// Noche Azul 2026: galería y cobertura de prensa
+export const nocheAzul = {
+  // TODO: link a la galería completa de fotos (Google Photos, Drive, Flickr, etc.)
+  galleryUrl: "https://www.facebook.com/Fundacion.Gedyt/photos",
+  pressUrl:
+    "https://www.infobae.com/tendencias/2026/09/16/noche-azul-como-fue-la-gala-solidaria-que-impulsa-la-prevencion-y-deteccion-temprana-del-cancer-de-colon/",
+};
+
 // TODO: link del video de Bárbara. Sirve un link de YouTube o el link para compartir
 // de un archivo de Google Drive (drive.google.com/file/d/.../view) con acceso
 // "Cualquier persona con el enlace". Se abre en un modal dentro del sitio.
@@ -63,11 +71,8 @@ export type Slide = {
   text: string;
   image?: string;
   imageAlt?: string;
-  // Encuadre de la foto (CSS object-position) y dónde termina el fundido hacia el texto
+  // Encuadre de la foto (CSS object-position)
   imagePosition?: string;
-  fade?: string;
-  // Alejar la foto (0.3 = 30% más chica); el espacio libre se completa con la misma foto desenfocada
-  zoomOut?: number;
   // Ilustración a usar cuando no hay foto
   art?: "ribbon";
   badge?: { value: string; label: string };
@@ -82,9 +87,9 @@ export const slides: Slide[] = [
     title: "Porque detectar a tiempo puede hacer la diferencia,",
     highlight: "trabajamos para que la prevención llegue a más personas.",
     text: "Test FIT simple y no invasivo, con acompañamiento médico para cada resultado.",
-    image: "/banners/test-fit-mano.webp",
+    image: "/banners/test-fit-mano-wide.webp",
     imageAlt: "Mano sosteniendo un test FIT de sangre oculta en materia fecal",
-    imagePosition: "70% center",
+    imagePosition: "center 55%",
     primary: { label: "Conocé nuestra Fundación", href: "/que-hacemos" },
     secondary: { label: "Hacete el test FIT", href: "/contacto", interest: "otro" },
   },
@@ -96,9 +101,7 @@ export const slides: Slide[] = [
     text: "La sexta edición de nuestra gala reunió a referentes del espectáculo, el deporte y las empresas para impulsar la detección temprana.",
     image: "/banners/noche-azul-brindis.webp",
     imageAlt: "Brindis en la gala Noche Azul 2026",
-    zoomOut: 0.2,
-    imagePosition: "left center",
-    fade: "26%",
+    imagePosition: "center 30%",
     badge: { value: "$290M", label: "recaudados para prevención" },
     primary: { label: "Ver más", href: "/que-hacemos" },
     secondary: { label: "Quiero ser sponsor", href: "/contacto", interest: "empresa" },

@@ -1,7 +1,7 @@
 import Donate from "@/components/Donate";
 import HeroCarousel from "@/components/HeroCarousel";
 import Icon from "@/components/Icon";
-import { CampaignBanner, ContactSection, ImpactSection, NetworkSection } from "@/components/sections";
+import { CampaignBanner, ContactSection, ImpactSection, NetworkSection, NocheAzulRecap } from "@/components/sections";
 import { ButtonLink, Eyebrow } from "@/components/ui";
 import { anuarioUrl } from "@/lib/content";
 
@@ -43,7 +43,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="px-4 pt-20 sm:px-6 sm:pt-28">
+      <NocheAzulRecap />
+
+      <section className="px-4 sm:px-6">
         <NetworkSection withLink />
       </section>
 

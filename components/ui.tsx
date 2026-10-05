@@ -98,9 +98,10 @@ export function PageHeader({
         <div className="relative md:min-h-[24rem]">
           {background}
           {image && (
-            <div className="photo-fade relative h-56 sm:h-72 md:absolute md:inset-y-0 md:right-0 md:h-auto md:w-[58%]">
-              <Image src={image} alt={imageAlt} fill priority sizes="(min-width: 768px) 58vw, 100vw" className="object-cover" style={{ objectPosition: imagePosition }} />
-            </div>
+            <>
+              <Image src={image} alt={imageAlt} fill priority sizes="(min-width: 1280px) 1280px, 100vw" className="object-cover" style={{ objectPosition: imagePosition }} />
+              <div className="banner-tint absolute inset-0" />
+            </>
           )}
           {plain && (
             <>
@@ -117,15 +118,15 @@ export function PageHeader({
               <div className="pointer-events-none absolute -right-10 -bottom-14 hidden h-36 w-36 rounded-full border-[22px] border-navy-800/80 md:block" aria-hidden />
             </>
           )}
-          <div className={`relative px-6 sm:px-12 lg:px-16 ${image ? "pt-6 pb-12 sm:pb-16 md:max-w-[48%] md:py-20" : background ? "py-24 sm:py-28 md:max-w-[52%]" : "py-14 sm:py-20"}`}>
+          <div className={`relative px-6 sm:px-12 lg:px-16 ${image ? "flex min-h-[22rem] items-end pt-24 pb-12 sm:min-h-[26rem] md:items-center md:py-20" : background ? "py-24 sm:py-28 md:max-w-[52%]" : "py-14 sm:py-20"}`}>
             <div className="max-w-2xl">
-              <Eyebrow chip>{eyebrow}</Eyebrow>
-              <h1 className="mt-5 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-5xl">{title}</h1>
-              {text && <p className="mt-4 text-lg text-navy-900/70">{text}</p>}
+              <Eyebrow chip light={!!image}>{eyebrow}</Eyebrow>
+              <h1 className={`mt-5 text-3xl font-extrabold tracking-tight sm:text-5xl ${image ? "text-white drop-shadow-sm" : "text-navy-900"}`}>{title}</h1>
+              {text && <p className={`mt-4 text-lg ${image ? "max-w-xl text-white/85" : "text-navy-900/70"}`}>{text}</p>}
             </div>
           </div>
         </div>
-        {children && <div className="relative px-6 pb-12 sm:px-12 sm:pb-14 lg:px-16">{children}</div>}
+        {children && <div className={`relative px-6 pb-12 sm:px-12 sm:pb-14 lg:px-16 ${image ? "pt-10" : ""}`}>{children}</div>}
       </div>
     </section>
   );

@@ -17,8 +17,8 @@ function CtaLink({ cta, variant, tabIndex }: { cta: Slide["primary"]; variant: "
       tabIndex={tabIndex}
       className={
         variant === "primary"
-          ? "inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-3.5 font-semibold text-white shadow-lg shadow-navy-900/20 transition hover:bg-navy-950"
-          : "inline-flex items-center justify-center gap-2 rounded-full bg-white/80 px-7 py-3.5 font-semibold text-navy-900 ring-1 ring-navy-900/15 backdrop-blur transition hover:ring-cta"
+          ? "inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 font-semibold text-navy-900 shadow-lg shadow-black/20 transition hover:bg-brand-50"
+          : "inline-flex items-center justify-center gap-2 rounded-full bg-white/10 px-7 py-3.5 font-semibold text-white ring-1 ring-white/40 backdrop-blur transition hover:bg-white/20"
       }
     >
       {cta.label}
@@ -51,41 +51,24 @@ function SatinRibbon() {
 
 function Visual({ slide, priority }: { slide: Slide; priority: boolean }) {
   return (
-    <div
-      className="hero-visual absolute inset-x-0 top-0 h-60 sm:h-72 lg:inset-y-0 lg:right-0 lg:left-auto lg:h-auto lg:w-[56%]"
-      style={slide.fade ? ({ "--fade": slide.fade } as React.CSSProperties) : undefined}
-    >
-      {slide.image && slide.zoomOut ? (
-        <>
-          {/* Foto alejada: se ve completa y el resto se rellena con la misma foto desenfocada */}
-          <Image src={slide.image} alt="" fill sizes="56vw" className="scale-110 object-cover blur-2xl" aria-hidden />
-          <div className="absolute inset-x-0" style={{ top: `${(slide.zoomOut / 2) * 100}%`, bottom: `${(slide.zoomOut / 2) * 100}%` }}>
-            <Image
-              src={slide.image}
-              alt={slide.imageAlt ?? ""}
-              fill
-              priority={priority}
-              sizes="(min-width: 1024px) 56vw, 100vw"
-              className="object-contain drop-shadow-2xl"
-              style={{ objectPosition: slide.imagePosition ?? "center" }}
-            />
-          </div>
-        </>
-      ) : slide.image ? (
+    <div className="absolute inset-0">
+      {slide.image ? (
         <Image
           src={slide.image}
           alt={slide.imageAlt ?? ""}
           fill
           priority={priority}
-          sizes="(min-width: 1024px) 56vw, 100vw"
+          sizes="(min-width: 1280px) 1280px, 100vw"
           className="object-cover"
           style={{ objectPosition: slide.imagePosition ?? "center" }}
         />
       ) : (
-        <div className="flex h-full w-full items-center justify-center py-4 bg-[radial-gradient(circle_at_60%_45%,#d6ecf7_0%,#eef7fc_45%,transparent_70%)]">
+        <div className="flex h-full w-full items-center justify-end bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 pr-[8%] max-lg:items-start max-lg:justify-center max-lg:pt-6 max-lg:pr-0">
           <SatinRibbon />
         </div>
       )}
+      {/* Filtro azul: más intenso a la izquierda (donde va el texto) y suave a la derecha */}
+      <div className="banner-tint absolute inset-0" />
     </div>
   );
 }
@@ -108,7 +91,7 @@ export default function HeroCarousel() {
     <section
       aria-roledescription="carrusel"
       aria-label="Campañas de la Fundación"
-      className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#f1f4f7] via-white to-brand-50 ring-1 ring-brand-100"
+      className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-navy-900 shadow-2xl shadow-navy-900/20"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -121,19 +104,6 @@ export default function HeroCarousel() {
         touchX.current = null;
       }}
     >
-      {/* Lazo ondulado y aro decorativo, comunes a todos los banners */}
-      <svg className="pointer-events-none absolute inset-0 z-10 hidden h-full w-full lg:block" viewBox="0 0 1200 560" preserveAspectRatio="none" aria-hidden>
-        <path
-          d="M300 -20 C 360 120, 520 150, 600 90 C 660 40, 610 -10, 570 30 C 530 75, 600 150, 720 140 C 860 128, 930 40, 1010 -20"
-          stroke="#3fa5d4"
-          strokeWidth="22"
-          fill="none"
-          strokeLinecap="round"
-          opacity="0.9"
-        />
-      </svg>
-      <div className="pointer-events-none absolute -bottom-16 -left-10 z-10 hidden h-44 w-44 rounded-full border-[26px] border-navy-800/80 lg:block" aria-hidden />
-
       <div className="grid">
         {slides.map((s, i) => {
           const active = i === index;
@@ -147,16 +117,16 @@ export default function HeroCarousel() {
               className={`relative [grid-area:1/1] transition-opacity duration-700 ${active ? "opacity-100" : "pointer-events-none opacity-0"}`}
             >
               <Visual slide={s} priority={i === 0} />
-              <div className="relative z-20 flex min-h-[620px] flex-col justify-end px-6 pt-64 pb-24 sm:min-h-[640px] sm:px-12 sm:pt-80 lg:min-h-[540px] lg:w-[52%] lg:justify-center lg:py-20 lg:pr-0 lg:pl-16">
-                <span className="inline-flex items-center gap-2 self-start rounded-full bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-cta shadow-sm ring-1 ring-brand-100">
-                  <span className="h-1.5 w-1.5 rounded-full bg-cta" />
+              <div className="relative z-20 flex min-h-[600px] flex-col justify-end px-6 pt-40 pb-24 text-white sm:min-h-[600px] sm:px-12 lg:min-h-[540px] lg:w-[56%] lg:justify-center lg:py-20 lg:pr-0 lg:pl-16">
+                <span className="inline-flex items-center gap-2 self-start rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-white ring-1 ring-white/25 backdrop-blur">
+                  <span className="h-1.5 w-1.5 rounded-full bg-sky-accent" />
                   {s.eyebrow}
                 </span>
-                <h2 className="mt-5 text-2xl leading-snug tracking-tight text-navy-900 sm:text-4xl lg:text-[2.6rem] lg:leading-[1.15]">
+                <h2 className="mt-5 text-2xl leading-snug tracking-tight text-white drop-shadow-sm sm:text-4xl lg:text-[2.6rem] lg:leading-[1.15]">
                   <span className="font-medium">{s.title} </span>
-                  <span className="font-extrabold text-navy-800">{s.highlight}</span>
+                  <span className="font-extrabold text-[#8fd0f0]">{s.highlight}</span>
                 </h2>
-                <p className="mt-4 max-w-lg text-base text-navy-900/70 sm:text-lg">{s.text}</p>
+                <p className="mt-4 max-w-lg text-base text-white/85 sm:text-lg">{s.text}</p>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <CtaLink cta={s.primary} variant="primary" tabIndex={active ? 0 : -1} />
                   {s.secondary && <CtaLink cta={s.secondary} variant="secondary" tabIndex={active ? 0 : -1} />}
@@ -176,7 +146,7 @@ export default function HeroCarousel() {
       </div>
 
       {/* Controles */}
-      <div className="absolute inset-x-6 bottom-6 z-30 flex items-center justify-between sm:inset-x-12 lg:right-8 lg:left-[52%]">
+      <div className="absolute inset-x-6 bottom-6 z-30 flex items-center justify-between sm:inset-x-12 lg:right-8 lg:left-16">
         <div className="flex items-center gap-2 rounded-full bg-white/90 px-3 py-2 shadow-sm ring-1 ring-navy-900/5 backdrop-blur">
           {slides.map((s, i) => (
             <button
