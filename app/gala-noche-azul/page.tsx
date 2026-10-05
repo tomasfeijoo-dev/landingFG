@@ -54,10 +54,10 @@ export default function GalaPage() {
         <h1 className="sr-only">Gala a beneficio Noche Azul 2026 — Juntos podemos prevenir el cáncer de colon</h1>
         <div className="relative w-full overflow-hidden">
           <Image
-            src="/gala/banner-2026.webp"
+            src="/gala/banner-2026-v2.webp"
             alt="Gala a beneficio Noche Azul 2026. Juntos podemos prevenir el cáncer de colon. Alvear Palace Hotel — Av. Alvear 1891, CABA"
-            width={1198}
-            height={652}
+            width={1652}
+            height={778}
             priority
             sizes="100vw"
             className="h-auto max-h-[80vh] min-h-[16rem] w-full object-cover"
