@@ -9,7 +9,7 @@ import { ButtonLink, Eyebrow } from "@/components/ui";
 export default function Home() {
   return (
     <>
-      <section className="bg-gradient-to-b from-brand-50/60 to-white px-4 pt-6 sm:px-6 sm:pt-10">
+      <section>
         <HeroCarousel />
       </section>
       <PrevenirCard />

@@ -23,16 +23,16 @@ const pilares = [
 function Arches() {
   const arcs = [
     { x: 30, w: 440, c: "#f5a81c" },
-    { x: 90, w: 320, c: "#01405c" },
-    { x: 150, w: 200, c: "#f5a81c" },
-    { x: 210, w: 80, c: "#015f86" },
+    { x: 80, w: 340, c: "#01405c" },
+    { x: 130, w: 240, c: "#f5a81c" },
+    { x: 180, w: 140, c: "#015f86" },
   ];
   return (
-    <svg viewBox="0 0 500 560" preserveAspectRatio="xMaxYMid meet" className="arches pointer-events-none absolute inset-y-0 right-0 h-full w-[78%]" aria-hidden>
+    <svg viewBox="0 0 500 560" preserveAspectRatio="xMaxYMid meet" className="arches pointer-events-none absolute inset-y-0 right-0 h-full w-[78%] [mask-image:linear-gradient(to_bottom,black_55%,transparent_85%)]" aria-hidden>
       {arcs.map((a, i) => (
         <path
           key={a.x}
-          d={`M${a.x} 560 V${a.w / 2 + 40} a${a.w / 2} ${a.w / 2} 0 0 1 ${a.w} 0 V560`}
+          d={`M${a.x} 560 V230 a${a.w / 2} ${a.w / 2} 0 0 1 ${a.w} 0 V560`}
           fill="none"
           stroke={a.c}
           strokeWidth="22"
@@ -97,7 +97,7 @@ export default function CumbrePage() {
           </div>
           <div className="reveal relative min-h-[24rem] sm:min-h-[30rem]">
             <Arches />
-            <div className="absolute top-1/2 left-0 w-[82%] -translate-y-1/2 overflow-hidden rounded-[1.75rem] shadow-2xl shadow-navy-900/30 ring-[6px] ring-white">
+            <div className="absolute top-[58%] left-0 w-[82%] -translate-y-1/2 overflow-hidden rounded-[1.75rem] shadow-2xl shadow-navy-900/30 ring-[6px] ring-white">
               <div className="relative aspect-[3/2]">
                 <Image
                   src="/images/cumbre-auditorio-hd.webp"
@@ -123,8 +123,8 @@ export default function CumbrePage() {
       </section>
 
       {/* Próxima Cumbre */}
-      <section className="px-4 sm:px-6">
-        <div className="reveal relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 px-6 py-16 text-center text-white shadow-2xl shadow-navy-900/20 sm:px-12 sm:py-20">
+      <section className="reveal relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 px-6 py-16 text-center text-white sm:px-12 sm:py-24">
+        <div>
           <div className="pointer-events-none absolute -top-24 -left-24 h-72 w-72 rounded-full bg-cta/40 blur-sm" aria-hidden />
           <div className="pointer-events-none absolute -right-10 -bottom-16 h-56 w-56 rounded-full border-[32px] border-[#f5a81c]/60" aria-hidden />
           <span className="relative inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-sky-accent ring-1 ring-white/20">

@@ -115,8 +115,8 @@ export default function CampanaPage() {
       </section>
 
       {/* Encuesta */}
-      <section className="px-4 sm:px-6">
-        <div className="reveal relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-sky-accent via-cta to-navy-800 px-6 py-16 text-center text-white shadow-2xl shadow-navy-900/20 sm:px-12">
+      <section className="reveal relative overflow-hidden bg-gradient-to-br from-sky-accent via-cta to-navy-800 px-6 py-16 text-center text-white sm:px-12 sm:py-20">
+        <div>
           <div className="pointer-events-none absolute -top-20 -left-20 h-72 w-72 rounded-full border-[40px] border-white/10" aria-hidden />
           <p className="relative font-bold italic text-white/85">La prevención salva vidas</p>
           <h2 className="relative mt-2 text-3xl font-extrabold tracking-tight sm:text-5xl">¿Cómo está tu Colon?</h2>

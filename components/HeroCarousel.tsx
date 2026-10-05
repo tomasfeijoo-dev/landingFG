@@ -91,7 +91,7 @@ export default function HeroCarousel() {
     <section
       aria-roledescription="carrusel"
       aria-label="Campañas de la Fundación"
-      className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-navy-900 shadow-2xl shadow-navy-900/20"
+      className="relative overflow-hidden bg-navy-900"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -117,6 +117,7 @@ export default function HeroCarousel() {
               className={`relative [grid-area:1/1] transition-opacity duration-700 ${active ? "opacity-100" : "pointer-events-none opacity-0"}`}
             >
               <Visual slide={s} priority={i === 0} />
+              <div className="relative z-20 mx-auto max-w-7xl">
               <div className="relative z-20 flex min-h-[600px] flex-col justify-end px-6 pt-40 pb-24 text-white sm:min-h-[600px] sm:px-12 lg:min-h-[540px] lg:w-[56%] lg:justify-center lg:py-20 lg:pr-0 lg:pl-16">
                 {s.eyebrow && (
                   <span className="mb-5 inline-flex items-center gap-2 self-start rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-white ring-1 ring-white/25 backdrop-blur">
@@ -142,13 +143,14 @@ export default function HeroCarousel() {
                   <p className="text-xs text-navy-900/65 sm:text-sm">{s.badge.label}</p>
                 </div>
               )}
+              </div>
             </div>
           );
         })}
       </div>
 
       {/* Controles */}
-      <div className="absolute inset-x-6 bottom-6 z-30 flex items-center justify-between sm:inset-x-12 lg:right-8 lg:left-16">
+      <div className="absolute inset-x-0 bottom-6 z-30 mx-auto flex max-w-7xl items-center justify-between px-6 sm:px-12 lg:pr-8 lg:pl-16">
         <div className="flex items-center gap-2 rounded-full bg-white/90 px-3 py-2 shadow-sm ring-1 ring-navy-900/5 backdrop-blur">
           {slides.map((s, i) => (
             <button
