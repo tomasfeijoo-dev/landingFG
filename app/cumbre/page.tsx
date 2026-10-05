@@ -18,17 +18,27 @@ const pilares = [
   { label: "Networking científico", icon: "sparkle" },
 ];
 
-// Arcos decorativos inspirados en la gráfica de la Cumbre (azul y amarillo)
+// Arcos de la gráfica de la Cumbre (azul y amarillo), dibujados detrás de la foto.
+// Cada arco "crece" de abajo hacia arriba al entrar en pantalla.
 function Arches() {
+  const arcs = [
+    { x: 30, w: 440, c: "#f5a81c" },
+    { x: 90, w: 320, c: "#01405c" },
+    { x: 150, w: 200, c: "#f5a81c" },
+    { x: 210, w: 80, c: "#015f86" },
+  ];
   return (
-    <svg viewBox="0 0 400 440" className="pointer-events-none absolute -top-8 -right-6 hidden h-[115%] w-auto lg:block" aria-hidden>
-      {[
-        { x: 20, w: 360, c: "#f5a81c" },
-        { x: 60, w: 280, c: "#01405c" },
-        { x: 100, w: 200, c: "#f5a81c" },
-        { x: 140, w: 120, c: "#015f86" },
-      ].map((a) => (
-        <path key={a.x} d={`M${a.x} 440 V${a.w / 2 + 20} a${a.w / 2} ${a.w / 2} 0 0 1 ${a.w} 0 V440`} fill="none" stroke={a.c} strokeWidth="14" strokeLinecap="round" />
+    <svg viewBox="0 0 500 560" preserveAspectRatio="xMaxYMid meet" className="arches pointer-events-none absolute inset-y-0 right-0 h-full w-[78%]" aria-hidden>
+      {arcs.map((a, i) => (
+        <path
+          key={a.x}
+          d={`M${a.x} 560 V${a.w / 2 + 40} a${a.w / 2} ${a.w / 2} 0 0 1 ${a.w} 0 V560`}
+          fill="none"
+          stroke={a.c}
+          strokeWidth="22"
+          pathLength={1}
+          style={{ animationDelay: `${i * 120}ms` }}
+        />
       ))}
     </svg>
   );
@@ -67,7 +77,7 @@ export default function CumbrePage() {
               <strong className="text-navy-900">talleres, paneles y actividades de networking</strong>, los participantes podrán compartir experiencias, fortalecer
               alianzas y generar nuevas perspectivas para el avance de la investigación y la innovación en la región.
             </p>
-            <div className="mt-8 grid grid-cols-2 gap-3">
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
               {pilares.map((p) => (
                 <div key={p.label} className="team-card reveal-pop group relative flex items-center gap-3 overflow-hidden rounded-2xl bg-white p-4 ring-1 ring-navy-900/5">
                   <span className="team-sheen" aria-hidden />
@@ -85,10 +95,28 @@ export default function CumbrePage() {
               Edición 2024 <Icon name="arrow" className="h-4 w-4" />
             </a>
           </div>
-          <div className="reveal relative py-8 lg:pr-16">
+          <div className="reveal relative min-h-[24rem] sm:min-h-[30rem]">
             <Arches />
-            <div className="relative aspect-[3/2] overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/25 ring-4 ring-white">
-              <Image src="/images/cumbre-auditorio.webp" alt="Auditorio durante la Cumbre Interamericana de CCR 360" fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover" />
+            <div className="absolute top-1/2 left-0 w-[82%] -translate-y-1/2 overflow-hidden rounded-[1.75rem] shadow-2xl shadow-navy-900/30 ring-[6px] ring-white">
+              <div className="relative aspect-[3/2]">
+                <Image
+                  src="/images/cumbre-auditorio-hd.webp"
+                  alt="Auditorio durante la Cumbre Interamericana de CCR 360"
+                  fill
+                  sizes="(min-width: 1024px) 40vw, 90vw"
+                  className="object-cover transition duration-700 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/50 via-transparent to-transparent" />
+              </div>
+            </div>
+            <div className="absolute bottom-2 left-6 z-10 flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-xl ring-1 ring-navy-900/5 sm:bottom-6">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#f5a81c]/15 text-[#c47f00]">
+                <Icon name="users" className="h-5 w-5" />
+              </span>
+              <span className="text-sm leading-tight">
+                <strong className="block text-navy-900">Primera Cumbre</strong>
+                <span className="text-navy-900/60">Edición 2024</span>
+              </span>
             </div>
           </div>
         </div>

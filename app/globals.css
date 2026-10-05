@@ -213,3 +213,11 @@ body {
   .reveal-pop { opacity: 1; transform: none; filter: none; transition: none; }
   .team-sheen { display: none; }
 }
+
+/* Arcos de la Cumbre: se dibujan de abajo hacia arriba */
+.arches path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.reveal.is-visible .arches path { animation: arch-draw 1.6s cubic-bezier(0.45, 0, 0.2, 1) forwards; }
+@keyframes arch-draw { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .arches path { stroke-dashoffset: 0; animation: none !important; }
+}
