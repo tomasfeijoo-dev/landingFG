@@ -89,7 +89,8 @@ export function StatsAndHighlights() {
       title: "¿Cómo está tu colon?",
       cta: "Ver",
       href: homeLinks.campana,
-      image: "/images/campana-colon.webp",
+      image: "/images/campana-colon-v2.webp",
+      imagePosition: "right top",
     },
     {
       kicker: "Cumbre Interamericana de",
@@ -139,7 +140,7 @@ export function StatsAndHighlights() {
           >
             {c.image && (
               <>
-                <Image src={c.image} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover transition duration-500 group-hover:scale-105" />
+                <Image src={c.image} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover transition duration-500 group-hover:scale-105" style={{ objectPosition: "imagePosition" in c ? c.imagePosition : "center" }} />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/95 via-navy-900/70 to-navy-900/30" />
               </>
             )}
