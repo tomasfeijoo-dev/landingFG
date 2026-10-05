@@ -99,12 +99,11 @@ export default function Donate({ first = false }: { first?: boolean }) {
         <div className="relative px-6 py-12 text-white sm:px-12 sm:py-14 lg:px-16">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
             <div className="max-w-2xl">
-              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-sky-accent">
-                <Icon name="heart" className="h-4 w-4" />
-                Compromiso solidario
-              </p>
-              <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Tu aporte permite más diagnósticos tempranos. Salva vidas.</h2>
-              <p className="mt-3 text-white/80">Cada test Q-FIT cuesta $95.000. Elegí cuántas personas querés ayudar a hacerse el control.</p>
+              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur">
+                <Icon name="heart" className="h-5 w-5" />
+              </span>
+              <h2 className="mt-4 text-3xl font-extrabold tracking-tight sm:text-4xl">Sumate a nuestra campaña de prevención y detección temprana</h2>
+              <p className="mt-3 text-white/80">Tu aporte permite más diagnóstico tempranos y diagnosticar a tiempo salva vidas.</p>
             </div>
             <button
               type="button"
@@ -121,8 +120,9 @@ export default function Donate({ first = false }: { first?: boolean }) {
             </button>
           </div>
 
-          <div className="mt-8">
+          <div className="mt-8 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
             <Stepper step={step} />
+            {step === 1 && <p className="text-sm text-white/70">Cada test Q-FIT cuesta $95.000.</p>}
           </div>
 
           {step === 1 ? (

@@ -33,8 +33,7 @@ export default function Newsletter() {
             <Icon name="mail" />
           </div>
           <div>
-            <p className="text-lg font-bold text-white">Recibí nuestras guías de prevención</p>
-            <p className="text-sm text-white/65">Novedades de salud digestiva y de los programas de la Fundación.</p>
+            <p className="text-xl font-bold text-white sm:text-2xl">Sumate para recibir recursos y novedades.</p>
           </div>
         </div>
         {status === "ok" ? (
@@ -47,7 +46,7 @@ export default function Newsletter() {
               name="email"
               type="email"
               required
-              placeholder="Tu correo electrónico"
+              placeholder="Correo electrónico"
               className="w-full rounded-full border border-white/15 bg-white/10 px-5 py-3 text-white outline-none placeholder:text-white/50 focus:border-sky-accent md:w-72"
             />
             <button
@@ -55,7 +54,7 @@ export default function Newsletter() {
               disabled={status === "sending"}
               className="flex-none rounded-full bg-cta px-6 py-3 font-semibold text-white transition hover:bg-cta-hover disabled:opacity-60"
             >
-              {status === "sending" ? "Enviando…" : "Suscribirme"}
+              {status === "sending" ? "Enviando…" : "Quiero recibir novedades"}
             </button>
           </form>
         )}

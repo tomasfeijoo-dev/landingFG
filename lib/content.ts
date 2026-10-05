@@ -44,6 +44,15 @@ export const mercadoPagoLinks = {
 // TODO: pedirle a Juli el link al Anuario 2026 digital (se usa en todos los botones y tarjetas del anuario).
 export const anuarioUrl = "https://fundaciongedyt.org.ar/publicaciones/";
 
+// Links de las tarjetas destacadas del inicio
+export const homeLinks = {
+  campana: "/que-hacemos",
+  // TODO: link a la edición 2024 de la Cumbre Interamericana de CCR360°
+  cumbre: "/novedades",
+  gala2025:
+    "https://www.infobae.com/tendencias/2025/09/10/como-fue-la-emotiva-gala-solidaria-noche-azul-que-impulsa-la-prevencion-y-deteccion-del-cancer-de-colon/",
+};
+
 // Noche Azul 2026: galería y cobertura de prensa
 export const nocheAzul = {
   // TODO: link a la galería completa de fotos (Google Photos, Drive, Flickr, etc.)
@@ -80,10 +89,10 @@ export const nav = [
 // Banners del inicio (carrusel). Las fotos van en /public/banners.
 export type Slide = {
   id: string;
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   highlight: string;
-  text: string;
+  text?: string;
   image?: string;
   imageAlt?: string;
   // Encuadre de la foto (CSS object-position)
@@ -95,65 +104,52 @@ export type Slide = {
   secondary?: { label: string; href: string; interest?: string };
 };
 
+// Textos tal cual figuran hoy en fundaciongedyt.org.ar (el título se parte en
+// "title" + "highlight" solo para destacar la segunda parte).
 export const slides: Slide[] = [
   {
-    id: "test-fit",
-    eyebrow: "Prevenir también es cuidar",
-    title: "Porque detectar a tiempo puede hacer la diferencia,",
-    highlight: "trabajamos para que la prevención llegue a más personas.",
-    text: "Test FIT simple y no invasivo, con acompañamiento médico para cada resultado.",
-    image: "/banners/test-fit-mano-wide.webp",
-    imageAlt: "Mano sosteniendo un test FIT de sangre oculta en materia fecal",
-    imagePosition: "center 55%",
-    primary: { label: "Conocé nuestra Fundación", href: "/que-hacemos" },
-    secondary: { label: "Hacete el test FIT", href: "/contacto", interest: "otro" },
-  },
-  {
     id: "noche-azul",
-    eyebrow: "Gala a beneficio",
-    title: "Noche Azul 2026:",
-    highlight: "una noche para salvar vidas.",
-    text: "La sexta edición de nuestra gala reunió a referentes del espectáculo, el deporte y las empresas para impulsar la detección temprana.",
+    title: "Gala",
+    highlight: "2026",
     image: "/banners/noche-azul-brindis.webp",
     imageAlt: "Brindis en la gala Noche Azul 2026",
     imagePosition: "center 30%",
-    badge: { value: "$290M", label: "recaudados para prevención" },
     primary: { label: "Ver más", href: "/que-hacemos" },
-    secondary: { label: "Quiero ser sponsor", href: "/contacto", interest: "empresa" },
-  },
-  {
-    id: "fondo-comun",
-    eyebrow: "Fondo Común",
-    title: "Sé parte del Fondo Común de",
-    highlight: "Prevención y Detección Temprana de Cáncer de Colon.",
-    text: "Tu aporte se transforma en tests, campañas y seguimiento médico para quienes más lo necesitan.",
-    art: "ribbon",
-    badge: { value: "9 de 10", label: "casos se curan si se detectan a tiempo" },
-    primary: { label: "Quiero aportar", href: "/donar" },
-    secondary: { label: "Cómo funciona", href: "/contacto", interest: "donacion" },
-  },
-  {
-    id: "mujeres",
-    eyebrow: "Reconocimiento",
-    title: "Premio a Mujeres Destacadas en",
-    highlight: "Gastroenterología & Endoscopía Digestiva.",
-    text: "Visibilizamos y reconocemos el liderazgo de las mujeres que transforman la especialidad.",
-    image: "/banners/mujeres-premio.webp",
-    imageAlt: "Entrega del Premio a Mujeres Destacadas en Gastroenterología",
-    imagePosition: "center 25%",
-    primary: { label: "Ver más", href: "/programas" },
-    secondary: { label: "Consultanos", href: "/contacto", interest: "profesional" },
   },
   {
     id: "consejo",
-    eyebrow: "Gobernanza y liderazgo",
     title: "Integrá el Consejo Directivo de",
-    highlight: "Fundación Gedyt.",
-    text: "Convocamos a personas con trayectoria, redes y compromiso genuino para conducir la estrategia de la Fundación y el futuro de la prevención.",
+    highlight: "Fundación GEDYT",
+    text: "Convocamos a personas con trayectoria, redes y compromiso genuino para integrar el órgano de gobierno que conduce la estrategia de la Fundación y el futuro de la prevención del cáncer colorrectal y del acceso a la salud digestiva de calidad.",
     image: "/banners/consejo.webp",
     imageAlt: "Reunión de trabajo alrededor de una mesa",
     imagePosition: "center 40%",
     primary: { label: "Iniciar mi postulación", href: "/contacto", interest: "consejo" },
+  },
+  {
+    id: "mujeres",
+    title: "Premio a Mujeres Destacadas en",
+    highlight: "Gastroenterología & Endoscopía Digestiva",
+    image: "/banners/mujeres-premio.webp",
+    imageAlt: "Entrega del Premio a Mujeres Destacadas en Gastroenterología",
+    imagePosition: "center 25%",
+    primary: { label: "Ver más", href: "/programas" },
+  },
+  {
+    id: "fondo-comun",
+    title: "Sé parte del Fondo Común de",
+    highlight: "Prevención y Detección Temprana de Cáncer de Colon",
+    art: "ribbon",
+    primary: { label: "Ver más", href: "/donar" },
+  },
+  {
+    id: "test-fit",
+    title: "Porqué detectar a tiempo puede hacer la diferencia,",
+    highlight: "trabajamos para que la prevención llegue a más personas.",
+    image: "/banners/test-fit-mano-wide.webp",
+    imageAlt: "Mano sosteniendo un test FIT de sangre oculta en materia fecal",
+    imagePosition: "center 55%",
+    primary: { label: "Conocé nuestra Fundación", href: "/que-hacemos" },
   },
 ];
 

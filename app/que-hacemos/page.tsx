@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ArgentinaMap from "@/components/ArgentinaMap";
-import { CampaignBanner, ImpactSection, LinesCards } from "@/components/sections";
+import { CampaignBanner, ImpactSection, LinesCards, NocheAzulRecap } from "@/components/sections";
 import Icon from "@/components/Icon";
 import { ButtonLink, Eyebrow, PageHeader } from "@/components/ui";
 import { anuarioUrl } from "@/lib/content";
@@ -37,6 +37,8 @@ export default function QueHacemosPage() {
           </div>
         </div>
       </section>
+
+      <NocheAzulRecap />
 
       <div className="bg-brand-50/60">
         <ImpactSection />
