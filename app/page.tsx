@@ -2,7 +2,7 @@ import Donate from "@/components/Donate";
 import HeroCarousel from "@/components/HeroCarousel";
 import Icon from "@/components/Icon";
 import { ConsorcioSection, PrevenirCard, StatsAndHighlights } from "@/components/HomeSections";
-import { CampaignBanner } from "@/components/sections";
+import { CampaignBanner, ImpactSection } from "@/components/sections";
 import { ButtonLink, Eyebrow } from "@/components/ui";
 
 // Inicio: mismas secciones y textos que la web actual de la Fundación, con el nuevo diseño.
@@ -13,6 +13,10 @@ export default function Home() {
         <HeroCarousel />
       </section>
       <PrevenirCard />
+
+      <div id="impacto">
+        <ImpactSection />
+      </div>
       {/* Qué hacemos: resumen con acceso a la página completa */}
       <section className="bg-brand-50/70 px-4 py-20 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-6xl">
