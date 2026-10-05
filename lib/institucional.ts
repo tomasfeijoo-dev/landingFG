@@ -22,11 +22,11 @@ export const consejo: Person[] = [
 
 // TODO: completar foto (/public/equipo/...) y link de LinkedIn de cada persona.
 export const equipo: Person[] = [
-  { role: "Directora Ejecutiva", name: "Maria Emilia Caro" },
+  { role: "Directora Ejecutiva", name: "Maria Emilia Caro", linkedin: "https://ar.linkedin.com/in/emiliacaro" },
   { role: "Directora Operativa", name: "Isabela Esersky" },
   { role: "Directora Administrativa", name: "Lorena Tokatlian" },
-  { role: "Dirección de Comunicación y Asuntos Institucionales", name: "Juliana Casse" },
-  { role: "Asistente de Programas", name: "Sofia Chuchurru" },
+  { role: "Dirección de Comunicación y Asuntos Institucionales", name: "Juliana Casse", linkedin: "https://ar.linkedin.com/in/juliana-casse-01934031" },
+  { role: "Asistente de Programas", name: "Sofia Chuchurru", linkedin: "https://www.linkedin.com/in/sofiachuchurru/" },
   { role: "Asistente de Procesos de Programas", name: "Nicolás Padovan" },
   { role: "Dirección de Programa de Mujeres", name: "Marcela González" },
   { role: "Co-Director del Proyecto de Misiones", name: "Gonzalo Coria" },
