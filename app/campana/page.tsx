@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
 import ArgentinaMap from "@/components/ArgentinaMap";
-import { CampaignBanner, ImpactSection, LinesCards, NocheAzulRecap } from "@/components/sections";
+import { CampaignBanner, ImpactSection, LinesCards } from "@/components/sections";
 import Icon from "@/components/Icon";
 import { ButtonLink, Eyebrow, PageHeader } from "@/components/ui";
 import { anuarioUrl } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Qué hacemos",
-  description: "Campañas, programas provinciales, alianzas con empresas y la gala Noche Azul de Fundación Gedyt.",
+  title: "Campaña",
+  description: "Campaña de prevención y detección temprana del cáncer colorrectal: programas provinciales y alianzas con empresas.",
 };
 
-export default function QueHacemosPage() {
+export default function CampanaPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Qué hacemos"
+        eyebrow="Campaña"
         title="Líneas de prevención activas"
         text="Articulamos la excelencia médica de Gedyt con el acceso equitativo a la salud digestiva en toda la Argentina."
         background={<ArgentinaMap focusX={0.7} fade="bg-gradient-to-r from-white/95 via-white/75 to-white/0 max-md:to-white/50" />}
@@ -37,8 +37,6 @@ export default function QueHacemosPage() {
           </div>
         </div>
       </section>
-
-      <NocheAzulRecap />
 
       <div className="bg-brand-50/60">
         <ImpactSection />

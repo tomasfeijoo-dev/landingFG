@@ -46,7 +46,7 @@ export const anuarioUrl = "https://fundaciongedyt.org.ar/publicaciones/";
 
 // Links de las tarjetas destacadas del inicio
 export const homeLinks = {
-  campana: "/que-hacemos",
+  campana: "/campana",
   // TODO: link a la edición 2024 de la Cumbre Interamericana de CCR360°
   cumbre: "/novedades",
   gala2025:
@@ -79,11 +79,12 @@ export const donationOptions: DonationOption[] = [
 
 export const nav = [
   { href: "/", label: "Inicio" },
+  { href: "/institucional", label: "Institucional" },
   { href: "/programas", label: "Programas" },
-  { href: "/que-hacemos", label: "Qué hacemos" },
-  { href: "/sumate", label: "Sumate" },
+  { href: "/campana", label: "Campaña" },
+  { href: "/cumbre", label: "Cumbre" },
+  { href: "/gala-noche-azul", label: "Gala Noche Azul" },
   { href: "/novedades", label: "Novedades" },
-  { href: "/contacto", label: "Contacto" },
 ];
 
 // Banners del inicio (carrusel). Las fotos van en /public/banners.
@@ -114,7 +115,7 @@ export const slides: Slide[] = [
     image: "/banners/noche-azul-brindis.webp",
     imageAlt: "Brindis en la gala Noche Azul 2026",
     imagePosition: "center 30%",
-    primary: { label: "Ver más", href: "/que-hacemos" },
+    primary: { label: "Ver más", href: "/gala-noche-azul" },
   },
   {
     id: "consejo",
@@ -149,7 +150,7 @@ export const slides: Slide[] = [
     image: "/banners/test-fit-mano-wide.webp",
     imageAlt: "Mano sosteniendo un test FIT de sangre oculta en materia fecal",
     imagePosition: "center 55%",
-    primary: { label: "Conocé nuestra Fundación", href: "/que-hacemos" },
+    primary: { label: "Conocé nuestra Fundación", href: "/institucional" },
   },
 ];
 
@@ -269,14 +270,14 @@ export const news = [
 export const footerLinks = {
   Programas: [
     { label: "Test FIT", href: "/programas" },
-    { label: "Prevenir es cuidar", href: "/que-hacemos" },
-    { label: "Programas provinciales", href: "/que-hacemos" },
+    { label: "Prevenir es cuidar", href: "/campana" },
+    { label: "Programas provinciales", href: "/campana" },
     { label: "Formación profesional", href: "/programas" },
-    { label: "Noche Azul", href: "/que-hacemos" },
+    { label: "Noche Azul", href: "/campana" },
   ],
   Institucional: [
     { label: "Nuestro impacto", href: "/#impacto" },
-    { label: "Sumate a la red", href: "/sumate" },
+    { label: "Sumate a la red", href: "/institucional" },
     { label: "Doná", href: "/donar" },
     { label: "Novedades", href: "/novedades" },
   ],

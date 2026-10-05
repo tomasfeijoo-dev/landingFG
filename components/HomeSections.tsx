@@ -27,7 +27,7 @@ export function PrevenirCard() {
           {[
             { label: "Donar hoy", href: "/donar", icon: "heart" },
             { label: "Programas", href: "/programas", icon: "flask" },
-            { label: "Campaña", href: "/que-hacemos", icon: "shield" },
+            { label: "Campaña", href: "/campana", icon: "shield" },
           ].map((b) => (
             <InterestLink
               key={b.label}
@@ -61,7 +61,7 @@ export function QueHacemosHome() {
             basadas en evidencia y articulación público-privada.
           </p>
           <div className="mt-8">
-            <ButtonLink href="/que-hacemos" variant="cta">
+            <ButtonLink href="/institucional" variant="cta">
               Conocé más <Icon name="arrow" className="h-4 w-4" />
             </ButtonLink>
           </div>

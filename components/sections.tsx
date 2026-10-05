@@ -186,7 +186,7 @@ export function NetworkSection({ withLink = false }: { withLink?: boolean }) {
           <ButtonLink href="/contacto" interest="empresa">
             Sumá tu organización <Icon name="arrow" className="h-4 w-4" />
           </ButtonLink>
-          <ButtonLink href={withLink ? "/sumate" : "/donar"} variant="light">
+          <ButtonLink href={withLink ? "/institucional" : "/donar"} variant="light">
             {withLink ? "Conocé cómo sumarte" : "Quiero ser donante"}
           </ButtonLink>
         </div>

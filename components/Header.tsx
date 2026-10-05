@@ -77,13 +77,13 @@ export default function Header() {
       <header className={`sticky top-0 z-50 bg-white/95 backdrop-blur transition-shadow ${scrolled || open ? "shadow-sm" : ""}`}>
         <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6">
           <Logo />
-          <nav className="hidden items-center gap-7 lg:flex">
+          <nav className="hidden items-center gap-4 lg:flex xl:gap-7">
             {nav.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 aria-current={isActive(item.href) ? "page" : undefined}
-                className={`border-b-2 py-1 text-sm font-medium transition hover:text-cta ${
+                className={`whitespace-nowrap border-b-2 py-1 text-sm font-medium transition hover:text-cta ${
                   isActive(item.href) ? "border-cta text-cta" : "border-transparent text-navy-900/80"
                 }`}
               >
@@ -92,10 +92,7 @@ export default function Header() {
             ))}
           </nav>
           <div className="hidden items-center gap-3 lg:flex">
-            <Link href="/sumate" className="rounded-full px-5 py-2.5 text-sm font-semibold text-navy-900 ring-1 ring-navy-900/15 transition hover:ring-cta">
-              Sumate
-            </Link>
-            <Link href="/donar" className="flex items-center gap-2 rounded-full bg-cta px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-cta/25 transition hover:bg-cta-hover">
+            <Link href="/donar" className="flex items-center gap-2 whitespace-nowrap rounded-full bg-cta px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-cta/25 transition hover:bg-cta-hover">
               <Icon name="heart" className="h-4 w-4" />
               Doná hoy
             </Link>
@@ -124,11 +121,8 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-            <div className="mt-3 grid grid-cols-2 gap-3">
-              <Link href="/sumate" className="rounded-full py-3 text-center font-semibold text-navy-900 ring-1 ring-navy-900/15">
-                Sumate
-              </Link>
-              <Link href="/donar" className="rounded-full bg-cta py-3 text-center font-semibold text-white">
+            <div className="mt-3">
+              <Link href="/donar" className="block rounded-full bg-cta py-3 text-center font-semibold text-white">
                 Doná hoy
               </Link>
             </div>

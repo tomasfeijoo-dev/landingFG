@@ -8,19 +8,17 @@ import { ButtonLink, Eyebrow, PageHeader } from "@/components/ui";
 import { institutions, sponsors } from "@/lib/logos";
 
 export const metadata: Metadata = {
-  title: "Sumate",
-  description: "Sumate a la red de prevención de Fundación Gedyt: empresas, gobiernos, sociedades médicas, donantes y Consejo Directivo.",
+  title: "Institucional",
+  description: "Quiénes somos, Consejo Directivo y red de prevención de Fundación Gedyt.",
 };
 
-export default function SumatePage() {
+export default function InstitucionalPage() {
   return (
     <>
-      <Donate first />
-
       <PageHeader
-        eyebrow="Sumate"
-        title="Hay muchas formas de ser parte"
-        text="Como organización, profesional, donante o integrando el Consejo Directivo: cada aporte acerca la prevención a más personas."
+        eyebrow="Institucional"
+        title="¿Qué hacemos en la Fundación?"
+        text="En Fundación Gedyt contribuimos a mejorar la eficiencia y el acceso a la atención de las enfermedades digestivas en Argentina, con acciones basadas en evidencia y articulación público-privada."
         image="/images/equipo-gala.webp"
         imageAlt="Equipo de la Fundación Gedyt en la gala Noche Azul"
         imagePosition="center 35%"
@@ -59,9 +57,11 @@ export default function SumatePage() {
         </div>
       </section>
 
-      <section className="px-4 pb-20 sm:px-6 sm:pb-28">
+      <section className="px-4 sm:px-6">
         <NetworkSection />
       </section>
+
+      <Donate />
     </>
   );
 }
