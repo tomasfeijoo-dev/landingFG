@@ -72,7 +72,7 @@ export default function NovedadesPage() {
         eyebrow="Prensa y publicaciones"
         title="Novedades"
         text="Comunicados, prensa, anuarios e investigación."
-        image="/images/nota-infobae-horizontal.webp"
+        image="/images/nota-infobae-pop.webp"
         imageAlt="Nota de Infobae con el Dr. Luis Caro, presidente de la Fundación Gedyt"
         imagePosition="right center"
       />
