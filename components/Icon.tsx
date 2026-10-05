@@ -9,6 +9,7 @@ const paths: Record<string, React.ReactNode> = {
   stethoscope: <path d="M6 3v6a4 4 0 008 0V3M10 13v2a5 5 0 0010 0v-2m0 0a2 2 0 100-4 2 2 0 000 4z" />,
   arrow: <path d="M5 12h14m-6-6l6 6-6 6" />,
   check: <path d="M20 6L9 17l-5-5" />,
+  book: <path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2V5zm0 16a2 2 0 012-2h13" />,
   play: <path d="M7 4.5v15l12-7.5z" />,
   instagram: (
     <path
