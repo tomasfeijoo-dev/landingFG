@@ -19,13 +19,6 @@ const objetivos = [
   { label: "Posicionar la prevención como prioridad pública", icon: "institution" },
 ];
 
-const subnav = [
-  { href: "#la-noche-azul", label: "La Noche Azul" },
-  { href: "#objetivos", label: "Objetivos" },
-  { href: "#artistas", label: "Artistas" },
-  { href: "#participacion", label: "Participación" },
-];
-
 function Stars() {
   return (
     <>
@@ -64,34 +57,6 @@ export default function GalaPage() {
           />
           <Stars />
         </div>
-        <div className="relative flex flex-col items-center px-6 pt-2 pb-10 text-center">
-          <p className="flex flex-wrap items-center justify-center gap-x-3 text-base font-medium uppercase tracking-[0.2em] sm:text-xl">
-            <Icon name="calendar" className="h-5 w-5 text-sky-accent" />
-            15 de septiembre 2026 · 20 hs
-          </p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
-              href={nocheAzul.reserveUrl}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 font-semibold text-navy-900 shadow-lg shadow-black/30 transition hover:bg-brand-50"
-            >
-              Reservá tu lugar <Icon name="arrow" className="h-4 w-4" />
-            </a>
-            <a
-              href={nocheAzul.modalidadesUrl}
-              className="inline-flex items-center justify-center rounded-full bg-white/10 px-8 py-3.5 font-semibold text-white ring-1 ring-white/30 backdrop-blur transition hover:bg-white/20"
-            >
-              Ver modalidades de participación
-            </a>
-          </div>
-        </div>
-        {/* Navegación interna de la gala */}
-        <nav className="relative flex flex-wrap justify-center gap-2 border-t border-white/10 px-4 py-4">
-          {subnav.map((n) => (
-            <a key={n.href} href={n.href} className="rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-white/75 transition hover:bg-white/10 hover:text-white">
-              {n.label}
-            </a>
-          ))}
-        </nav>
       </section>
 
         {/* Una noche que cambia historias */}
