@@ -82,18 +82,6 @@ export function QueHacemosHome() {
   );
 }
 
-// El emoji del banner de concientización, ahora dentro de la tarjeta de la campaña.
-function CampaignEmoji() {
-  return (
-    <div className="emoji-anim emoji-enter absolute top-5 right-5 w-20 sm:w-24" aria-hidden>
-      <div className="emoji-anim emoji-shadow absolute -bottom-1 left-1/2 h-3 w-3/4 -translate-x-1/2 rounded-[50%] bg-navy-950/45 blur-[2px]" />
-      <div className="emoji-anim emoji-idle relative">
-        <Image src="/images/emoji-caca.webp" alt="" width={502} height={533} className="h-auto w-full drop-shadow-xl" />
-      </div>
-    </div>
-  );
-}
-
 export function StatsAndHighlights() {
   const cards = [
     {
@@ -101,8 +89,7 @@ export function StatsAndHighlights() {
       title: "¿Cómo está tu colon?",
       cta: "Ver",
       href: homeLinks.campana,
-      bg: "bg-gradient-to-br from-[#1b9bd6] to-cta",
-      emoji: true,
+      image: "/images/campana-colon.webp",
     },
     {
       kicker: "Cumbre Interamericana de",
@@ -148,7 +135,7 @@ export function StatsAndHighlights() {
           <InterestLink
             key={c.cta}
             href={c.href}
-            className={`reveal group relative flex min-h-[15rem] flex-col justify-end overflow-hidden rounded-3xl p-7 text-white shadow-2xl shadow-navy-900/25 transition hover:-translate-y-1 ${c.bg ?? "bg-navy-900"}`}
+            className={`reveal group relative flex min-h-[15rem] flex-col justify-end overflow-hidden rounded-3xl p-7 text-white shadow-2xl shadow-navy-900/25 transition hover:-translate-y-1 bg-navy-900`}
           >
             {c.image && (
               <>
@@ -156,7 +143,6 @@ export function StatsAndHighlights() {
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/95 via-navy-900/70 to-navy-900/30" />
               </>
             )}
-            {c.emoji && <CampaignEmoji />}
             <div className="relative">
               <p className="text-sm font-bold uppercase tracking-[0.12em] text-white/85">{c.kicker}</p>
               {c.title && <p className="mt-1 text-2xl font-extrabold">{c.title}</p>}
