@@ -84,7 +84,7 @@ export function PageHeader({
 }: {
   eyebrow: string;
   title: string;
-  text?: string;
+  text?: React.ReactNode;
   image?: string;
   imageAlt?: string;
   imagePosition?: string;

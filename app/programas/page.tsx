@@ -20,7 +20,13 @@ export default function ProgramasPage() {
         <PageHeader
           eyebrow="Programas"
           title="Iniciativas en salud digestiva"
-          text={iniciativas.before + iniciativas.bold + iniciativas.after}
+          text={
+            <>
+              {iniciativas.before}
+              <strong className="font-semibold text-navy-900">{iniciativas.bold}</strong>
+              {iniciativas.after}
+            </>
+          }
           background={<ArgentinaMap focusX={0.7} fade="bg-gradient-to-r from-white/95 via-white/75 to-white/0 max-md:to-white/50" />}
         />
       </div>
