@@ -146,29 +146,13 @@ body {
   0%, 100%, 42% { transform: translateX(-50%) scale(1); opacity: 1; }
   20% { transform: translateX(-50%) scale(0.7); opacity: 0.5; }
 }
-@keyframes hand-in {
-  from { opacity: 0; transform: scale(0.3) rotate(-30deg); }
-  to { opacity: 1; transform: scale(1) rotate(0); }
-}
-@keyframes hand-wave {
-  from { transform: rotate(-18deg); }
-  to { transform: rotate(22deg); }
-}
-@keyframes hand-out {
-  to { opacity: 0; transform: scale(0.4); }
-}
 .emoji-enter { animation: emoji-enter 4.4s cubic-bezier(0.45, 0, 0.25, 1) 0.4s both; }
-.emoji-idle { transform-origin: 50% 100%; animation: emoji-idle 3.4s ease-in-out 5.6s infinite both; }
-.emoji-shadow { animation: emoji-shadow 3.4s ease-in-out 5.6s infinite both; }
-.emoji-hand {
-  transform-origin: 70% 90%;
-  animation: hand-in 0.35s ease-out 4.2s both, hand-wave 0.32s ease-in-out 4.55s 7 alternate both, hand-out 0.4s ease-in 6.9s forwards;
-}
+.emoji-idle { transform-origin: 50% 100%; animation: emoji-idle 3.4s ease-in-out 4.9s infinite both; }
+.emoji-shadow { animation: emoji-shadow 3.4s ease-in-out 4.9s infinite both; }
 .emoji-anim { animation-play-state: paused; }
 .is-visible .emoji-anim { animation-play-state: running; }
 @media (prefers-reduced-motion: reduce) {
   .emoji-anim { animation: none !important; }
-  .emoji-hand { display: none; }
 }
 
 /* Cursor que señala la opción más elegida */
@@ -179,4 +163,14 @@ body {
 .cursor-bounce { animation: cursor-bounce 1.6s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) {
   .cursor-bounce { animation: none; }
+}
+
+/* Cambio de paso en la donación */
+@keyframes step-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+.step-in { animation: step-in 0.35s ease-out both; }
+@media (prefers-reduced-motion: reduce) {
+  .step-in { animation: none; }
 }

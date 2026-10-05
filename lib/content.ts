@@ -34,6 +34,13 @@ export const socialLinks = [
 // TODO: reemplazar por el link real de Mercado Pago (o la plataforma que usen).
 export const donateUrl = "/contacto?motivo=donacion";
 
+// TODO: links de Mercado Pago para la donación mensual (suscripción) y la de única vez.
+// Mientras estén vacíos, el botón lleva a donateUrl.
+export const mercadoPagoLinks = {
+  mensual: "",
+  unica: "",
+};
+
 // TODO: pedirle a Juli el link al Anuario 2026 digital (se usa en todos los botones y tarjetas del anuario).
 export const anuarioUrl = "https://fundaciongedyt.org.ar/publicaciones/";
 

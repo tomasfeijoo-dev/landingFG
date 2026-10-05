@@ -3,9 +3,8 @@
 import Image from "next/image";
 import { useEffect } from "react";
 import Icon from "@/components/Icon";
-import InterestLink from "@/components/InterestLink";
 import { openBarbaraVideo } from "@/components/VideoModal";
-import { donateUrl, type DonationOption } from "@/lib/content";
+import { type DonationOption } from "@/lib/content";
 
 const BLUES = ["#015f86", "#3fa5d4", "#01405c", "#7cc4e6", "#d6ecf7"];
 const TIER_NAME = { plata: "Plata", oro: "Oro", platino: "Platino" } as const;
@@ -89,7 +88,15 @@ function DiamondMedal() {
   );
 }
 
-export default function DonationCelebration({ option, onClose }: { option: DonationOption; onClose: () => void }) {
+export default function DonationCelebration({
+  option,
+  onClose,
+  onPay,
+}: {
+  option: DonationOption;
+  onClose: () => void;
+  onPay: () => void;
+}) {
   const tier = option.tier;
 
   useEffect(() => {
@@ -176,13 +183,14 @@ export default function DonationCelebration({ option, onClose }: { option: Donat
         )}
 
         <div className="relative z-10 mt-6">
-          <InterestLink
-            href={donateUrl}
+          <button
+            type="button"
+            onClick={onPay}
             className="inline-flex items-center justify-center gap-2 rounded-full bg-cta px-8 py-3.5 font-semibold text-white shadow-lg shadow-cta/25 transition hover:bg-cta-hover"
           >
             <Icon name="card" className="h-5 w-5" />
             Ir al pago
-          </InterestLink>
+          </button>
         </div>
 
         {(tier === "plata" || big) && <Applause many={big} />}
