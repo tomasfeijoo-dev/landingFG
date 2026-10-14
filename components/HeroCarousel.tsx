@@ -125,7 +125,7 @@ export default function HeroCarousel() {
             >
               <Visual slide={s} priority={i === 0} />
               <div className="relative z-20 mx-auto max-w-7xl">
-              <div className={`relative z-20 flex min-h-[600px] flex-col justify-end px-6 pt-40 pb-24 text-white sm:min-h-[600px] sm:px-12 lg:min-h-[620px] ${s.imageFit === "side" ? "lg:w-[60%]" : "lg:w-[78%]"} lg:justify-center lg:pt-16 lg:pb-28 lg:pr-0 lg:pl-16`}>
+              <div className={`relative z-20 flex min-h-[600px] flex-col justify-end px-6 pt-40 pb-24 text-white sm:min-h-[600px] sm:px-12 lg:min-h-[620px] ${s.imageFit === "side" ? "lg:w-[60%]" : "lg:w-[78%]"} lg:justify-center lg:py-20 lg:pr-0 lg:pl-24 xl:pl-16`}>
                 {s.eyebrow && (
                   <span className="mb-5 inline-flex items-center gap-2 self-start rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-white ring-1 ring-white/25 backdrop-blur">
                     <span className="h-1.5 w-1.5 rounded-full bg-sky-accent" />
@@ -156,37 +156,21 @@ export default function HeroCarousel() {
         })}
       </div>
 
-      {/* Controles */}
-      <div className="absolute inset-x-0 bottom-6 z-30 mx-auto flex max-w-7xl items-center justify-between px-6 sm:px-12 lg:pr-8 lg:pl-16">
-        <div className="flex items-center gap-2 rounded-full bg-white/90 px-3 py-2 shadow-sm ring-1 ring-navy-900/5 backdrop-blur">
-          {slides.map((s, i) => (
-            <button
-              key={s.id}
-              type="button"
-              onClick={() => go(i)}
-              aria-label={`Ir al banner ${i + 1}`}
-              aria-current={i === index}
-              className={`h-2 rounded-full transition-all ${i === index ? "w-8 bg-navy-800" : "w-2 bg-navy-900/25 hover:bg-navy-900/40"}`}
-            />
-          ))}
-        </div>
-        <div className="flex gap-2">
-          {[
-            { d: -1, label: "Banner anterior", rot: "rotate-180" },
-            { d: 1, label: "Banner siguiente", rot: "" },
-          ].map((b) => (
-            <button
-              key={b.d}
-              type="button"
-              onClick={() => go(index + b.d)}
-              aria-label={b.label}
-              className="flex h-11 w-11 items-center justify-center rounded-full bg-white text-navy-900 shadow-md ring-1 ring-navy-900/10 transition hover:text-cta"
-            >
-              <Icon name="arrow" className={`h-5 w-5 ${b.rot}`} />
-            </button>
-          ))}
-        </div>
-      </div>
+      {/* Flechas: a los costados del banner (en celular, abajo para no tapar el texto) */}
+      {[
+        { d: -1, label: "Banner anterior", rot: "rotate-180", pos: "left-6 sm:left-12 lg:left-4" },
+        { d: 1, label: "Banner siguiente", rot: "", pos: "right-6 sm:right-12 lg:right-4" },
+      ].map((b) => (
+        <button
+          key={b.d}
+          type="button"
+          onClick={() => go(index + b.d)}
+          aria-label={b.label}
+          className={`absolute bottom-6 z-30 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-navy-900 shadow-md ring-1 ring-navy-900/10 backdrop-blur transition hover:bg-white hover:text-cta lg:top-1/2 lg:bottom-auto lg:h-12 lg:w-12 lg:-translate-y-1/2 ${b.pos}`}
+        >
+          <Icon name="arrow" className={`h-5 w-5 ${b.rot}`} />
+        </button>
+      ))}
     </section>
   );
 }
