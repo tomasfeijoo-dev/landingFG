@@ -102,7 +102,7 @@ export default function NovedadesPage() {
                 }`}
               >
                 <div className={`relative overflow-hidden ${i === 0 ? "aspect-[16/9] lg:aspect-auto lg:flex-1" : "aspect-[16/9]"}`}>
-                  <Image src={c.image} alt="" fill sizes={i === 0 ? "(min-width: 1024px) 66vw, 100vw" : "(min-width: 1024px) 33vw, 50vw"} className="object-cover transition duration-700 group-hover:scale-105" />
+                  <Image quality={90} src={c.image} alt="" fill sizes={i === 0 ? "(min-width: 1024px) 66vw, 100vw" : "(min-width: 1024px) 33vw, 50vw"} className="object-cover transition duration-700 group-hover:scale-105" />
                   {i === 0 && <span className="absolute top-4 left-4 rounded-full bg-cta px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-white">Último comunicado</span>}
                 </div>
                 <div className="p-6">
@@ -140,7 +140,7 @@ export default function NovedadesPage() {
             {anuarios.map((a) => (
               <div key={a.label} className="reveal-pop group text-center">
                 <div className="relative mx-auto aspect-[656/460] overflow-hidden rounded-2xl shadow-2xl shadow-black/40 ring-1 ring-white/10 transition duration-500 group-hover:-translate-y-2 group-hover:rotate-[-1deg]">
-                  <Image src={a.image} alt={a.label} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+                  <Image quality={90} src={a.image} alt={a.label} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
                 </div>
                 <p className="mt-5 text-lg font-bold">{a.label}</p>
                 <div className="mt-3">
@@ -160,7 +160,7 @@ export default function NovedadesPage() {
             {posters.map((p) => (
               <article key={p.title} className="team-card reveal-pop group relative flex flex-col overflow-hidden rounded-3xl bg-white ring-1 ring-navy-900/5">
                 <div className="relative aspect-square overflow-hidden bg-brand-50">
-                  <Image src={p.image} alt={p.title} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover object-top transition duration-700 group-hover:scale-105" />
+                  <Image quality={90} src={p.image} alt={p.title} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover object-top transition duration-700 group-hover:scale-105" />
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <h3 className="flex-1 font-bold leading-snug text-navy-900">{p.title}</h3>
@@ -180,7 +180,7 @@ export default function NovedadesPage() {
         <article className="reveal relative mx-auto grid max-w-7xl items-center gap-10 overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-100 via-brand-50 to-[#cfe8f6] p-8 sm:p-12 lg:grid-cols-[1fr_1.6fr]">
           <div className="relative mx-auto w-full max-w-xs">
             <div className="relative aspect-[552/728] overflow-hidden rounded-2xl shadow-2xl shadow-navy-900/25 ring-4 ring-white">
-              <Image src={weo.image} alt="Tapa de la revista Gastroenterology" fill sizes="320px" className="object-cover" />
+              <Image quality={90} src={weo.image} alt="Tapa de la revista Gastroenterology" fill sizes="320px" className="object-cover" />
             </div>
           </div>
           <div>
@@ -218,7 +218,7 @@ export default function NovedadesPage() {
           </div>
           <div className="relative mx-auto w-full max-w-xs">
             <div className="relative aspect-[500/660] overflow-hidden rounded-2xl shadow-2xl shadow-navy-900/25 ring-4 ring-white">
-              <Image src={guidelines.image} alt="Tapa de la revista Clinical Epidemiology and Global Health" fill sizes="320px" className="object-cover" />
+              <Image quality={90} src={guidelines.image} alt="Tapa de la revista Clinical Epidemiology and Global Health" fill sizes="320px" className="object-cover" />
             </div>
           </div>
         </article>
@@ -238,7 +238,7 @@ export default function NovedadesPage() {
           </div>
           <div className="relative mx-auto w-full max-w-xs">
             <div className="relative aspect-[482/726] overflow-hidden rounded-2xl shadow-2xl shadow-black/40 ring-4 ring-white/10">
-              <Image src={asistencia.image} alt="Médica acompañando a un paciente" fill sizes="320px" className="object-cover" />
+              <Image quality={90} src={asistencia.image} alt="Médica acompañando a un paciente" fill sizes="320px" className="object-cover" />
             </div>
           </div>
         </article>

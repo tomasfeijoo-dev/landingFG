@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // 90 para notas de prensa, publicaciones y logos (más nitidez)
+  images: { qualities: [75, 90] },
   // Páginas renombradas: los links viejos siguen funcionando
   async redirects() {
     return [

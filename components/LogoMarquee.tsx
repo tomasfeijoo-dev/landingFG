@@ -20,7 +20,7 @@ function Row({ logos: base, reverse = false, size }: { logos: Logo[]; reverse?: 
             aria-hidden={i >= base.length}
             className={`flex flex-none items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ring-navy-900/5 ${tile}`}
           >
-            <Image src={l.src} alt={i < base.length ? l.name : ""} width={l.width} height={l.height} loading="eager" className="max-h-[70%] w-auto max-w-full object-contain" />
+            <Image quality={90} src={l.src} alt={i < base.length ? l.name : ""} width={l.width} height={l.height} loading="eager" className="max-h-[70%] w-auto max-w-full object-contain" />
           </li>
         ))}
       </ul>

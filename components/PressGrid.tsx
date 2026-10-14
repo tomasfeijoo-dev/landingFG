@@ -54,7 +54,7 @@ export default function PressGrid() {
           className="step-in group relative mt-10 grid overflow-hidden rounded-[2rem] bg-navy-900 text-white shadow-2xl shadow-navy-900/20 lg:grid-cols-[1.3fr_1fr]"
         >
           <div className="relative aspect-[16/9] overflow-hidden lg:aspect-auto lg:min-h-[22rem]">
-            <Image src={featured.image} alt="" fill sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105" />
+            <Image quality={90} src={featured.image} alt="" fill sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105" />
           </div>
           <div className="flex flex-col justify-center p-8 sm:p-10">
             <span className="self-start rounded-full bg-sky-accent/20 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-sky-accent">
@@ -80,7 +80,7 @@ export default function PressGrid() {
             style={{ animationDelay: `${(i % PAGE) * 40}ms` }}
           >
             <div className="relative aspect-[16/10] overflow-hidden">
-              <Image src={n.image} alt="" fill sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-110" />
+              <Image quality={90} src={n.image} alt="" fill sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-110" />
               <span className="absolute top-3 left-3 rounded-full bg-white/90 px-2.5 py-1 text-[11px] font-bold text-cta backdrop-blur">{n.categoria}</span>
             </div>
             <div className="flex flex-1 flex-col p-5">
