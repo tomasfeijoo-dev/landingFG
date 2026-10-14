@@ -132,9 +132,9 @@ export default function HeroCarousel() {
                     {s.eyebrow}
                   </span>
                 )}
-                <h2 className="text-3xl leading-tight tracking-tight text-white drop-shadow-sm sm:text-5xl lg:text-[3.4rem] lg:leading-[1.1]">
+                <h2 className="text-4xl leading-tight tracking-tight text-white drop-shadow-md sm:text-6xl lg:text-[4.25rem] lg:leading-[1.05]">
                   <span className="font-medium">{s.title} </span>
-                  <span className="font-extrabold text-[#8fd0f0]">{s.highlight}</span>
+                  <span className="font-extrabold">{s.highlight}</span>
                 </h2>
                 {s.text && <p className="mt-4 max-w-2xl text-base text-white/85 sm:text-lg">{s.text}</p>}
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
