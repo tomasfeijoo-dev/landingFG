@@ -128,8 +128,9 @@ export type Slide = {
 export const slides: Slide[] = [
   {
     id: "noche-azul",
-    title: "Gala",
-    highlight: "2026",
+    title: "Mirá cómo fue la gala",
+    highlight: "Noche Azul 2026",
+    text: "Cada edición de La Noche Azul reúne a referentes de la salud, el mundo empresarial y figuras públicas en una noche irrepetible con un objetivo común: hacer que más personas accedan a la detección temprana del cáncer de colon.",
     image: "/banners/noche-azul-brindis.webp",
     imageAlt: "Brindis en la gala Noche Azul 2026",
     imagePosition: "center 30%",
@@ -143,12 +144,13 @@ export const slides: Slide[] = [
     image: "/banners/consejo.webp",
     imageAlt: "Reunión de trabajo alrededor de una mesa",
     imagePosition: "center 40%",
-    primary: { label: "Iniciar mi postulación", href: "/contacto", interest: "consejo" },
+    primary: { label: "Iniciar mi postulación", href: "https://fundaciongedyt.org.ar/consejo/" },
   },
   {
     id: "mujeres",
     title: "Premio a Mujeres Destacadas en",
     highlight: "Gastroenterología & Endoscopía Digestiva",
+    text: "Una iniciativa que reconoce y visibiliza a mujeres que, a través de su trayectoria, liderazgo y compromiso, generan un impacto significativo en la comunidad médica y en la salud de las personas.",
     image: "/banners/mujeres-premio.webp",
     imageAlt: "Entrega del Premio a Mujeres Destacadas en Gastroenterología",
     imagePosition: "center 25%",

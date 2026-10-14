@@ -118,14 +118,14 @@ export default function HeroCarousel() {
             >
               <Visual slide={s} priority={i === 0} />
               <div className="relative z-20 mx-auto max-w-7xl">
-              <div className="relative z-20 flex min-h-[600px] flex-col justify-end px-6 pt-40 pb-24 text-white sm:min-h-[600px] sm:px-12 lg:min-h-[540px] lg:w-[56%] lg:justify-center lg:py-20 lg:pr-0 lg:pl-16">
+              <div className="relative z-20 flex min-h-[600px] flex-col justify-end px-6 pt-40 pb-24 text-white sm:min-h-[600px] sm:px-12 lg:min-h-[620px] lg:w-[62%] lg:justify-center lg:pt-16 lg:pb-28 lg:pr-0 lg:pl-16">
                 {s.eyebrow && (
                   <span className="mb-5 inline-flex items-center gap-2 self-start rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-white ring-1 ring-white/25 backdrop-blur">
                     <span className="h-1.5 w-1.5 rounded-full bg-sky-accent" />
                     {s.eyebrow}
                   </span>
                 )}
-                <h2 className="text-2xl leading-snug tracking-tight text-white drop-shadow-sm sm:text-4xl lg:text-[2.6rem] lg:leading-[1.15]">
+                <h2 className="text-3xl leading-tight tracking-tight text-white drop-shadow-sm sm:text-5xl lg:text-[3.4rem] lg:leading-[1.1]">
                   <span className="font-medium">{s.title} </span>
                   <span className="font-extrabold text-[#8fd0f0]">{s.highlight}</span>
                 </h2>
