@@ -170,10 +170,9 @@ export const slides: Slide[] = [
     id: "campana-nacional",
     title: "Campaña",
     highlight: "Nacional y Federal",
-    image: "/banners/campana-racing.webp",
-    imageAlt: "El plantel de Racing Club con la bandera de la campaña #CómoEstáTuColon",
-    imageFit: "side",
-    imagePosition: "center 70%",
+    image: "/banners/campana-boca.webp",
+    imageAlt: "El plantel de Boca Juniors con la bandera de la campaña #CómoEstáTuColon",
+    imagePosition: "center 50%",
     primary: { label: "Ver más", href: "/campana" },
   },
   {
