@@ -52,13 +52,20 @@ function SatinRibbon() {
 function Visual({ slide, priority }: { slide: Slide; priority: boolean }) {
   return (
     <div className="absolute inset-0">
-      {slide.image ? (
+      {slide.image && slide.imageFit === "side" ? (
+        <>
+          <Image src={slide.image} alt="" fill priority={priority} sizes="100vw" className="object-cover lg:scale-110 lg:blur-2xl" style={{ objectPosition: slide.imagePosition ?? "center" }} />
+          <div className="absolute top-8 right-[8%] bottom-24 z-10 hidden aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl ring-4 ring-white/20 lg:block">
+            <Image src={slide.image} alt={slide.imageAlt ?? ""} fill priority={priority} sizes="480px" className="object-cover" />
+          </div>
+        </>
+      ) : slide.image ? (
         <Image
           src={slide.image}
           alt={slide.imageAlt ?? ""}
           fill
           priority={priority}
-          sizes="(min-width: 1280px) 1280px, 100vw"
+          sizes="100vw"
           className="object-cover"
           style={{ objectPosition: slide.imagePosition ?? "center" }}
         />
@@ -118,7 +125,7 @@ export default function HeroCarousel() {
             >
               <Visual slide={s} priority={i === 0} />
               <div className="relative z-20 mx-auto max-w-7xl">
-              <div className="relative z-20 flex min-h-[600px] flex-col justify-end px-6 pt-40 pb-24 text-white sm:min-h-[600px] sm:px-12 lg:min-h-[620px] lg:w-[62%] lg:justify-center lg:pt-16 lg:pb-28 lg:pr-0 lg:pl-16">
+              <div className={`relative z-20 flex min-h-[600px] flex-col justify-end px-6 pt-40 pb-24 text-white sm:min-h-[600px] sm:px-12 lg:min-h-[620px] ${s.imageFit === "side" ? "lg:w-[60%]" : "lg:w-[78%]"} lg:justify-center lg:pt-16 lg:pb-28 lg:pr-0 lg:pl-16`}>
                 {s.eyebrow && (
                   <span className="mb-5 inline-flex items-center gap-2 self-start rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-white ring-1 ring-white/25 backdrop-blur">
                     <span className="h-1.5 w-1.5 rounded-full bg-sky-accent" />
@@ -129,7 +136,7 @@ export default function HeroCarousel() {
                   <span className="font-medium">{s.title} </span>
                   <span className="font-extrabold text-[#8fd0f0]">{s.highlight}</span>
                 </h2>
-                {s.text && <p className="mt-4 max-w-lg text-base text-white/85 sm:text-lg">{s.text}</p>}
+                {s.text && <p className="mt-4 max-w-2xl text-base text-white/85 sm:text-lg">{s.text}</p>}
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <CtaLink cta={s.primary} variant="primary" tabIndex={active ? 0 : -1} />
                   {s.secondary && <CtaLink cta={s.secondary} variant="secondary" tabIndex={active ? 0 : -1} />}

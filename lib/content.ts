@@ -116,6 +116,8 @@ export type Slide = {
   imageAlt?: string;
   // Encuadre de la foto (CSS object-position)
   imagePosition?: string;
+  // "side": foto chica o vertical; se muestra entera a la derecha sobre un fondo desenfocado
+  imageFit?: "cover" | "side";
   // Ilustración a usar cuando no hay foto
   art?: "ribbon";
   badge?: { value: string; label: string };
@@ -154,23 +156,33 @@ export const slides: Slide[] = [
     image: "/banners/mujeres-premio.webp",
     imageAlt: "Entrega del Premio a Mujeres Destacadas en Gastroenterología",
     imagePosition: "center 25%",
-    primary: { label: "Ver más", href: "/programas" },
+    primary: { label: "Ver más", href: "https://fundaciongedyt.org.ar/mujeres-gedyt-landing.html" },
   },
   {
     id: "fondo-comun",
     title: "Sé parte del Fondo Común de",
     highlight: "Prevención y Detección Temprana de Cáncer de Colon",
-    art: "ribbon",
-    primary: { label: "Ver más", href: "/donar" },
+    image: "/images/abrazo.webp",
+    imageAlt: "Abrazo entre dos personas",
+    primary: { label: "Ver más", href: "/#donar" },
   },
   {
-    id: "test-fit",
-    title: "Porqué detectar a tiempo puede hacer la diferencia,",
-    highlight: "trabajamos para que la prevención llegue a más personas.",
-    image: "/banners/test-fit-mano-wide.webp",
-    imageAlt: "Mano sosteniendo un test FIT de sangre oculta en materia fecal",
-    imagePosition: "center 55%",
-    primary: { label: "Conocé nuestra Fundación", href: "/institucional" },
+    id: "campana-nacional",
+    title: "Campaña",
+    highlight: "Nacional y Federal",
+    image: "/banners/campana-racing.webp",
+    imageAlt: "El plantel de Racing Club con la bandera de la campaña #CómoEstáTuColon",
+    imageFit: "side",
+    imagePosition: "center 70%",
+    primary: { label: "Ver más", href: "/campana" },
+  },
+  {
+    id: "cumbre",
+    title: "Cumbre Interamericana de",
+    highlight: "Cáncer Colorrectal 2024",
+    image: "/images/cumbre-auditorio-hd.webp",
+    imageAlt: "Auditorio durante la Cumbre Interamericana de Cáncer Colorrectal",
+    primary: { label: "Ver más", href: "/cumbre" },
   },
 ];
 
