@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
-import { Great_Vibes } from "next/font/google";
 import Image from "next/image";
 import CountUp from "@/components/CountUp";
 import Icon from "@/components/Icon";
 import VideoBanner from "@/components/gala/VideoBanner";
 import { FloatingDonate, ImpactSlider, Momentos, Objetivos, Participacion, Spotlight } from "@/components/gala/GalaInteractive";
 import { donarOnlineUrl, nocheAzul } from "@/lib/content";
-
-const script = Great_Vibes({ weight: "400", subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
   title: "Gala Noche Azul",
@@ -271,7 +268,9 @@ export default function GalaPage() {
       <section id="gala-final" className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 px-6 py-24 text-center text-white">
         <Stars />
         <div className="pointer-events-none absolute bottom-0 left-1/2 h-72 w-[50rem] -translate-x-1/2 rounded-full bg-sky-accent/20 blur-3xl" aria-hidden />
-        <p className={`${script.className} reveal relative mx-auto max-w-3xl text-5xl leading-tight sm:text-7xl`}>Porque juntos podemos prevenir el cáncer de colon.</p>
+        <p className="reveal relative mx-auto max-w-3xl text-3xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+          Porque juntos podemos <span className="text-sky-accent">prevenir el cáncer de colon.</span>
+        </p>
         <div className="relative mt-10 flex flex-col justify-center gap-3 sm:flex-row">
           <a
             href={donarOnlineUrl}
