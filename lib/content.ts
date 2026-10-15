@@ -35,6 +35,9 @@ export const socialLinks = [
 export const donateUrl = "/contacto?motivo=donacion";
 
 // Donación online (plataforma DonarOnline)
+// Formulario para que municipios, provincias o empresas se sumen a los programas
+export const sumarOrganizacionUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeub_H5eyLFIKlOFc5vm9lPnVDf8py6aD4cjvkV-KcLZsTEww/viewform";
+
 export const donarOnlineUrl = "https://donaronline.org/fundacion-gedyt/fundacion-gedyt?preview=true";
 
 // Datos para depósito o transferencia
@@ -106,6 +109,7 @@ export const nav = [
 ];
 
 // Banners del inicio (carrusel). Las fotos van en /public/banners.
+// En "title" y "highlight", "\n" fuerza un salto de línea en el banner.
 export type Slide = {
   id: string;
   eyebrow?: string;
@@ -161,8 +165,8 @@ export const slides: Slide[] = [
   },
   {
     id: "fondo-comun",
-    title: "Sé parte del Fondo Común de",
-    highlight: "Prevención y Detección Temprana de Cáncer de Colon",
+    title: "Sé parte del Fondo Común de\n",
+    highlight: "Prevención y Detección Temprana\nde Cáncer de Colon",
     image: "/images/abrazo.webp",
     imageAlt: "Abrazo entre dos personas",
     primary: { label: "Ver más", href: "/#donar" },
@@ -170,7 +174,7 @@ export const slides: Slide[] = [
   {
     id: "campana-nacional",
     title: "Campaña",
-    highlight: "Nacional y Federal",
+    highlight: "Nacional\ny Federal",
     image: "/banners/campana-boca.webp",
     imageAlt: "El plantel de Boca Juniors con la bandera de la campaña #CómoEstáTuColon",
     imagePosition: "center 50%",
@@ -240,8 +244,7 @@ export const campaign = {
   eyebrow: "Campaña permanente de concientización",
   title: "El cáncer colorrectal se puede prevenir",
   text: "El lazo azul une a médicos, pacientes y familias en la lucha contra el cáncer colorrectal. Afecta principalmente a mayores de 45 años, pero detectado a tiempo, 9 de cada 10 casos se curan.",
-  cta: "Más info sobre el test",
-  note: "Simple, no invasivo y sin preparación.",
+  cta: "Doná acá",
 };
 
 export const lines = [

@@ -125,15 +125,20 @@ export default function HeroCarousel() {
             >
               <Visual slide={s} priority={i === 0} />
               <div className="relative z-20 mx-auto max-w-7xl">
-              <div className={`relative z-20 flex min-h-[600px] flex-col justify-end px-6 pt-40 pb-24 text-white sm:min-h-[600px] sm:px-12 lg:min-h-[620px] ${s.imageFit === "side" ? "lg:w-[60%]" : "lg:w-[78%]"} lg:justify-center lg:py-20 lg:pr-0 lg:pl-24 xl:pl-16`}>
+              <div className={`relative z-20 flex min-h-[600px] flex-col justify-end px-6 pt-40 pb-24 text-white sm:min-h-[600px] sm:px-12 lg:min-h-[620px] ${s.imageFit === "side" ? "lg:w-[60%]" : "lg:w-full"} lg:justify-center lg:py-20 lg:pr-24 lg:pl-24 xl:pr-16 xl:pl-16`}>
                 {s.eyebrow && (
                   <span className="mb-5 inline-flex items-center gap-2 self-start rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-white ring-1 ring-white/25 backdrop-blur">
                     <span className="h-1.5 w-1.5 rounded-full bg-sky-accent" />
                     {s.eyebrow}
                   </span>
                 )}
-                <h2 className="text-4xl leading-tight tracking-tight text-white drop-shadow-md sm:text-6xl lg:text-[4.25rem] lg:leading-[1.05]">
-                  <span className="font-medium">{s.title} </span>
+                <h2
+                  className={`whitespace-pre-line text-4xl leading-tight tracking-tight text-white drop-shadow-md sm:text-6xl lg:leading-[1.05] ${
+                    // Con saltos de línea forzados, en escritorio cada renglón entra completo
+                    `${s.title}${s.highlight}`.includes("\n") ? "lg:whitespace-pre lg:text-[min(3.6rem,4vw)]" : "lg:text-[3.6rem] xl:text-[4.25rem]"
+                  }`}
+                >
+                  <span className="font-medium">{s.title.endsWith("\n") ? s.title : `${s.title} `}</span>
                   <span className="font-extrabold">{s.highlight}</span>
                 </h2>
                 {s.text && <p className="mt-4 max-w-2xl text-base text-white/85 sm:text-lg">{s.text}</p>}
@@ -168,9 +173,9 @@ export default function HeroCarousel() {
           type="button"
           onClick={() => go(index + b.d)}
           aria-label={b.label}
-          className={`absolute bottom-6 z-30 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-navy-900 shadow-md ring-1 ring-navy-900/10 backdrop-blur transition hover:bg-white hover:text-cta lg:top-1/2 lg:bottom-auto lg:h-12 lg:w-12 lg:-translate-y-1/2 ${b.pos}`}
+          className={`absolute bottom-6 z-30 flex h-12 w-12 items-center justify-center text-white/90 drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)] transition hover:scale-110 hover:text-white lg:top-1/2 lg:bottom-auto lg:-translate-y-1/2 ${b.pos}`}
         >
-          <Icon name="arrow" className={`h-5 w-5 ${b.rot}`} />
+          <Icon name="arrow" className={`h-8 w-8 ${b.rot}`} />
         </button>
       ))}
     </section>

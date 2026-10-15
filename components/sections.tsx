@@ -4,7 +4,7 @@ import ContactForm from "@/components/ContactForm";
 import CountUp from "@/components/CountUp";
 import Icon from "@/components/Icon";
 import { ArrowLink, ButtonLink, Eyebrow } from "@/components/ui";
-import { campaign, contact, features, impact, lines, network, news, nocheAzul } from "@/lib/content";
+import { campaign, contact, donarOnlineUrl, features, impact, lines, network, news, nocheAzul } from "@/lib/content";
 
 // Tarjeta con foto de fondo y degradado de marca para que el texto se lea.
 function PhotoBackground({ src, alt }: { src: string; alt: string }) {
@@ -88,10 +88,9 @@ export function CampaignBanner() {
           <h3 className="mt-5 text-2xl font-extrabold tracking-tight sm:text-4xl">{campaign.title}</h3>
           <p className="mt-4 max-w-xl text-white/85">{campaign.text}</p>
           <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-            <ButtonLink href="/contacto" interest="otro" variant="cta">
+            <ButtonLink href={donarOnlineUrl} variant="cta">
               {campaign.cta} <Icon name="arrow" className="h-4 w-4" />
             </ButtonLink>
-            <span className="text-sm text-white/75">{campaign.note}</span>
           </div>
         </div>
       </div>

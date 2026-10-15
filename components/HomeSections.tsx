@@ -5,7 +5,7 @@ import Icon from "@/components/Icon";
 import InterestLink from "@/components/InterestLink";
 import LogoMarquee from "@/components/LogoMarquee";
 import { ButtonLink } from "@/components/ui";
-import { homeLinks } from "@/lib/content";
+import { homeLinks, sumarOrganizacionUrl } from "@/lib/content";
 import { allies, institutions, sponsors } from "@/lib/logos";
 
 // Secciones del inicio. Los textos son los mismos que hoy tiene fundaciongedyt.org.ar;
@@ -75,8 +75,7 @@ export function StatsAndHighlights() {
           <p className="mt-3 text-xl font-semibold text-navy-900 sm:text-2xl">dentro de nuestros programas territoriales y empresariales</p>
           <div className="mt-8">
             <InterestLink
-              href="/contacto"
-              interest="prensa"
+              href={sumarOrganizacionUrl}
               className="inline-flex items-center justify-center gap-2 rounded-full bg-cta px-6 py-3 text-center font-semibold text-white transition hover:bg-cta-hover"
             >
               Sumá tu municipio, provincia o empresa <Icon name="arrow" className="h-4 w-4 flex-none" />
