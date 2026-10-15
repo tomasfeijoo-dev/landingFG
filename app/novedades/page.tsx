@@ -20,6 +20,32 @@ const notaDestacada = {
   href: `https://www.google.com/search?q=${encodeURIComponent("infobae El 90% de los casos de cáncer de colon pueden curarse Luis Caro")}`,
 };
 
+// Fondo del encabezado: una página de diario desenfocada, con filtro azul fuerte.
+function NewspaperBackdrop() {
+  const columna =
+    "En el mes de concientización de la enfermedad, especialistas remarcaron que si el cáncer de colon se detecta en estadios iniciales tiene una alta tasa de curación. La prevención y el diagnóstico temprano son las principales herramientas para reducir la mortalidad. Los controles a partir de los 45 años y el test de sangre oculta permiten detectar lesiones antes de que aparezcan síntomas. ";
+  return (
+    <div className="pointer-events-none absolute inset-0" aria-hidden>
+      <div className="absolute -inset-10 -rotate-3 scale-110 bg-[#f4f1ea] text-[#222] blur-[7px]">
+        <div className="border-b-4 border-double border-[#222] px-10 pt-8 pb-3 text-center font-serif text-7xl font-black tracking-tight">EL DIARIO</div>
+        <div className="flex justify-between border-b border-[#222] px-10 py-1 font-serif text-sm">
+          <span>Buenos Aires</span>
+          <span>Salud</span>
+          <span>Edición especial</span>
+        </div>
+        <p className="px-10 pt-4 font-serif text-5xl leading-tight font-bold">El 90% de los casos de cáncer de colon pueden curarse</p>
+        <div className="grid grid-cols-5 gap-6 px-10 pt-5 font-serif text-[13px] leading-snug">
+          {Array.from({ length: 5 }, (_, i) => (
+            <p key={i}>{columna.repeat(5)}</p>
+          ))}
+        </div>
+      </div>
+      <div className="absolute inset-0 bg-navy-950/88" />
+      <div className="absolute inset-0 bg-gradient-to-br from-navy-950/60 via-navy-900/40 to-cta/50 mix-blend-multiply" />
+    </div>
+  );
+}
+
 const subnav = [
   { href: "#comunicados", label: "Comunicados" },
   { href: "#prensa", label: "Prensa" },
@@ -78,8 +104,8 @@ export default function NovedadesPage() {
     <>
       {/* Encabezado con la nota de Infobae al Dr. Caro */}
       <section className="px-4 pt-6 sm:px-6 sm:pt-10">
-        <div className="relative mx-auto grid max-w-7xl items-center gap-10 overflow-hidden rounded-[2rem] bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 px-6 py-12 text-white sm:px-12 lg:grid-cols-[0.9fr_1.1fr] lg:px-16 lg:py-14">
-          <div className="pointer-events-none absolute -bottom-40 -left-40 h-[28rem] w-[28rem] rounded-full border-[48px] border-white/5" aria-hidden />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 overflow-hidden rounded-[2rem] bg-navy-950 px-6 pt-16 pb-12 text-white sm:px-12 lg:grid-cols-[0.9fr_1.1fr] lg:px-16 lg:pt-24 lg:pb-14">
+          <NewspaperBackdrop />
           <div className="reveal relative">
             <Eyebrow chip light>
               Prensa y publicaciones
@@ -92,7 +118,7 @@ export default function NovedadesPage() {
             href={notaDestacada.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="reveal-pop group relative block overflow-hidden rounded-3xl bg-white text-navy-900 shadow-2xl shadow-black/30 transition duration-500 hover:-translate-y-1"
+            className="reveal-pop group relative mt-16 block rounded-3xl bg-white text-navy-900 shadow-2xl shadow-black/40 lg:mt-0 transition duration-500 hover:-translate-y-1"
           >
             <div className="relative z-10 flex min-h-[19rem] max-w-[60%] flex-col p-6 sm:p-8">
               <div className="flex items-center justify-between gap-3">
@@ -105,14 +131,16 @@ export default function NovedadesPage() {
                 Leer nota <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />
               </span>
             </div>
-            <div className="absolute inset-y-0 right-0 w-[40%] overflow-hidden bg-gradient-to-br from-brand-50 to-brand-100">
+            {/* Panel de la foto: el doctor sobresale por encima de la nota */}
+            <div className="absolute inset-y-0 right-0 w-[40%] rounded-r-3xl bg-gradient-to-br from-brand-50 to-brand-100" aria-hidden />
+            <div className="pointer-events-none absolute right-0 bottom-0 z-20 h-[124%] w-[40%] overflow-hidden rounded-br-3xl">
               <Image
                 src="/images/caro-recorte.webp"
                 alt="Dr. Luis Caro, presidente de la Fundación Gedyt"
                 fill
                 priority
-                sizes="(min-width: 1024px) 22vw, 40vw"
-                className="origin-bottom object-cover object-[50%_8%] pt-6 transition duration-700 ease-out group-hover:scale-110"
+                sizes="(min-width: 1024px) 26vw, 50vw"
+                className="origin-bottom object-cover object-[50%_100%] drop-shadow-[0_10px_25px_rgba(0,41,59,0.35)] transition duration-700 ease-out group-hover:scale-105"
               />
             </div>
           </a>
