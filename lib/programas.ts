@@ -17,8 +17,7 @@ export type Programa = {
   joinCta?: boolean;
 };
 
-// Links de cada botón: Prevenir es Cuidar y Mujeres en Salud llevan a sus páginas propias.
-// TODO: confirmar con la Fundación los links de Entrenamiento y Misiones.
+// Cada botón lleva a la página propia del programa dentro del sitio.
 export const programas: Programa[] = [
   {
     title: "Prevenir\nes Cuidar",
@@ -42,14 +41,14 @@ export const programas: Programa[] = [
     icon: "graduation",
     links: [
       { label: "Entrenamiento para entrenadores", href: "/programas/entrenamiento-para-entrenadores" },
-      { label: "Entrenamiento para endoscopistas", href: "https://fundaciongedyt.org.ar/hands-on/" },
-      { label: "Entrenamiento para asistentes", href: "https://fundaciongedyt.org.ar/entrenamiento-para-asistentes-de-endoscopia/" },
+      { label: "Entrenamiento para endoscopistas", href: "/programas/entrenamiento-para-endoscopistas" },
+      { label: "Entrenamiento para asistentes", href: "/programas/entrenamiento-para-asistentes" },
     ],
   },
   {
     title: "Misiones: Alianzas\nTerritoriales",
     image: "/images/prog-misiones.webp",
     icon: "map",
-    links: [{ label: "Ver programa", href: "https://fundaciongedyt.org.ar/programa-de-prevencion-del-cancer-colorrectal-en-la-provincia-de-misiones/" }],
+    links: [{ label: "Ver programa", href: "/programas/misiones" }],
   },
 ];
