@@ -121,5 +121,5 @@ export const tratamiento = {
   items: ["Intervención quirúrgica", "Radioterapia", "Quimioterapia", "Terapia biológica dirigida", "Inmunoterapia"],
 };
 
-// TODO: link de descarga del Toolkit
-export const toolkitUrl = "/contacto?motivo=prensa";
+// Toolkit de la campaña (PDF en Drive)
+export const toolkitUrl = "https://drive.google.com/file/d/1a23NqtixeeI-SoyjhJYrAhYJaRJINpyF/view";
