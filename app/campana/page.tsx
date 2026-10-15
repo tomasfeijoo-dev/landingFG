@@ -215,8 +215,8 @@ export default function CampanaPage() {
       </section>
 
       {/* Síntomas */}
-      <section className="px-4 py-20 sm:px-6 sm:py-24">
-        <div className="reveal mx-auto grid max-w-7xl gap-8 rounded-[2rem] bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 p-8 text-white shadow-2xl shadow-navy-900/20 sm:p-12 lg:grid-cols-[1fr_3fr] lg:items-center">
+      <section className="my-20 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 px-6 py-16 text-white sm:my-24 sm:px-12 sm:py-20">
+        <div className="reveal mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_3fr] lg:items-center">
           <div>
             <H2 light>¿Cuáles son los síntomas?</H2>
             <p className="mt-4 text-white/75">{sintomas.intro}</p>
@@ -239,7 +239,7 @@ export default function CampanaPage() {
         <div className="reveal relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
           <Image src="/banners/test-fit-mano-wide.webp" alt="Test de sangre oculta en materia fecal" fill sizes="(min-width: 1280px) 1280px, 100vw" className="object-cover object-[center_55%]" />
           <div className="banner-tint absolute inset-0" />
-          <div className="relative max-w-2xl px-6 py-16 text-white sm:px-12 lg:px-16 lg:py-20">
+          <div className="relative max-w-4xl px-6 py-16 text-white sm:px-12 lg:px-16 lg:py-20">
             <H2 light>¿Por qué es importante testearse?</H2>
             <p className="mt-3 font-bold italic text-sky-accent">{testearse.kicker}</p>
             <p className="mt-4 text-lg text-white/85">{testearse.text}</p>
