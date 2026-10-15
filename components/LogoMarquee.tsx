@@ -32,14 +32,17 @@ export default function LogoMarquee({
   groups,
   size = "md",
 }: {
-  groups: { title: string; logos: Logo[] }[];
+  // Un grupo sin título continúa al anterior (una segunda fila del mismo grupo)
+  groups: { title?: string; logos: Logo[] }[];
   size?: "md" | "sm";
 }) {
   return (
     <div className="space-y-6">
       {groups.map((g, i) => (
-        <div key={g.title}>
-          <p className={`mb-3 font-semibold uppercase tracking-[0.16em] text-navy-900/50 ${size === "md" ? "text-xs" : "text-[11px]"}`}>{g.title}</p>
+        <div key={i} className={g.title ? "" : "-mt-3"}>
+          {g.title && (
+            <p className={`mb-3 font-semibold uppercase tracking-[0.16em] text-navy-900/50 ${size === "md" ? "text-xs" : "text-[11px]"}`}>{g.title}</p>
+          )}
           <Row logos={g.logos} reverse={i % 2 === 1} size={size} />
         </div>
       ))}

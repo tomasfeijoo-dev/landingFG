@@ -23,7 +23,7 @@ import {
   tratamiento,
 } from "@/lib/campana";
 import { socialLinks } from "@/lib/content";
-import { campanaAliados, campanaInstituciones } from "@/lib/logos";
+import { campanaAliados, campanaInstituciones, sponsors } from "@/lib/logos";
 
 export const metadata: Metadata = {
   title: "Campaña ¿Cómo está tu Colon?",
@@ -364,7 +364,10 @@ export default function CampanaPage() {
           <div className="reveal mt-10 rounded-[2rem] bg-brand-50/70 p-6 ring-1 ring-brand-100 sm:p-10">
             <LogoMarquee
               groups={[
-                { title: "Instituciones de salud", logos: campanaInstituciones },
+                { title: "Sponsors", logos: sponsors },
+                // Son muchas: van en dos filas para que se vean todas
+                { title: "Instituciones de salud", logos: campanaInstituciones.slice(0, 10) },
+                { logos: campanaInstituciones.slice(10) },
                 { title: "Aliados estratégicos", logos: campanaAliados },
               ]}
             />
