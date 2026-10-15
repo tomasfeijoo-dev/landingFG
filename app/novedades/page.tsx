@@ -3,13 +3,21 @@ import Image from "next/image";
 import DonateBanner from "@/components/DonateBanner";
 import Icon from "@/components/Icon";
 import PressGrid from "@/components/PressGrid";
-import { PageHeader } from "@/components/ui";
+import { Eyebrow } from "@/components/ui";
 import { contact } from "@/lib/content";
 import { anuarios, asistencia, comunicados, guidelines, posters, weo } from "@/lib/publicaciones";
 
 export const metadata: Metadata = {
   title: "Novedades",
   description: "Comunicados institucionales, prensa, anuarios, publicaciones e investigación de Fundación Gedyt.",
+};
+
+const notaDestacada = {
+  titulo: "“El 90% de los casos de cáncer de colon pueden curarse”: los últimos avances en pruebas diagnósticas y prevención",
+  bajada:
+    "En el mes de concientización de la enfermedad, el gastroenterólogo Luis Caro, presidente de la Fundación Gedyt, detalló a Infobae los desafíos que presenta la patología y remarcó que si se detecta en estadios iniciales tiene alta tasa de curación.",
+  fecha: "19 de marzo 2026",
+  href: `https://www.google.com/search?q=${encodeURIComponent("infobae El 90% de los casos de cáncer de colon pueden curarse Luis Caro")}`,
 };
 
 const subnav = [
@@ -68,14 +76,48 @@ function Meta({ items }: { items: { k: string; v: string; href?: string }[] }) {
 export default function NovedadesPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="Prensa y publicaciones"
-        title="Novedades"
-        text="Comunicados, prensa, anuarios e investigación."
-        image="/images/nota-infobae-pop.webp"
-        imageAlt="Nota de Infobae con el Dr. Luis Caro, presidente de la Fundación Gedyt"
-        imagePosition="right center"
-      />
+      {/* Encabezado con la nota de Infobae al Dr. Caro */}
+      <section className="px-4 pt-6 sm:px-6 sm:pt-10">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 overflow-hidden rounded-[2rem] bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 px-6 py-12 text-white sm:px-12 lg:grid-cols-[0.9fr_1.1fr] lg:px-16 lg:py-14">
+          <div className="pointer-events-none absolute -bottom-40 -left-40 h-[28rem] w-[28rem] rounded-full border-[48px] border-white/5" aria-hidden />
+          <div className="reveal relative">
+            <Eyebrow chip light>
+              Prensa y publicaciones
+            </Eyebrow>
+            <h1 className="mt-5 text-4xl font-extrabold tracking-tight sm:text-6xl">Novedades</h1>
+            <p className="mt-4 max-w-md text-lg text-white/80">Comunicados, prensa, anuarios e investigación.</p>
+          </div>
+
+          <a
+            href={notaDestacada.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="reveal-pop group relative block overflow-hidden rounded-3xl bg-white text-navy-900 shadow-2xl shadow-black/30 transition duration-500 hover:-translate-y-1"
+          >
+            <div className="relative z-10 flex min-h-[19rem] max-w-[60%] flex-col p-6 sm:p-8">
+              <div className="flex items-center justify-between gap-3">
+                <span className="text-2xl font-bold tracking-tight text-[#e08a00]">infobae</span>
+                <span className="text-xs text-navy-900/55">{notaDestacada.fecha}</span>
+              </div>
+              <p className="mt-5 text-lg font-bold leading-snug sm:text-xl">{notaDestacada.titulo}</p>
+              <p className="mt-3 hidden text-sm leading-relaxed text-navy-900/65 sm:block">{notaDestacada.bajada}</p>
+              <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-semibold text-cta">
+                Leer nota <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />
+              </span>
+            </div>
+            <div className="absolute inset-y-0 right-0 w-[40%] overflow-hidden bg-gradient-to-br from-brand-50 to-brand-100">
+              <Image
+                src="/images/caro-recorte.webp"
+                alt="Dr. Luis Caro, presidente de la Fundación Gedyt"
+                fill
+                priority
+                sizes="(min-width: 1024px) 22vw, 40vw"
+                className="origin-bottom object-cover object-[50%_8%] pt-6 transition duration-700 ease-out group-hover:scale-110"
+              />
+            </div>
+          </a>
+        </div>
+      </section>
 
       {/* Navegación interna */}
       <nav className="sticky top-[4.5rem] z-30 mx-auto mt-6 flex max-w-fit flex-wrap justify-center gap-1 rounded-full bg-white/90 p-1.5 shadow-lg ring-1 ring-navy-900/5 backdrop-blur">

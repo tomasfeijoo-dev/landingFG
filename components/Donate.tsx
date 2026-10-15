@@ -94,8 +94,9 @@ export default function Donate({ first = false }: { first?: boolean }) {
   return (
     <section id="donar" className={`px-4 sm:px-6 ${first ? "pt-6 pb-16 sm:pt-10 sm:pb-20" : "py-20 sm:py-24"}`}>
       <div ref={topRef} className="reveal relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
-        <Image src="/images/abrazo.webp" alt="Dos personas abrazándose" fill sizes="(min-width: 1280px) 1280px, 100vw" className="object-cover object-[70%_center] grayscale" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-950/95 via-navy-900/85 to-navy-800/65" />
+        <div className="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800" />
+        <div className="pointer-events-none absolute -top-32 -right-24 h-96 w-96 rounded-full bg-sky-accent/20 blur-3xl" aria-hidden />
+        <div className="pointer-events-none absolute -bottom-40 -left-40 h-[28rem] w-[28rem] rounded-full border-[48px] border-white/5" aria-hidden />
 
         <div className="relative px-6 py-12 text-white sm:px-12 sm:py-14 lg:px-16">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
