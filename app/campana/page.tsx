@@ -305,23 +305,36 @@ export default function CampanaPage() {
       {/* Toolkit + redes */}
       <section className="px-4 pt-20 sm:px-6 sm:pt-24">
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-2">
-          <div className="reveal relative flex flex-col items-start justify-center overflow-hidden rounded-[2rem] bg-gradient-to-br from-navy-900 to-navy-800 p-10 text-white shadow-2xl shadow-navy-900/20">
-            <div className="pointer-events-none absolute -right-16 -bottom-16 h-56 w-56 rounded-full border-[36px] border-white/10" aria-hidden />
-            <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/15">
+          <div className="reveal relative flex min-h-[22rem] flex-col items-start justify-center overflow-hidden rounded-[2rem] bg-[#105076] p-10 text-white shadow-2xl shadow-navy-900/20">
+            <Image
+              src="/images/toolkit-emoji.webp"
+              alt=""
+              width={1048}
+              height={850}
+              sizes="(min-width: 1024px) 30vw, 70vw"
+              className="pointer-events-none absolute top-0 -right-16 h-full w-auto max-w-none opacity-40 [mask-image:linear-gradient(to_right,transparent,black_30%)] sm:opacity-100"
+            />
+            <span className="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-white/15 backdrop-blur">
               <Icon name="book" />
             </span>
-            <h2 className="mt-6 text-3xl font-extrabold tracking-tight">Descargá Toolkit</h2>
+            <h2 className="relative mt-6 text-3xl font-extrabold tracking-tight">Descargá Toolkit</h2>
             <InterestLink
               href={toolkitUrl}
-              className="mt-6 inline-flex items-center gap-2 rounded-full bg-cta px-7 py-3.5 font-semibold text-white shadow-lg shadow-black/20 transition hover:bg-cta-hover"
+              className="relative mt-6 inline-flex items-center gap-2 rounded-full bg-cta px-7 py-3.5 font-semibold text-white shadow-lg shadow-black/20 transition hover:bg-cta-hover"
             >
               Descargar <Icon name="arrow" className="h-4 w-4 rotate-90" />
             </InterestLink>
           </div>
-          <div className="reveal relative overflow-hidden rounded-[2rem] text-white shadow-2xl shadow-navy-900/20">
-            <Image src="/images/campana-colon-v2.webp" alt="" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover object-right" />
-            <div className="banner-tint absolute inset-0" />
-            <div className="relative max-w-md p-10">
+          <div className="reveal relative min-h-[22rem] overflow-hidden rounded-[2rem] bg-gradient-to-b from-[#125f8b] to-[#0b456a] text-white shadow-2xl shadow-navy-900/20">
+            <Image
+              src="/images/redes-celular.webp"
+              alt="El perfil de Instagram de la Fundación en un celular, junto al emoji de la campaña"
+              width={814}
+              height={968}
+              sizes="(min-width: 1024px) 20vw, 40vw"
+              className="pointer-events-none absolute right-0 bottom-0 h-[105%] w-auto max-w-none opacity-40 [mask-image:linear-gradient(to_right,transparent,black_25%)] sm:opacity-100"
+            />
+            <div className="relative max-w-[17rem] p-10 sm:max-w-xs">
               <h2 className="text-3xl font-extrabold tracking-tight">Seguí la campaña en nuestras redes</h2>
               <p className="mt-3 text-white/85">Seguí toda nuestra campaña de prevención y detección temprana de Cáncer de colon.</p>
               <p className="mt-2 font-semibold">¡Seguinos en Instagram!</p>
