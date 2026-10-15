@@ -139,13 +139,12 @@ export type Slide = {
 export const slides: Slide[] = [
   {
     id: "noche-azul",
-    title: "Mirá cómo fue la gala",
+    title: "Mirá cómo fue la gala\n",
     highlight: "Noche Azul 2026",
     text: "Cada edición de La Noche Azul reúne a referentes de la salud, el mundo empresarial y figuras públicas en una noche irrepetible con un objetivo común: hacer que más personas accedan a la detección temprana del cáncer de colon.",
     image: "/gala/noche-azul-2026-poster.webp",
     imageAlt: "Salón de la gala Noche Azul 2026",
     video: "/gala/noche-azul-2026-loop.mp4",
-    logo: { src: "/gala/logo-noche-azul.png", alt: "Noche Azul", width: 1140, height: 296 },
     imagePosition: "center 30%",
     primary: { label: "Ver más", href: "/gala-noche-azul" },
   },

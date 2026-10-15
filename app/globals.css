@@ -262,10 +262,7 @@ body {
 .hero-in > *:nth-child(5) { animation-delay: 0.48s; }
 .hero-bg { transform: scale(1.12) translate3d(calc(var(--mx, 0) * -14px), calc(var(--my, 0) * -10px), 0); transition: transform 8s cubic-bezier(0.2, 0.6, 0.2, 1); }
 .hero-bg.is-active { transform: scale(1.02) translate3d(calc(var(--mx, 0) * -14px), calc(var(--my, 0) * -10px), 0); }
-@keyframes hero-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-.hero-progress { transform-origin: left; animation: hero-progress linear forwards; }
 @media (prefers-reduced-motion: reduce) {
   .hero-in > * { animation: none; }
   .hero-bg, .hero-bg.is-active { transform: none; transition: none; }
-  .hero-progress { animation: none; }
 }

@@ -200,22 +200,6 @@ export default function HeroCarousel() {
         })}
       </div>
 
-      {/* Contador y barra de progreso hasta el próximo banner */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-30">
-        <div className="mx-auto hidden max-w-7xl items-center gap-3 px-6 pb-5 text-xs font-semibold tracking-[0.2em] text-white/80 sm:flex sm:px-12 lg:px-24 xl:px-16">
-          <span className="text-white">{String(index + 1).padStart(2, "0")}</span>
-          <span className="h-px w-8 bg-white/40" />
-          <span>{String(count).padStart(2, "0")}</span>
-        </div>
-        <div className="h-1 w-full bg-white/10">
-          <div
-            key={index}
-            className="hero-progress h-full bg-gradient-to-r from-sky-accent to-white"
-            style={{ animationDuration: `${INTERVAL}ms`, animationPlayState: paused ? "paused" : "running" }}
-          />
-        </div>
-      </div>
-
       {/* Flechas: a los costados del banner (en celular, abajo para no tapar el texto) */}
       {[
         { d: -1, label: "Banner anterior", rot: "rotate-180", pos: "left-6 sm:left-12 lg:left-4" },
@@ -226,9 +210,11 @@ export default function HeroCarousel() {
           type="button"
           onClick={() => go(index + b.d)}
           aria-label={b.label}
-          className={`absolute bottom-8 z-30 flex h-12 w-12 items-center justify-center text-white/90 drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)] transition hover:scale-110 hover:text-white lg:top-1/2 lg:bottom-auto lg:-translate-y-1/2 ${b.pos}`}
+          className={`absolute bottom-8 z-30 flex h-12 w-12 items-center justify-center text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)] transition hover:scale-110 hover:text-white lg:top-1/2 lg:bottom-auto lg:-translate-y-1/2 ${b.pos}`}
         >
-          <Icon name="arrow" className={`h-8 w-8 ${b.rot}`} />
+          <svg viewBox="0 0 24 24" className={`h-9 w-9 ${b.rot}`} fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+            <path d="M9 4l8 8-8 8" />
+          </svg>
         </button>
       ))}
     </section>
