@@ -1,9 +1,10 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import Image from "next/image";
 import DonateBanner from "@/components/DonateBanner";
 import Icon from "@/components/Icon";
 import { PageHeader } from "@/components/ui";
-import { anuarios, consejo, equipo, institucionalEmail, publicacionesUrl, quienesSomos, type Person } from "@/lib/institucional";
+import { anuarios, consejo, equipo, institucionalEmail, quienesSomos, type Person } from "@/lib/institucional";
 
 export const metadata: Metadata = {
   title: "Institucional",
@@ -185,14 +186,12 @@ export default function InstitucionalPage() {
             </div>
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.16em] text-sky-accent">Publicaciones</p>
-              <a
-                href={publicacionesUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/novedades#publicaciones"
                 className="mt-4 flex items-center justify-center gap-2 rounded-2xl bg-cta px-6 py-4 font-semibold text-white shadow-lg shadow-black/20 transition hover:bg-cta-hover"
               >
                 Ver todas <Icon name="arrow" className="h-4 w-4" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
