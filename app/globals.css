@@ -249,3 +249,23 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .float-slow { animation: none; }
 }
+
+/* Carrusel del inicio: entrada escalonada del texto, zoom lento del fondo y barra de progreso */
+@keyframes hero-in {
+  from { opacity: 0; transform: translateY(28px); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+.hero-in > * { animation: hero-in 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.hero-in > *:nth-child(2) { animation-delay: 0.12s; }
+.hero-in > *:nth-child(3) { animation-delay: 0.24s; }
+.hero-in > *:nth-child(4) { animation-delay: 0.36s; }
+.hero-in > *:nth-child(5) { animation-delay: 0.48s; }
+.hero-bg { transform: scale(1.12) translate3d(calc(var(--mx, 0) * -14px), calc(var(--my, 0) * -10px), 0); transition: transform 8s cubic-bezier(0.2, 0.6, 0.2, 1); }
+.hero-bg.is-active { transform: scale(1.02) translate3d(calc(var(--mx, 0) * -14px), calc(var(--my, 0) * -10px), 0); }
+@keyframes hero-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.hero-progress { transform-origin: left; animation: hero-progress linear forwards; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-in > * { animation: none; }
+  .hero-bg, .hero-bg.is-active { transform: none; transition: none; }
+  .hero-progress { animation: none; }
+}

@@ -49,31 +49,57 @@ function SatinRibbon() {
   );
 }
 
-function Visual({ slide, priority }: { slide: Slide; priority: boolean }) {
+function Visual({ slide, priority, active }: { slide: Slide; priority: boolean; active: boolean }) {
+  const video = useRef<HTMLVideoElement>(null);
+  // El video solo corre mientras su banner está a la vista
+  useEffect(() => {
+    const v = video.current;
+    if (!v) return;
+    if (active) v.play().catch(() => {});
+    else v.pause();
+  }, [active]);
+
   return (
-    <div className="absolute inset-0">
-      {slide.image && slide.imageFit === "side" ? (
-        <>
-          <Image src={slide.image} alt="" fill priority={priority} sizes="100vw" className="object-cover lg:scale-110 lg:blur-2xl" style={{ objectPosition: slide.imagePosition ?? "center" }} />
-          <div className="absolute top-8 right-[8%] bottom-24 z-10 hidden aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl ring-4 ring-white/20 lg:block">
-            <Image src={slide.image} alt={slide.imageAlt ?? ""} fill priority={priority} sizes="480px" className="object-cover" />
+    <div className="absolute inset-0 overflow-hidden">
+      <div className={`hero-bg absolute inset-0 ${active ? "is-active" : ""}`}>
+        {slide.video ? (
+          <>
+            <video
+              ref={video}
+              className="absolute inset-0 h-full w-full scale-110 object-cover blur-[5px]"
+              src={slide.video}
+              poster={slide.image}
+              muted
+              loop
+              playsInline
+              preload={priority ? "auto" : "metadata"}
+              aria-hidden
+            />
+            <div className="absolute inset-0 bg-[#0a2a6b]/55 mix-blend-multiply" />
+          </>
+        ) : slide.image && slide.imageFit === "side" ? (
+          <>
+            <Image src={slide.image} alt="" fill priority={priority} sizes="100vw" className="object-cover lg:scale-110 lg:blur-2xl" style={{ objectPosition: slide.imagePosition ?? "center" }} />
+            <div className="absolute top-8 right-[8%] bottom-24 z-10 hidden aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl ring-4 ring-white/20 lg:block">
+              <Image src={slide.image} alt={slide.imageAlt ?? ""} fill priority={priority} sizes="480px" className="object-cover" />
+            </div>
+          </>
+        ) : slide.image ? (
+          <Image
+            src={slide.image}
+            alt={slide.imageAlt ?? ""}
+            fill
+            priority={priority}
+            sizes="100vw"
+            className="object-cover"
+            style={{ objectPosition: slide.imagePosition ?? "center" }}
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-end bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 pr-[8%] max-lg:items-start max-lg:justify-center max-lg:pt-6 max-lg:pr-0">
+            <SatinRibbon />
           </div>
-        </>
-      ) : slide.image ? (
-        <Image
-          src={slide.image}
-          alt={slide.imageAlt ?? ""}
-          fill
-          priority={priority}
-          sizes="100vw"
-          className="object-cover"
-          style={{ objectPosition: slide.imagePosition ?? "center" }}
-        />
-      ) : (
-        <div className="flex h-full w-full items-center justify-end bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 pr-[8%] max-lg:items-start max-lg:justify-center max-lg:pt-6 max-lg:pr-0">
-          <SatinRibbon />
-        </div>
-      )}
+        )}
+      </div>
       {/* Filtro azul: más intenso a la izquierda (donde va el texto) y suave a la derecha */}
       <div className="banner-tint absolute inset-0" />
     </div>
@@ -84,6 +110,7 @@ export default function HeroCarousel() {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const touchX = useRef<number | null>(null);
+  const root = useRef<HTMLElement>(null);
   const count = slides.length;
 
   const go = useCallback((i: number) => setIndex((i + count) % count), [count]);
@@ -98,7 +125,14 @@ export default function HeroCarousel() {
     <section
       aria-roledescription="carrusel"
       aria-label="Campañas de la Fundación"
+      ref={root}
       className="relative overflow-hidden bg-navy-900"
+      onMouseMove={(e) => {
+        // Leve paralaje del fondo siguiendo el mouse
+        const r = root.current!.getBoundingClientRect();
+        root.current!.style.setProperty("--mx", String((e.clientX - r.left) / r.width - 0.5));
+        root.current!.style.setProperty("--my", String((e.clientY - r.top) / r.height - 0.5));
+      }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       onFocusCapture={() => setPaused(true)}
@@ -123,9 +157,12 @@ export default function HeroCarousel() {
               aria-hidden={!active}
               className={`relative [grid-area:1/1] transition-opacity duration-700 ${active ? "opacity-100" : "pointer-events-none opacity-0"}`}
             >
-              <Visual slide={s} priority={i === 0} />
+              <Visual slide={s} priority={i === 0} active={active} />
               <div className="relative z-20 mx-auto max-w-7xl">
-              <div className={`relative z-20 flex min-h-[600px] flex-col justify-end px-6 pt-40 pb-24 text-white sm:min-h-[600px] sm:px-12 lg:min-h-[620px] ${s.imageFit === "side" ? "lg:w-[60%]" : "lg:w-full"} lg:justify-center lg:py-20 lg:pr-24 lg:pl-24 xl:pr-16 xl:pl-16`}>
+              <div key={active ? `on-${index}` : "off"} className={`${active ? "hero-in" : ""} relative z-20 flex min-h-[600px] flex-col justify-end px-6 pt-40 pb-24 text-white sm:min-h-[600px] sm:px-12 lg:min-h-[620px] ${s.imageFit === "side" ? "lg:w-[60%]" : "lg:w-full"} lg:justify-center lg:py-20 lg:pr-24 lg:pl-24 xl:pr-16 xl:pl-16`}>
+                {s.logo && (
+                  <Image src={s.logo.src} alt={s.logo.alt} width={s.logo.width} height={s.logo.height} className="mb-4 h-auto w-64 drop-shadow-[0_4px_18px_rgba(0,0,0,0.4)] sm:w-80 lg:w-[26rem]" />
+                )}
                 {s.eyebrow && (
                   <span className="mb-5 inline-flex items-center gap-2 self-start rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-white ring-1 ring-white/25 backdrop-blur">
                     <span className="h-1.5 w-1.5 rounded-full bg-sky-accent" />
@@ -163,6 +200,22 @@ export default function HeroCarousel() {
         })}
       </div>
 
+      {/* Contador y barra de progreso hasta el próximo banner */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-30">
+        <div className="mx-auto hidden max-w-7xl items-center gap-3 px-6 pb-5 text-xs font-semibold tracking-[0.2em] text-white/80 sm:flex sm:px-12 lg:px-24 xl:px-16">
+          <span className="text-white">{String(index + 1).padStart(2, "0")}</span>
+          <span className="h-px w-8 bg-white/40" />
+          <span>{String(count).padStart(2, "0")}</span>
+        </div>
+        <div className="h-1 w-full bg-white/10">
+          <div
+            key={index}
+            className="hero-progress h-full bg-gradient-to-r from-sky-accent to-white"
+            style={{ animationDuration: `${INTERVAL}ms`, animationPlayState: paused ? "paused" : "running" }}
+          />
+        </div>
+      </div>
+
       {/* Flechas: a los costados del banner (en celular, abajo para no tapar el texto) */}
       {[
         { d: -1, label: "Banner anterior", rot: "rotate-180", pos: "left-6 sm:left-12 lg:left-4" },
@@ -173,7 +226,7 @@ export default function HeroCarousel() {
           type="button"
           onClick={() => go(index + b.d)}
           aria-label={b.label}
-          className={`absolute bottom-6 z-30 flex h-12 w-12 items-center justify-center text-white/90 drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)] transition hover:scale-110 hover:text-white lg:top-1/2 lg:bottom-auto lg:-translate-y-1/2 ${b.pos}`}
+          className={`absolute bottom-8 z-30 flex h-12 w-12 items-center justify-center text-white/90 drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)] transition hover:scale-110 hover:text-white lg:top-1/2 lg:bottom-auto lg:-translate-y-1/2 ${b.pos}`}
         >
           <Icon name="arrow" className={`h-8 w-8 ${b.rot}`} />
         </button>
