@@ -27,14 +27,14 @@ export const comunicados = [
 }));
 
 export const anuarios = [
-  { year: "2023", label: "Anuario 2023", image: "/publicaciones/anuario-2023.webp", pdf: pubs },
+  { year: "2023", label: "Anuario 2023", image: "/publicaciones/anuario-2023.webp", pdf: "https://drive.google.com/file/d/1K0EaphzBSnUAMwPTgDStBQa8R4dCt8j2/view" },
   {
     year: "2024",
     label: "Anuario 2024",
     image: "/publicaciones/anuario-2024.webp",
-    pdf: "https://fundaciongedyt.org.ar/old/wp-content/uploads/2024/11/fundacion-gedyt-v02-digital.pdf",
+    pdf: "https://drive.google.com/file/d/1E_lIViIcn0Lx0E66DDC1hN9eXHSKtzux/view",
   },
-  { year: "2024 · 2025", label: "Anuario 2024 · 2025", image: "/publicaciones/anuario-2025.webp", pdf: pubs },
+  { year: "2024 · 2025", label: "Anuario 2024 · 2025", image: "/publicaciones/anuario-2025.webp", pdf: "https://drive.google.com/file/d/1Q1hVeBBrTrfE0cqfn_uP1yCHNeMucodw/view" },
 ];
 
 export const posters = [

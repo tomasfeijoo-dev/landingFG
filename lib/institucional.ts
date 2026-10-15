@@ -37,8 +37,8 @@ export const institucionalEmail = "asuntosinstitucionales@fundaciongedyt.org.ar"
 
 // TODO: links a cada anuario y a la página de publicaciones.
 export const anuarios = [
-  { label: "Anuario edición 2023", href: "https://fundaciongedyt.org.ar/publicaciones/" },
-  { label: "Anuario edición 2024", href: "https://fundaciongedyt.org.ar/old/wp-content/uploads/2024/11/fundacion-gedyt-v02-digital.pdf" },
-  { label: "Anuario edición 2025", href: "https://fundaciongedyt.org.ar/publicaciones/" },
+  { label: "Anuario edición 2023", href: "https://drive.google.com/file/d/1K0EaphzBSnUAMwPTgDStBQa8R4dCt8j2/view" },
+  { label: "Anuario edición 2024", href: "https://drive.google.com/file/d/1E_lIViIcn0Lx0E66DDC1hN9eXHSKtzux/view" },
+  { label: "Anuario edición 2025", href: "https://drive.google.com/file/d/1Q1hVeBBrTrfE0cqfn_uP1yCHNeMucodw/view" },
 ];
 export const publicacionesUrl = "https://fundaciongedyt.org.ar/publicaciones/";
