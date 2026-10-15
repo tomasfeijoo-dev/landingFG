@@ -45,8 +45,8 @@ export function StatsAndHighlights() {
       title: "¿Cómo está tu colon?",
       cta: "Ver",
       href: homeLinks.campana,
-      image: "/images/campana-colon-v2.webp",
-      imagePosition: "right top",
+      image: "/images/campana-folletos.webp",
+      imagePosition: "center 62%",
     },
     {
       kicker: "Cumbre Interamericana de",
