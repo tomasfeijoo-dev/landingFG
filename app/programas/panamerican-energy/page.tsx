@@ -48,10 +48,10 @@ export default function PanAmericanEnergyPage() {
           </svg>
           <Link
             href="/programas"
-            className="group relative inline-flex items-center gap-2 rounded-full bg-white/10 py-2 pr-5 pl-2 text-sm font-semibold text-white ring-1 ring-white/20 transition hover:bg-white hover:text-navy-900"
+            className="group relative inline-flex items-center gap-3 rounded-full bg-white/10 py-2 pr-6 pl-2 text-base font-semibold text-white ring-1 ring-white/20 transition hover:bg-white hover:text-navy-900"
           >
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/15 transition group-hover:-translate-x-0.5 group-hover:bg-cta group-hover:text-white">
-              <Icon name="arrow" className="h-4 w-4 rotate-180" />
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15 transition group-hover:-translate-x-0.5 group-hover:bg-cta group-hover:text-white">
+              <Icon name="arrow" className="h-5 w-5 rotate-180" />
             </span>
             Volver a Programas
           </Link>

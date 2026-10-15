@@ -51,11 +51,19 @@ export default function Cumbre2024Page() {
       {/* Encabezado */}
       <section className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 text-white">
         <div className="pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full border-[40px] border-white/5" aria-hidden />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 py-14 sm:px-12 lg:grid-cols-2 lg:px-16 lg:py-20">
+        <div className="relative mx-auto max-w-7xl px-6 pt-8 sm:px-12 lg:px-16">
+          <Link
+            href="/cumbre"
+            className="group relative inline-flex items-center gap-3 rounded-full bg-white/10 py-2 pr-6 pl-2 text-base font-semibold text-white ring-1 ring-white/20 transition hover:bg-white hover:text-navy-900"
+          >
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15 transition group-hover:-translate-x-0.5 group-hover:bg-cta group-hover:text-white">
+              <Icon name="arrow" className="h-5 w-5 rotate-180" />
+            </span>
+            Volver a Cumbre
+          </Link>
+        </div>
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 pt-8 pb-14 sm:px-12 lg:grid-cols-2 lg:px-16 lg:pb-20">
           <div className="reveal">
-            <Link href="/cumbre" className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-white/70 transition hover:text-white">
-              <Icon name="arrow" className="h-4 w-4 rotate-180" /> Volver a Cumbre
-            </Link>
             <h1 className="sr-only">CCR 360° — Primera Cumbre Interamericana de Cáncer de Colon 2024</h1>
             <CcrLogo light />
             <div className="mt-10 flex flex-wrap gap-3">
