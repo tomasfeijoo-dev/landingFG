@@ -41,7 +41,7 @@ export const programas: Programa[] = [
     image: "/images/prog-entrenamiento.webp",
     icon: "graduation",
     links: [
-      { label: "Entrenamiento para entrenadores", href: "https://fundaciongedyt.org.ar/hands-on/" },
+      { label: "Entrenamiento para entrenadores", href: "/programas/entrenamiento-para-entrenadores" },
       { label: "Entrenamiento para endoscopistas", href: "https://fundaciongedyt.org.ar/hands-on/" },
       { label: "Entrenamiento para asistentes", href: "https://fundaciongedyt.org.ar/entrenamiento-para-asistentes-de-endoscopia/" },
     ],
