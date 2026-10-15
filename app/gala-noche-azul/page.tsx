@@ -47,19 +47,20 @@ function Stars() {
   );
 }
 
-function Kicker({ children, center = false }: { children: React.ReactNode; center?: boolean }) {
+function Kicker({ children, center = false, light = false }: { children: React.ReactNode; center?: boolean; light?: boolean }) {
+  const line = light ? "bg-cta" : "bg-sky-accent";
   return (
-    <p className={`flex items-center gap-3 text-xs font-bold uppercase tracking-[0.3em] text-sky-accent ${center ? "justify-center" : ""}`}>
-      <span className="h-px w-8 bg-sky-accent" />
+    <p className={`flex items-center gap-3 text-xs font-bold uppercase tracking-[0.3em] ${light ? "text-cta" : "text-sky-accent"} ${center ? "justify-center" : ""}`}>
+      <span className={`h-px w-8 ${line}`} />
       {children}
-      {center && <span className="h-px w-8 bg-sky-accent" />}
+      {center && <span className={`h-px w-8 ${line}`} />}
     </p>
   );
 }
 
 export default function GalaPage() {
   return (
-    <div className="bg-[#050f2b] text-white">
+    <div className="bg-white text-navy-900">
       <FloatingDonate />
 
       {/* Hero: video de la gala con el logo de la Noche Azul */}
@@ -70,7 +71,7 @@ export default function GalaPage() {
       </section>
 
       {/* Datos clave */}
-      <section className="relative z-10 -mt-px border-y border-white/10 bg-[#071a3d]">
+      <section className="relative z-10 -mt-px bg-navy-900 text-white">
         <div className="mx-auto grid max-w-6xl divide-white/10 sm:grid-cols-3 sm:divide-x">
           {datos.map((d) => (
             <div key={d.label} className="reveal flex items-center gap-4 px-6 py-6 sm:justify-center">
@@ -87,20 +88,19 @@ export default function GalaPage() {
       </section>
 
       {/* Una noche que cambia historias */}
-      <section id="historia" className="relative scroll-mt-24 overflow-hidden px-6 py-24 sm:px-12 sm:py-32">
-        <Stars />
+      <section id="historia" className="relative scroll-mt-24 overflow-hidden bg-white px-6 py-24 sm:px-12 sm:py-32">
         <div className="relative mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
           <div className="reveal relative">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] shadow-2xl shadow-black/50 ring-1 ring-white/10">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/25">
               <Image src="/banners/noche-azul-brindis.webp" alt="Brindis en la gala Noche Azul" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover transition duration-[1.5s] hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050f2b]/70 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy-950/40 via-transparent to-transparent" />
             </div>
-            <div className="float-slow absolute -right-4 -bottom-8 w-44 overflow-hidden rounded-2xl shadow-2xl ring-4 ring-[#050f2b] sm:-right-8 sm:w-56">
+            <div className="float-slow absolute -right-4 -bottom-8 w-44 overflow-hidden rounded-2xl shadow-2xl ring-[6px] ring-white sm:-right-8 sm:w-56">
               <div className="relative aspect-[3/2]">
                 <Image src="/images/equipo-gala.webp" alt="Equipo de la Fundación en la gala" fill sizes="224px" className="object-cover" />
               </div>
             </div>
-            <div className="absolute -top-6 -left-4 rounded-2xl bg-white px-5 py-4 text-navy-900 shadow-xl sm:-left-8">
+            <div className="absolute -top-6 -left-4 rounded-2xl bg-white px-5 py-4 text-navy-900 shadow-xl ring-1 ring-navy-900/5 sm:-left-8">
               <p className="text-3xl font-extrabold text-cta">
                 <CountUp value="90%" />
               </p>
@@ -108,15 +108,15 @@ export default function GalaPage() {
             </div>
           </div>
           <div className="reveal">
-            <Kicker>La Noche Azul</Kicker>
-            <h2 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
-              Una noche que <span className="bg-gradient-to-r from-sky-accent to-[#cfe0ff] bg-clip-text text-transparent">cambia historias</span>
+            <Kicker light>La Noche Azul</Kicker>
+            <h2 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight text-navy-900 sm:text-5xl">
+              Una noche que <span className="bg-gradient-to-r from-cta to-sky-accent bg-clip-text text-transparent">cambia historias</span>
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-white/75">
+            <p className="mt-6 text-lg leading-relaxed text-navy-900/70">
               La Noche Azul no es solo un evento. A lo largo de los años se convirtió en uno de los encuentros más relevantes en prevención de Argentina. Un
               espacio donde la salud, el liderazgo y el compromiso se transforman en acción concreta.
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-white/75">
+            <p className="mt-4 text-lg leading-relaxed text-navy-900/70">
               Cada edición reúne a líderes del sector salud, empresarios, figuras públicas y tomadores de decisión con un objetivo común: hacer que más personas
               accedan a la detección temprana del cáncer de colon.
             </p>
@@ -125,7 +125,7 @@ export default function GalaPage() {
                 <Icon name="heart" className="h-4 w-4" /> Quiero ayudar
                 <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />
               </a>
-              <a href="#participa" className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-semibold text-white ring-1 ring-white/30 transition hover:bg-white/10">
+              <a href="#participa" className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 font-semibold text-navy-900 ring-1 ring-navy-900/15 transition hover:ring-cta">
                 Cómo participar
               </a>
             </div>
@@ -134,7 +134,7 @@ export default function GalaPage() {
       </section>
 
       {/* Objetivos */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#071a3d] to-[#050f2b] px-6 py-24 sm:px-12">
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 px-6 py-24 text-white sm:px-12">
         <div className="pointer-events-none absolute -top-40 left-1/2 h-80 w-[60rem] -translate-x-1/2 rounded-full bg-cta/20 blur-3xl" aria-hidden />
         <div className="relative mx-auto max-w-7xl">
           <div className="reveal text-center">
@@ -148,20 +148,19 @@ export default function GalaPage() {
       </section>
 
       {/* Artistas */}
-      <section className="relative overflow-hidden px-6 py-24 sm:px-12">
-        <Stars />
+      <section className="relative overflow-hidden bg-brand-50/70 px-6 py-24 sm:px-12">
         <div className="relative mx-auto max-w-7xl">
           <div className="reveal mx-auto max-w-3xl text-center">
-            <Kicker center>Participación de</Kicker>
-            <h2 className="mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl">El show de la noche</h2>
-            <p className="mt-5 text-lg leading-relaxed text-white/75">
+            <Kicker center light>Participación de</Kicker>
+            <h2 className="mt-5 text-4xl font-extrabold tracking-tight text-navy-900 sm:text-5xl">El show de la noche</h2>
+            <p className="mt-5 text-lg leading-relaxed text-navy-900/70">
               Una noche que combina impacto, cultura y propósito, donde la emoción también se convierte en acción. Los grandes de la música argentina nos
               acompañaron en esta velada inolvidable.
             </p>
           </div>
           <div className="mt-14 grid gap-5 sm:grid-cols-3">
             {artistas.map((a) => (
-              <Spotlight key={a.name} className="reveal-pop overflow-hidden rounded-[2rem] ring-1 ring-white/10">
+              <Spotlight key={a.name} className="reveal-pop overflow-hidden rounded-[2rem] text-white shadow-xl shadow-navy-900/15">
                 <div className="relative aspect-[3/4]">
                   <Image
                     src={a.image}
@@ -171,7 +170,7 @@ export default function GalaPage() {
                     className="object-cover grayscale transition duration-1000 group-hover/spot:scale-105 group-hover/spot:grayscale-0"
                     style={{ objectPosition: a.position }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050f2b] via-[#050f2b]/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/20 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 z-20 p-6">
                     <p className="text-2xl font-extrabold leading-tight">{a.name}</p>
                     <span className="mt-2 block h-0.5 w-10 bg-sky-accent transition-all duration-500 group-hover/spot:w-24" />
@@ -180,7 +179,7 @@ export default function GalaPage() {
               </Spotlight>
             ))}
           </div>
-          <p className="mx-auto mt-10 flex w-fit items-center gap-3 rounded-full bg-white/[0.06] px-5 py-2.5 text-sm text-white/80 ring-1 ring-white/10">
+          <p className="mx-auto mt-10 flex w-fit items-center gap-3 rounded-full bg-white px-5 py-2.5 text-sm text-navy-900/80 shadow-sm ring-1 ring-navy-900/5">
             <span className="relative flex h-2.5 w-2.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-accent opacity-75" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-sky-accent" />
@@ -191,11 +190,11 @@ export default function GalaPage() {
       </section>
 
       {/* Momentos */}
-      <section className="relative py-24">
+      <section className="relative bg-white py-24">
         <div className="reveal mx-auto max-w-3xl px-6 text-center">
-          <Kicker center>Galería</Kicker>
-          <h2 className="mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl">Momentos que ya vivimos</h2>
-          <p className="mt-5 text-lg text-white/70">
+          <Kicker center light>Galería</Kicker>
+          <h2 className="mt-5 text-4xl font-extrabold tracking-tight text-navy-900 sm:text-5xl">Momentos que ya vivimos</h2>
+          <p className="mt-5 text-lg text-navy-900/70">
             Cada edición de La Noche Azul reúne a referentes de la salud, el mundo empresarial y figuras públicas en una noche irrepetible. Así se vivieron las
             galas anteriores.
           </p>
@@ -208,7 +207,7 @@ export default function GalaPage() {
             href={nocheAzul.galleryUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3 font-semibold text-navy-900 transition hover:bg-brand-50"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-3 font-semibold text-white transition hover:bg-navy-950"
           >
             Ver la galería completa <Icon name="arrow" className="h-4 w-4" />
           </a>
@@ -216,7 +215,7 @@ export default function GalaPage() {
             href={nocheAzul.pressUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full px-7 py-3 font-semibold text-white ring-1 ring-white/30 transition hover:bg-white/10"
+            className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 font-semibold text-navy-900 ring-1 ring-navy-900/15 transition hover:ring-cta"
           >
             Cobertura de prensa
           </a>
@@ -224,9 +223,9 @@ export default function GalaPage() {
       </section>
 
       {/* Doná: calculadora de impacto */}
-      <section id="dona" className="relative scroll-mt-24 overflow-hidden px-6 py-24 sm:px-12 sm:py-28">
+      <section id="dona" className="relative scroll-mt-24 overflow-hidden px-6 py-24 text-white sm:px-12 sm:py-28">
         <Image src="/gala/cielo.webp" alt="" fill sizes="100vw" className="object-cover opacity-60" />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#050f2b]/90 via-[#0a2a5c]/70 to-cta/40" />
+        <div className="absolute inset-0 bg-gradient-to-br from-navy-950/95 via-navy-900/85 to-navy-800/70" />
         <Stars />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
           <div className="reveal">
@@ -256,12 +255,11 @@ export default function GalaPage() {
       </section>
 
       {/* Participación */}
-      <section id="participa" className="relative scroll-mt-24 overflow-hidden bg-gradient-to-b from-[#050f2b] to-[#0a2a5c] px-6 py-24 text-center sm:px-12">
-        <Stars />
+      <section id="participa" className="relative scroll-mt-24 overflow-hidden bg-brand-50/70 px-6 py-24 text-center sm:px-12">
         <div className="relative">
           <div className="reveal">
-            <Kicker center>¿Querés ser parte?</Kicker>
-            <h2 className="mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl">Elegí cómo participar</h2>
+            <Kicker center light>¿Querés ser parte?</Kicker>
+            <h2 className="mt-5 text-4xl font-extrabold tracking-tight text-navy-900 sm:text-5xl">Elegí cómo participar</h2>
           </div>
           <div className="mt-12">
             <Participacion />
@@ -270,7 +268,7 @@ export default function GalaPage() {
       </section>
 
       {/* Cierre */}
-      <section id="gala-final" className="relative overflow-hidden px-6 py-24 text-center">
+      <section id="gala-final" className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 px-6 py-24 text-center text-white">
         <Stars />
         <div className="pointer-events-none absolute bottom-0 left-1/2 h-72 w-[50rem] -translate-x-1/2 rounded-full bg-sky-accent/20 blur-3xl" aria-hidden />
         <p className={`${script.className} reveal relative mx-auto max-w-3xl text-5xl leading-tight sm:text-7xl`}>Porque juntos podemos prevenir el cáncer de colon.</p>

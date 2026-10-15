@@ -230,7 +230,7 @@ export function Participacion() {
   ];
   return (
     <div className="mx-auto max-w-4xl">
-      <div className="mx-auto flex w-fit rounded-full bg-white/10 p-1.5 ring-1 ring-white/15 backdrop-blur" role="tablist">
+      <div className="mx-auto flex w-fit rounded-full bg-white p-1.5 shadow-sm ring-1 ring-navy-900/5" role="tablist">
         {tabs.map((t) => (
           <button
             key={t.id}
@@ -239,7 +239,7 @@ export function Participacion() {
             aria-selected={tab === t.id}
             onClick={() => setTab(t.id)}
             className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition sm:px-7 ${
-              tab === t.id ? "bg-white text-navy-900 shadow-lg" : "text-white/80 hover:text-white"
+              tab === t.id ? "bg-cta text-white shadow-md shadow-cta/25" : "text-navy-900/70 hover:text-cta"
             }`}
           >
             <Icon name={t.icon} className="h-4 w-4" />
@@ -248,18 +248,18 @@ export function Participacion() {
         ))}
       </div>
 
-      <div key={tab} className="pop-in mt-10 rounded-[2rem] bg-white/[0.06] p-8 text-left ring-1 ring-white/10 backdrop-blur sm:p-12">
+      <div key={tab} className="pop-in mt-10 rounded-[2rem] bg-white p-8 text-left shadow-xl shadow-navy-900/5 ring-1 ring-navy-900/5 sm:p-12">
         {tab === "personas" ? (
           <div className="grid items-center gap-8 md:grid-cols-[1.4fr_1fr]">
-            <div className="space-y-4 text-white/80">
-              <p className="text-2xl font-extrabold text-white">Viví la Noche Azul</p>
+            <div className="space-y-4 text-navy-900/75">
+              <p className="text-2xl font-extrabold text-navy-900">Viví la Noche Azul</p>
               <p>
                 La Noche Azul convoca a todos aquellos que quieren ser parte del cambio. Empresas, organizaciones y personas que eligen acompañar una causa de
                 alto impacto.
               </p>
-              <p className="text-xs text-white/55">
+              <p className="text-xs text-navy-900/55">
                 * En caso de realizar la compra mediante Mercado Pago, solicitamos enviar el comprobante a{" "}
-                <a href={`mailto:${nocheAzul.email}`} className="underline underline-offset-2 hover:text-white">
+                <a href={`mailto:${nocheAzul.email}`} className="font-semibold text-cta underline-offset-2 hover:underline">
                   {nocheAzul.email}
                 </a>{" "}
                 para acreditar correctamente a los asistentes.
@@ -268,19 +268,19 @@ export function Participacion() {
             <div className="flex flex-col gap-3">
               <a
                 href={nocheAzul.reserveUrl}
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 font-semibold text-navy-900 shadow-lg shadow-black/30 transition hover:bg-brand-50"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-cta px-8 py-4 font-semibold text-white shadow-lg shadow-cta/25 transition hover:bg-cta-hover"
               >
                 Reservá tu lugar <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />
               </a>
-              <a href="#dona" className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-3 font-semibold text-white ring-1 ring-white/30 transition hover:bg-white/10">
-                <Icon name="heart" className="h-4 w-4" /> No puedo ir, pero quiero donar
+              <a href="#dona" className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-50 px-8 py-3 font-semibold text-navy-900 ring-1 ring-brand-100 transition hover:ring-cta">
+                <Icon name="heart" className="h-4 w-4 text-cta" /> No puedo ir, pero quiero donar
               </a>
             </div>
           </div>
         ) : (
           <div>
-            <p className="text-2xl font-extrabold text-white">Un espacio para empresas y organizaciones</p>
-            <div className="mt-6 grid gap-6 text-white/80 md:grid-cols-2">
+            <p className="text-2xl font-extrabold text-navy-900">Un espacio para empresas y organizaciones</p>
+            <div className="mt-6 grid gap-6 text-navy-900/75 md:grid-cols-2">
               <div className="space-y-4">
                 <p>
                   Empresas y organizaciones pueden sumarse a La Noche Azul como aliados estratégicos de una causa que trasciende una sola noche: impulsar la
@@ -298,7 +298,7 @@ export function Participacion() {
                 </p>
                 <p>
                   Para conocer las distintas formas de acompañar esta iniciativa, comunicate a{" "}
-                  <a href={`mailto:${nocheAzul.email}`} className="font-semibold text-white underline underline-offset-2">
+                  <a href={`mailto:${nocheAzul.email}`} className="font-semibold text-cta underline-offset-2 hover:underline">
                     {nocheAzul.email}
                   </a>
                   .
@@ -307,7 +307,7 @@ export function Participacion() {
             </div>
             <a
               href={nocheAzul.modalidadesUrl}
-              className="group mt-8 inline-flex items-center gap-2 rounded-full bg-sky-accent px-8 py-3.5 font-semibold text-navy-950 transition hover:bg-white"
+              className="group mt-8 inline-flex items-center gap-2 rounded-full bg-cta px-8 py-3.5 font-semibold text-white transition hover:bg-cta-hover"
             >
               Ver modalidades de participación <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />
             </a>
