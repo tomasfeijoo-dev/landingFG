@@ -2,7 +2,7 @@ import Image from "next/image";
 import type { Logo } from "@/lib/logos";
 
 // Fila de logos que se desplaza sola, lento y en loop. Se pausa al pasar el mouse.
-function Row({ logos: base, reverse = false, size }: { logos: Logo[]; reverse?: boolean; size: "md" | "sm" }) {
+function Row({ logos: base, reverse = false, size, plain }: { logos: Logo[]; reverse?: boolean; size: "md" | "sm"; plain: boolean }) {
   // Listas cortas se repiten para que la fila siempre cubra todo el ancho
   const logos = base.length >= 10 ? base : Array.from({ length: Math.ceil(10 / base.length) }, () => base).flat();
   const duration = `${logos.length * (size === "md" ? 5 : 4)}s`;
@@ -18,7 +18,7 @@ function Row({ logos: base, reverse = false, size }: { logos: Logo[]; reverse?: 
           <li
             key={`${l.src}-${i}`}
             aria-hidden={i >= base.length}
-            className={`flex flex-none items-center justify-center rounded-2xl bg-white shadow-sm ring-1 ring-navy-900/5 ${tile}`}
+            className={`flex flex-none items-center justify-center ${plain ? "" : "rounded-2xl bg-white shadow-sm ring-1 ring-navy-900/5"} ${tile}`}
           >
             <Image quality={90} src={l.src} alt={i < base.length ? l.name : ""} width={l.width} height={l.height} loading="eager" className="max-h-[70%] w-auto max-w-full object-contain" />
           </li>
@@ -31,10 +31,13 @@ function Row({ logos: base, reverse = false, size }: { logos: Logo[]; reverse?: 
 export default function LogoMarquee({
   groups,
   size = "md",
+  plain = false,
 }: {
   // Un grupo sin título continúa al anterior (una segunda fila del mismo grupo)
   groups: { title?: string; logos: Logo[] }[];
   size?: "md" | "sm";
+  // Logos sueltos, sin tarjeta ni borde
+  plain?: boolean;
 }) {
   return (
     <div className="space-y-6">
@@ -43,7 +46,7 @@ export default function LogoMarquee({
           {g.title && (
             <p className={`mb-3 font-semibold uppercase tracking-[0.16em] text-navy-900/50 ${size === "md" ? "text-xs" : "text-[11px]"}`}>{g.title}</p>
           )}
-          <Row logos={g.logos} reverse={i % 2 === 1} size={size} />
+          <Row logos={g.logos} reverse={i % 2 === 1} size={size} plain={plain} />
         </div>
       ))}
     </div>

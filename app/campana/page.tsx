@@ -363,6 +363,7 @@ export default function CampanaPage() {
           </div>
           <div className="reveal mt-10">
             <LogoMarquee
+              plain
               groups={[
                 { title: "Sponsors", logos: sponsors },
                 // Son muchas: van en dos filas para que se vean todas
