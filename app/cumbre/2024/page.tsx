@@ -177,8 +177,7 @@ export default function Cumbre2024Page() {
             <div className="mt-4 flex flex-wrap items-center gap-8">
               <Image src="/logo.png" alt="Fundación Gedyt" width={837} height={192} className="h-10 w-auto sm:h-12" />
               <div className="flex items-center gap-3">
-                <Image src="/logos/sied.webp" alt="SIED" width={392} height={288} className="h-14 w-auto mix-blend-multiply sm:h-16" />
-                <span className="max-w-[11rem] text-xs font-semibold leading-snug text-navy-900/70">Sociedad Interamericana de Endoscopía Digestiva</span>
+                <Image src="/logos/sied.webp" alt="SIED – Sociedad Interamericana de Endoscopía Digestiva" width={801} height={564} className="h-20 w-auto mix-blend-multiply sm:h-24" />
               </div>
             </div>
           </div>
