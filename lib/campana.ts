@@ -70,10 +70,13 @@ export const aQuienes =
   "En Argentina es el segundo cáncer más frecuente. En el 75% de los casos, el CCR se desarrolla en personas que no presentan antecedentes personales ni familiares de la enfermedad.";
 
 export const causas = [
-  "Consumo de alcohol y tabaco.",
-  "Una alimentación alta en grasas y carnes rojas, y baja en frutas, verduras y fibra.",
-  "La obesidad y la vida sedentaria.",
-  "Antecedentes de otros tipos de cáncer, como cáncer de mama u ovarios, o tener enfermedades que predisponen a la aparición de pólipos en este órgano.",
+  { text: "Consumo de alcohol y tabaco.", icon: "smoke" },
+  { text: "Una alimentación alta en grasas y carnes rojas, y baja en frutas, verduras y fibra.", icon: "meat" },
+  { text: "La obesidad y la alta ingesta calórica.", icon: "flame" },
+  {
+    text: "Antecedentes de otros tipos de cáncer, como cáncer de mama o páncreas, o tener enfermedades que predisponen a la aparición de pólipos en este órgano.",
+    icon: "cell",
+  },
 ];
 
 export const sintomas = {

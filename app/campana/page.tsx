@@ -196,15 +196,17 @@ export default function CampanaPage() {
       <section className="px-4 sm:px-6">
         <div className="reveal mx-auto grid max-w-7xl overflow-hidden rounded-[2rem] bg-white shadow-xl shadow-navy-900/5 ring-1 ring-navy-900/5 lg:grid-cols-2">
           <div className="relative min-h-[18rem]">
-            <Image src="/images/manos.webp" alt="Manos de una paciente y una médica" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+            <Image src="/images/causas-manos.webp" alt="Una médica sostiene las manos de una paciente" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover object-[center_40%]" />
           </div>
           <div className="p-8 sm:p-12">
             <H2>¿Cuáles son sus causas?</H2>
-            <ul className="mt-8 space-y-4">
+            <ul className="mt-8 space-y-5">
               {causas.map((c) => (
-                <li key={c} className="flex gap-3 text-navy-900/80">
-                  <Icon name="check" className="mt-0.5 h-5 w-5 flex-none text-cta" />
-                  {c}
+                <li key={c.text} className="flex items-start gap-4 text-navy-900/80">
+                  <span className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-cta text-white shadow-md shadow-cta/25 ring-4 ring-brand-50">
+                    <Icon name={c.icon} className="h-5 w-5" />
+                  </span>
+                  <span className="pt-2.5">{c.text}</span>
                 </li>
               ))}
             </ul>
