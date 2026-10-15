@@ -10,7 +10,7 @@ import { donarOnlineUrl, nocheAzul } from "@/lib/content";
 const TEST_PRICE = 95000;
 const ars = (n: number) => `$${n.toLocaleString("es-AR")}`;
 
-/** Botón flotante de donación: aparece cuando se deja atrás el banner. */
+/** Botón flotante para reservar (Mercado Pago): aparece cuando se deja atrás el banner. */
 export function FloatingDonate() {
   const [show, setShow] = useState(false);
   useEffect(() => {
@@ -22,7 +22,7 @@ export function FloatingDonate() {
         return !!r && r.top < vh * 0.8 && r.bottom > vh * 0.2;
       };
       const end = document.getElementById("gala-final")?.getBoundingClientRect().top ?? Infinity;
-      setShow(window.scrollY > vh * 0.6 && end > vh * 0.6 && !inView("dona"));
+      setShow(window.scrollY > vh * 0.6 && end > vh * 0.6 && !inView("participa"));
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -30,13 +30,15 @@ export function FloatingDonate() {
   }, []);
   return (
     <a
-      href="#dona"
+      href={nocheAzul.reserveUrl}
+      target="_blank"
+      rel="noopener noreferrer"
       className={`fixed right-4 bottom-4 z-40 flex items-center gap-2 rounded-full bg-gradient-to-r from-cta to-sky-accent px-6 py-3.5 font-semibold text-white shadow-xl shadow-navy-950/30 ring-4 ring-white/60 transition-all duration-500 hover:scale-105 sm:right-6 sm:bottom-6 ${
         show ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-6 opacity-0"
       }`}
     >
-      <Icon name="heart" className="h-5 w-5 animate-pulse" />
-      Doná a la causa
+      <Icon name="calendar" className="h-5 w-5" />
+      Reservá tu lugar
     </a>
   );
 }

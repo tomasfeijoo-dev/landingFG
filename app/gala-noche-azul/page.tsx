@@ -4,7 +4,7 @@ import CountUp from "@/components/CountUp";
 import Icon from "@/components/Icon";
 import VideoBanner from "@/components/gala/VideoBanner";
 import { FloatingDonate, ImpactSlider, Momentos, Objetivos, Participacion, Spotlight } from "@/components/gala/GalaInteractive";
-import { donarOnlineUrl, nocheAzul } from "@/lib/content";
+import { nocheAzul } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Gala Noche Azul",
@@ -255,9 +255,7 @@ export default function GalaPage() {
         </p>
         <div className="relative mt-10 flex flex-col justify-center gap-3 sm:flex-row">
           <a
-            href={donarOnlineUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#dona"
             className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-9 py-4 font-semibold text-navy-900 shadow-lg shadow-black/30 transition hover:scale-105"
           >
             <Icon name="heart" className="h-5 w-5 text-cta" /> Doná ahora
