@@ -44,7 +44,7 @@ export default function LogoMarquee({
       {groups.map((g, i) => (
         <div key={i} className={g.title ? "" : "-mt-3"}>
           {g.title && (
-            <p className={`mb-3 font-semibold uppercase tracking-[0.16em] text-navy-900/50 ${size === "md" ? "text-xs" : "text-[11px]"}`}>{g.title}</p>
+            <p className={`mb-3 font-semibold uppercase tracking-[0.16em] text-navy-900/50 ${size === "md" ? "text-xs" : "text-[11px]"} ${plain ? "text-center" : ""}`}>{g.title}</p>
           )}
           <Row logos={g.logos} reverse={i % 2 === 1} size={size} plain={plain} />
         </div>
