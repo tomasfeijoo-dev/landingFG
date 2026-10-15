@@ -49,9 +49,9 @@ export const institutions: Logo[] = [
 
 // TODO: logos recortados de una captura (baja resolución): reemplazar por los originales.
 export const allies: Logo[] = [
-  { name: "Racing Solidario", src: "/logos/racing-solidario.webp", width: 174, height: 191 },
-  { name: "River Plate", src: "/logos/river-plate.webp", width: 117, height: 172 },
-  { name: "Rojo Solidario", src: "/logos/rojo-solidario.webp", width: 245, height: 85 },
+  { name: "Racing Solidario", src: "/logos/racing-solidario.webp", width: 544, height: 540 },
+  { name: "River Plate", src: "/logos/river-plate.webp", width: 487, height: 458 },
+  { name: "Rojo Solidario", src: "/logos/rojo-solidario.webp", width: 1305, height: 332 },
   { name: "Liga Profesional de Fútbol", src: "/logos/lpf.webp", width: 257, height: 115 },
   { name: "Argentinos Juniors", src: "/logos/argentinos-juniors.webp", width: 179, height: 210 },
 ];

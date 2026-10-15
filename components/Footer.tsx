@@ -19,7 +19,7 @@ export default function Footer() {
         <div className="grid gap-10 py-14 md:grid-cols-[1.3fr_1fr_1.2fr]">
           <div>
             <Logo />
-            <p className="mt-8 font-bold text-navy-900">FG en redes</p>
+            <p className="mt-8 font-bold text-navy-900">Fundación Gedyt en redes</p>
             <div className="mt-4 flex gap-2">
               {socialLinks.map((s) => (
                 <a

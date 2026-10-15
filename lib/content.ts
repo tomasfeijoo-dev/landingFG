@@ -64,8 +64,8 @@ export const anuarioUrl = "https://fundaciongedyt.org.ar/publicaciones/";
 // Links de las tarjetas destacadas del inicio
 export const homeLinks = {
   campana: "/campana",
-  // TODO: link a la edición 2024 de la Cumbre Interamericana de CCR360°
-  cumbre: "/novedades",
+  // Edición 2024 de la Cumbre Interamericana de CCR360°
+  cumbre: "https://fundaciongedyt.org.ar/cumbre-interamericana-ccr/",
   gala2025:
     "https://www.infobae.com/tendencias/2025/09/10/como-fue-la-emotiva-gala-solidaria-noche-azul-que-impulsa-la-prevencion-y-deteccion-del-cancer-de-colon/",
 };
