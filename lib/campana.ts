@@ -26,11 +26,31 @@ export const encuestaUrl = "https://fundaciongedyt.org.ar/campana-prevencion-can
 
 export const mitos = [
   { q: "El cáncer de colon solo afecta a hombres.", mito: true, a: "Afecta por igual a todas las personas, aunque su incidencia es levemente mayor en hombres." },
-  { q: "Una mala alimentación puede provocar cáncer de colon.", mito: false, a: "Una alimentación alta en grasas y carnes rojas, y baja en frutas, verduras y fibra, es un factor de riesgo." },
-  { q: "Si no se presentan síntomas, no hay riesgo de cáncer de colon.", mito: true, a: "Es una enfermedad silenciosa que se desarrolla durante muchos años sin síntomas en su etapa inicial." },
-  { q: "Todos los pólipos del colon son cancerosos.", mito: true, a: "Solo entre el 10% y el 20% de los pólipos que se originan en el colon se convierten en cáncer." },
-  { q: "Si pierdo sangre en la materia fecal puedo no notarlo.", mito: false, a: "Los pólipos sangran en cantidades tan pequeñas que muchas veces no se ve. Para detectarlo se hace un test de sangre oculta." },
-  { q: "La colonoscopía es un procedimiento largo y muy doloroso.", mito: true, a: "Es un estudio corto, de unos 20 minutos, que se realiza con sedación: no se siente nada durante ni después." },
+  {
+    q: "Una mala alimentación puede provocar cáncer de colon.",
+    mito: false,
+    a: "El cáncer de colon está directamente relacionado a la alimentación, pero las investigaciones han demostrado que el consumo de tabaco, el abuso del alcohol y la falta de actividad física pueden ser factores de riesgo.",
+  },
+  {
+    q: "Si no se presentan síntomas, no hay riesgos de cáncer de colon.",
+    mito: true,
+    a: "El cáncer de colon es una enfermedad silenciosa que se desarrolla durante muchos años, sin síntomas en su estadio inicial. Cuando el cáncer está avanzado, puede ocasionar pérdida de apetito y de peso, fatiga o, en ocasiones, severos episodios de sangrado por el recto.",
+  },
+  {
+    q: "Todos los pólipos del colon son cancerosos.",
+    mito: true,
+    a: "Solo entre el 10% y el 20% de los pólipos originados en el colon se convierten en cáncer. La única manera de detectarlo es extrayendo el pólipo mediante una colonoscopia para su posterior análisis.",
+  },
+  {
+    q: "Si pierdo sangre en la materia fecal puedo no notarlo.",
+    mito: false,
+    a: "Los pólipos en etapas iniciales del cáncer de colon sangran en tan pequeña cantidad que muchas veces es imposible ver la sangre en la materia fecal. Para descubrirlo, se debe realizar una prueba muy sencilla llamada “prueba de sangre oculta”.",
+  },
+  {
+    q: "La colonoscopia es un procedimiento largo y muy doloroso.",
+    mito: true,
+    a: "La colonoscopia es un examen corto de aproximadamente 20 minutos que se realiza con los pacientes sedados y no se siente nada ni durante ni después.",
+  },
 ];
 
 export const queEs = {

@@ -17,7 +17,7 @@ export default function MythCards() {
             type="button"
             onClick={() => setOpen(flipped ? null : i)}
             aria-pressed={flipped}
-            className="reveal-pop group h-56 text-left [perspective:1200px]"
+            className="reveal-pop group h-72 text-left [perspective:1200px]"
           >
             <div className={`relative h-full w-full transition-transform duration-700 [transform-style:preserve-3d] lg:group-hover:[transform:rotateY(180deg)] ${flipped ? "[transform:rotateY(180deg)]" : ""}`}>
               {/* Frente: la afirmación */}
@@ -35,7 +35,7 @@ export default function MythCards() {
                 >
                   {m.mito ? "Mito" : "Realidad"}
                 </span>
-                <p className="mt-4 text-navy-900/80">{m.a}</p>
+                <p className="mt-4 text-[15px] leading-relaxed text-navy-900/80">{m.a}</p>
               </div>
             </div>
           </button>
