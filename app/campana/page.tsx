@@ -327,12 +327,12 @@ export default function CampanaPage() {
           </div>
           <div className="reveal relative min-h-[22rem] overflow-hidden rounded-[2rem] bg-gradient-to-b from-[#125f8b] to-[#0b456a] text-white shadow-2xl shadow-navy-900/20">
             <Image
-              src="/images/redes-celular.webp"
+              src="/images/redes-celular-v2.webp"
               alt="El perfil de Instagram de la Fundación en un celular, junto al emoji de la campaña"
-              width={814}
-              height={968}
+              width={593}
+              height={833}
               sizes="(min-width: 1024px) 20vw, 40vw"
-              className="pointer-events-none absolute right-0 bottom-0 h-[105%] w-auto max-w-none opacity-40 [mask-image:linear-gradient(to_right,transparent,black_25%)] sm:opacity-100"
+              className="pointer-events-none absolute right-6 bottom-0 h-[95%] w-auto max-w-none opacity-40 drop-shadow-2xl sm:opacity-100"
             />
             <div className="relative max-w-[17rem] p-10 sm:max-w-xs">
               <h2 className="text-3xl font-extrabold tracking-tight">Seguí la campaña en nuestras redes</h2>
