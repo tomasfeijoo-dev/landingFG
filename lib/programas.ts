@@ -24,7 +24,7 @@ export const programas: Programa[] = [
     text: "El primer Programa de Prevención y Detección Temprana del Cáncer de Colon diseñado especialmente para entornos laborales.",
     image: "/images/prog-prevenir.webp",
     icon: "building",
-    links: [{ label: "Ver caso: Panamerican Energy", href: "/novedades" }],
+    links: [{ label: "Ver caso: Panamerican Energy", href: "/programas/panamerican-energy" }],
     joinCta: true,
   },
   {
