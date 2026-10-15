@@ -96,7 +96,6 @@ export default function Donate({ first = false }: { first?: boolean }) {
       <div ref={topRef} className="reveal relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
         <div className="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800" />
         <div className="pointer-events-none absolute -top-32 -right-24 h-96 w-96 rounded-full bg-sky-accent/20 blur-3xl" aria-hidden />
-        <div className="pointer-events-none absolute -bottom-40 -left-40 h-[28rem] w-[28rem] rounded-full border-[48px] border-white/5" aria-hidden />
 
         <div className="relative px-6 py-12 text-white sm:px-12 sm:py-14 lg:px-16">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
