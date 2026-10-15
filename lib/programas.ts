@@ -17,7 +17,8 @@ export type Programa = {
   joinCta?: boolean;
 };
 
-// TODO: confirmar los links de cada botón con la Fundación.
+// Links de cada botón: Prevenir es Cuidar y Mujeres en Salud llevan a sus páginas propias.
+// TODO: confirmar con la Fundación los links de Entrenamiento y Misiones.
 export const programas: Programa[] = [
   {
     title: "Prevenir\nes Cuidar",
