@@ -1,28 +1,26 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Icon from "@/components/Icon";
 import { donarOnlineUrl, nocheAzul } from "@/lib/content";
 
-// Piezas interactivas de la página de la Noche Azul.
+// Piezas interactivas de la página de la Noche Azul (mismo estilo claro que el resto del sitio).
 
 const TEST_PRICE = 95000;
 const ars = (n: number) => `$${n.toLocaleString("es-AR")}`;
 
-/** Botón flotante de donación: aparece cuando se deja atrás el banner. */
+/** Botón flotante de donación: aparece al dejar atrás el banner y se oculta donde ya hay uno. */
 export function FloatingDonate() {
   const [show, setShow] = useState(false);
   useEffect(() => {
     const onScroll = () => {
       const vh = window.innerHeight;
-      // Se oculta en la sección de donación y en el cierre, que ya tienen su propio botón
       const inView = (id: string) => {
         const r = document.getElementById(id)?.getBoundingClientRect();
         return !!r && r.top < vh * 0.8 && r.bottom > vh * 0.2;
       };
-      const end = document.getElementById("gala-final")?.getBoundingClientRect().top ?? Infinity;
-      setShow(window.scrollY > vh * 0.6 && end > vh * 0.6 && !inView("dona"));
+      setShow(window.scrollY > vh * 0.6 && !inView("dona") && !inView("gala-final"));
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -31,76 +29,13 @@ export function FloatingDonate() {
   return (
     <a
       href="#dona"
-      className={`fixed right-4 bottom-4 z-40 flex items-center gap-2 rounded-full bg-gradient-to-r from-cta to-sky-accent px-6 py-3.5 font-semibold text-white shadow-xl shadow-navy-950/30 ring-4 ring-white/60 transition-all duration-500 hover:scale-105 sm:right-6 sm:bottom-6 ${
+      className={`fixed right-4 bottom-4 z-40 flex items-center gap-2 rounded-full bg-cta px-6 py-3.5 font-semibold text-white shadow-xl shadow-navy-900/30 ring-4 ring-white transition-all duration-500 hover:bg-cta-hover sm:right-6 sm:bottom-6 ${
         show ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-6 opacity-0"
       }`}
     >
-      <Icon name="heart" className="h-5 w-5 animate-pulse" />
+      <Icon name="heart" className="h-5 w-5" />
       Doná a la causa
     </a>
-  );
-}
-
-/** Contenedor con un haz de luz que sigue al mouse (efecto escenario). */
-export function Spotlight({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null);
-  return (
-    <div
-      ref={ref}
-      onMouseMove={(e) => {
-        const r = ref.current!.getBoundingClientRect();
-        ref.current!.style.setProperty("--x", `${e.clientX - r.left}px`);
-        ref.current!.style.setProperty("--y", `${e.clientY - r.top}px`);
-      }}
-      className={`group/spot relative ${className}`}
-    >
-      <div
-        className="pointer-events-none absolute inset-0 z-10 opacity-0 transition duration-500 group-hover/spot:opacity-100"
-        style={{ background: "radial-gradient(420px circle at var(--x) var(--y), rgba(143,208,240,0.18), transparent 60%)" }}
-        aria-hidden
-      />
-      {children}
-    </div>
-  );
-}
-
-/** Objetivos: tarjetas que se expanden al pasar el mouse o tocarlas. */
-export function Objetivos({ items }: { items: { label: string; text: string; icon: string }[] }) {
-  const [active, setActive] = useState(0);
-  return (
-    <div className="flex flex-col gap-3 lg:h-[22rem] lg:flex-row">
-      {items.map((o, i) => {
-        const on = active === i;
-        return (
-          <button
-            key={o.label}
-            type="button"
-            onMouseEnter={() => setActive(i)}
-            onFocus={() => setActive(i)}
-            onClick={() => setActive(i)}
-            aria-expanded={on}
-            className={`reveal-pop group relative overflow-hidden rounded-3xl p-6 text-left ring-1 transition-all duration-500 ease-out lg:p-8 ${
-              on ? "bg-gradient-to-br from-cta to-navy-800 text-white ring-white/20 lg:flex-[2.4]" : "bg-white/[0.06] text-white/85 ring-white/10 hover:bg-white/10 lg:flex-1"
-            }`}
-          >
-            <span className="absolute -top-4 -right-2 text-[7rem] leading-none font-extrabold text-white/[0.06]" aria-hidden>
-              0{i + 1}
-            </span>
-            <span className={`relative flex h-14 w-14 items-center justify-center rounded-2xl transition ${on ? "bg-white text-cta" : "bg-white/10 text-sky-accent"}`}>
-              <Icon name={o.icon} className="h-7 w-7" />
-            </span>
-            <p className="relative mt-6 text-lg font-extrabold leading-snug lg:absolute lg:right-8 lg:bottom-8 lg:left-8">
-              {o.label}
-              <span
-                className={`block overflow-hidden text-sm font-normal leading-relaxed text-white/85 transition-all duration-500 ${on ? "mt-3 max-h-40 opacity-100" : "max-h-0 opacity-0"}`}
-              >
-                {o.text}
-              </span>
-            </p>
-          </button>
-        );
-      })}
-    </div>
   );
 }
 
@@ -109,13 +44,13 @@ export function ImpactSlider() {
   const [tests, setTests] = useState(2);
   const total = tests * TEST_PRICE;
   return (
-    <div className="rounded-[2rem] bg-white p-6 text-navy-900 shadow-2xl shadow-navy-950/40 sm:p-10">
-      <p className="text-xs font-bold uppercase tracking-[0.25em] text-cta">Simulá tu impacto</p>
-      <p className="mt-4 text-lg text-navy-900/70">Con tu aporte financiás tests de detección temprana para personas que no tienen acceso.</p>
+    <div className="rounded-[2rem] bg-white p-6 text-navy-900 shadow-2xl shadow-navy-900/20 ring-1 ring-navy-900/5 sm:p-10">
+      <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cta">Simulá tu impacto</p>
+      <p className="mt-3 text-navy-900/70">Elegí cuántos tests querés financiar para personas que hoy no tienen acceso a un control.</p>
 
       <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-5xl font-extrabold tracking-tight text-navy-900 tabular-nums sm:text-6xl">{ars(total)}</p>
+          <p className="text-5xl font-extrabold tracking-tight tabular-nums">{ars(total)}</p>
           <p className="mt-1 text-sm text-navy-900/60">{tests === 1 ? "financia 1 test Q-FIT" : `financian ${tests} tests Q-FIT`}</p>
         </div>
         <div className="grid w-fit grid-cols-10 gap-1 sm:grid-cols-5" aria-hidden>
@@ -157,60 +92,59 @@ export function ImpactSlider() {
         Doná {ars(total)}
         <Icon name="arrow" className="h-5 w-5 transition group-hover:translate-x-1" />
       </a>
-      <p className="mt-3 text-center text-xs text-navy-900/50">Cada test Q-FIT cuesta {ars(TEST_PRICE)}. Podés elegir cualquier monto en la plataforma.</p>
+      <p className="mt-3 text-center text-xs text-navy-900/50">Cada test Q-FIT cuesta {ars(TEST_PRICE)}. En la plataforma podés elegir cualquier monto.</p>
     </div>
   );
 }
 
-/** Galería de momentos: dos filas en movimiento y visor a pantalla completa. */
+/** Galería de momentos en grilla, con visor a pantalla completa. */
 export function Momentos({ photos }: { photos: { src: string; alt: string }[] }) {
   const [open, setOpen] = useState<number | null>(null);
+  const go = (d: number) => setOpen((i) => ((i ?? 0) + d + photos.length) % photos.length);
   useEffect(() => {
     if (open === null) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setOpen(null);
-      if (e.key === "ArrowRight") setOpen((i) => ((i ?? 0) + 1) % photos.length);
-      if (e.key === "ArrowLeft") setOpen((i) => ((i ?? 0) - 1 + photos.length) % photos.length);
+      if (e.key === "ArrowRight") go(1);
+      if (e.key === "ArrowLeft") go(-1);
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [open, photos.length]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open]);
 
-  const rows = [photos, [...photos.slice(4), ...photos.slice(0, 4)]];
   return (
     <>
-      <div className="space-y-4">
-        {rows.map((row, r) => (
-          <div key={r} className="marquee overflow-hidden">
-            <ul className={`marquee-track flex w-max gap-4 ${r === 1 ? "marquee-reverse" : ""}`} style={{ animationDuration: "45s" }}>
-              {[...row, ...row].map((p, i) => (
-                <li key={i} aria-hidden={i >= row.length}>
-                  <button
-                    type="button"
-                    tabIndex={i >= row.length ? -1 : 0}
-                    onClick={() => setOpen(photos.indexOf(p))}
-                    className="group relative block h-56 w-52 overflow-hidden rounded-2xl ring-1 ring-white/10 sm:h-64 sm:w-60"
-                  >
-                    <Image src={p.src} alt={p.alt} fill sizes="240px" className="object-cover transition duration-700 group-hover:scale-110" />
-                    <span className="absolute inset-0 flex items-center justify-center bg-navy-950/50 opacity-0 transition group-hover:opacity-100">
-                      <span className="rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-navy-900">Ver foto</span>
-                    </span>
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+        {photos.map((p, i) => {
+          return (
+            <button
+              key={p.src}
+              type="button"
+              onClick={() => setOpen(i)}
+              className="reveal-pop group relative overflow-hidden rounded-2xl shadow-lg shadow-navy-900/10"
+            >
+              <div className="relative aspect-[10/11]">
+                <Image src={p.src} alt={p.alt} fill sizes="(min-width: 640px) 25vw, 50vw" className="object-cover transition duration-700 group-hover:scale-110" />
+              </div>
+              <span className="absolute inset-0 flex items-end bg-gradient-to-t from-navy-950/70 via-transparent to-transparent p-4 opacity-0 transition group-hover:opacity-100">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-semibold text-navy-900">
+                  Ver foto <Icon name="arrow" className="h-3.5 w-3.5" />
+                </span>
+              </span>
+            </button>
+          );
+        })}
       </div>
 
       {open !== null && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center bg-navy-950/90 p-4 backdrop-blur" onClick={() => setOpen(null)} role="dialog" aria-modal="true">
-          <div className="pop-in relative aspect-[408/440] h-[80vh] max-w-full overflow-hidden rounded-3xl" onClick={(e) => e.stopPropagation()}>
+        <div className="fixed inset-0 z-[200] flex items-center justify-center bg-navy-950/85 p-4 backdrop-blur-sm" onClick={() => setOpen(null)} role="dialog" aria-modal="true">
+          <div className="pop-in relative aspect-[408/440] h-[78vh] max-w-full overflow-hidden rounded-3xl bg-white shadow-2xl" onClick={(e) => e.stopPropagation()}>
             <Image src={photos[open].src} alt={photos[open].alt} fill sizes="80vh" className="object-cover" />
           </div>
           {[
-            { d: -1, label: "Foto anterior", pos: "left-4", rot: "rotate-180" },
-            { d: 1, label: "Foto siguiente", pos: "right-4", rot: "" },
+            { d: -1, label: "Foto anterior", pos: "left-3 sm:left-6", rot: "rotate-180" },
+            { d: 1, label: "Foto siguiente", pos: "right-3 sm:right-6", rot: "" },
           ].map((b) => (
             <button
               key={b.d}
@@ -218,15 +152,21 @@ export function Momentos({ photos }: { photos: { src: string; alt: string }[] })
               aria-label={b.label}
               onClick={(e) => {
                 e.stopPropagation();
-                setOpen((i) => ((i ?? 0) + b.d + photos.length) % photos.length);
+                go(b.d);
               }}
-              className={`absolute top-1/2 ${b.pos} -translate-y-1/2 p-3 text-white/80 transition hover:scale-110 hover:text-white`}
+              className={`absolute top-1/2 ${b.pos} flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white text-navy-900 shadow-lg transition hover:text-cta`}
             >
-              <Icon name="arrow" className={`h-8 w-8 ${b.rot}`} />
+              <Icon name="arrow" className={`h-5 w-5 ${b.rot}`} />
             </button>
           ))}
-          <button type="button" aria-label="Cerrar" autoFocus onClick={() => setOpen(null)} className="absolute top-4 right-4 p-3 text-white/80 hover:text-white">
-            <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="2">
+          <button
+            type="button"
+            aria-label="Cerrar"
+            autoFocus
+            onClick={() => setOpen(null)}
+            className="absolute top-4 right-4 flex h-11 w-11 items-center justify-center rounded-full bg-white text-navy-900 shadow-lg"
+          >
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M6 6l12 12M18 6L6 18" />
             </svg>
           </button>
@@ -244,8 +184,8 @@ export function Participacion() {
     { id: "empresas" as const, label: "Soy una empresa", icon: "handshake" },
   ];
   return (
-    <div className="mx-auto max-w-4xl">
-      <div className="mx-auto flex w-fit rounded-full bg-white/10 p-1.5 ring-1 ring-white/15 backdrop-blur" role="tablist">
+    <div>
+      <div className="mx-auto flex w-fit rounded-full bg-white p-1.5 shadow-sm ring-1 ring-navy-900/5" role="tablist">
         {tabs.map((t) => (
           <button
             key={t.id}
@@ -254,7 +194,7 @@ export function Participacion() {
             aria-selected={tab === t.id}
             onClick={() => setTab(t.id)}
             className={`flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition sm:px-7 ${
-              tab === t.id ? "bg-white text-navy-900 shadow-lg" : "text-white/80 hover:text-white"
+              tab === t.id ? "bg-cta text-white shadow-md shadow-cta/25" : "text-navy-900/70 hover:text-cta"
             }`}
           >
             <Icon name={t.icon} className="h-4 w-4" />
@@ -263,18 +203,18 @@ export function Participacion() {
         ))}
       </div>
 
-      <div key={tab} className="pop-in mt-10 rounded-[2rem] bg-white/[0.06] p-8 text-left ring-1 ring-white/10 backdrop-blur sm:p-12">
+      <div key={tab} className="pop-in mt-8 rounded-[2rem] bg-white p-8 shadow-xl shadow-navy-900/5 ring-1 ring-navy-900/5 sm:p-12">
         {tab === "personas" ? (
           <div className="grid items-center gap-8 md:grid-cols-[1.4fr_1fr]">
-            <div className="space-y-4 text-white/80">
-              <p className="text-2xl font-extrabold text-white">Viví la Noche Azul</p>
+            <div className="space-y-4 text-navy-900/75">
+              <h3 className="text-2xl font-extrabold text-navy-900">Viví la Noche Azul</h3>
               <p>
                 La Noche Azul convoca a todos aquellos que quieren ser parte del cambio. Empresas, organizaciones y personas que eligen acompañar una causa de
                 alto impacto.
               </p>
-              <p className="text-xs text-white/55">
+              <p className="text-xs text-navy-900/55">
                 * En caso de realizar la compra mediante Mercado Pago, solicitamos enviar el comprobante a{" "}
-                <a href={`mailto:${nocheAzul.email}`} className="underline underline-offset-2 hover:text-white">
+                <a href={`mailto:${nocheAzul.email}`} className="font-semibold text-cta underline-offset-2 hover:underline">
                   {nocheAzul.email}
                 </a>{" "}
                 para acreditar correctamente a los asistentes.
@@ -283,19 +223,19 @@ export function Participacion() {
             <div className="flex flex-col gap-3">
               <a
                 href={nocheAzul.reserveUrl}
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 font-semibold text-navy-900 shadow-lg shadow-black/30 transition hover:bg-brand-50"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-cta px-8 py-4 font-semibold text-white shadow-lg shadow-cta/25 transition hover:bg-cta-hover"
               >
                 Reservá tu lugar <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />
               </a>
-              <a href="#dona" className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-3 font-semibold text-white ring-1 ring-white/30 transition hover:bg-white/10">
-                <Icon name="heart" className="h-4 w-4" /> No puedo ir, pero quiero donar
+              <a href="#dona" className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-50 px-8 py-3.5 font-semibold text-navy-900 ring-1 ring-brand-100 transition hover:ring-cta">
+                <Icon name="heart" className="h-4 w-4 text-cta" /> No puedo ir, pero quiero donar
               </a>
             </div>
           </div>
         ) : (
           <div>
-            <p className="text-2xl font-extrabold text-white">Un espacio para empresas y organizaciones</p>
-            <div className="mt-6 grid gap-6 text-white/80 md:grid-cols-2">
+            <h3 className="text-2xl font-extrabold text-navy-900">Un espacio para empresas y organizaciones</h3>
+            <div className="mt-6 grid gap-6 text-navy-900/75 md:grid-cols-2">
               <div className="space-y-4">
                 <p>
                   Empresas y organizaciones pueden sumarse a La Noche Azul como aliados estratégicos de una causa que trasciende una sola noche: impulsar la
@@ -313,7 +253,7 @@ export function Participacion() {
                 </p>
                 <p>
                   Para conocer las distintas formas de acompañar esta iniciativa, comunicate a{" "}
-                  <a href={`mailto:${nocheAzul.email}`} className="font-semibold text-white underline underline-offset-2">
+                  <a href={`mailto:${nocheAzul.email}`} className="font-semibold text-cta underline-offset-2 hover:underline">
                     {nocheAzul.email}
                   </a>
                   .
@@ -322,7 +262,7 @@ export function Participacion() {
             </div>
             <a
               href={nocheAzul.modalidadesUrl}
-              className="group mt-8 inline-flex items-center gap-2 rounded-full bg-sky-accent px-8 py-3.5 font-semibold text-navy-950 transition hover:bg-white"
+              className="group mt-8 inline-flex items-center gap-2 rounded-full bg-cta px-8 py-3.5 font-semibold text-white transition hover:bg-cta-hover"
             >
               Ver modalidades de participación <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />
             </a>
@@ -330,5 +270,80 @@ export function Participacion() {
         )}
       </div>
     </div>
+  );
+}
+
+/** Banner con el video de la gala de fondo (sin sonido) y un visor para verlo completo con sonido. */
+export function HeroVideo({ children }: { children: React.ReactNode }) {
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  return (
+    <section className="relative flex min-h-[34rem] items-center overflow-hidden bg-navy-950 text-white sm:min-h-[40rem] lg:min-h-[44rem]">
+      <video
+        className="absolute inset-0 h-full w-full object-cover"
+        src="/gala/noche-azul-2026-loop.mp4"
+        poster="/gala/noche-azul-2026-poster.webp"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-hidden
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy-950/90 via-navy-950/60 to-navy-950/20" />
+      <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-navy-950/70 to-transparent" />
+      <div className="relative mx-auto w-full max-w-7xl px-6 py-20 sm:px-12 lg:px-16">
+        {children}
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="group inline-flex items-center justify-center gap-3 rounded-full bg-white py-2 pr-7 pl-2 font-semibold text-navy-900 shadow-lg shadow-black/30 transition hover:bg-brand-50"
+          >
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-cta text-white transition group-hover:scale-110">
+              <svg viewBox="0 0 24 24" className="ml-0.5 h-4 w-4" fill="currentColor" aria-hidden>
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </span>
+            Mirá cómo fue la noche
+          </button>
+          <a
+            href="#dona"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-cta px-8 py-3.5 font-semibold text-white shadow-lg shadow-black/30 transition hover:bg-cta-hover"
+          >
+            <Icon name="heart" className="h-4 w-4" /> Doná a la causa
+          </a>
+        </div>
+      </div>
+
+      {open && (
+        <div className="fixed inset-0 z-[200] flex items-center justify-center bg-navy-950/90 p-4 backdrop-blur-sm" onClick={() => setOpen(false)} role="dialog" aria-modal="true" aria-label="Video de la Noche Azul 2026">
+          <div className="pop-in relative w-full max-w-5xl overflow-hidden rounded-3xl bg-black shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <video className="aspect-video w-full" src="/gala/noche-azul-2026.mp4" poster="/gala/noche-azul-2026-poster.webp" controls autoPlay playsInline />
+          </div>
+          <button
+            type="button"
+            aria-label="Cerrar"
+            autoFocus
+            onClick={() => setOpen(false)}
+            className="absolute top-4 right-4 flex h-11 w-11 items-center justify-center rounded-full bg-white text-navy-900 shadow-lg"
+          >
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+          </button>
+        </div>
+      )}
+    </section>
   );
 }
