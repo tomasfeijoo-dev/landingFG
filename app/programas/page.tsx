@@ -43,7 +43,7 @@ export default function ProgramasPage() {
             {programas.map((p, i) => (
               <article
                 key={p.title}
-                className="reveal-pop group relative flex flex-col overflow-hidden rounded-3xl bg-white shadow-2xl shadow-black/30 ring-1 ring-white/10"
+                className="reveal-pop group relative flex flex-col overflow-hidden rounded-3xl bg-navy-950/70 shadow-2xl shadow-black/30 ring-1 ring-white/10 backdrop-blur"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <Image src={p.image} alt={p.title} fill sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105" />
@@ -54,28 +54,28 @@ export default function ProgramasPage() {
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col p-5">
-                  <h3 className="text-lg font-extrabold leading-tight tracking-tight text-navy-900">{p.title}</h3>
-                  {p.text && <p className="mt-2 text-sm text-navy-900/70">{p.text}</p>}
-                  <div className="mt-auto flex flex-col gap-2 pt-5">
+                  <h3 className="text-lg font-extrabold leading-tight tracking-tight text-white">{p.title}</h3>
+                  {p.text && <p className="mt-2 text-sm text-white/70">{p.text}</p>}
+                  <div className="flex flex-col gap-2 pt-5">
                     {p.links.map((l) => (
                       <InterestLink
                         key={l.label}
                         href={l.href}
-                        className="group/link flex items-center justify-between gap-2 rounded-xl bg-brand-50 px-3 py-2.5 text-sm font-semibold text-navy-900 ring-1 ring-brand-100 transition hover:bg-cta hover:text-white hover:ring-cta"
+                        className="group/link flex items-center justify-between gap-2 rounded-xl bg-white/10 px-3 py-2.5 text-sm font-semibold text-white ring-1 ring-white/15 transition hover:bg-cta hover:ring-cta"
                       >
                         {l.label}
-                        <Icon name="arrow" className="h-4 w-4 flex-none text-cta transition group-hover/link:translate-x-0.5 group-hover/link:text-white" />
+                        <Icon name="arrow" className="h-4 w-4 flex-none text-sky-accent transition group-hover/link:translate-x-0.5 group-hover/link:text-white" />
                       </InterestLink>
                     ))}
                   </div>
                   {p.joinCta && (
                     <a
                       href={`mailto:${programasEmail}?subject=${encodeURIComponent("Quiero sumar a mi organización")}`}
-                      className="mt-3 block rounded-xl border border-dashed border-cta/40 px-3 py-2.5 text-xs text-navy-900/75 transition hover:border-cta hover:bg-brand-50/60"
+                      className="mt-3 block rounded-xl border border-dashed border-white/25 px-3 py-2.5 text-xs text-white/75 transition hover:border-sky-accent hover:bg-white/5"
                     >
                       <span>
-                        Quiero sumar a <strong className="text-navy-900">mi organización</strong>
-                        <span className="block text-[11px] font-semibold tracking-tight text-cta">{programasEmail}</span>
+                        Quiero sumar a <strong className="text-white">mi organización</strong>
+                        <span className="block text-[11px] font-semibold tracking-tight text-sky-accent">{programasEmail}</span>
                       </span>
                     </a>
                   )}
