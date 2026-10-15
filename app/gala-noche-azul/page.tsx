@@ -21,10 +21,16 @@ const objetivos = [
   { label: "Posicionar la prevención como prioridad pública", text: "Instalar el cáncer de colon en la agenda: se puede prevenir y curar.", icon: "institution" },
 ];
 
+const artistas = [
+  { name: "Juan Carlos Baglietto", image: "/gala/baglietto.webp", position: "60% 25%" },
+  { name: "Julia Zenko", image: "/gala/zenko.webp", position: "40% 20%" },
+  { name: "Patricia Sosa", image: "/gala/sosa.webp", position: "50% 25%" },
+];
+
 const datos = [
   { icon: "calendar", label: "15 de septiembre 2026", sub: "20 hs" },
   { icon: "pin", label: "Alvear Palace Hotel", sub: "Av. Alvear 1891, CABA" },
-  { icon: "music", label: "Baglietto — Vitale", sub: "En vivo" },
+  { icon: "music", label: "Baglietto · Zenko · Sosa", sub: "En vivo" },
 ];
 
 const fotos = Array.from({ length: 8 }, (_, i) => ({
@@ -61,12 +67,6 @@ export default function GalaPage() {
         <h1 className="sr-only">Gala a beneficio Noche Azul 2026 — Juntos podemos prevenir el cáncer de colon</h1>
         <VideoBanner />
         <Stars />
-        <a href="#historia" className="pointer-events-auto absolute bottom-5 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-1 text-xs font-semibold uppercase tracking-[0.3em] text-white/80 sm:flex">
-          Descubrí la noche
-          <span className="cursor-bounce mt-1 flex h-9 w-6 justify-center rounded-full ring-2 ring-white/60">
-            <span className="mt-1.5 h-2 w-1 rounded-full bg-white" />
-          </span>
-        </a>
       </section>
 
       {/* Datos clave */}
@@ -148,31 +148,46 @@ export default function GalaPage() {
       </section>
 
       {/* Artistas */}
-      <section className="relative overflow-hidden">
-        <Spotlight className="mx-auto grid max-w-7xl items-center lg:grid-cols-2">
-          <div className="reveal relative aspect-square overflow-hidden lg:min-h-[36rem]">
-            <Image src="/gala/baglietto-vitale.webp" alt="Juan Carlos Baglietto y Lito Vitale" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover grayscale transition duration-1000 group-hover/spot:grayscale-0" />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#050f2b] max-lg:bg-gradient-to-t" />
-          </div>
-          <div className="reveal relative z-20 px-6 py-16 sm:px-12 lg:px-16">
-            <Kicker>Participación de</Kicker>
-            <h2 className="mt-5 text-5xl font-light uppercase tracking-[0.06em] sm:text-7xl sm:tracking-[0.08em]">
-              Baglietto
-              <span className="block bg-gradient-to-r from-sky-accent to-white bg-clip-text font-extrabold text-transparent">Vitale</span>
-            </h2>
-            <p className="mt-6 max-w-md text-lg leading-relaxed text-white/80">
-              Una noche que combina impacto, cultura y propósito, donde la emoción también se convierte en acción. Los maestros de la música argentina nos
-              acompañan en esta velada inolvidable.
-            </p>
-            <p className="mt-8 inline-flex items-center gap-3 rounded-full bg-white/[0.06] px-5 py-2.5 text-sm text-white/80 ring-1 ring-white/10">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-accent opacity-75" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-sky-accent" />
-              </span>
-              Presentación exclusiva en vivo
+      <section className="relative overflow-hidden px-6 py-24 sm:px-12">
+        <Stars />
+        <div className="relative mx-auto max-w-7xl">
+          <div className="reveal mx-auto max-w-3xl text-center">
+            <Kicker center>Participación de</Kicker>
+            <h2 className="mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl">El show de la noche</h2>
+            <p className="mt-5 text-lg leading-relaxed text-white/75">
+              Una noche que combina impacto, cultura y propósito, donde la emoción también se convierte en acción. Los grandes de la música argentina nos
+              acompañaron en esta velada inolvidable.
             </p>
           </div>
-        </Spotlight>
+          <div className="mt-14 grid gap-5 sm:grid-cols-3">
+            {artistas.map((a) => (
+              <Spotlight key={a.name} className="reveal-pop overflow-hidden rounded-[2rem] ring-1 ring-white/10">
+                <div className="relative aspect-[3/4]">
+                  <Image
+                    src={a.image}
+                    alt={a.name}
+                    fill
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                    className="object-cover grayscale transition duration-1000 group-hover/spot:scale-105 group-hover/spot:grayscale-0"
+                    style={{ objectPosition: a.position }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050f2b] via-[#050f2b]/20 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 z-20 p-6">
+                    <p className="text-2xl font-extrabold leading-tight">{a.name}</p>
+                    <span className="mt-2 block h-0.5 w-10 bg-sky-accent transition-all duration-500 group-hover/spot:w-24" />
+                  </div>
+                </div>
+              </Spotlight>
+            ))}
+          </div>
+          <p className="mx-auto mt-10 flex w-fit items-center gap-3 rounded-full bg-white/[0.06] px-5 py-2.5 text-sm text-white/80 ring-1 ring-white/10">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-accent opacity-75" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-sky-accent" />
+            </span>
+            Presentación exclusiva en vivo
+          </p>
+        </div>
       </section>
 
       {/* Momentos */}

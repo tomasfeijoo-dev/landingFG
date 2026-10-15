@@ -64,42 +64,27 @@ export function Spotlight({ children, className = "" }: { children: React.ReactN
   );
 }
 
-/** Objetivos: tarjetas que se expanden al pasar el mouse o tocarlas. */
+/** Objetivos: siempre visibles. Entran escalonados y al pasar el mouse se elevan,
+ *  el ícono gira y una línea de luz recorre la base de la tarjeta. */
 export function Objetivos({ items }: { items: { label: string; text: string; icon: string }[] }) {
-  const [active, setActive] = useState(0);
   return (
-    <div className="flex flex-col gap-3 lg:h-[22rem] lg:flex-row">
-      {items.map((o, i) => {
-        const on = active === i;
-        return (
-          <button
-            key={o.label}
-            type="button"
-            onMouseEnter={() => setActive(i)}
-            onFocus={() => setActive(i)}
-            onClick={() => setActive(i)}
-            aria-expanded={on}
-            className={`reveal-pop group relative overflow-hidden rounded-3xl p-6 text-left ring-1 transition-all duration-500 ease-out lg:p-8 ${
-              on ? "bg-gradient-to-br from-cta to-navy-800 text-white ring-white/20 lg:flex-[2.4]" : "bg-white/[0.06] text-white/85 ring-white/10 hover:bg-white/10 lg:flex-1"
-            }`}
-          >
-            <span className="absolute -top-4 -right-2 text-[7rem] leading-none font-extrabold text-white/[0.06]" aria-hidden>
-              0{i + 1}
-            </span>
-            <span className={`relative flex h-14 w-14 items-center justify-center rounded-2xl transition ${on ? "bg-white text-cta" : "bg-white/10 text-sky-accent"}`}>
-              <Icon name={o.icon} className="h-7 w-7" />
-            </span>
-            <p className="relative mt-6 text-lg font-extrabold leading-snug lg:absolute lg:right-8 lg:bottom-8 lg:left-8">
-              {o.label}
-              <span
-                className={`block overflow-hidden text-sm font-normal leading-relaxed text-white/85 transition-all duration-500 ${on ? "mt-3 max-h-40 opacity-100" : "max-h-0 opacity-0"}`}
-              >
-                {o.text}
-              </span>
-            </p>
-          </button>
-        );
-      })}
+    <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {items.map((o, i) => (
+        <div
+          key={o.label}
+          className="reveal-pop group relative flex flex-col overflow-hidden rounded-3xl bg-white/[0.06] p-7 ring-1 ring-white/10 backdrop-blur transition duration-500 hover:-translate-y-2 hover:bg-white/[0.1] hover:shadow-2xl hover:shadow-cta/20 hover:ring-sky-accent/40"
+        >
+          <span className="pointer-events-none absolute -top-4 -right-2 text-[6.5rem] leading-none font-extrabold text-white/[0.05] transition duration-500 group-hover:text-sky-accent/10" aria-hidden>
+            0{i + 1}
+          </span>
+          <span className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-cta to-navy-800 text-white shadow-lg shadow-cta/30 transition duration-500 group-hover:scale-110 group-hover:rotate-[8deg]">
+            <Icon name={o.icon} className="h-7 w-7" />
+          </span>
+          <p className="relative mt-6 text-lg font-extrabold leading-snug">{o.label}</p>
+          <p className="relative mt-3 text-sm leading-relaxed text-white/70">{o.text}</p>
+          <span className="absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-sky-accent to-cta transition duration-700 group-hover:scale-x-100" aria-hidden />
+        </div>
+      ))}
     </div>
   );
 }
