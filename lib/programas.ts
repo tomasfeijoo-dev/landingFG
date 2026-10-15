@@ -32,7 +32,7 @@ export const programas: Programa[] = [
     text: "Liderazgo, workshops y webinars.",
     image: "/images/prog-mujeres.webp",
     icon: "users",
-    links: [{ label: "Ver programa", href: "https://fundaciongedyt.org.ar/mujeres-en-gastroenterologia/" }],
+    links: [{ label: "Ver programa", href: "/programas/mujeres-en-salud" }],
   },
   {
     title: "Entrenamiento para\nprofesionales",
