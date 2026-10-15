@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Great_Vibes } from "next/font/google";
 import Image from "next/image";
-import CountUp from "@/components/CountUp";
 import DonateBanner from "@/components/DonateBanner";
 import Icon from "@/components/Icon";
-import { FloatingDonate, HeroVideo, ImpactSlider, Momentos, Participacion } from "@/components/gala/GalaInteractive";
-import { Eyebrow } from "@/components/ui";
+import VideoBanner from "@/components/gala/VideoBanner";
 import { nocheAzul } from "@/lib/content";
 
 const script = Great_Vibes({ weight: "400", subsets: ["latin"], display: "swap" });
@@ -22,170 +20,116 @@ const objetivos = [
   { label: "Posicionar la prevención como prioridad pública", icon: "institution" },
 ];
 
-const datos = [
-  { icon: "calendar", label: "15 de septiembre 2026", sub: "20 hs" },
-  { icon: "pin", label: "Alvear Palace Hotel", sub: "Av. Alvear 1891, CABA" },
-  { icon: "music", label: "Baglietto — Vitale", sub: "Música en vivo" },
-];
-
-const fotos = Array.from({ length: 8 }, (_, i) => ({
-  src: `/gala/momento-${i + 1}.webp`,
-  alt: `Momento de una edición anterior de la Noche Azul (${i + 1})`,
-}));
-
-function SectionTitle({ eyebrow, children, text }: { eyebrow: string; children: React.ReactNode; text?: string }) {
+function Stars() {
   return (
-    <div className="reveal mx-auto max-w-2xl text-center">
-      <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">{children}</h2>
-      {text && <p className="mt-4 text-lg text-navy-900/65">{text}</p>}
+    <>
+      <div className="twinkle pointer-events-none absolute inset-0" aria-hidden />
+      <div className="twinkle twinkle-2 pointer-events-none absolute inset-0" aria-hidden />
+    </>
+  );
+}
+
+type Tone = "dark" | "sky" | "light";
+
+function Title({ children, tone = "dark" }: { children: React.ReactNode; tone?: Tone }) {
+  return (
+    <div className="text-center">
+      <h2 className={`text-2xl font-light uppercase tracking-[0.3em] sm:text-3xl ${tone === "dark" ? "text-white" : "text-navy-900"}`}>{children}</h2>
+      <span className="mx-auto mt-5 block h-px w-24 bg-gradient-to-r from-transparent via-sky-accent to-transparent" />
     </div>
   );
 }
 
 export default function GalaPage() {
   return (
-    <>
-      <FloatingDonate />
-
-      {/* Banner: video de la Noche Azul 2026 */}
-      <HeroVideo>
-        <p className="text-sm font-semibold uppercase tracking-[0.35em] text-white/85">Gala a beneficio</p>
-        <h1 className={`${script.className} mt-2 text-7xl leading-[1.1] drop-shadow-lg sm:text-8xl lg:text-9xl`}>
-          Noche Azul <span className="align-top font-sans text-2xl font-semibold tracking-[0.2em] text-sky-accent sm:text-3xl">2026</span>
-        </h1>
-        <p className="mt-4 max-w-2xl text-lg font-medium uppercase tracking-[0.15em] text-white/90">Juntos podemos prevenir el cáncer de colon</p>
-      </HeroVideo>
-
-      {/* Datos clave, montados sobre el borde del banner */}
-      <section className="relative z-10 px-4 sm:px-6">
-        <div className="reveal mx-auto -mt-10 grid max-w-6xl overflow-hidden rounded-3xl bg-white shadow-2xl shadow-navy-900/15 ring-1 ring-navy-900/5 sm:-mt-14 md:grid-cols-[1fr_1fr_1fr_auto]">
-          {datos.map((d) => (
-            <div key={d.label} className="flex items-center gap-4 border-b border-navy-900/5 px-6 py-5 md:border-r md:border-b-0">
-              <span className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-brand-50 text-cta">
-                <Icon name={d.icon} className="h-5 w-5" />
-              </span>
-              <span>
-                <span className="block font-bold text-navy-900">{d.label}</span>
-                <span className="text-sm text-navy-900/60">{d.sub}</span>
-              </span>
-            </div>
-          ))}
-          <div className="flex items-center justify-center p-5">
-            <a href="#dona" className="flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full bg-cta px-6 py-3.5 font-semibold text-white shadow-lg shadow-cta/25 transition hover:bg-cta-hover">
-              <Icon name="heart" className="h-4 w-4" /> Doná
-            </a>
-          </div>
-        </div>
+    <div className="bg-white pb-2">
+      {/* Hero: banner a todo el ancho */}
+      <section className="bg-[#103151] text-white">
+        <h1 className="sr-only">Gala a beneficio Noche Azul 2026 — Juntos podemos prevenir el cáncer de colon</h1>
+        <VideoBanner />
       </section>
 
-      {/* Una noche que cambia historias */}
-      <section className="px-4 py-20 sm:px-6 sm:py-28">
-        <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-2">
-          <div className="reveal relative pb-10 sm:pr-10">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
-              <Image src="/banners/noche-azul-brindis.webp" alt="Brindis en la gala Noche Azul" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover transition duration-1000 hover:scale-105" />
-            </div>
-            <div className="float-slow absolute right-0 bottom-0 w-48 overflow-hidden rounded-2xl shadow-2xl ring-[6px] ring-white sm:w-60">
-              <div className="relative aspect-[3/2]">
-                <Image src="/images/equipo-gala.webp" alt="Equipo de la Fundación en la gala" fill sizes="240px" className="object-cover" />
-              </div>
-            </div>
-            <div className="absolute -top-5 -left-3 rounded-2xl bg-white px-5 py-4 shadow-xl ring-1 ring-navy-900/5 sm:-left-6">
-              <p className="text-3xl font-extrabold text-cta">
-                <CountUp value="90%" />
-              </p>
-              <p className="max-w-[11rem] text-xs font-semibold text-navy-900/60">de los casos se curan si se detectan a tiempo</p>
-            </div>
-          </div>
-          <div className="reveal">
-            <Eyebrow chip>La Noche Azul</Eyebrow>
-            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-5xl">Una noche que cambia historias</h2>
-            <p className="mt-6 text-lg leading-relaxed text-navy-900/70">
+        {/* Una noche que cambia historias */}
+        <section id="la-noche-azul" className="relative scroll-mt-28 bg-white px-6 py-20 sm:px-12 sm:py-24 lg:px-16">
+          <Title tone="light">Una noche que cambia historias</Title>
+          <div className="reveal mx-auto mt-12 grid max-w-5xl gap-8 text-lg leading-relaxed text-navy-900/75 md:grid-cols-2 md:divide-x md:divide-navy-900/10">
+            <p>
               La Noche Azul no es solo un evento. A lo largo de los años se convirtió en uno de los encuentros más relevantes en prevención de Argentina. Un
-              espacio donde <strong className="text-navy-900">la salud, el liderazgo y el compromiso se transforman en acción concreta</strong>.
+              espacio donde la salud, el liderazgo y el compromiso se transforman en acción concreta.
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-navy-900/70">
-              Cada edición reúne a líderes del sector salud, empresarios, figuras públicas y tomadores de decisión con un objetivo común: hacer que más personas
-              accedan a la detección temprana del cáncer de colon.
+            <p className="md:pl-8">
+              Cada edición reúne a líderes del sector salud, empresarios, figuras públicas y tomadores de decisión con un objetivo común: hacer que más
+              personas accedan a la detección temprana del cáncer de colon.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href="#dona" className="group inline-flex items-center justify-center gap-2 rounded-full bg-cta px-7 py-3.5 font-semibold text-white shadow-lg shadow-cta/25 transition hover:bg-cta-hover">
-                <Icon name="heart" className="h-4 w-4" /> Quiero ayudar
-                <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />
-              </a>
-              <a href="#participa" className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3.5 font-semibold text-navy-900 ring-1 ring-navy-900/15 transition hover:ring-cta">
-                Cómo participar
-              </a>
-            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Objetivos */}
-      <section className="bg-brand-50/70 px-4 py-20 sm:px-6 sm:py-24">
-        <div className="mx-auto max-w-6xl">
-          <SectionTitle eyebrow="Lo que impulsa cada edición">Nuestros objetivos</SectionTitle>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {objetivos.map((o, i) => (
-              <div key={o.label} className="team-card reveal-pop group relative overflow-hidden rounded-3xl bg-white p-7 ring-1 ring-navy-900/5">
-                <span className="team-sheen" aria-hidden />
-                <span className="pointer-events-none absolute -top-3 right-3 text-7xl font-extrabold text-brand-50" aria-hidden>
-                  0{i + 1}
+        {/* Nuestros objetivos */}
+        <section id="objetivos" className="relative scroll-mt-28 mx-4 overflow-hidden rounded-[2rem] bg-gradient-to-br from-brand-100 via-brand-50 to-[#cfe8f6] px-6 py-20 sm:mx-6 sm:px-12 sm:py-24 lg:px-16 xl:mx-auto xl:max-w-7xl">
+          <div className="pointer-events-none absolute -top-20 -right-20 h-72 w-72 rounded-full border-[40px] border-white/60" aria-hidden />
+          <Title tone="sky">Nuestros objetivos</Title>
+          <div className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {objetivos.map((o) => (
+              <div
+                key={o.label}
+                className="reveal-pop group relative flex flex-col items-center gap-5 rounded-3xl bg-white px-5 py-8 text-center shadow-lg shadow-navy-900/5 ring-1 ring-white transition hover:-translate-y-1 hover:shadow-xl"
+              >
+                <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-cta to-navy-800 text-white shadow-lg shadow-cta/30 transition group-hover:scale-110">
+                  <Icon name={o.icon} className="h-8 w-8" />
                 </span>
-                <span className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-cta transition group-hover:bg-cta group-hover:text-white">
-                  <Icon name={o.icon} className="h-7 w-7" />
-                </span>
-                <p className="relative mt-6 text-lg font-bold leading-snug text-navy-900">{o.label}</p>
+                <p className="text-sm font-bold uppercase leading-snug tracking-[0.12em] text-navy-900">{o.label}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Artistas */}
-      <section className="px-4 py-20 sm:px-6 sm:py-24">
-        <div className="reveal mx-auto grid max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 text-white shadow-2xl shadow-navy-900/20 lg:grid-cols-2">
-          <div className="group relative aspect-square lg:aspect-auto lg:min-h-[30rem]">
-            <Image src="/gala/baglietto-vitale.webp" alt="Juan Carlos Baglietto y Lito Vitale" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover grayscale transition duration-1000 group-hover:grayscale-0" />
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent to-navy-900/80 max-lg:bg-gradient-to-t" />
+        {/* Artistas */}
+        <section id="artistas" className="relative scroll-mt-28 mx-4 mt-10 overflow-hidden rounded-[2rem] bg-[#050f2b] text-white sm:mx-6 xl:mx-auto xl:max-w-7xl">
+          <Stars />
+          <div className="relative grid items-center lg:grid-cols-2">
+            <div className="reveal relative aspect-square overflow-hidden lg:aspect-auto lg:h-full lg:min-h-[32rem]">
+              <Image src="/gala/baglietto-vitale.webp" alt="Juan Carlos Baglietto y Lito Vitale" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover grayscale" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#050f2b] max-lg:bg-gradient-to-t" />
+            </div>
+            <div className="reveal px-6 py-14 sm:px-12 lg:px-16">
+              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-sky-accent">Participación de</p>
+              <h2 className="mt-4 text-5xl font-light uppercase tracking-[0.08em] sm:text-6xl">
+                Baglietto
+                <span className="block">— Vitale</span>
+              </h2>
+              <p className="mt-6 max-w-md text-lg leading-relaxed text-white/80">
+                Una noche que combina impacto, cultura y propósito, donde la emoción también se convierte en acción. Los maestros de la música argentina nos
+                acompañan en esta velada inolvidable.
+              </p>
+              <span className="mt-8 block h-px w-20 bg-sky-accent/60" />
+              <p className="mt-6 flex items-center gap-2 italic text-white/70">
+                <Icon name="music" className="h-4 w-4 not-italic text-sky-accent" />
+                Presentación exclusiva en vivo
+              </p>
+            </div>
           </div>
-          <div className="relative flex flex-col justify-center px-6 py-12 sm:px-12 lg:px-14">
-            <svg className="pointer-events-none absolute -top-6 -right-10 hidden h-48 w-96 md:block" viewBox="0 0 300 160" aria-hidden>
-              <path d="M10 -10 C 60 90, 170 110, 210 60 C 240 20, 200 -5, 180 25 C 155 65, 230 120, 320 100" stroke="#3fa5d4" strokeWidth="14" fill="none" strokeLinecap="round" opacity="0.5" />
-            </svg>
-            <Eyebrow chip light>
-              Participación de
-            </Eyebrow>
-            <h2 className="mt-5 text-4xl font-extrabold tracking-tight sm:text-5xl">
-              Baglietto <span className="text-sky-accent">—</span> Vitale
-            </h2>
-            <p className="mt-5 max-w-md text-lg leading-relaxed text-white/80">
-              Una noche que combina impacto, cultura y propósito, donde la emoción también se convierte en acción. Los maestros de la música argentina nos
-              acompañan en esta velada inolvidable.
-            </p>
-            <p className="mt-8 inline-flex w-fit items-center gap-3 rounded-full bg-white/10 px-5 py-2.5 text-sm ring-1 ring-white/20">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-accent opacity-75" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-sky-accent" />
-              </span>
-              Presentación exclusiva en vivo
-            </p>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Momentos */}
-      <section className="px-4 pb-20 sm:px-6 sm:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <SectionTitle
-            eyebrow="Galería"
-            text="Cada edición de La Noche Azul reúne a referentes de la salud, el mundo empresarial y figuras públicas en una noche irrepetible. Así se vivieron las galas anteriores."
-          >
-            Momentos que ya vivimos
-          </SectionTitle>
-          <div className="mt-12">
-            <Momentos photos={fotos} />
+        {/* Momentos que ya vivimos */}
+        <section className="relative bg-white px-6 py-20 sm:px-12 sm:py-24 lg:px-16">
+          <Title tone="light">Momentos que ya vivimos</Title>
+          <p className="reveal mx-auto mt-8 max-w-2xl text-center text-navy-900/70">
+            Cada edición de La Noche Azul reúne a referentes de la salud, el mundo empresarial y figuras públicas en una noche irrepetible. Así se vivieron
+            las galas anteriores.
+          </p>
+          <div className="mx-auto mt-12 grid max-w-5xl grid-cols-2 gap-3 sm:grid-cols-4">
+            {Array.from({ length: 8 }, (_, i) => (
+              <div key={i} className="reveal-pop group relative aspect-[10/11] overflow-hidden rounded-2xl shadow-lg shadow-navy-900/10">
+                <Image
+                  src={`/gala/momento-${i + 1}.webp`}
+                  alt={`Momento de una edición anterior de la Noche Azul (${i + 1})`}
+                  fill
+                  sizes="(min-width: 640px) 25vw, 50vw"
+                  className="object-cover transition duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050f2b]/60 to-transparent opacity-0 transition group-hover:opacity-100" />
+              </div>
+            ))}
           </div>
           <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
             <a
@@ -205,53 +149,71 @@ export default function GalaPage() {
               Cobertura de prensa
             </a>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Doná: simulador de impacto */}
-      <section id="dona" className="relative scroll-mt-24 overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 px-6 py-20 text-white sm:px-12 sm:py-24">
-        <Image src="/images/abrazo.webp" alt="" fill sizes="100vw" className="object-cover object-[70%_center] opacity-15 grayscale" />
-        <div className="pointer-events-none absolute -bottom-40 -left-40 h-[28rem] w-[28rem] rounded-full border-[48px] border-white/5" aria-hidden />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
-          <div className="reveal">
-            <Eyebrow chip light>
-              Tu aporte cuenta
-            </Eyebrow>
-            <h2 className="mt-5 text-3xl font-extrabold tracking-tight sm:text-5xl">Sumate a la Noche Azul desde donde estés</h2>
-            <p className="mt-6 text-lg leading-relaxed text-white/80">
-              Lo recaudado se destina al Fondo Común de Prevención y Detección Temprana de Cáncer de Colon, para que más personas accedan a un diagnóstico a
-              tiempo.
-            </p>
-            <ul className="mt-8 space-y-3 text-white/85">
-              {["Donación online segura", "Aporte único o mensual", "Deducible del impuesto a las ganancias"].map((t) => (
-                <li key={t} className="flex items-center gap-3">
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-sky-accent/20 text-sky-accent">
-                    <Icon name="check" className="h-4 w-4" />
-                  </span>
-                  {t}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="reveal-pop">
-            <ImpactSlider />
-          </div>
-        </div>
-      </section>
+        {/* Participación */}
+        <section id="participacion" className="relative scroll-mt-28 mx-4 overflow-hidden rounded-[2rem] bg-gradient-to-b from-[#06143a] via-[#050f2b] to-[#0a2a5c] px-6 py-20 text-center text-white sm:mx-6 sm:px-12 sm:py-24 lg:px-16 xl:mx-auto xl:max-w-7xl">
+          <Stars />
+          <p className="reveal mx-auto max-w-2xl text-lg text-white/80">
+            La Noche Azul convoca a todos aquellos que quieren ser parte del cambio. Empresas, organizaciones y personas que eligen acompañar una causa de alto
+            impacto.
+          </p>
+          <p className={`${script.className} reveal mx-auto mt-8 max-w-3xl text-5xl leading-tight text-white sm:text-6xl`}>
+            Porque juntos podemos prevenir el cáncer de colon.
+          </p>
+          <p className="mt-10 text-sm font-semibold uppercase tracking-[0.3em] text-white/90">¿Querés ser parte?</p>
+          <a
+            href={nocheAzul.reserveUrl}
+            className="mt-5 inline-flex items-center gap-2 rounded-full bg-white px-9 py-4 font-semibold text-navy-900 shadow-lg shadow-black/30 transition hover:bg-brand-50"
+          >
+            Reservá tu lugar <Icon name="arrow" className="h-4 w-4" />
+          </a>
+          <p className="mx-auto mt-4 max-w-lg text-xs text-white/55">
+            * En caso de realizar la compra mediante Mercado Pago, solicitamos enviar el comprobante a{" "}
+            <a href={`mailto:${nocheAzul.email}`} className="underline underline-offset-2 hover:text-white">
+              {nocheAzul.email}
+            </a>{" "}
+            para acreditar correctamente a los asistentes.
+          </p>
 
-      {/* Participación */}
-      <section id="participa" className="scroll-mt-24 bg-brand-50/70 px-4 py-20 sm:px-6 sm:py-24">
-        <div className="mx-auto max-w-5xl">
-          <SectionTitle eyebrow="¿Querés ser parte?">Elegí cómo participar</SectionTitle>
-          <div className="mt-10">
-            <Participacion />
+          <div className="reveal mx-auto mt-16 max-w-5xl rounded-3xl bg-white/[0.04] p-8 text-left ring-1 ring-white/10 backdrop-blur sm:p-10">
+            <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-sky-accent">Un espacio para empresas y organizaciones</p>
+            <div className="mt-8 grid gap-6 text-white/80 md:grid-cols-2">
+              <div className="space-y-4">
+                <p>
+                  Empresas y organizaciones pueden sumarse a La Noche Azul como aliados estratégicos de una causa que trasciende una sola noche: impulsar la
+                  prevención del cáncer de colon y contribuir a salvar vidas en Argentina.
+                </p>
+                <p>
+                  Ser parte de esta iniciativa significa integrar una red de organizaciones comprometidas con generar un impacto concreto en la salud de la
+                  comunidad, promoviendo el acceso a la prevención, la detección temprana y la concientización.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <p>
+                  La Noche Azul reúne a referentes del sistema de salud, empresas, líderes de opinión y decisores en un espacio de encuentro, articulación y
+                  compromiso, donde cada alianza fortalece una misión compartida y se transforma en acciones que continúan mucho después del evento.
+                </p>
+                <p>
+                  Para conocer las distintas formas de acompañar esta iniciativa, comunicate a{" "}
+                  <a href={`mailto:${nocheAzul.email}`} className="font-semibold text-white underline underline-offset-2">
+                    {nocheAzul.email}
+                  </a>
+                  .
+                </p>
+              </div>
+            </div>
+            <div className="mt-8 text-center">
+              <a
+                href={nocheAzul.modalidadesUrl}
+                className="inline-flex items-center gap-2 rounded-full bg-sky-accent px-8 py-3.5 font-semibold text-navy-950 transition hover:bg-white"
+              >
+                Ver modalidades de participación <Icon name="arrow" className="h-4 w-4" />
+              </a>
+            </div>
           </div>
-        </div>
-      </section>
-
-      <div id="gala-final">
-        <DonateBanner />
-      </div>
-    </>
+        </section>
+      <DonateBanner />
+    </div>
   );
 }
