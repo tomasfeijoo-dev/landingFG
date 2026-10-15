@@ -33,6 +33,45 @@ const cursos2023 = [
   { curso: "Disección Endoscópica", fechas: ["Sin fecha aún"] },
 ];
 
+// VEDA Básica y Endoscopía terapéutica Básica tienen el mismo texto en el sitio original.
+const cursoVccBasico = {
+  audiencia:
+    "El curso está especialmente destinado aunque no limitado a profesionales de la salud que trabajen o estén interesados en adquirir capacidades en VCC. Recomendado para residentes, concurrentes, cursistas de Curso Superior de la carrera de Gastroenterología, instrumentadores/as quirúrgicos/as. Se recomienda experiencia en VEDA y hasta 50 VCC realizadas.",
+  requisitos: "Se recomienda tener experiencia en endoscopia alta.",
+  descripcion:
+    "Este es un curso para profesionales con habilidades básicas en endoscopía que desean ganar/ mejorar sus habilidades en colonoscopia. Es un curso intensivo, interactivo y práctico que cubre la base teórica de realizar una colonoscopia segura. El curso incluye una serie de sesiones de hands-on de grupos pequeños y uno a uno, trabajo en modelos prácticos y observación de procedimientos reales en centro de alto volumen. La enseñanza individual se centra en el desarrollo de resultados de aprendizaje individualizados y planes para progresar respecto a habilidades específicas. El abordaje práctico consta de un modelo de tejido animal que brinda una oportunidad para entrenar habilidades en procedimientos endoscópicos.",
+  objetivos:
+    "Comprensión de los principios básicos de la práctica de la VCC y el equipamiento utilizado. Adquisición de las habilidades básicas para realizar una VCC de diagnóstico segura. Comprensión de las habilidades no técnicas necesarias para realizar un procedimiento seguro y competente. Reforzar el conocimiento básico asociado a la práctica.",
+  fechas: ["11 de Noviembre de 8 a 12 (Rotaciones)", "11 de Noviembre de 12 a 17 (Hands on)"],
+};
+
+function CursoDatos({ fechas, curso }: { fechas: string[]; curso: string }) {
+  return (
+    <>
+      <div className="grid gap-3 pt-2 sm:grid-cols-2">
+        <div className="rounded-xl bg-brand-50 px-4 py-3 ring-1 ring-brand-100">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-cta">Cupo máximo</p>
+          <p className="mt-1 font-bold text-navy-900">20 profesionales</p>
+        </div>
+        <div className="rounded-xl bg-brand-50 px-4 py-3 ring-1 ring-brand-100">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-cta">Próximas fechas</p>
+          {fechas.map((f) => (
+            <p key={f} className="text-sm font-semibold text-navy-900 first-of-type:mt-1">
+              {f}
+            </p>
+          ))}
+        </div>
+      </div>
+      <a
+        href={`mailto:${programasEmail}?subject=${encodeURIComponent(`Inscripción: ${curso}`)}`}
+        className="inline-flex items-center gap-2 rounded-full bg-cta px-6 py-3 font-semibold text-white transition hover:bg-cta-hover"
+      >
+        Inscripciones <Icon name="arrow" className="h-4 w-4" />
+      </a>
+    </>
+  );
+}
+
 function Accordion({ title, open = false, children }: { title: string; open?: boolean; children: React.ReactNode }) {
   return (
     <details open={open} className="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-navy-900/5 open:shadow-xl open:shadow-navy-900/10">
@@ -146,33 +185,23 @@ export default function EntrenamientoEndoscopistasPage() {
                 utilizado. Adquisición de las habilidades básicas para realizar una VEDA de diagnóstico segura. Comprensión de las habilidades no técnicas
                 necesarias para realizar un procedimiento seguro y competente. Reforzar el conocimiento básico asociado a la práctica.
               </p>
-              <div className="grid gap-3 pt-2 sm:grid-cols-2">
-                <div className="rounded-xl bg-brand-50 px-4 py-3 ring-1 ring-brand-100">
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-cta">Cupo máximo</p>
-                  <p className="mt-1 font-bold text-navy-900">20 profesionales</p>
-                </div>
-                <div className="rounded-xl bg-brand-50 px-4 py-3 ring-1 ring-brand-100">
-                  <p className="text-xs font-semibold uppercase tracking-[0.14em] text-cta">Próximas fechas</p>
-                  <p className="mt-1 text-sm font-semibold text-navy-900">4 de Noviembre turno mañana o tarde (Rotaciones)</p>
-                  <p className="text-sm font-semibold text-navy-900">5 de Noviembre de 8 a 13 (Hands on)</p>
-                </div>
-              </div>
-              <a
-                href={`mailto:${programasEmail}?subject=${encodeURIComponent("Inscripción: VCC Básica")}`}
-                className="inline-flex items-center gap-2 rounded-full bg-cta px-6 py-3 font-semibold text-white transition hover:bg-cta-hover"
-              >
-                Inscripciones <Icon name="arrow" className="h-4 w-4" />
-              </a>
+              <CursoDatos curso="VCC Básica" fechas={["4 de Noviembre turno mañana o tarde (Rotaciones)", "5 de Noviembre de 8 a 13 (Hands on)"]} />
             </Accordion>
             {["VEDA Básica", "Endoscopía terapéutica Básica"].map((c) => (
               <Accordion key={c} title={c}>
-                <p>Para conocer el programa, las fechas y las inscripciones de este curso, escribinos.</p>
-                <a
-                  href={`mailto:${programasEmail}?subject=${encodeURIComponent(`Consulta: ${c}`)}`}
-                  className="inline-flex items-center gap-2 font-semibold text-cta hover:underline"
-                >
-                  <Icon name="mail" className="h-4 w-4" /> {programasEmail}
-                </a>
+                <p>
+                  <strong className="text-navy-900">Audiencia objetivo:</strong> {cursoVccBasico.audiencia}
+                </p>
+                <p>
+                  <strong className="text-navy-900">Requisitos:</strong> {cursoVccBasico.requisitos}
+                </p>
+                <p>
+                  <strong className="text-navy-900">Descripción:</strong> {cursoVccBasico.descripcion}
+                </p>
+                <p>
+                  <strong className="text-navy-900">Objetivos:</strong> {cursoVccBasico.objetivos}
+                </p>
+                <CursoDatos curso={c} fechas={cursoVccBasico.fechas} />
               </Accordion>
             ))}
           </div>
