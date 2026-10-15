@@ -43,20 +43,21 @@ export default function ProgramasPage() {
             {programas.map((p, i) => (
               <article
                 key={p.title}
-                className="reveal-pop group relative flex flex-col overflow-hidden rounded-3xl bg-navy-950/70 shadow-2xl shadow-black/30 ring-1 ring-white/10 backdrop-blur"
+                className="reveal-pop group relative row-span-4 grid grid-rows-subgrid gap-0 overflow-hidden rounded-3xl bg-navy-950/70 shadow-2xl shadow-black/30 ring-1 ring-white/10 backdrop-blur"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <Image src={p.image} alt={p.title} fill sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105" />
+                  <Image src={p.image} alt={p.title.replace("\n", " ")} fill sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent" />
                   <span className="absolute top-3 left-3 rounded-full bg-white/90 px-2.5 py-0.5 text-[11px] font-extrabold tracking-[0.16em] text-navy-900 backdrop-blur">0{i + 1}</span>
                   <span className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-xl bg-cta text-white shadow-lg">
                     <Icon name={p.icon} className="h-5 w-5" />
                   </span>
                 </div>
-                <div className="flex flex-1 flex-col p-5">
-                  <h3 className="text-lg font-extrabold leading-tight tracking-tight text-white">{p.title}</h3>
-                  {p.text && <p className="mt-2 text-sm text-white/70">{p.text}</p>}
-                  <div className="flex flex-col gap-2 pt-5">
+                {/* Título, texto y botones comparten filas entre tarjetas (subgrid) para quedar alineados */}
+                <h3 className="whitespace-pre-line px-5 pt-5 text-lg font-extrabold leading-tight tracking-tight text-white">{p.title}</h3>
+                <p className="px-5 pt-2 text-sm text-white/70">{p.text}</p>
+                <div className="flex flex-col px-5 pt-5 pb-5">
+                  <div className="flex flex-col gap-2">
                     {p.links.map((l) => (
                       <InterestLink
                         key={l.label}

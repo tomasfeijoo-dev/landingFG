@@ -20,7 +20,7 @@ export type Programa = {
 // TODO: confirmar los links de cada botón con la Fundación.
 export const programas: Programa[] = [
   {
-    title: "Prevenir es Cuidar",
+    title: "Prevenir\nes Cuidar",
     text: "El primer Programa de Prevención y Detección Temprana del Cáncer de Colon diseñado especialmente para entornos laborales.",
     image: "/images/prog-prevenir.webp",
     icon: "building",
@@ -28,14 +28,14 @@ export const programas: Programa[] = [
     joinCta: true,
   },
   {
-    title: "Mujeres en Salud",
+    title: "Mujeres\nen Salud",
     text: "Liderazgo, workshops y webinars.",
     image: "/images/prog-mujeres.webp",
     icon: "users",
     links: [{ label: "Ver programa", href: "https://fundaciongedyt.org.ar/mujeres-en-gastroenterologia/" }],
   },
   {
-    title: "Entrenamiento para profesionales",
+    title: "Entrenamiento para\nprofesionales",
     text: "Formación por niveles, hands-on, simulación.",
     image: "/images/prog-entrenamiento.webp",
     icon: "graduation",
@@ -46,7 +46,7 @@ export const programas: Programa[] = [
     ],
   },
   {
-    title: "Misiones: Alianzas Territoriales",
+    title: "Misiones: Alianzas\nTerritoriales",
     image: "/images/prog-misiones.webp",
     icon: "map",
     links: [{ label: "Ver programa", href: "https://fundaciongedyt.org.ar/programa-de-prevencion-del-cancer-colorrectal-en-la-provincia-de-misiones/" }],
