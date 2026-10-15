@@ -22,7 +22,7 @@ export const cifras = {
 };
 
 // TODO: link de la encuesta "¿Cómo está tu Colon?"
-export const encuestaUrl = "/contacto?motivo=otro";
+export const encuestaUrl = "https://fundaciongedyt.org.ar/campana-prevencion-cancer-de-colon/";
 
 export const mitos = [
   { q: "El cáncer de colon solo afecta a hombres.", mito: true, a: "Afecta por igual a todas las personas, aunque su incidencia es levemente mayor en hombres." },
