@@ -21,7 +21,7 @@ export const cifras = {
   gender: "Su incidencia es levemente mayor en hombres que en mujeres.",
 };
 
-// TODO: link de la encuesta "¿Cómo está tu Colon?"
+// Encuesta "¿Cómo está tu Colon?"
 export const encuestaUrl = "https://fundaciongedyt.org.ar/campana-prevencion-cancer-de-colon/";
 
 export const mitos = [
