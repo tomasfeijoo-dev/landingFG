@@ -267,13 +267,10 @@ export function Participacion() {
             </div>
             <div className="flex flex-col gap-3">
               <a
-                href={nocheAzul.reserveUrl}
+                href={nocheAzul.reserveUrl} target="_blank" rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-cta px-8 py-4 font-semibold text-white shadow-lg shadow-cta/25 transition hover:bg-cta-hover"
               >
                 Reservá tu lugar <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />
-              </a>
-              <a href="#dona" className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-50 px-8 py-3 font-semibold text-navy-900 ring-1 ring-brand-100 transition hover:ring-cta">
-                <Icon name="heart" className="h-4 w-4 text-cta" /> No puedo ir, pero quiero donar
               </a>
             </div>
           </div>
@@ -306,7 +303,7 @@ export function Participacion() {
               </div>
             </div>
             <a
-              href={nocheAzul.modalidadesUrl}
+              href={nocheAzul.modalidadesUrl} target="_blank" rel="noopener noreferrer"
               className="group mt-8 inline-flex items-center gap-2 rounded-full bg-cta px-8 py-3.5 font-semibold text-white transition hover:bg-cta-hover"
             >
               Ver modalidades de participación <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />

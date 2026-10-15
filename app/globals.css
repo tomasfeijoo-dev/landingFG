@@ -266,3 +266,20 @@ body {
   .hero-in > * { animation: none; }
   .hero-bg, .hero-bg.is-active { transform: none; transition: none; }
 }
+
+/* Cielo estrellado: puntitos blancos repetidos en mosaico que suben y bajan de intensidad */
+.starfield {
+  background-image:
+    radial-gradient(1px 1px at 12px 18px, #fff, transparent),
+    radial-gradient(1px 1px at 64px 92px, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 118px 40px, #fff, transparent),
+    radial-gradient(1px 1px at 170px 150px, #fff, transparent),
+    radial-gradient(1px 1px at 30px 160px, #cfe8ff, transparent),
+    radial-gradient(1.5px 1.5px at 92px 200px, #fff, transparent),
+    radial-gradient(1px 1px at 200px 70px, #fff, transparent),
+    radial-gradient(1px 1px at 150px 110px, #cfe8ff, transparent);
+  background-size: 220px 220px;
+  animation: twinkle 3.5s ease-in-out infinite alternate;
+}
+.starfield-2 { background-size: 340px 340px; background-position: 90px 130px; animation-duration: 5s; animation-delay: -2.5s; }
+@media (prefers-reduced-motion: reduce) { .starfield { animation: none; } }

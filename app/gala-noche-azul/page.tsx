@@ -199,31 +199,13 @@ export default function GalaPage() {
         <div className="mt-14">
           <Momentos photos={fotos} />
         </div>
-        <div className="mt-12 flex flex-col justify-center gap-3 px-6 sm:flex-row">
-          <a
-            href={nocheAzul.galleryUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 rounded-full bg-navy-900 px-7 py-3 font-semibold text-white transition hover:bg-navy-950"
-          >
-            Ver la galería completa <Icon name="arrow" className="h-4 w-4" />
-          </a>
-          <a
-            href={nocheAzul.pressUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 font-semibold text-navy-900 ring-1 ring-navy-900/15 transition hover:ring-cta"
-          >
-            Cobertura de prensa
-          </a>
-        </div>
       </section>
 
       {/* Doná: calculadora de impacto */}
       <section id="dona" className="relative scroll-mt-24 overflow-hidden px-6 py-24 text-white sm:px-12 sm:py-28">
-        <Image src="/gala/cielo.webp" alt="" fill sizes="100vw" className="object-cover opacity-60" />
-        <div className="absolute inset-0 bg-gradient-to-br from-navy-950/95 via-navy-900/85 to-navy-800/70" />
-        <Stars />
+        <div className="absolute inset-0 bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800" />
+        <div className="starfield pointer-events-none absolute inset-0 opacity-80" aria-hidden />
+        <div className="starfield starfield-2 pointer-events-none absolute inset-0" aria-hidden />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
           <div className="reveal">
             <Kicker>Tu aporte cuenta</Kicker>
@@ -281,7 +263,7 @@ export default function GalaPage() {
             <Icon name="heart" className="h-5 w-5 text-cta" /> Doná ahora
             <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />
           </a>
-          <a href={nocheAzul.reserveUrl} className="inline-flex items-center justify-center gap-2 rounded-full px-9 py-4 font-semibold text-white ring-1 ring-white/30 transition hover:bg-white/10">
+          <a href={nocheAzul.reserveUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full px-9 py-4 font-semibold text-white ring-1 ring-white/30 transition hover:bg-white/10">
             Reservá tu lugar
           </a>
         </div>
