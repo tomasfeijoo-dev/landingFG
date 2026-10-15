@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 // Banner de la Noche Azul: el video de la gala en loop y sin sonido, con un botón
@@ -30,6 +31,17 @@ export default function VideoBanner() {
         preload="auto"
         aria-label="Video de la gala Noche Azul 2026"
       />
+      {/* Logo de la Noche Azul sobre el video */}
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-gradient-to-b from-navy-950/20 via-navy-950/45 to-navy-950/25 px-8">
+        <Image
+          src="/gala/logo-noche-azul.png"
+          alt="Noche Azul"
+          width={1140}
+          height={296}
+          priority
+          className="pop-in h-auto w-[78%] max-w-3xl drop-shadow-[0_4px_24px_rgba(0,0,0,0.45)]"
+        />
+      </div>
       <button
         type="button"
         onClick={() => setOpen(true)}
