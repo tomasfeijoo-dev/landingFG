@@ -9,7 +9,7 @@ import { slides, type Slide } from "@/lib/content";
 
 const INTERVAL = 7000;
 
-function CtaLink({ cta, variant, tabIndex }: { cta: Slide["primary"]; variant: "primary" | "secondary"; tabIndex: number }) {
+function CtaLink({ cta, variant, tabIndex }: { cta: NonNullable<Slide["primary"]>; variant: "primary" | "secondary"; tabIndex: number }) {
   return (
     <InterestLink
       href={cta.href}
@@ -137,10 +137,12 @@ export default function HeroCarousel() {
                   <span className="font-extrabold">{s.highlight}</span>
                 </h2>
                 {s.text && <p className="mt-4 max-w-2xl text-base text-white/85 sm:text-lg">{s.text}</p>}
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <CtaLink cta={s.primary} variant="primary" tabIndex={active ? 0 : -1} />
-                  {s.secondary && <CtaLink cta={s.secondary} variant="secondary" tabIndex={active ? 0 : -1} />}
-                </div>
+                {s.primary && (
+                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                    <CtaLink cta={s.primary} variant="primary" tabIndex={active ? 0 : -1} />
+                    {s.secondary && <CtaLink cta={s.secondary} variant="secondary" tabIndex={active ? 0 : -1} />}
+                  </div>
+                )}
               </div>
               {s.badge && (
                 <div className="absolute top-4 right-4 z-20 hidden rounded-2xl bg-white/95 px-4 py-3 shadow-xl ring-1 ring-navy-900/5 backdrop-blur sm:block sm:px-5 sm:py-4 lg:top-auto lg:right-16 lg:bottom-24">

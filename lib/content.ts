@@ -121,7 +121,8 @@ export type Slide = {
   // Ilustración a usar cuando no hay foto
   art?: "ribbon";
   badge?: { value: string; label: string };
-  primary: { label: string; href: string; interest?: string };
+  // Botón principal (opcional: hay banners sin botón)
+  primary?: { label: string; href: string; interest?: string };
   secondary?: { label: string; href: string; interest?: string };
 };
 
@@ -173,7 +174,6 @@ export const slides: Slide[] = [
     image: "/banners/campana-boca.webp",
     imageAlt: "El plantel de Boca Juniors con la bandera de la campaña #CómoEstáTuColon",
     imagePosition: "center 50%",
-    primary: { label: "Ver más", href: "/campana" },
   },
   {
     id: "cumbre",
