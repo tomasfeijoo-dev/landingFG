@@ -361,7 +361,7 @@ export default function CampanaPage() {
             <H2 center>Sponsors de nuestras campañas</H2>
             <p className="mt-2 text-lg font-medium text-cta">Quienes hacen posible ¿Cómo está tu Colon?</p>
           </div>
-          <div className="reveal mt-10 rounded-[2rem] bg-brand-50/70 p-6 ring-1 ring-brand-100 sm:p-10">
+          <div className="reveal mt-10">
             <LogoMarquee
               groups={[
                 { title: "Sponsors", logos: sponsors },
