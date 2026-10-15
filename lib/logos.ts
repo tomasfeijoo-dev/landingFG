@@ -55,3 +55,39 @@ export const allies: Logo[] = [
   { name: "Liga Profesional de Fútbol", src: "/logos/lpf.webp", width: 257, height: 115 },
   { name: "Argentinos Juniors", src: "/logos/argentinos-juniors.webp", width: 179, height: 210 },
 ];
+
+// Campaña ¿Cómo está tu Colon? (logos tomados de fundaciongedyt.org.ar/comoestatucolon)
+export const campanaInstituciones: Logo[] = [
+  { name: "ACED", src: "/logos/aced.webp", width: 652, height: 308 },
+  { name: "Asociación Civil Sostén", src: "/logos/sosten.webp", width: 432, height: 432 },
+  { name: "Unidas Asociación Civil", src: "/logos/unidas.webp", width: 440, height: 244 },
+  { name: "Asociación Rosarina de Endoscopía Digestiva", src: "/logos/ared.webp", width: 628, height: 220 },
+  { name: "Rossi", src: "/logos/rossi.webp", width: 648, height: 220 },
+  { name: "IMAT", src: "/logos/imat.webp", width: 628, height: 268 },
+  { name: "iMAXE", src: "/logos/imaxe.webp", width: 636, height: 200 },
+  { name: "Instituto CRR", src: "/logos/instituto-crr.webp", width: 440, height: 440 },
+  { name: "Instituto de Gastroenterología", src: "/logos/instituto-gastro.webp", width: 484, height: 396 },
+  { name: "Fundación Intecnus", src: "/logos/intecnus.webp", width: 656, height: 204 },
+  { name: "CED Centro de Estudios Digestivos", src: "/logos/ced.webp", width: 620, height: 208 },
+  { name: "CEGED", src: "/logos/ceged.webp", width: 568, height: 520 },
+  { name: "CEGO", src: "/logos/cego.webp", width: 780, height: 324 },
+  { name: "CNC", src: "/logos/cnc.webp", width: 820, height: 616 },
+  { name: "Centro Médico Caballito", src: "/logos/caballito.webp", width: 640, height: 492 },
+  { name: "D'Agostino Bruno", src: "/logos/dagostino-bruno.webp", width: 672, height: 672 },
+  { name: "IPC Instituto Médico", src: "/logos/ipc.webp", width: 492, height: 232 },
+  { name: "Institución de salud", src: "/logos/u.webp", width: 348, height: 448 },
+  { name: "Laboratorio Dres. Lejtman", src: "/logos/lejtman.webp", width: 804, height: 220 },
+  { name: "LAC Laboratorios", src: "/logos/lac.webp", width: 920, height: 360 },
+];
+
+export const campanaAliados: Logo[] = [
+  { name: "AAOC Asociación Argentina de Oncología Clínica", src: "/logos/aaoc.webp", width: 664, height: 300 },
+  { name: "Fundación Boca Juniors", src: "/logos/boca.webp", width: 220, height: 364 },
+  { name: "Club Atlético Lanús", src: "/logos/lanus.webp", width: 528, height: 216 },
+  { name: "Racing Solidario", src: "/logos/racing-solidario.webp", width: 544, height: 540 },
+  { name: "River Plate", src: "/logos/river-plate.webp", width: 487, height: 458 },
+  { name: "Rojo Solidario", src: "/logos/rojo-solidario.webp", width: 1305, height: 332 },
+  { name: "Liga Profesional de Fútbol", src: "/logos/lpf.webp", width: 1000, height: 447 },
+  { name: "Argentinos Juniors", src: "/logos/argentinos-juniors.webp", width: 716, height: 840 },
+  { name: "Fundación Social Argentinos Juniors", src: "/logos/fsaj.webp", width: 444, height: 444 },
+];

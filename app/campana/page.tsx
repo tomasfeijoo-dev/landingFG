@@ -4,6 +4,7 @@ import CountUp from "@/components/CountUp";
 import Donate from "@/components/Donate";
 import Icon from "@/components/Icon";
 import InterestLink from "@/components/InterestLink";
+import LogoMarquee from "@/components/LogoMarquee";
 import MythCards from "@/components/MythCards";
 import { CampaignEmoji, CampaignRibbon } from "@/components/sections";
 import {
@@ -22,6 +23,7 @@ import {
   tratamiento,
 } from "@/lib/campana";
 import { socialLinks } from "@/lib/content";
+import { campanaAliados, campanaInstituciones } from "@/lib/logos";
 
 export const metadata: Metadata = {
   title: "Campaña ¿Cómo está tu Colon?",
@@ -348,6 +350,24 @@ export default function CampanaPage() {
                 ¡Seguinos!
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sponsors de la campaña */}
+      <section className="px-4 pt-20 sm:px-6 sm:pt-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center">
+            <H2 center>Sponsors de nuestras campañas</H2>
+            <p className="mt-2 text-lg font-medium text-cta">Quienes hacen posible ¿Cómo está tu Colon?</p>
+          </div>
+          <div className="reveal mt-10 rounded-[2rem] bg-brand-50/70 p-6 ring-1 ring-brand-100 sm:p-10">
+            <LogoMarquee
+              groups={[
+                { title: "Instituciones de salud", logos: campanaInstituciones },
+                { title: "Aliados estratégicos", logos: campanaAliados },
+              ]}
+            />
           </div>
         </div>
       </section>
