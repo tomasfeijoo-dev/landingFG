@@ -1,5 +1,5 @@
 // Comunicados, anuarios, publicaciones e investigación (textos tal cual figuran en fundaciongedyt.org.ar).
-// TODO: completar los links de cada comunicado y de cada PDF.
+// Los comunicados sin link propio todavía abren una búsqueda en Google; reemplazar cuando estén los links directos.
 
 const pubs = "https://fundaciongedyt.org.ar/publicaciones/";
 
