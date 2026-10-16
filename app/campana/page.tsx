@@ -196,7 +196,7 @@ export default function CampanaPage() {
       <section className="px-4 sm:px-6">
         <div className="reveal mx-auto grid max-w-7xl overflow-hidden rounded-[2rem] bg-white shadow-xl shadow-navy-900/5 ring-1 ring-navy-900/5 lg:grid-cols-2">
           <div className="relative min-h-[18rem]">
-            <Image src="/images/causas-manos.webp" alt="Una médica sostiene las manos de una paciente" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover object-[center_40%]" />
+            <Image quality={90} src="/images/causas-manos-hd.webp" alt="Una médica sostiene las manos de una paciente" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover object-[55%_55%]" />
           </div>
           <div className="p-8 sm:p-12">
             <H2>¿Cuáles son sus causas?</H2>
@@ -234,20 +234,24 @@ export default function CampanaPage() {
         </div>
       </section>
 
-      {/* Por qué testearse */}
+      {/* Por qué testearse: texto a la izquierda y el frasco del test a la derecha */}
       <section className="px-4 sm:px-6">
-        <div className="reveal relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
-          <Image src="/banners/test-fit-mano-wide.webp" alt="Test de sangre oculta en materia fecal" fill sizes="(min-width: 1280px) 1280px, 100vw" className="object-cover object-[center_55%]" />
-          <div className="banner-tint absolute inset-0" />
-          <div className="relative max-w-4xl px-6 py-16 text-white sm:px-12 lg:px-16 lg:py-20">
-            <H2 light>¿Por qué es importante testearse?</H2>
-            <p className="mt-3 font-bold italic text-sky-accent">{testearse.kicker}</p>
-            <p className="mt-4 text-lg text-white/85">{testearse.text}</p>
-            <div className="mt-6 inline-flex items-baseline gap-2 rounded-2xl bg-white/15 px-5 py-3 ring-1 ring-white/25 backdrop-blur">
-              <span className="text-4xl font-extrabold">
-                <CountUp value="90%" replay />
-              </span>
-              <span className="text-white/85">de probabilidad de curación</span>
+        <div className="reveal relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-navy-950 via-navy-800 to-cta shadow-2xl shadow-navy-900/20">
+          <div className="pointer-events-none absolute -right-24 -bottom-24 h-96 w-96 rounded-full bg-sky-accent/25 blur-3xl" aria-hidden />
+          <div className="relative grid items-center gap-6 px-6 pt-14 text-white sm:px-12 lg:grid-cols-[1fr_auto] lg:px-16 lg:py-16">
+            <div className="max-w-3xl">
+              <H2 light>¿Por qué es importante testearse?</H2>
+              <p className="mt-3 font-bold italic text-sky-accent">{testearse.kicker}</p>
+              <p className="mt-4 text-lg text-white/85">{testearse.text}</p>
+              <div className="mt-6 inline-flex items-baseline gap-2 rounded-2xl bg-white/15 px-5 py-3 ring-1 ring-white/25 backdrop-blur">
+                <span className="text-4xl font-extrabold">
+                  <CountUp value="90%" replay />
+                </span>
+                <span className="text-white/85">de probabilidad de curación</span>
+              </div>
+            </div>
+            <div className="float-slow mx-auto w-36 pb-10 sm:w-44 lg:mr-6 lg:w-48 lg:pb-0">
+              <Image src="/images/test-fit-personaje.webp" alt="Frasco del test de sangre oculta en materia fecal, sonriente" width={887} height={1498} sizes="192px" className="h-auto w-full drop-shadow-[0_18px_28px_rgba(0,20,35,0.45)]" />
             </div>
           </div>
         </div>
