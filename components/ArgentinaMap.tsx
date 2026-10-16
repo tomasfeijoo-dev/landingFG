@@ -46,7 +46,21 @@ const COLORS = {
 };
 
 // fade: degradé blanco desde la izquierda para que se lea el texto encima (los pines quedan por arriba).
-export default function ArgentinaMap({ focusX = 0.62, fade = "", className = "" }: { focusX?: number; fade?: string; className?: string }) {
+// speed: multiplica la velocidad de los vuelos (las pausas en cada pin se acortan menos, para poder leerlos).
+// quickStart: arranca el recorrido apenas carga, sin la pausa inicial sobre el mapa completo.
+export default function ArgentinaMap({
+  focusX = 0.62,
+  fade = "",
+  className = "",
+  speed = 1,
+  quickStart = false,
+}: {
+  focusX?: number;
+  fade?: string;
+  className?: string;
+  speed?: number;
+  quickStart?: boolean;
+}) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const planeRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -161,7 +175,7 @@ export default function ArgentinaMap({ focusX = 0.62, fade = "", className = "" 
       const w0 = 1 / from.zoom;
       const w1 = 1 / to.zoom;
       const zi = interpolateZoom([p0[0], p0[1], w0], [p1[0], p1[1], w1]);
-      const duration = Math.min(Math.max(zi.duration * 1.1, 2600), 5200);
+      const duration = Math.min(Math.max(zi.duration * 1.1, 2600), 5200) / speed;
       const start = performance.now();
       const step = (now: number) => {
         if (cancelled) return;
@@ -186,14 +200,17 @@ export default function ArgentinaMap({ focusX = 0.62, fade = "", className = "" 
     }
 
     let timer: ReturnType<typeof setTimeout>;
+    let first = true;
     function run(i: number) {
       const stop = TOUR[i];
       setActive(stop.pin ?? null);
+      const hold = first && quickStart ? 150 : stop.hold / Math.sqrt(speed);
+      first = false;
       timer = setTimeout(() => {
         setActive(null);
         const next = (i + 1) % TOUR.length;
         fly(stop, TOUR[next], () => run(next));
-      }, stop.hold);
+      }, hold);
     }
 
     const ro = new ResizeObserver(() => {
@@ -223,7 +240,7 @@ export default function ArgentinaMap({ focusX = 0.62, fade = "", className = "" 
       ro.disconnect();
       io.disconnect();
     };
-  }, [focusX]);
+  }, [focusX, speed, quickStart]);
 
   return (
     <div
