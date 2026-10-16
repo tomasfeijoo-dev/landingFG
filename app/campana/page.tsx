@@ -61,7 +61,7 @@ export default function CampanaPage() {
     <>
       {/* Hero de la campaña */}
       <section className="px-4 pt-6 sm:px-6 sm:pt-10">
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#0f4f73] via-[#165b84] to-[#1b6189] text-white shadow-2xl shadow-navy-900/20 md:min-h-[28rem]">
+        <div className="is-visible relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#0f4f73] via-[#165b84] to-[#1b6189] text-white shadow-2xl shadow-navy-900/20 md:min-h-[28rem]">
           <CampaignRibbon />
           <div className="banner-tint absolute inset-0 opacity-70" />
           <CampaignEmoji />
