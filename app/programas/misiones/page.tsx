@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import DonateBanner from "@/components/DonateBanner";
 import ProgramHeader from "@/components/ProgramHeader";
-import { Eyebrow, RibbonDeco } from "@/components/ui";
+import { Eyebrow } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Misiones: Alianzas Territoriales · Programas",
@@ -119,7 +119,7 @@ export default function MisionesPage() {
 
       {/* Un futuro prometedor */}
       <section className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 px-6 py-20 text-white sm:px-12 sm:py-24">
-        <RibbonDeco className="-bottom-6 -left-20 h-60 w-[32rem] rotate-180" />
+        <div className="pointer-events-none absolute -bottom-40 -left-40 h-[28rem] w-[28rem] rounded-full border-[48px] border-white/5" aria-hidden />
         <div className="relative mx-auto max-w-6xl">
           <div className="reveal grid gap-10 lg:grid-cols-2">
             <div>

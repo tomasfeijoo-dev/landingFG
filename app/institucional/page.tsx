@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import DonateBanner from "@/components/DonateBanner";
 import Icon from "@/components/Icon";
-import { PageHeader, RibbonDeco } from "@/components/ui";
+import { PageHeader } from "@/components/ui";
 import { anuarios, consejo, equipo, institucionalEmail, quienesSomos, type Person } from "@/lib/institucional";
 
 export const metadata: Metadata = {
@@ -90,7 +90,7 @@ export default function InstitucionalPage() {
 
       {/* Consejo de administración */}
       <section className="relative overflow-hidden bg-brand-50/70 px-4 py-20 sm:px-6 sm:py-24">
-        <RibbonDeco tone="navy" className="-bottom-6 -left-20 hidden h-56 w-[30rem] rotate-180 lg:block" />
+        <div className="pointer-events-none absolute -bottom-40 -left-40 hidden h-[26rem] w-[26rem] rounded-full border-[48px] border-navy-800/90 lg:block" aria-hidden />
         <div className="relative mx-auto max-w-5xl">
           <SectionTitle eyebrow="Gobierno de la Fundación">Consejo de administración</SectionTitle>
           <div className="mt-12 grid gap-6 md:grid-cols-2">

@@ -3,7 +3,7 @@ import Image from "next/image";
 import DonateBanner from "@/components/DonateBanner";
 import Icon from "@/components/Icon";
 import ProgramHeader from "@/components/ProgramHeader";
-import { Eyebrow, RibbonDeco } from "@/components/ui";
+import { Eyebrow } from "@/components/ui";
 import { programasEmail } from "@/lib/programas";
 
 export const metadata: Metadata = {
@@ -210,7 +210,7 @@ export default function EntrenamientoEndoscopistasPage() {
 
       {/* Cursos 2023 */}
       <section className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 px-6 py-20 text-white sm:px-12 sm:py-24">
-        <RibbonDeco className="-right-16 -bottom-6 h-56 w-[30rem] -scale-y-100" />
+        <div className="pointer-events-none absolute -right-24 -bottom-24 h-80 w-80 rounded-full border-[40px] border-white/5" aria-hidden />
         <div className="relative mx-auto max-w-6xl">
           <div className="reveal">
             <Eyebrow light>Fundación Gedyt</Eyebrow>

@@ -4,7 +4,7 @@ import Link from "next/link";
 import DonateBanner from "@/components/DonateBanner";
 import Icon from "@/components/Icon";
 import PressGrid from "@/components/PressGrid";
-import { Eyebrow, Words, RibbonDeco } from "@/components/ui";
+import { Eyebrow, Words } from "@/components/ui";
 import { contact } from "@/lib/content";
 import { anuarios, asistencia, comunicados, guidelines, posters, weo } from "@/lib/publicaciones";
 
@@ -209,7 +209,7 @@ export default function NovedadesPage() {
       {/* Anuarios — oscuro */}
       <section id="anuarios" className="scroll-mt-36 px-4 pt-16 sm:px-6 sm:pt-20">
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 px-6 py-16 text-white shadow-2xl shadow-navy-900/20 sm:px-12">
-          <RibbonDeco className="-top-4 -right-16 h-56 w-[30rem]" />
+          <div className="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full border-[44px] border-white/5" aria-hidden />
           <H2 light kicker="Nuestro trabajo, año a año">Anuarios</H2>
           <div className="relative mt-12 grid gap-8 md:grid-cols-3">
             {anuarios.map((a) => (
@@ -300,7 +300,7 @@ export default function NovedadesPage() {
 
         {/* Asistencia financiera — oscuro */}
         <article className="reveal relative mx-auto grid max-w-7xl items-center gap-10 overflow-hidden rounded-[2rem] bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 p-8 text-white shadow-2xl shadow-navy-900/20 sm:p-12 lg:grid-cols-[1.6fr_1fr]">
-          <RibbonDeco className="-bottom-4 -left-16 h-52 w-[28rem] rotate-180" />
+          <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full border-[40px] border-white/5" aria-hidden />
           <div className="relative">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-accent">Investigación</p>
             <h2 className="mt-2 text-3xl font-extrabold tracking-tight">{asistencia.title}</h2>

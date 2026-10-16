@@ -25,7 +25,7 @@ import {
 } from "@/lib/campana";
 import { socialLinks } from "@/lib/content";
 import { campanaAliados, campanaInstituciones, sponsors } from "@/lib/logos";
-import { Words, RibbonDeco } from "@/components/ui";
+import { Words } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Campaña ¿Cómo está tu Colon?",
@@ -108,7 +108,7 @@ export default function CampanaPage() {
       {/* Encuesta */}
       <section className="reveal relative overflow-hidden bg-gradient-to-br from-sky-accent via-cta to-navy-800 px-6 py-16 text-center text-white sm:px-12 sm:py-20">
         <div>
-          <RibbonDeco tone="white" className="-top-4 -left-16 h-52 w-[28rem] -scale-x-100" />
+          <div className="pointer-events-none absolute -top-20 -left-20 h-72 w-72 rounded-full border-[40px] border-white/10" aria-hidden />
           <p className="relative font-bold italic text-white/85">La prevención salva vidas</p>
           <h2 className="relative mt-2 text-3xl font-extrabold tracking-tight sm:text-5xl">¿Cómo está tu Colon?</h2>
           <p className="relative mx-auto mt-4 max-w-2xl text-lg text-white/90">Hacete esta pregunta y realizá una consulta médica con un profesional.</p>
@@ -168,7 +168,7 @@ export default function CampanaPage() {
           </div>
           <div className="reveal relative overflow-hidden rounded-[2rem] text-white shadow-2xl shadow-navy-900/20">
             <div className="absolute inset-0 bg-gradient-to-br from-cta via-navy-800 to-navy-950" />
-            <RibbonDeco tone="white" className="-top-4 -right-16 h-44 w-96" />
+            <div className="pointer-events-none absolute -top-16 -right-16 h-64 w-64 rounded-full border-[40px] border-white/10" aria-hidden />
             <div className="pointer-events-none absolute top-8 left-8 grid grid-cols-5 gap-2 opacity-30" aria-hidden>
               {Array.from({ length: 20 }, (_, i) => (
                 <Icon key={i} name="users" className={`h-6 w-6 ${i % 4 === 0 ? "text-sky-accent" : "text-white"}`} />

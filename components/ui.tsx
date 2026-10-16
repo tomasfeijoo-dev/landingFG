@@ -2,18 +2,6 @@ import Image from "next/image";
 import Icon from "@/components/Icon";
 import InterestLink from "@/components/InterestLink";
 
-// Lazo decorativo (reemplaza a los aros): una cinta que baja, hace un rulo y sigue.
-// tone: "sky" sobre fondos oscuros, "white" sobre fondos celestes, "navy" sobre fondos claros.
-export function RibbonDeco({ className = "", tone = "sky" }: { className?: string; tone?: "sky" | "white" | "navy" }) {
-  const stroke = { sky: "#3fa5d4", white: "#ffffff", navy: "#015f86" }[tone];
-  const opacity = { sky: 0.45, white: 0.22, navy: 0.9 }[tone];
-  return (
-    <svg className={`pointer-events-none absolute ${className}`} viewBox="0 0 300 160" fill="none" aria-hidden>
-      <path d="M10 -10 C 60 90, 170 110, 210 60 C 240 20, 200 -5, 180 25 C 155 65, 230 120, 320 100" stroke={stroke} strokeWidth="14" strokeLinecap="round" opacity={opacity} />
-    </svg>
-  );
-}
-
 export function Eyebrow({ children, chip = false, light = false }: { children: React.ReactNode; chip?: boolean; light?: boolean }) {
   if (chip) {
     return (
@@ -156,7 +144,7 @@ export function PageHeader({
                   opacity="0.85"
                 />
               </svg>
-              <RibbonDeco tone="navy" className="-right-8 -bottom-6 hidden h-28 w-56 -scale-y-100 md:block" />
+              <div className="pointer-events-none absolute -right-10 -bottom-14 hidden h-36 w-36 rounded-full border-[22px] border-navy-800/80 md:block" aria-hidden />
             </>
           )}
           <div className={`relative px-6 sm:px-12 lg:px-16 ${fullWidth ? "mx-auto max-w-7xl" : ""} ${image ? "flex min-h-[22rem] items-end pt-24 pb-12 sm:min-h-[26rem] md:items-center md:py-20" : background ? "py-24 sm:py-28 md:max-w-[52%]" : "py-14 sm:py-20"}`}>

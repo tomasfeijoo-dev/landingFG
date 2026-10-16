@@ -4,7 +4,7 @@ import ArgentinaMap from "@/components/ArgentinaMap";
 import DonateBanner from "@/components/DonateBanner";
 import Icon from "@/components/Icon";
 import InterestLink from "@/components/InterestLink";
-import { PageHeader, RibbonDeco } from "@/components/ui";
+import { PageHeader } from "@/components/ui";
 import { iniciativas, programas, programasEmail } from "@/lib/programas";
 
 export const metadata: Metadata = {
@@ -36,7 +36,7 @@ export default function ProgramasPage() {
         <svg className="pointer-events-none absolute top-32 -right-20 hidden h-72 w-[36rem] md:block" viewBox="0 0 300 160" aria-hidden>
           <path d="M10 -10 C 60 90, 170 110, 210 60 C 240 20, 200 -5, 180 25 C 155 65, 230 120, 320 100" stroke="#3fa5d4" strokeWidth="12" fill="none" strokeLinecap="round" opacity="0.5" />
         </svg>
-        <RibbonDeco className="-bottom-6 -left-20 h-60 w-[32rem] rotate-180" />
+        <div className="pointer-events-none absolute -bottom-40 -left-40 h-[28rem] w-[28rem] rounded-full border-[48px] border-white/5" aria-hidden />
         <div className="relative mx-auto max-w-7xl">
           <h2 className="text-center text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Nuestros programas</h2>
           <div id="nuestros-programas" className="mt-12 grid scroll-mt-28 gap-5 sm:grid-cols-2 lg:grid-cols-4">

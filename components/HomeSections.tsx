@@ -4,7 +4,7 @@ import CountUp from "@/components/CountUp";
 import Icon from "@/components/Icon";
 import InterestLink from "@/components/InterestLink";
 import LogoMarquee from "@/components/LogoMarquee";
-import { ButtonLink, RibbonDeco } from "@/components/ui";
+import { ButtonLink } from "@/components/ui";
 import { homeLinks, sumarOrganizacionUrl } from "@/lib/content";
 import { allies, institutions, sponsors } from "@/lib/logos";
 
@@ -14,7 +14,7 @@ import { allies, institutions, sponsors } from "@/lib/logos";
 export function QueHacemosHome() {
   return (
     <section className="relative overflow-hidden px-4 py-20 sm:px-6 sm:py-28">
-      <RibbonDeco tone="navy" className="-right-24 -bottom-6 hidden h-56 w-[30rem] -scale-y-100 xl:block" />
+      <div className="pointer-events-none absolute -right-64 bottom-0 hidden h-[26rem] w-[26rem] translate-y-1/3 rounded-full border-[48px] border-navy-800/90 xl:block" aria-hidden />
       <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
         <div className="reveal relative mx-auto aspect-square w-full max-w-md overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
           {/* TODO: reemplazar por la foto original en alta resolución */}
