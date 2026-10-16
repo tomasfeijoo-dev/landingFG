@@ -174,7 +174,13 @@ export default function HeroCarousel() {
                   className="whitespace-pre-line text-4xl leading-tight tracking-tight text-white drop-shadow-md sm:text-[3.25rem] lg:whitespace-pre lg:text-[min(3.6rem,4vw)] lg:leading-[1.08]"
                 >
                   <span className="font-medium">{s.title.endsWith("\n") ? s.title : `${s.title} `}</span>
-                  <span className="font-extrabold">{s.highlight}</span>
+                  <span
+                    // Solo en escritorio, donde los renglones no se parten solos
+                    className="font-extrabold lg:[font-size:var(--hs,1em)]"
+                    style={s.highlightScale ? { ["--hs" as string]: `${s.highlightScale}em` } : undefined}
+                  >
+                    {s.highlight}
+                  </span>
                 </h2>
                 {s.text && <p className="mt-4 max-w-2xl text-base text-white/85 sm:text-lg">{s.text}</p>}
                 {s.primary && (

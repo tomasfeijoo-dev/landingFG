@@ -128,6 +128,8 @@ export type Slide = {
   logo?: { src: string; alt: string; width: number; height: number };
   // Ilustración a usar cuando no hay foto
   art?: "ribbon";
+  // Agranda la parte destacada del título (en em) para emparejar el ancho de los renglones
+  highlightScale?: number;
   badge?: { value: string; label: string };
   // Botón principal (opcional: hay banners sin botón)
   primary?: { label: string; href: string; interest?: string };
@@ -160,8 +162,9 @@ export const slides: Slide[] = [
   },
   {
     id: "mujeres",
-    title: "Premio a Mujeres Destacadas en\n",
+    title: "Premio a Mujeres Destacadas\nen",
     highlight: "Gastroenterología &\nEndoscopía Digestiva",
+    highlightScale: 1.27,
     text: "Una iniciativa que reconoce y visibiliza a mujeres que, a través de su trayectoria, liderazgo y compromiso, generan un impacto significativo en la comunidad médica y en la salud de las personas.",
     image: "/banners/mujeres-premio.webp",
     imageAlt: "Entrega del Premio a Mujeres Destacadas en Gastroenterología",
