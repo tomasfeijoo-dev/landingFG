@@ -32,7 +32,7 @@ export default function ProgramasPage() {
       </div>
 
       {/* Nuestros programas */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 -mt-40 px-4 pt-56 pb-16 sm:px-6 sm:pb-20">
+      <section className="relative overflow-clip bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 -mt-40 px-4 pt-56 pb-16 sm:px-6 sm:pb-20">
         <svg className="pointer-events-none absolute top-32 -right-20 hidden h-72 w-[36rem] md:block" viewBox="0 0 300 160" aria-hidden>
           <path d="M10 -10 C 60 90, 170 110, 210 60 C 240 20, 200 -5, 180 25 C 155 65, 230 120, 320 100" stroke="#3fa5d4" strokeWidth="12" fill="none" strokeLinecap="round" opacity="0.5" />
         </svg>
