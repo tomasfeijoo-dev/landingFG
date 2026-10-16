@@ -8,7 +8,7 @@ export function RibbonDeco({ className = "", tone = "sky" }: { className?: strin
   const stroke = { sky: "#3fa5d4", white: "#ffffff", navy: "#015f86" }[tone];
   const opacity = { sky: 0.45, white: 0.22, navy: 0.9 }[tone];
   return (
-    <svg className={`pointer-events-none absolute ${className}`} viewBox="0 0 300 160" fill="none" aria-hidden>
+    <svg className={`pointer-events-none absolute overflow-visible ${className}`} viewBox="0 0 300 160" fill="none" aria-hidden>
       <path d="M10 -10 C 60 90, 170 110, 210 60 C 240 20, 200 -5, 180 25 C 155 65, 230 120, 320 100" stroke={stroke} strokeWidth="14" strokeLinecap="round" opacity={opacity} />
     </svg>
   );
