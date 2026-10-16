@@ -72,6 +72,25 @@ export function ButtonLink({
 
 // Encabezado de las páginas internas. Puede llevar una foto (a la derecha, fundida
 // hacia el texto) o un fondo animado (por ejemplo el mapa), y contenido extra abajo.
+// Título que aparece palabra por palabra (clase .words en globals.css).
+export function Words({ text, delay = 0 }: { text: string; delay?: number }) {
+  const parts = text.split(/(\s+)/);
+  let i = 0;
+  return (
+    <span className="words" style={{ ["--d" as string]: `${delay}ms` }}>
+      {parts.map((p, k) =>
+        /^\s+$/.test(p) ? (
+          p
+        ) : (
+          <span key={k} className="word" style={{ ["--i" as string]: i++ }}>
+            {p}
+          </span>
+        ),
+      )}
+    </span>
+  );
+}
+
 export function PageHeader({
   eyebrow,
   title,
@@ -81,6 +100,7 @@ export function PageHeader({
   imagePosition = "center",
   background,
   fullWidth = false,
+  kenBurns = false,
   children,
 }: {
   eyebrow: string;
@@ -92,6 +112,8 @@ export function PageHeader({
   background?: React.ReactNode;
   /** Banner a todo el ancho de la web, sin bordes redondeados */
   fullWidth?: boolean;
+  /** Foto de fondo con acercamiento y movimiento lento */
+  kenBurns?: boolean;
   children?: React.ReactNode;
 }) {
   const plain = !image && !background;
@@ -106,8 +128,8 @@ export function PageHeader({
           {background}
           {image && (
             <>
-              <Image src={image} alt={imageAlt} fill priority sizes="(min-width: 1280px) 1280px, 100vw" className="object-cover" style={{ objectPosition: imagePosition }} />
-              <div className="banner-tint absolute inset-0" />
+              <Image src={image} alt={imageAlt} fill priority sizes="(min-width: 1280px) 1280px, 100vw" className={`object-cover ${kenBurns ? "kb-image" : ""}`} style={{ objectPosition: imagePosition }} />
+              <div className={`banner-tint absolute inset-0 ${kenBurns ? "banner-shine" : ""}`} />
             </>
           )}
           {plain && (
@@ -127,9 +149,17 @@ export function PageHeader({
           )}
           <div className={`relative px-6 sm:px-12 lg:px-16 ${fullWidth ? "mx-auto max-w-7xl" : ""} ${image ? "flex min-h-[22rem] items-end pt-24 pb-12 sm:min-h-[26rem] md:items-center md:py-20" : background ? "py-24 sm:py-28 md:max-w-[52%]" : "py-14 sm:py-20"}`}>
             <div className="max-w-2xl">
-              <Eyebrow chip light={!!image}>{eyebrow}</Eyebrow>
-              <h1 className={`mt-5 text-3xl font-extrabold tracking-tight sm:text-5xl ${image ? "text-white drop-shadow-sm" : "text-navy-900"}`}>{title}</h1>
-              {text && <p className={`mt-4 text-lg ${image ? "max-w-xl text-white/85" : "text-navy-900/70"}`}>{text}</p>}
+              <div className="fade-up">
+                <Eyebrow chip light={!!image}>{eyebrow}</Eyebrow>
+              </div>
+              <h1 className={`mt-5 text-3xl font-extrabold tracking-tight sm:text-5xl ${image ? "text-white drop-shadow-sm" : "text-navy-900"}`}>
+                <Words text={title} delay={150} />
+              </h1>
+              {text && (
+                <p className={`fade-up mt-4 text-lg ${image ? "max-w-xl text-white/85" : "text-navy-900/70"}`} style={{ ["--d" as string]: "550ms" }}>
+                  {text}
+                </p>
+              )}
             </div>
           </div>
         </div>

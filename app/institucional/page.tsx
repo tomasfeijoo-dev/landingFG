@@ -55,6 +55,7 @@ export default function InstitucionalPage() {
         imageAlt="Equipo de la Fundación Gedyt"
         imagePosition="center 35%"
         fullWidth
+        kenBurns
       />
 
       {/* Misión, visión y valores */}

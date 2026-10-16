@@ -4,7 +4,7 @@ import Link from "next/link";
 import DonateBanner from "@/components/DonateBanner";
 import Icon from "@/components/Icon";
 import PressGrid from "@/components/PressGrid";
-import { Eyebrow } from "@/components/ui";
+import { Eyebrow, Words } from "@/components/ui";
 import { contact } from "@/lib/content";
 import { anuarios, asistencia, comunicados, guidelines, posters, weo } from "@/lib/publicaciones";
 
@@ -108,12 +108,18 @@ export default function NovedadesPage() {
       <section className="px-4 pt-6 sm:px-6 sm:pt-10">
         <div className="relative mx-auto grid max-w-7xl items-center gap-10 overflow-hidden rounded-[2rem] bg-navy-950 px-6 pt-16 pb-12 text-white sm:px-12 lg:grid-cols-[0.9fr_1.1fr] lg:px-16 lg:pt-24 lg:pb-14">
           <NewspaperBackdrop />
-          <div className="reveal relative">
-            <Eyebrow chip light>
-              Prensa y publicaciones
-            </Eyebrow>
-            <h1 className="mt-5 text-4xl font-extrabold tracking-tight sm:text-6xl">Novedades</h1>
-            <p className="mt-4 max-w-md text-lg text-white/80">Comunicados, prensa, anuarios e investigación.</p>
+          <div className="relative">
+            <div className="fade-up">
+              <Eyebrow chip light>
+                Prensa y publicaciones
+              </Eyebrow>
+            </div>
+            <h1 className="mt-5 text-4xl font-extrabold tracking-tight sm:text-6xl">
+              <Words text="Novedades" delay={150} />
+            </h1>
+            <p className="fade-up mt-4 max-w-md text-lg text-white/80" style={{ ["--d" as string]: "450ms" }}>
+              Comunicados, prensa, anuarios e investigación.
+            </p>
           </div>
 
           <Link

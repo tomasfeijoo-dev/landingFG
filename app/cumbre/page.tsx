@@ -3,6 +3,7 @@ import Image from "next/image";
 import DonateBanner from "@/components/DonateBanner";
 import Icon from "@/components/Icon";
 import { homeLinks } from "@/lib/content";
+import { Words } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Cumbre CCR360°",
@@ -49,16 +50,18 @@ export default function CumbrePage() {
     <>
       {/* Presentación con el logo */}
       <section className="px-4 pt-6 sm:px-6 sm:pt-10">
-        <div className="reveal relative mx-auto grid max-w-7xl items-center gap-10 overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#f1f4f7] via-white to-brand-50 px-6 py-14 ring-1 ring-brand-100 sm:px-12 lg:grid-cols-2 lg:px-16 lg:py-20">
-          <div className="pointer-events-none absolute -right-10 -bottom-14 h-40 w-40 rounded-full border-[24px] border-[#f5a81c]/80" aria-hidden />
-          <Image src="/images/ccr360-logo.webp" alt="CCR 360° · Segunda Cumbre Interamericana de Cáncer de Colon" width={824} height={262} priority className="relative h-auto w-full max-w-lg mix-blend-multiply" />
+        <div className="banner-shine shine-blue relative mx-auto grid max-w-7xl items-center gap-10 overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#f1f4f7] via-white to-brand-50 px-6 py-14 ring-1 ring-brand-100 sm:px-12 lg:grid-cols-2 lg:px-16 lg:py-20">
+          <div className="ring-float pointer-events-none absolute -right-10 -bottom-14 h-40 w-40 rounded-full border-[24px] border-[#f5a81c]/80" aria-hidden />
+          <Image src="/images/ccr360-logo.webp" alt="CCR 360° · Segunda Cumbre Interamericana de Cáncer de Colon" width={824} height={262} priority className="logo-in relative h-auto w-full max-w-lg mix-blend-multiply" />
           <div className="relative">
-            <span className="inline-flex items-center gap-2 rounded-full bg-brand-100/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-cta ring-1 ring-brand-100">
+            <span className="fade-up inline-flex items-center gap-2 rounded-full bg-brand-100/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-cta ring-1 ring-brand-100" style={{ ["--d" as string]: "250ms" }}>
               <span className="h-1.5 w-1.5 rounded-full bg-cta" />
               Cumbre
             </span>
-            <h1 className="mt-5 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-5xl">Cumbre interamericana de CCR 360</h1>
-            <p className="mt-5 text-lg text-navy-900/75">
+            <h1 className="mt-5 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-5xl">
+              <Words text="Cumbre interamericana de CCR 360" delay={400} />
+            </h1>
+            <p className="fade-up mt-5 text-lg text-navy-900/75" style={{ ["--d" as string]: "900ms" }}>
               La <strong className="text-navy-900">Cumbre Interamericana de CCR 360</strong> convoca a especialistas para compartir avances y{" "}
               <strong className="text-navy-900">estrategias de prevención, diagnóstico y tratamiento</strong> con foco regional.
             </p>

@@ -49,8 +49,8 @@ export default function Cumbre2024Page() {
   return (
     <>
       {/* Encabezado */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 text-white">
-        <div className="pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full border-[40px] border-white/5" aria-hidden />
+      <section className="banner-shine relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 text-white">
+        <div className="ring-float pointer-events-none absolute -top-24 -left-24 h-80 w-80 rounded-full border-[40px] border-white/5" aria-hidden />
         <div className="relative mx-auto max-w-7xl px-6 pt-8 sm:px-12 lg:px-16">
           <Link
             href="/cumbre"
@@ -63,10 +63,12 @@ export default function Cumbre2024Page() {
           </Link>
         </div>
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-6 pt-8 pb-14 sm:px-12 lg:grid-cols-2 lg:px-16 lg:pb-20">
-          <div className="reveal">
+          <div>
             <h1 className="sr-only">CCR 360° — Primera Cumbre Interamericana de Cáncer de Colon 2024</h1>
-            <CcrLogo light />
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="logo-in">
+              <CcrLogo light />
+            </div>
+            <div className="fade-up mt-10 flex flex-wrap gap-3" style={{ ["--d" as string]: "600ms" }}>
               <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold ring-1 ring-white/20">
                 <Icon name="calendar" className="h-4 w-4 text-[#f5a81c]" /> 14 de noviembre
               </span>
@@ -75,11 +77,11 @@ export default function Cumbre2024Page() {
               </span>
             </div>
           </div>
-          <div className="reveal-pop relative">
+          <div className="fade-up relative" style={{ ["--d" as string]: "300ms" }}>
             <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-2xl shadow-black/40 ring-1 ring-white/10 sm:aspect-[5/4] lg:aspect-[4/5]">
-              <Image src="/images/cumbre2024-publico.webp" alt="Público durante la Cumbre" fill priority sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover transition duration-1000 hover:scale-105" />
+              <Image src="/images/cumbre2024-publico.webp" alt="Público durante la Cumbre" fill priority sizes="(min-width: 1024px) 45vw, 100vw" className="kb-image object-cover" />
             </div>
-            <div className="absolute -bottom-6 -left-4 rounded-2xl bg-white px-5 py-4 text-navy-900 shadow-xl sm:-left-8">
+            <div className="fade-up absolute -bottom-6 -left-4 rounded-2xl bg-white px-5 py-4 text-navy-900 shadow-xl sm:-left-8">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-cta">Primera edición</p>
               <p className="mt-1 font-extrabold">Cumbre Interamericana</p>
             </div>

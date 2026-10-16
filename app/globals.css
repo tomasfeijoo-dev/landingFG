@@ -283,3 +283,52 @@ body {
 }
 .starfield-2 { background-size: 340px 340px; background-position: 90px 130px; animation-duration: 5s; animation-delay: -2.5s; }
 @media (prefers-reduced-motion: reduce) { .starfield { animation: none; } }
+
+/* Banners animados: títulos que entran palabra por palabra */
+@keyframes word-rise {
+  from { opacity: 0; transform: translateY(0.65em) rotate(3deg); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+.words .word { display: inline-block; animation: word-rise 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: calc(var(--d, 0ms) + var(--i) * 85ms); }
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(18px); filter: blur(4px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+.fade-up { animation: fade-up 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: var(--d, 0ms); }
+
+/* Foto de fondo: acercamiento al entrar y luego un vaivén lento */
+@keyframes kb-in { from { transform: scale(1.2); } to { transform: scale(1.06); } }
+@keyframes kb-drift {
+  from { transform: scale(1.06) translate3d(0, 0, 0); }
+  to { transform: scale(1.13) translate3d(-1.5%, -1%, 0); }
+}
+.kb-image { animation: kb-in 2.6s cubic-bezier(0.2, 0.7, 0.2, 1) both, kb-drift 16s ease-in-out 2.6s infinite alternate; }
+
+/* Brillo que cruza el banner cada tanto (el elemento tiene que estar posicionado) */
+@keyframes shine-sweep {
+  0% { transform: translateX(-120%) skewX(-18deg); }
+  35%, 100% { transform: translateX(320%) skewX(-18deg); }
+}
+.banner-shine::after {
+  content: ""; pointer-events: none; position: absolute; inset: 0 auto 0 0; width: 35%;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.18), transparent);
+  animation: shine-sweep 7s ease-in-out 1.2s infinite;
+}
+
+/* Logos y aros decorativos */
+@keyframes logo-in {
+  from { opacity: 0; transform: scale(0.9) translateY(16px); filter: blur(8px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+.logo-in { animation: logo-in 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+@keyframes ring-float {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-14px, -10px, 0) scale(1.06); }
+}
+.ring-float { animation: ring-float 9s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .words .word, .fade-up, .kb-image, .logo-in, .ring-float { animation: none; }
+  .banner-shine::after { display: none; }
+}
+.banner-shine.shine-blue::after { background: linear-gradient(90deg, transparent, rgb(63 165 212 / 0.16), transparent); }

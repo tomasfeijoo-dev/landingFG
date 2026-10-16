@@ -24,6 +24,7 @@ import {
 } from "@/lib/campana";
 import { socialLinks } from "@/lib/content";
 import { campanaAliados, campanaInstituciones, sponsors } from "@/lib/logos";
+import { Words } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "Campaña ¿Cómo está tu Colon?",
@@ -60,15 +61,21 @@ export default function CampanaPage() {
     <>
       {/* Hero de la campaña */}
       <section className="px-4 pt-6 sm:px-6 sm:pt-10">
-        <div className="reveal relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#0f4f73] via-[#165b84] to-[#1b6189] text-white shadow-2xl shadow-navy-900/20 md:min-h-[28rem]">
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#0f4f73] via-[#165b84] to-[#1b6189] text-white shadow-2xl shadow-navy-900/20 md:min-h-[28rem]">
           <CampaignRibbon />
           <div className="banner-tint absolute inset-0 opacity-70" />
           <CampaignEmoji />
           <div className="relative px-6 pt-14 pb-48 sm:px-12 sm:pb-56 md:w-[58%] md:py-20 lg:px-16">
-            <p className="text-lg font-semibold text-sky-accent">{hero.date}</p>
-            <p className="mt-1 font-bold italic text-white/85">{hero.day}</p>
-            <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-6xl">{hero.title}</h1>
-            <p className="mt-5 max-w-xl text-lg text-white/85">{hero.text}</p>
+            <p className="fade-up text-lg font-semibold text-sky-accent">{hero.date}</p>
+            <p className="fade-up mt-1 font-bold italic text-white/85" style={{ ["--d" as string]: "150ms" }}>
+              {hero.day}
+            </p>
+            <h1 className="mt-4 text-4xl font-extrabold tracking-tight sm:text-6xl">
+              <Words text={hero.title} delay={350} />
+            </h1>
+            <p className="fade-up mt-5 max-w-xl text-lg text-white/85" style={{ ["--d" as string]: "750ms" }}>
+              {hero.text}
+            </p>
           </div>
         </div>
       </section>
