@@ -134,7 +134,7 @@ function Portada({ a }: { a: Articulo }) {
     );
   }
   return (
-    <div className="relative aspect-[16/9] overflow-hidden rounded-[2rem] bg-navy-950">
+    <div className="relative aspect-[16/9] overflow-hidden rounded-[2rem] bg-navy-950 shadow-xl shadow-navy-900/10 ring-1 ring-navy-900/10">
       <Image src={a.image} alt="" fill sizes="40vw" className="scale-110 object-cover opacity-60 blur-2xl" aria-hidden />
       <Image quality={90} src={a.image} alt={a.caption ?? a.title} fill priority sizes="(min-width: 1280px) 1152px, 100vw" className="object-contain" />
     </div>

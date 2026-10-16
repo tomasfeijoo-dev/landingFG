@@ -775,8 +775,8 @@ export const articulos: Articulo[] = [
     fecha: "19 de marzo de 2026",
     bajada:
       "En el mes de concientización de la enfermedad, el gastroenterólogo Luis Caro, presidente de la Fundación Gedyt, detalló a Infobae los desafíos que presenta la patología y remarcó que si se detecta en estadios iniciales tiene alta tasa de curación.",
-    image: "/images/caro-recorte.webp",
-    cutout: true,
+    image: "/prensa-hd/caro-infobae.webp",
+    caption: "El Dr. Luis Caro, presidente de Fundación Gedyt.",
     medio: "Infobae",
     fuente: `https://www.google.com/search?q=${encodeURIComponent("infobae El 90% de los casos de cáncer de colon pueden curarse Luis Caro")}`,
     blocks: [
