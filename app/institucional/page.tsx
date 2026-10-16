@@ -90,7 +90,7 @@ export default function InstitucionalPage() {
 
       {/* Consejo de administración */}
       <section className="relative overflow-hidden bg-brand-50/70 px-4 py-20 sm:px-6 sm:py-24">
-        <RibbonDeco tone="navy" className="-bottom-10 -left-64 hidden h-72 w-[39rem] lg:block" />
+        <RibbonDeco tone="navy" className="-bottom-6 -left-20 hidden h-56 w-[30rem] rotate-180 lg:block" />
         <div className="relative mx-auto max-w-5xl">
           <SectionTitle eyebrow="Gobierno de la Fundación">Consejo de administración</SectionTitle>
           <div className="mt-12 grid gap-6 md:grid-cols-2">

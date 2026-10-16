@@ -300,6 +300,7 @@ export default function NovedadesPage() {
 
         {/* Asistencia financiera — oscuro */}
         <article className="reveal relative mx-auto grid max-w-7xl items-center gap-10 overflow-hidden rounded-[2rem] bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 p-8 text-white shadow-2xl shadow-navy-900/20 sm:p-12 lg:grid-cols-[1.6fr_1fr]">
+          <RibbonDeco className="-bottom-4 -left-16 h-52 w-[28rem] rotate-180" />
           <div className="relative">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-accent">Investigación</p>
             <h2 className="mt-2 text-3xl font-extrabold tracking-tight">{asistencia.title}</h2>
