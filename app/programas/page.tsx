@@ -39,7 +39,7 @@ export default function ProgramasPage() {
         <div className="pointer-events-none absolute -bottom-40 -left-40 h-[28rem] w-[28rem] rounded-full border-[48px] border-white/5" aria-hidden />
         <div className="relative mx-auto max-w-7xl">
           <h2 className="text-center text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Nuestros programas</h2>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div id="nuestros-programas" className="mt-12 grid scroll-mt-28 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {programas.map((p, i) => (
               <article
                 key={p.title}
