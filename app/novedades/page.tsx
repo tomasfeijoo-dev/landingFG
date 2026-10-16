@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import DonateBanner from "@/components/DonateBanner";
 import Icon from "@/components/Icon";
 import PressGrid from "@/components/PressGrid";
@@ -17,7 +18,7 @@ const notaDestacada = {
   bajada:
     "En el mes de concientización de la enfermedad, el gastroenterólogo Luis Caro, presidente de la Fundación Gedyt, detalló a Infobae los desafíos que presenta la patología y remarcó que si se detecta en estadios iniciales tiene alta tasa de curación.",
   fecha: "19 de marzo 2026",
-  href: `https://www.google.com/search?q=${encodeURIComponent("infobae El 90% de los casos de cáncer de colon pueden curarse Luis Caro")}`,
+  href: "/novedades/el-90-de-los-casos-de-cancer-de-colon-pueden-curarse",
 };
 
 // Fondo del encabezado: una página de diario desenfocada, con filtro azul fuerte.
@@ -115,10 +116,8 @@ export default function NovedadesPage() {
             <p className="mt-4 max-w-md text-lg text-white/80">Comunicados, prensa, anuarios e investigación.</p>
           </div>
 
-          <a
+          <Link
             href={notaDestacada.href}
-            target="_blank"
-            rel="noopener noreferrer"
             className="reveal-pop group relative mt-4 block rounded-3xl bg-white text-navy-900 shadow-2xl shadow-black/40 lg:mt-0 transition duration-500 hover:-translate-y-1"
           >
             <div className="relative z-10 flex min-h-[19rem] max-w-[60%] flex-col p-6 sm:p-8">
@@ -145,7 +144,7 @@ export default function NovedadesPage() {
                 className="origin-bottom object-cover object-[50%_0%] drop-shadow-[0_10px_25px_rgba(0,41,59,0.35)] transition duration-700 ease-out group-hover:scale-[1.28]"
               />
             </div>
-          </a>
+          </Link>
         </div>
       </section>
 
@@ -164,11 +163,9 @@ export default function NovedadesPage() {
           <H2 kicker="Desde la Fundación">Comunicados institucionales</H2>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {comunicados.map((c, i) => (
-              <a
+              <Link
                 key={c.title}
                 href={c.href}
-                target="_blank"
-                rel="noopener noreferrer"
                 className={`reveal-pop group relative flex flex-col overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-navy-900/5 transition hover:-translate-y-1 hover:shadow-xl ${
                   i === 0 ? "sm:col-span-2 lg:row-span-2 lg:col-span-2" : ""
                 }`}
@@ -183,7 +180,7 @@ export default function NovedadesPage() {
                     Leer comunicado <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-0.5" />
                   </span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

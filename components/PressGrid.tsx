@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import Icon from "@/components/Icon";
 import { categorias, notas, type Categoria } from "@/lib/prensa";
@@ -46,11 +47,9 @@ export default function PressGrid() {
 
       {/* Nota destacada */}
       {featured && (
-        <a
+        <Link
           key={`f-${cat}`}
           href={featured.href}
-          target="_blank"
-          rel="noopener noreferrer"
           className="step-in group relative mt-10 grid overflow-hidden rounded-[2rem] bg-navy-900 text-white shadow-2xl shadow-navy-900/20 lg:grid-cols-[1.3fr_1fr]"
         >
           <div className="relative aspect-[16/9] overflow-hidden lg:aspect-auto lg:min-h-[22rem]">
@@ -65,17 +64,15 @@ export default function PressGrid() {
               Leer nota <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-0.5" />
             </span>
           </div>
-        </a>
+        </Link>
       )}
 
       {/* Resto de notas */}
       <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {visible.map((n, i) => (
-          <a
+          <Link
             key={`${cat}-${n.title}`}
             href={n.href}
-            target="_blank"
-            rel="noopener noreferrer"
             className="step-in group flex flex-col overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-navy-900/5 transition hover:-translate-y-1 hover:shadow-xl"
             style={{ animationDelay: `${(i % PAGE) * 40}ms` }}
           >
@@ -89,7 +86,7 @@ export default function PressGrid() {
                 Leer nota <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-0.5" />
               </span>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
 

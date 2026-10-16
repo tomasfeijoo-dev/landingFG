@@ -1,7 +1,19 @@
 // Comunicados, anuarios, publicaciones e investigación (textos tal cual figuran en fundaciongedyt.org.ar).
-// Los comunicados sin link propio todavía abren una búsqueda en Google; reemplazar cuando estén los links directos.
+// Cada comunicado abre su página interna (/novedades/[slug]); el texto completo está en lib/articulos.ts.
 
 const pubs = "https://fundaciongedyt.org.ar/publicaciones/";
+
+const comunicadoSlugs = [
+  "cancer-de-colon-mas-de-40-casos-por-dia",
+  "historica-campana-cancer-de-colon-futbol-argentino",
+  "baja-tasa-de-testeos-campana-de-concientizacion",
+  "cuarta-edicion-noche-azul-gala-de-recaudacion",
+  "el-90-de-los-casos-se-puede-prevenir-y-curar",
+  "razon-de-la-baja-participacion-en-chequeos-preventivos",
+  "claves-del-relevamiento-de-cancer-colorrectal",
+  "simposio-anual-de-cancer-de-colon",
+  "cena-de-gala-noche-azul-2022",
+];
 
 export const comunicados = [
   "Cáncer de Colon: se diagnostican en promedio más de 40 casos por día en la Argentina",
@@ -16,14 +28,7 @@ export const comunicados = [
 ].map((title, i) => ({
   title,
   image: `/prensa-hd/comunicado-${i + 1}.webp`,
-  href:
-    i === 2
-      ? "https://fundaciongedyt.org.ar/cancer-de-colon-la-baja-tasa-de-testeos-pone-en-riesgo-miles-de-vidas-fundacion-gedyt-lanza-una-campana-de-concientizacion-para-prevenirlo/"
-      : i === 4
-        ? "https://fundaciongedyt.org.ar/cancer-de-colon-el-90-de-los-casos-se-puede-prevenir-y-curar/"
-        : i === 8
-          ? "https://fundaciongedyt.org.ar/2022/10/28/fundacion-gedyt-realizara-su-cena-de-gala-noche-azul-una-noche-que-busca-poner-en-agenda-la-prevencion-del-cancer-de-colon-y-salvar-vidas/"
-          : `https://www.google.com/search?q=${encodeURIComponent(`${title} Fundación Gedyt`)}`,
+  href: `/novedades/${comunicadoSlugs[i]}`,
 }));
 
 export const anuarios = [
