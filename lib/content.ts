@@ -128,8 +128,6 @@ export type Slide = {
   logo?: { src: string; alt: string; width: number; height: number };
   // Ilustración a usar cuando no hay foto
   art?: "ribbon";
-  // Tamaño del título: "xl" más grande, "compact" más chico (para que entre en 2 renglones)
-  titleSize?: "xl" | "compact";
   badge?: { value: string; label: string };
   // Botón principal (opcional: hay banners sin botón)
   primary?: { label: string; href: string; interest?: string };
@@ -143,7 +141,6 @@ export const slides: Slide[] = [
     id: "noche-azul",
     title: "Mirá cómo fue la gala\n",
     highlight: "Noche Azul 2026",
-    titleSize: "xl",
     text: "Cada edición de La Noche Azul reúne a referentes de la salud, el mundo empresarial y figuras públicas en una noche irrepetible con un objetivo común: hacer que más personas accedan a la detección temprana del cáncer de colon.",
     image: "/gala/noche-azul-2026-poster.webp",
     imageAlt: "Salón de la gala Noche Azul 2026",
@@ -153,7 +150,7 @@ export const slides: Slide[] = [
   },
   {
     id: "consejo",
-    title: "Integrá el Consejo Directivo de",
+    title: "Integrá el Consejo Directivo de\n",
     highlight: "Fundación GEDYT",
     text: "Convocamos a personas con trayectoria, redes y compromiso genuino para integrar el órgano de gobierno que conduce la estrategia de la Fundación y el futuro de la prevención del cáncer colorrectal y del acceso a la salud digestiva de calidad.",
     image: "/banners/consejo.webp",
@@ -165,7 +162,6 @@ export const slides: Slide[] = [
     id: "mujeres",
     title: "Premio a Mujeres Destacadas en\n",
     highlight: "Gastroenterología & Endoscopía Digestiva",
-    titleSize: "compact",
     text: "Una iniciativa que reconoce y visibiliza a mujeres que, a través de su trayectoria, liderazgo y compromiso, generan un impacto significativo en la comunidad médica y en la salud de las personas.",
     image: "/banners/mujeres-premio.webp",
     imageAlt: "Entrega del Premio a Mujeres Destacadas en Gastroenterología",
@@ -184,14 +180,13 @@ export const slides: Slide[] = [
     id: "campana-nacional",
     title: "Campaña",
     highlight: "Nacional\ny Federal",
-    titleSize: "xl",
     image: "/banners/campana-boca.webp",
     imageAlt: "El plantel de Boca Juniors con la bandera de la campaña #CómoEstáTuColon",
     imagePosition: "center 50%",
   },
   {
     id: "cumbre",
-    title: "Cumbre Interamericana de",
+    title: "Cumbre Interamericana de\n",
     highlight: "Cáncer Colorrectal 2024",
     image: "/images/cumbre-auditorio-hd.webp",
     imageAlt: "Auditorio durante la Cumbre Interamericana de Cáncer Colorrectal",

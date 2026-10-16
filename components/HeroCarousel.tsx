@@ -170,14 +170,8 @@ export default function HeroCarousel() {
                   </span>
                 )}
                 <h2
-                  className={`whitespace-pre-line leading-tight tracking-tight text-white drop-shadow-md lg:leading-[1.05] ${
-                    s.titleSize === "xl"
-                      ? "text-[2.6rem] sm:text-7xl lg:whitespace-pre lg:text-[min(5.5rem,6vw)]"
-                      : s.titleSize === "compact"
-                        ? "text-3xl sm:text-5xl lg:whitespace-pre lg:text-[min(2.75rem,3.1vw)]"
-                        : // Con saltos de línea forzados, en escritorio cada renglón entra completo
-                          `text-4xl sm:text-6xl ${`${s.title}${s.highlight}`.includes("\n") ? "lg:whitespace-pre lg:text-[min(3.6rem,4vw)]" : "lg:text-[3.6rem] xl:text-[4.25rem]"}`
-                  }`}
+                  // Mismo tamaño en todos los banners; en escritorio cada renglón forzado entra completo
+                  className="whitespace-pre-line text-[2rem] leading-tight tracking-tight text-white drop-shadow-md sm:text-5xl lg:whitespace-pre lg:text-[min(3rem,3.3vw)] lg:leading-[1.08]"
                 >
                   <span className="font-medium">{s.title.endsWith("\n") ? s.title : `${s.title} `}</span>
                   <span className="font-extrabold">{s.highlight}</span>
