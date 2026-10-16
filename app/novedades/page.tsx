@@ -65,7 +65,7 @@ function H2({ children, light = false, kicker }: { children: React.ReactNode; li
   );
 }
 
-function PdfButton({ href, light = false }: { href: string; light?: boolean }) {
+function PdfButton({ href, light = false, label }: { href: string; light?: boolean; label?: string }) {
   return (
     <a
       href={href}
@@ -75,7 +75,7 @@ function PdfButton({ href, light = false }: { href: string; light?: boolean }) {
         light ? "bg-white text-navy-900 hover:bg-brand-50" : "bg-cta text-white shadow-lg shadow-cta/20 hover:bg-cta-hover"
       }`}
     >
-      Descargar PDF <Icon name="arrow" className="h-4 w-4 rotate-90" />
+      {label ?? "Descargar PDF"} <Icon name="arrow" className={`h-4 w-4 ${label ? "-rotate-45" : "rotate-90"}`} />
     </a>
   );
 }
@@ -272,7 +272,7 @@ export default function NovedadesPage() {
             <p className="mt-3 text-sm text-navy-900/60">{weo.authors}</p>
             <Meta items={weo.meta} />
             <div className="mt-6">
-              <PdfButton href={weo.pdf} />
+              <PdfButton href={weo.url} label="Leer artículo" />
             </div>
           </div>
         </article>
@@ -288,7 +288,7 @@ export default function NovedadesPage() {
             </p>
             <Meta items={guidelines.meta} />
             <div className="mt-6">
-              <PdfButton href={guidelines.pdf} />
+              <PdfButton href={guidelines.url} label="Leer artículo" />
             </div>
           </div>
           <div className="relative mx-auto w-full max-w-xs">

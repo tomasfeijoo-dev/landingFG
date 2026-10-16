@@ -60,9 +60,10 @@ export const weo = {
     "Evelien Dekker – Han-Mo Chiu – Iris Lansdorp-Vogelaar. WEO Colorectal Cancer Screening Committee Authors List: Luis Ernesto Caro – Jason A. Dominitz – Stephen Halloran – Cesare Hassan – Julia Ismael – Rodrigo Jover – Michal F. Kaminski – Tim Kortlever – Ernst J. Kuipers – Theodore R. Levin – Takahisa Matsuda – Dominika Novak Mlakar Lix A.R. Oliveira – Susan Parry – Linda Rabeneck – Matthew Rutter – Roque Sáenz – Carlo Senore – Graeme P. Young – Ning Zhang",
   meta: [
     { k: "Published", v: "September 20, 2020" },
-    { k: "DOI", v: "www.gastrojournal.org", href: "https://www.gastrojournal.org" },
+    { k: "Revista", v: "Gastroenterology", href: "https://www.gastrojournal.org/article/S0016-5085(20)35169-6/fulltext" },
   ],
-  pdf: pubs,
+  // Artículo completo en la web de la revista.
+  url: "https://www.gastrojournal.org/article/S0016-5085(20)35169-6/fulltext",
 };
 
 export const guidelines = {
@@ -73,10 +74,10 @@ export const guidelines = {
     "Julia Ismael, María Celeste Díaz, Carolina Gabay, Luis Ernesto Caro, Cecilio Cerisoli, Ricardo Figueredo, Sandra Canseco, Pablo Rodriguez, Lucio Criado, Ignacio Raffa, Juan O’Connor, Karin Kopitowsky, Jose Adi, Carlos Gonzalez Del Solari",
   meta: [
     { k: "Published", v: "March 10, 2022" },
-    { k: "DOI", v: "www.doi.org", href: "https://www.doi.org" },
-    { k: "Journal", v: "Clinical Epidemiology and Global Health" },
+    { k: "Journal", v: "Clinical Epidemiology and Global Health", href: "https://www.ceghonline.com/article/S2213-3984(22)00038-0/fulltext" },
   ],
-  pdf: pubs,
+  // Artículo completo en la web de la revista.
+  url: "https://www.ceghonline.com/article/S2213-3984(22)00038-0/fulltext",
 };
 
 export const asistencia = {
