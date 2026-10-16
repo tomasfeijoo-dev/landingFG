@@ -175,7 +175,7 @@ export default function CampanaPage() {
           <div className="reveal relative overflow-hidden rounded-[2rem] text-white shadow-2xl shadow-navy-900/20">
             <div className="absolute inset-0 bg-gradient-to-br from-cta via-navy-800 to-navy-950" />
             {/* Caki con el cartel de alerta */}
-            <div className="float-slow pointer-events-none absolute top-36 left-1/2 w-32 -translate-x-1/2 sm:top-24 sm:w-40 lg:top-[5.5rem] lg:w-44" aria-hidden>
+            <div className="float-slow pointer-events-none absolute top-32 left-[58%] w-32 -translate-x-1/2 sm:top-16 sm:w-40 lg:top-12 lg:left-[62%] lg:w-44" aria-hidden>
               <Image src="/images/caki-alerta.webp" alt="" width={1107} height={1140} sizes="176px" className="h-auto w-full drop-shadow-[0_14px_22px_rgba(0,20,35,0.45)]" />
             </div>
             <div className="pointer-events-none absolute top-8 left-8 grid grid-cols-5 gap-2 opacity-30" aria-hidden>
@@ -239,7 +239,7 @@ export default function CampanaPage() {
         <div className="reveal relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-navy-950 via-navy-800 to-cta shadow-2xl shadow-navy-900/20">
           <div className="pointer-events-none absolute -right-24 -bottom-24 h-96 w-96 rounded-full bg-sky-accent/25 blur-3xl" aria-hidden />
           <div className="relative grid items-center gap-6 px-6 pt-14 text-white sm:px-12 lg:grid-cols-[1fr_auto] lg:px-16 lg:py-16">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl lg:pl-10">
               <H2 light>¿Por qué es importante testearse?</H2>
               <p className="mt-3 font-bold italic text-sky-accent">{testearse.kicker}</p>
               <p className="mt-4 text-lg text-white/85">{testearse.text}</p>
@@ -250,7 +250,7 @@ export default function CampanaPage() {
                 <span className="text-white/85">de probabilidad de curación</span>
               </div>
             </div>
-            <div className="float-slow mx-auto w-36 pb-10 sm:w-44 lg:mr-6 lg:w-48 lg:pb-0">
+            <div className="float-slow mx-auto w-36 pb-10 sm:w-44 lg:mr-28 lg:w-48 lg:pb-0">
               <Image src="/images/test-fit-personaje.webp" alt="Frasco del test de sangre oculta en materia fecal, sonriente" width={887} height={1498} sizes="192px" className="h-auto w-full drop-shadow-[0_18px_28px_rgba(0,20,35,0.45)]" />
             </div>
           </div>
