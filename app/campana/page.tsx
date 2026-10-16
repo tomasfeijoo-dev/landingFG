@@ -120,8 +120,9 @@ export default function CampanaPage() {
               Completar encuesta <Icon name="arrow" className="h-4 w-4" />
             </InterestLink>
           </div>
-          <div className="relative mx-auto w-56 sm:w-72 md:mx-0 md:w-full md:max-w-sm md:justify-self-end md:self-end">
-            <Image src="/images/caki-pensando.webp" alt="Caki, pensativo, se pregunta cómo está su colon" width={1216} height={1105} sizes="(min-width: 768px) 384px, 288px" className="h-auto w-full drop-shadow-2xl" />
+          <div className="relative mx-auto w-44 pb-6 sm:w-56 md:mx-0 md:w-full md:max-w-[17rem] md:justify-self-end md:self-end lg:mr-8">
+            <div className="absolute bottom-3 left-1/2 h-4 w-3/4 -translate-x-1/2 rounded-[50%] bg-navy-950/40 blur-[5px]" aria-hidden />
+            <Image src="/images/caki-pensando-hd.webp" alt="Caki, pensativo, se pregunta cómo está su colon" width={1070} height={1120} sizes="(min-width: 768px) 272px, 224px" className="relative h-auto w-full drop-shadow-2xl" />
           </div>
         </div>
       </section>
