@@ -15,7 +15,7 @@ export const comunicados = [
   "Fundación Gedyt realizará su Cena de Gala “Noche Azul”, una noche que busca poner en agenda la prevención del cáncer de colon, y salvar vidas.",
 ].map((title, i) => ({
   title,
-  image: `/prensa/comunicado-${i + 1}.webp`,
+  image: `/prensa-hd/comunicado-${i + 1}.webp`,
   href:
     i === 2
       ? "https://fundaciongedyt.org.ar/cancer-de-colon-la-baja-tasa-de-testeos-pone-en-riesgo-miles-de-vidas-fundacion-gedyt-lanza-una-campana-de-concientizacion-para-prevenirlo/"

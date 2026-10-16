@@ -52,7 +52,7 @@ const base: Omit<Nota, "image">[] = [
 
 export const notas: Nota[] = base.map((n, i) => ({
   ...n,
-  image: `/prensa/nota-${String(i + 1).padStart(2, "0")}.webp`,
+  image: `/prensa-hd/nota-${String(i + 1).padStart(2, "0")}.webp`,
   href: n.href ?? buscar(n.title),
 }));
 
