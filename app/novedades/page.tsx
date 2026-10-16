@@ -26,7 +26,7 @@ function NewspaperBackdrop() {
     "En el mes de concientización de la enfermedad, especialistas remarcaron que si el cáncer de colon se detecta en estadios iniciales tiene una alta tasa de curación. La prevención y el diagnóstico temprano son las principales herramientas para reducir la mortalidad. Los controles a partir de los 45 años y el test de sangre oculta permiten detectar lesiones antes de que aparezcan síntomas. ";
   return (
     <div className="pointer-events-none absolute inset-0" aria-hidden>
-      <div className="absolute -inset-10 -rotate-3 scale-110 bg-[#f4f1ea] text-[#222] blur-[7px]">
+      <div className="absolute -inset-10 -rotate-3 scale-110 bg-[#f4f1ea] text-[#1a1a1a] blur-[5px]">
         <div className="border-b-4 border-double border-[#222] px-10 pt-8 pb-3 text-center font-serif text-7xl font-black tracking-tight">EL DIARIO</div>
         <div className="flex justify-between border-b border-[#222] px-10 py-1 font-serif text-sm">
           <span>Buenos Aires</span>
@@ -40,8 +40,9 @@ function NewspaperBackdrop() {
           ))}
         </div>
       </div>
-      <div className="absolute inset-0 bg-navy-950/88" />
-      <div className="absolute inset-0 bg-gradient-to-br from-navy-950/60 via-navy-900/40 to-cta/50 mix-blend-multiply" />
+      {/* Filtro azul: se sigue adivinando la página de diario detrás */}
+      <div className="absolute inset-0 bg-[#0b4f86] mix-blend-multiply" />
+      <div className="absolute inset-0 bg-gradient-to-br from-navy-900/75 via-navy-800/55 to-cta/45" />
     </div>
   );
 }
@@ -118,7 +119,7 @@ export default function NovedadesPage() {
             href={notaDestacada.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="reveal-pop group relative mt-16 block rounded-3xl bg-white text-navy-900 shadow-2xl shadow-black/40 lg:mt-0 transition duration-500 hover:-translate-y-1"
+            className="reveal-pop group relative mt-4 block rounded-3xl bg-white text-navy-900 shadow-2xl shadow-black/40 lg:mt-0 transition duration-500 hover:-translate-y-1"
           >
             <div className="relative z-10 flex min-h-[19rem] max-w-[60%] flex-col p-6 sm:p-8">
               <div className="flex items-center justify-between gap-3">
@@ -133,14 +134,15 @@ export default function NovedadesPage() {
             </div>
             {/* Panel de la foto: el doctor sobresale por encima de la nota */}
             <div className="absolute inset-y-0 right-0 w-[40%] rounded-r-3xl bg-gradient-to-br from-brand-50 to-brand-100" aria-hidden />
-            <div className="pointer-events-none absolute right-0 bottom-0 z-20 h-[124%] w-[40%] overflow-hidden rounded-br-3xl">
+            {/* El doctor queda dentro del panel y, al pasar el mouse, se agranda y sale por arriba */}
+            <div className="pointer-events-none absolute right-0 bottom-0 z-20 h-full w-[40%] transition-[clip-path] duration-700 ease-out [clip-path:inset(0_0_0_0_round_0_1.5rem_1.5rem_0)] group-hover:[clip-path:inset(-45%_0_0_0_round_0_1.5rem_1.5rem_0)]">
               <Image
                 src="/images/caro-recorte.webp"
                 alt="Dr. Luis Caro, presidente de la Fundación Gedyt"
                 fill
                 priority
                 sizes="(min-width: 1024px) 26vw, 50vw"
-                className="origin-bottom object-cover object-[50%_100%] drop-shadow-[0_10px_25px_rgba(0,41,59,0.35)] transition duration-700 ease-out group-hover:scale-105"
+                className="origin-bottom object-cover object-[50%_0%] drop-shadow-[0_10px_25px_rgba(0,41,59,0.35)] transition duration-700 ease-out group-hover:scale-[1.28]"
               />
             </div>
           </a>
