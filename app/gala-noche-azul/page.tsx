@@ -30,9 +30,31 @@ const datos = [
   { icon: "music", label: "Baglietto · Zenko · Sosa", sub: "En vivo" },
 ];
 
-const fotos = Array.from({ length: 8 }, (_, i) => ({
-  src: `/gala/momento-${i + 1}.webp`,
-  alt: `Momento de una edición anterior de la Noche Azul (${i + 1})`,
+// Fotos de la Noche Azul 2026 (sin repetidas), mezcladas: salón, photocall, shows, prensa y subasta.
+const fotos = [
+  "El salón del Alvear Palace teñido de azul",
+  "Photocall de la Noche Azul 2026",
+  "Show en vivo durante la gala",
+  "Entrevistas de prensa en la alfombra azul",
+  "Brindis en el escenario de la gala",
+  "Invitados en el photocall",
+  "El lazo azul de la Fundación Gedyt",
+  "Reconocimiento a mujeres destacadas en gastroenterología",
+  "Brindis entre los invitados",
+  "Conducción de la gala",
+  "Invitada en el photocall",
+  "Música en vivo en la Noche Azul",
+  "Arte en vivo durante la gala",
+  "Mesas del salón listas para la gala",
+  "Invitados en el photocall",
+  "Subasta a beneficio de la prevención",
+  "Invitados en el salón",
+  "Palabras durante la gala",
+].map((alt, i) => ({
+  src: `/gala/noche-${String(i + 1).padStart(2, "0")}.webp`,
+  alt,
+  // Las verticales se encuadran más arriba para no cortar las caras.
+  position: [2, 6, 11, 15].includes(i + 1) ? "50% 28%" : "50% 50%",
 }));
 
 function Stars() {
@@ -192,8 +214,8 @@ export default function GalaPage() {
           <Kicker center light>Galería</Kicker>
           <h2 className="mt-5 text-4xl font-extrabold tracking-tight text-navy-900 sm:text-5xl">Momentos que ya vivimos</h2>
           <p className="mt-5 text-lg text-navy-900/70">
-            Cada edición de La Noche Azul reúne a referentes de la salud, el mundo empresarial y figuras públicas en una noche irrepetible. Así se vivieron las
-            galas anteriores.
+            Cada edición de La Noche Azul reúne a referentes de la salud, el mundo empresarial y figuras públicas en una noche irrepetible. Así se vivió la
+            Noche Azul 2026.
           </p>
         </div>
         <div className="mt-14">

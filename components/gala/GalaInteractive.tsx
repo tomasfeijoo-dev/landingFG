@@ -150,7 +150,7 @@ export function ImpactSlider() {
 }
 
 /** Galería de momentos: dos filas en movimiento y visor a pantalla completa. */
-export function Momentos({ photos }: { photos: { src: string; alt: string }[] }) {
+export function Momentos({ photos }: { photos: { src: string; alt: string; position?: string }[] }) {
   const [open, setOpen] = useState<number | null>(null);
   useEffect(() => {
     if (open === null) return;
@@ -163,7 +163,9 @@ export function Momentos({ photos }: { photos: { src: string; alt: string }[] })
     return () => window.removeEventListener("keydown", onKey);
   }, [open, photos.length]);
 
-  const rows = [photos, [...photos.slice(4), ...photos.slice(0, 4)]];
+  // Cada fila muestra fotos distintas para que no se repitan a la vista.
+  const half = Math.ceil(photos.length / 2);
+  const rows = [photos.slice(0, half), photos.slice(half)];
   return (
     <>
       <div className="space-y-4">
@@ -178,7 +180,7 @@ export function Momentos({ photos }: { photos: { src: string; alt: string }[] })
                     onClick={() => setOpen(photos.indexOf(p))}
                     className="group relative block h-56 w-52 overflow-hidden rounded-2xl ring-1 ring-white/10 sm:h-64 sm:w-60"
                   >
-                    <Image src={p.src} alt={p.alt} fill sizes="240px" className="object-cover transition duration-700 group-hover:scale-110" />
+                    <Image quality={90} src={p.src} alt={p.alt} fill sizes="(min-width: 640px) 240px, 208px" style={{ objectPosition: p.position }} className="object-cover transition duration-700 group-hover:scale-110" />
                     <span className="absolute inset-0 flex items-center justify-center bg-navy-950/50 opacity-0 transition group-hover:opacity-100">
                       <span className="rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-navy-900">Ver foto</span>
                     </span>
@@ -192,8 +194,8 @@ export function Momentos({ photos }: { photos: { src: string; alt: string }[] })
 
       {open !== null && (
         <div className="fixed inset-0 z-[200] flex items-center justify-center bg-navy-950/90 p-4 backdrop-blur" onClick={() => setOpen(null)} role="dialog" aria-modal="true">
-          <div className="pop-in relative aspect-[408/440] h-[80vh] max-w-full overflow-hidden rounded-3xl" onClick={(e) => e.stopPropagation()}>
-            <Image src={photos[open].src} alt={photos[open].alt} fill sizes="80vh" className="object-cover" />
+          <div className="pop-in relative h-[82vh] w-[88vw] max-w-6xl" onClick={(e) => e.stopPropagation()}>
+            <Image quality={90} src={photos[open].src} alt={photos[open].alt} fill sizes="90vw" className="rounded-2xl object-contain" />
           </div>
           {[
             { d: -1, label: "Foto anterior", pos: "left-4", rot: "rotate-180" },
