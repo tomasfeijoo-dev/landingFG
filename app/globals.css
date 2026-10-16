@@ -142,9 +142,10 @@ body {
   80% { transform: rotate(-3deg); }
   90% { transform: rotate(0); }
 }
+/* El centrado lo da la clase -translate-x-1/2 (propiedad translate); acá solo escala */
 @keyframes emoji-shadow {
-  0%, 100%, 42% { transform: translateX(-50%) scale(1); opacity: 1; }
-  20% { transform: translateX(-50%) scale(0.7); opacity: 0.5; }
+  0%, 100%, 42% { transform: scale(1); opacity: 1; }
+  20% { transform: scale(0.7); opacity: 0.5; }
 }
 .emoji-enter { animation: emoji-enter 4.4s cubic-bezier(0.45, 0, 0.25, 1) 0.4s both; }
 .emoji-idle { transform-origin: 50% 100%; animation: emoji-idle 3.4s ease-in-out 4.9s infinite both; }

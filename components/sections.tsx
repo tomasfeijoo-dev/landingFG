@@ -68,7 +68,7 @@ export function CampaignRibbon() {
 export function CampaignEmoji() {
   return (
     <div className="emoji-anim emoji-enter absolute right-[8%] bottom-6 w-28 sm:w-36 md:right-[16%] md:bottom-[9%] md:w-44 lg:w-52" aria-hidden>
-      <div className="emoji-anim emoji-shadow absolute -bottom-2 left-1/2 h-4 w-3/4 -translate-x-1/2 rounded-[50%] bg-navy-950/45 blur-[3px]" />
+      <div className="emoji-anim emoji-shadow absolute -bottom-3 left-1/2 h-5 w-[70%] -translate-x-1/2 rounded-[50%] bg-navy-950/50 blur-[4px]" />
       <div className="emoji-anim emoji-idle relative">
         <Image src="/images/emoji-caca.webp" alt="" width={502} height={533} className="h-auto w-full drop-shadow-xl" />
       </div>
