@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import CifraRing from "@/components/CifraRing";
 import CountUp from "@/components/CountUp";
 import Donate from "@/components/Donate";
 import Icon from "@/components/Icon";
@@ -37,25 +38,6 @@ function H2({ children, light = false, center = false }: { children: React.React
   return <h2 className={`text-3xl font-extrabold tracking-tight sm:text-4xl ${light ? "text-white" : "text-navy-900"} ${center ? "text-center" : ""}`}>{children}</h2>;
 }
 
-function Ring({ value, label }: { value: number; label: string }) {
-  const r = 42;
-  const c = 2 * Math.PI * r;
-  return (
-    <div className="reveal-pop flex flex-col items-center text-center">
-      <div className="relative h-32 w-32">
-        <svg viewBox="0 0 100 100" className="h-full w-full -rotate-90">
-          <circle cx="50" cy="50" r={r} fill="none" stroke="#d6ecf7" strokeWidth="8" />
-          <circle cx="50" cy="50" r={r} fill="none" stroke="#137ab0" strokeWidth="8" strokeLinecap="round" strokeDasharray={`${(value / 100) * c} ${c}`} />
-        </svg>
-        <span className="absolute inset-0 flex items-center justify-center text-3xl font-extrabold text-navy-900">
-          <CountUp value={`${value}%`} />
-        </span>
-      </div>
-      <p className="mt-3 max-w-[12rem] text-sm text-navy-900/65">{label}</p>
-    </div>
-  );
-}
-
 export default function CampanaPage() {
   return (
     <>
@@ -89,12 +71,12 @@ export default function CampanaPage() {
             <div className="grid gap-6">
               <div className="grid grid-cols-2 gap-6 rounded-3xl bg-brand-50/70 p-6 ring-1 ring-brand-100">
                 {cifras.rings.map((r) => (
-                  <Ring key={r.label} {...r} />
+                  <CifraRing key={r.label} {...r} />
                 ))}
               </div>
               <div className="reveal-pop flex items-center gap-6 rounded-3xl bg-gradient-to-br from-navy-900 to-navy-800 p-6 text-white shadow-xl shadow-navy-900/20">
                 <span className="flex h-24 w-24 flex-none items-center justify-center rounded-full border-4 border-sky-accent text-3xl font-extrabold">
-                  <CountUp value={`${cifras.highlight.value}%`} />
+                  <CountUp value={`${cifras.highlight.value}%`} replay />
                 </span>
                 <p className="text-lg text-white/85">{cifras.highlight.label}</p>
               </div>
@@ -104,7 +86,7 @@ export default function CampanaPage() {
                 {cifras.boxes.map((b) => (
                   <div key={b.label} className="reveal-pop flex flex-col justify-center rounded-3xl bg-gradient-to-br from-brand-100 to-brand-50 p-6 text-center ring-1 ring-brand-100">
                     <p className="text-4xl font-extrabold tracking-tight text-cta">
-                      <CountUp value={b.value} />
+                      <CountUp value={b.value} replay />
                     </p>
                     <p className="mt-2 text-sm text-navy-900/65">{b.label}</p>
                   </div>
@@ -193,7 +175,7 @@ export default function CampanaPage() {
               ))}
             </div>
             <div className="relative flex h-full min-h-[22rem] flex-col justify-end p-8">
-              <p className="text-6xl font-extrabold text-sky-accent"><CountUp value="75%" /></p>
+              <p className="text-6xl font-extrabold text-sky-accent"><CountUp value="75%" replay /></p>
               <h3 className="mt-3 text-2xl font-extrabold sm:text-3xl">¿A quiénes afecta?</h3>
               <p className="mt-4 text-lg text-white/85">{aQuienes}</p>
             </div>
@@ -254,7 +236,7 @@ export default function CampanaPage() {
             <p className="mt-4 text-lg text-white/85">{testearse.text}</p>
             <div className="mt-6 inline-flex items-baseline gap-2 rounded-2xl bg-white/15 px-5 py-3 ring-1 ring-white/25 backdrop-blur">
               <span className="text-4xl font-extrabold">
-                <CountUp value="90%" />
+                <CountUp value="90%" replay />
               </span>
               <span className="text-white/85">de probabilidad de curación</span>
             </div>

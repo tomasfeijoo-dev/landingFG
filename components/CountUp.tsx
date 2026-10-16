@@ -2,26 +2,29 @@
 
 import { useEffect, useRef, useState } from "react";
 
-// Anima la parte numérica de un texto como "+10.000", "90%" o "$290M"
-// desde 0 hasta su valor cuando entra en pantalla.
-export default function CountUp({ value, duration = 1400 }: { value: string; duration?: number }) {
-  const match = value.match(/^(\D*)([\d.,]+)(.*)$/);
-  const target = match ? Number(match[2].replace(/\./g, "").replace(",", ".")) : 0;
-  const [n, setN] = useState(target);
-  const ref = useRef<HTMLSpanElement>(null);
+// Progreso de 0 a 1 (con desaceleración) que arranca cuando el elemento entra en pantalla.
+// Con replay, vuelve a 0 al salir de pantalla y se repite cada vez que vuelve a entrar.
+export function useCountProgress<T extends Element>(duration = 1400, replay = false) {
+  const ref = useRef<T>(null);
+  const [p, setP] = useState(1);
 
   useEffect(() => {
-    if (!match || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const el = ref.current!;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const el = ref.current;
+    if (!el) return;
     let raf = 0;
-    setN(0);
+    setP(0);
     const io = new IntersectionObserver(([e]) => {
-      if (!e.isIntersecting) return;
-      io.disconnect();
+      cancelAnimationFrame(raf);
+      if (!e.isIntersecting) {
+        if (replay) setP(0);
+        return;
+      }
+      if (!replay) io.disconnect();
       const start = performance.now();
       const tick = (now: number) => {
         const t = Math.min((now - start) / duration, 1);
-        setN(Math.round(target * (1 - Math.pow(1 - t, 3))));
+        setP(1 - Math.pow(1 - t, 3));
         if (t < 1) raf = requestAnimationFrame(tick);
       };
       raf = requestAnimationFrame(tick);
@@ -31,14 +34,23 @@ export default function CountUp({ value, duration = 1400 }: { value: string; dur
       io.disconnect();
       cancelAnimationFrame(raf);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value]);
+  }, [duration, replay]);
+
+  return [ref, p] as const;
+}
+
+// Anima la parte numérica de un texto como "+10.000", "90%" o "$290M"
+// desde 0 hasta su valor cuando entra en pantalla.
+export default function CountUp({ value, duration = 1400, replay = false }: { value: string; duration?: number; replay?: boolean }) {
+  const match = value.match(/^(\D*)([\d.,]+)(.*)$/);
+  const target = match ? Number(match[2].replace(/\./g, "").replace(",", ".")) : 0;
+  const [ref, p] = useCountProgress<HTMLSpanElement>(duration, replay);
 
   if (!match) return <span>{value}</span>;
   return (
     <span ref={ref} className="tabular-nums">
       {match[1]}
-      {n.toLocaleString("es-AR")}
+      {Math.round(target * p).toLocaleString("es-AR")}
       {match[3]}
     </span>
   );
