@@ -161,7 +161,7 @@ export const slides: Slide[] = [
   {
     id: "mujeres",
     title: "Premio a Mujeres Destacadas en\n",
-    highlight: "Gastroenterología & Endoscopía Digestiva",
+    highlight: "Gastroenterología &\nEndoscopía Digestiva",
     text: "Una iniciativa que reconoce y visibiliza a mujeres que, a través de su trayectoria, liderazgo y compromiso, generan un impacto significativo en la comunidad médica y en la salud de las personas.",
     image: "/banners/mujeres-premio.webp",
     imageAlt: "Entrega del Premio a Mujeres Destacadas en Gastroenterología",

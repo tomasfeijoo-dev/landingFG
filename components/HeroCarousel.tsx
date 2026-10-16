@@ -171,7 +171,7 @@ export default function HeroCarousel() {
                 )}
                 <h2
                   // Mismo tamaño en todos los banners; en escritorio cada renglón forzado entra completo
-                  className="whitespace-pre-line text-[2rem] leading-tight tracking-tight text-white drop-shadow-md sm:text-5xl lg:whitespace-pre lg:text-[min(3rem,3.3vw)] lg:leading-[1.08]"
+                  className="whitespace-pre-line text-4xl leading-tight tracking-tight text-white drop-shadow-md sm:text-[3.25rem] lg:whitespace-pre lg:text-[min(3.6rem,4vw)] lg:leading-[1.08]"
                 >
                   <span className="font-medium">{s.title.endsWith("\n") ? s.title : `${s.title} `}</span>
                   <span className="font-extrabold">{s.highlight}</span>
