@@ -66,8 +66,7 @@ export const homeLinks = {
   campana: "/campana",
   // Edición 2024 de la Cumbre Interamericana de CCR360°
   cumbre: "/cumbre/2024",
-  gala2025:
-    "https://www.infobae.com/tendencias/2025/09/10/como-fue-la-emotiva-gala-solidaria-noche-azul-que-impulsa-la-prevencion-y-deteccion-del-cancer-de-colon/",
+  gala: "/gala-noche-azul",
 };
 
 // Noche Azul 2026: galería y cobertura de prensa

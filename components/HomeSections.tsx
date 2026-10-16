@@ -56,10 +56,10 @@ export function StatsAndHighlights() {
       image: "/images/hands-on.webp",
     },
     {
-      kicker: "Gala Noche Azul 2025",
+      kicker: "Gala Noche Azul 2026",
       title: "",
-      cta: "Reviví la Gala 2025",
-      href: homeLinks.gala2025,
+      cta: "Reviví la Gala 2026",
+      href: homeLinks.gala,
       image: "/images/equipo-gala.webp",
     },
   ];
