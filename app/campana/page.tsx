@@ -175,7 +175,7 @@ export default function CampanaPage() {
           <div className="reveal relative overflow-hidden rounded-[2rem] text-white shadow-2xl shadow-navy-900/20">
             <div className="absolute inset-0 bg-gradient-to-br from-cta via-navy-800 to-navy-950" />
             {/* Caki con el cartel de alerta */}
-            <div className="float-slow pointer-events-none absolute top-5 right-5 w-32 sm:w-40 lg:w-44" aria-hidden>
+            <div className="float-slow pointer-events-none absolute top-12 right-10 w-32 sm:right-14 sm:w-40 lg:top-16 lg:right-20 lg:w-44" aria-hidden>
               <Image src="/images/caki-alerta.webp" alt="" width={1107} height={1140} sizes="176px" className="h-auto w-full drop-shadow-[0_14px_22px_rgba(0,20,35,0.45)]" />
             </div>
             <div className="pointer-events-none absolute top-8 left-8 grid grid-cols-5 gap-2 opacity-30" aria-hidden>
@@ -183,7 +183,7 @@ export default function CampanaPage() {
                 <Icon key={i} name="users" className={`h-6 w-6 ${i % 4 === 0 ? "text-sky-accent" : "text-white"}`} />
               ))}
             </div>
-            <div className="relative flex h-full min-h-[22rem] flex-col justify-end p-8 pt-44 sm:pt-8">
+            <div className="relative flex h-full min-h-[22rem] flex-col justify-end p-8 pt-52 sm:pt-8">
               <p className="text-6xl font-extrabold text-sky-accent"><CountUp value="75%" replay /></p>
               <h3 className="mt-3 text-2xl font-extrabold sm:text-3xl">¿A quiénes afecta?</h3>
               <p className="mt-4 text-lg text-white/85">{aQuienes}</p>
