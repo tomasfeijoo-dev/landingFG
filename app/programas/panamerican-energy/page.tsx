@@ -4,7 +4,7 @@ import CountUp from "@/components/CountUp";
 import DonateBanner from "@/components/DonateBanner";
 import Icon from "@/components/Icon";
 import ProgramHeader from "@/components/ProgramHeader";
-import { Eyebrow } from "@/components/ui";
+import { Eyebrow, RibbonDeco } from "@/components/ui";
 import { programasEmail } from "@/lib/programas";
 
 export const metadata: Metadata = {
@@ -83,7 +83,7 @@ export default function PanAmericanEnergyPage() {
 
       {/* Resultados */}
       <section className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 px-6 py-20 text-white sm:px-12 sm:py-24">
-        <div className="pointer-events-none absolute -bottom-40 -left-40 h-[28rem] w-[28rem] rounded-full border-[48px] border-white/5" aria-hidden />
+        <RibbonDeco className="-bottom-6 -left-20 h-60 w-[32rem] rotate-180" />
         <div className="relative mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-center">
           <div className="reveal">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-accent">1 empresa, 1 programa, un nuevo modelo de salud preventiva</p>
