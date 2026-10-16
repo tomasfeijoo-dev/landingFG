@@ -74,7 +74,7 @@ export const nocheAzul = {
   email: "gala@fundaciongedyt.org.ar",
   // Compra de entradas (Mercado Pago) y modalidades de participación (PDF en Drive)
   reserveUrl:
-    "https://www.mercadopago.com.ar/checkout/v1/payment/redirect/7afa9881-759f-4dca-b852-7582dccb1147/payment-option-form/?source=link&router-request-id=eee91b1f-5a06-4fe1-8deb-5667132fc8c8&preference-id=341523984-ce496e17-7c68-4180-bf97-47e02e85e971&p=bfe0d38efae61151680afe41791830e7",
+    "https://www.mercadopago.com.ar/checkout/v1/payment/redirect/bdbd29bd-a265-4454-bfc4-5d0af54d92e4/payment-option-form/?source=link&router-request-id=15c8671b-b7c5-427e-8e3f-7b06d296513d&preference-id=341523984-ce496e17-7c68-4180-bf97-47e02e85e971&p=bfe0d38efae61151680afe41791830e7",
   modalidadesUrl: "https://drive.google.com/file/d/1NCrZox9xZitgW14SdeHO0I9WGELSLos9/view?usp=sharing",
   // TODO: link a la galería completa de fotos (Google Photos, Drive, Flickr, etc.)
   galleryUrl: "https://www.facebook.com/Fundacion.Gedyt/photos",
