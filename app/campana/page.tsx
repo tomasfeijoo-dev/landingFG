@@ -109,7 +109,7 @@ export default function CampanaPage() {
       <section className="reveal relative overflow-hidden bg-gradient-to-br from-sky-accent via-cta to-navy-800 px-6 pt-16 pb-4 text-white sm:px-12 lg:pt-20">
         <div className="pointer-events-none absolute -top-20 -left-20 h-72 w-72 rounded-full border-[40px] border-white/10" aria-hidden />
         <div className="relative mx-auto grid max-w-6xl items-center gap-8 md:grid-cols-[1.6fr_1fr]">
-          <div className="text-center md:pb-20 md:text-left">
+          <div className="text-center md:pb-20 md:pl-10 md:text-left lg:pl-20">
             <p className="text-lg font-bold italic text-white/85 sm:text-xl">La prevención salva vidas</p>
             <h2 className="mt-2 text-4xl font-extrabold tracking-tight sm:text-6xl lg:whitespace-nowrap lg:text-[3.9rem] lg:leading-[1.05]">¿Cómo está tu Colon?</h2>
             <p className="mt-5 max-w-xl text-lg text-white/90 sm:text-xl md:max-w-none">Hacete esta pregunta y realizá una consulta médica con un profesional.</p>
