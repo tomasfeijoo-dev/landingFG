@@ -105,19 +105,24 @@ export default function CampanaPage() {
         </div>
       </section>
 
-      {/* Encuesta */}
-      <section className="reveal relative overflow-hidden bg-gradient-to-br from-sky-accent via-cta to-navy-800 px-6 py-16 text-center text-white sm:px-12 sm:py-20">
-        <div>
-          <div className="pointer-events-none absolute -top-20 -left-20 h-72 w-72 rounded-full border-[40px] border-white/10" aria-hidden />
-          <p className="relative font-bold italic text-white/85">La prevención salva vidas</p>
-          <h2 className="relative mt-2 text-3xl font-extrabold tracking-tight sm:text-5xl">¿Cómo está tu Colon?</h2>
-          <p className="relative mx-auto mt-4 max-w-2xl text-lg text-white/90">Hacete esta pregunta y realizá una consulta médica con un profesional.</p>
-          <InterestLink
-            href={encuestaUrl}
-            className="relative mt-8 inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 font-semibold text-navy-900 shadow-lg shadow-black/20 transition hover:bg-brand-50"
-          >
-            Completar encuesta <Icon name="arrow" className="h-4 w-4" />
-          </InterestLink>
+      {/* Encuesta: texto a la izquierda y Caki pensando a la derecha */}
+      <section className="reveal relative overflow-hidden bg-gradient-to-br from-sky-accent via-cta to-navy-800 px-6 pt-16 pb-4 text-white sm:px-12 lg:pt-20">
+        <div className="pointer-events-none absolute -top-20 -left-20 h-72 w-72 rounded-full border-[40px] border-white/10" aria-hidden />
+        <div className="relative mx-auto grid max-w-6xl items-center gap-8 md:grid-cols-[1.6fr_1fr]">
+          <div className="text-center md:pb-20 md:text-left">
+            <p className="text-lg font-bold italic text-white/85 sm:text-xl">La prevención salva vidas</p>
+            <h2 className="mt-2 text-4xl font-extrabold tracking-tight sm:text-6xl lg:whitespace-nowrap lg:text-[3.9rem] lg:leading-[1.05]">¿Cómo está tu Colon?</h2>
+            <p className="mt-5 max-w-xl text-lg text-white/90 sm:text-xl md:max-w-none">Hacete esta pregunta y realizá una consulta médica con un profesional.</p>
+            <InterestLink
+              href={encuestaUrl}
+              className="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-9 py-4 text-lg font-semibold text-navy-900 shadow-lg shadow-black/20 transition hover:bg-brand-50"
+            >
+              Completar encuesta <Icon name="arrow" className="h-4 w-4" />
+            </InterestLink>
+          </div>
+          <div className="relative mx-auto w-56 sm:w-72 md:mx-0 md:w-full md:max-w-sm md:justify-self-end md:self-end">
+            <Image src="/images/caki-pensando.webp" alt="Caki, pensativo, se pregunta cómo está su colon" width={1216} height={1105} sizes="(min-width: 768px) 384px, 288px" className="h-auto w-full drop-shadow-2xl" />
+          </div>
         </div>
       </section>
 
