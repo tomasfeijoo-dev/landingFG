@@ -232,8 +232,8 @@ export function NewsCards() {
 export function ContactSection() {
   return (
     <section className="px-4 py-16 sm:px-6 sm:py-24">
-      <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1fr_1.3fr]">
-        <div>
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-12 lg:grid-cols-[1fr_1.3fr]">
+        <div className="min-w-0">
           <Eyebrow>Contacto</Eyebrow>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">Hablemos</h2>
           <p className="mt-5 text-lg text-navy-900/70">
@@ -249,12 +249,12 @@ export function ContactSection() {
                 <span className="flex h-11 w-11 flex-none items-center justify-center rounded-xl bg-brand-50 text-cta">
                   <Icon name={c.icon} className="h-5 w-5" />
                 </span>
-                <div>
+                <div className="min-w-0">
                   <p className="text-xs font-semibold uppercase tracking-wide text-navy-900/50">{c.label}</p>
                   {c.href ? (
                     <a
                       href={c.href}
-                      className="font-semibold text-navy-900 hover:text-cta"
+                      className="font-semibold break-words text-navy-900 hover:text-cta [overflow-wrap:anywhere]"
                       {...(c.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                     >
                       {c.value}

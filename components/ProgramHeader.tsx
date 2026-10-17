@@ -23,7 +23,7 @@ export default function ProgramHeader({ eyebrow, title }: { eyebrow: string; tit
           <Eyebrow chip light>
             {eyebrow}
           </Eyebrow>
-          <h1 className="mt-5 text-4xl font-extrabold tracking-tight sm:text-6xl">{title}</h1>
+          <h1 className="mt-5 text-[2rem] leading-tight font-extrabold tracking-tight [overflow-wrap:anywhere] min-[380px]:text-4xl sm:text-6xl">{title}</h1>
         </div>
       </div>
     </section>

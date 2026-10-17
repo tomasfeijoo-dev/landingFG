@@ -91,7 +91,7 @@ export default function Header() {
   return (
     <>
       <TopBar />
-      <header className={`sticky top-0 z-50 bg-white/95 backdrop-blur transition-shadow ${scrolled || open ? "shadow-sm" : ""}`}>
+      <header className={`sticky top-0 z-50 backdrop-blur transition-shadow ${open ? "bg-white" : "bg-white/95"} ${scrolled || open ? "shadow-sm" : ""}`}>
         <div className="mx-auto flex h-18 max-w-7xl items-center justify-between gap-6 px-4 sm:px-6">
           <Logo />
           <nav className="hidden items-center gap-4 lg:flex xl:gap-7">
@@ -127,7 +127,7 @@ export default function Header() {
           </button>
         </div>
         {open && (
-          <nav className="border-t border-navy-900/10 px-4 pb-5 lg:hidden">
+          <nav className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-navy-900/10 bg-white px-4 pb-5 lg:hidden">
             {nav.map((item) => (
               <Link
                 key={item.href}
@@ -146,6 +146,8 @@ export default function Header() {
           </nav>
         )}
       </header>
+      {/* Fondo oscuro detrás del menú del celular: tocarlo lo cierra */}
+      {open && <div className="fixed inset-0 z-40 bg-navy-950/40 backdrop-blur-[2px] lg:hidden" onClick={() => setOpen(false)} aria-hidden />}
     </>
   );
 }

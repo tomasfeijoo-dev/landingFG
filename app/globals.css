@@ -24,7 +24,12 @@ html {
 body {
   background: #ffffff;
   color: var(--color-navy-950);
+  /* Ningún elemento decorativo puede generar scroll horizontal en el celular */
+  overflow-x: clip;
 }
+
+/* Palabras largas (mails, títulos) cortan antes que salirse de la pantalla */
+h1, h2, h3, h4, p, li, a { overflow-wrap: break-word; }
 
 ::selection {
   background: var(--color-brand-100);

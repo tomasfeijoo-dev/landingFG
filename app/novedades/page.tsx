@@ -126,21 +126,22 @@ export default function NovedadesPage() {
             href={notaDestacada.href}
             className="reveal-pop group relative mt-4 block rounded-3xl bg-white text-navy-900 shadow-2xl shadow-black/40 lg:mt-0 transition duration-500 hover:-translate-y-1"
           >
-            <div className="relative z-10 flex min-h-[19rem] max-w-[60%] flex-col p-6 sm:p-8">
+            <div className="relative z-10 flex min-h-[17rem] max-w-[64%] flex-col p-5 sm:min-h-[19rem] sm:max-w-[60%] sm:p-8">
               <div className="flex items-center justify-between gap-3">
-                <span className="text-2xl font-bold tracking-tight text-[#e08a00]">infobae</span>
-                <span className="text-xs text-navy-900/55">{notaDestacada.fecha}</span>
+                <span className="text-xl font-bold tracking-tight text-[#e08a00] sm:text-2xl">infobae</span>
+                <span className="hidden text-xs text-navy-900/55 sm:inline">{notaDestacada.fecha}</span>
               </div>
-              <p className="mt-5 text-lg font-bold leading-snug sm:text-xl">{notaDestacada.titulo}</p>
+              <span className="mt-1 text-[11px] text-navy-900/55 sm:hidden">{notaDestacada.fecha}</span>
+              <p className="mt-3 text-[0.95rem] font-bold leading-snug sm:mt-5 sm:text-xl">{notaDestacada.titulo}</p>
               <p className="mt-3 hidden text-sm leading-relaxed text-navy-900/65 sm:block">{notaDestacada.bajada}</p>
               <span className="mt-auto inline-flex items-center gap-1.5 pt-5 text-sm font-semibold text-cta">
                 Leer nota <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />
               </span>
             </div>
             {/* Panel de la foto: el doctor sobresale por encima de la nota */}
-            <div className="absolute inset-y-0 right-0 w-[40%] rounded-r-3xl bg-gradient-to-br from-brand-50 to-brand-100" aria-hidden />
+            <div className="absolute inset-y-0 right-0 w-[36%] rounded-r-3xl sm:w-[40%] bg-gradient-to-br from-brand-50 to-brand-100" aria-hidden />
             {/* El doctor queda dentro del panel y, al pasar el mouse, se agranda y sale por arriba */}
-            <div className="pointer-events-none absolute right-0 bottom-0 z-20 h-full w-[40%] transition-[clip-path] duration-700 ease-out [clip-path:inset(0_0_0_0_round_0_1.5rem_1.5rem_0)] group-hover:[clip-path:inset(-45%_0_0_0_round_0_1.5rem_1.5rem_0)]">
+            <div className="pointer-events-none absolute right-0 bottom-0 z-20 h-full w-[36%] sm:w-[40%] transition-[clip-path] duration-700 ease-out [clip-path:inset(0_0_0_0_round_0_1.5rem_1.5rem_0)] group-hover:[clip-path:inset(-45%_0_0_0_round_0_1.5rem_1.5rem_0)]">
               <Image
                 src="/images/caro-recorte.webp"
                 alt="Dr. Luis Caro, presidente de la Fundación Gedyt"
@@ -155,9 +156,9 @@ export default function NovedadesPage() {
       </section>
 
       {/* Navegación interna */}
-      <nav className="sticky top-[4.5rem] z-30 mx-auto mt-6 flex max-w-fit flex-wrap justify-center gap-1 rounded-full bg-white/90 p-1.5 shadow-lg ring-1 ring-navy-900/5 backdrop-blur">
+      <nav className="sticky top-[4.5rem] z-30 mx-4 mt-6 flex max-w-fit flex-nowrap gap-1 overflow-x-auto rounded-full [scrollbar-width:none] sm:mx-auto sm:justify-center bg-white/90 p-1.5 shadow-lg ring-1 ring-navy-900/5 backdrop-blur">
         {subnav.map((n) => (
-          <a key={n.href} href={n.href} className="rounded-full px-4 py-2 text-sm font-semibold text-navy-900/75 transition hover:bg-brand-50 hover:text-cta">
+          <a key={n.href} href={n.href} className="flex-none whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold text-navy-900/75 transition hover:bg-brand-50 hover:text-cta">
             {n.label}
           </a>
         ))}

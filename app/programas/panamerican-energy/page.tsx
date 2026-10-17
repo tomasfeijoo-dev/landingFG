@@ -89,11 +89,11 @@ export default function PanAmericanEnergyPage() {
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-accent">1 empresa, 1 programa, un nuevo modelo de salud preventiva</p>
             <div className="mt-6 grid grid-cols-2 gap-4">
               {cifras.map((c, i) => (
-                <div key={c.label} className={`reveal-pop rounded-3xl bg-white/[0.07] p-6 ring-1 ring-white/10 ${i === 0 ? "col-span-2" : ""}`}>
+                <div key={c.label} className={`reveal-pop rounded-3xl bg-white/[0.07] p-4 ring-1 ring-white/10 sm:p-6 ${i === 0 ? "col-span-2" : ""}`}>
                   <p className="text-4xl font-extrabold tracking-tight text-sky-accent sm:text-5xl">
                     <CountUp value={c.value} />
                   </p>
-                  <p className="mt-2 text-sm text-white/75">{c.label}</p>
+                  <p className="mt-2 text-sm text-white/75 [overflow-wrap:anywhere]">{c.label}</p>
                 </div>
               ))}
             </div>
