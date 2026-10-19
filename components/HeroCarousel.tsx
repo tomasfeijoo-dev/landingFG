@@ -102,6 +102,8 @@ function Visual({ slide, priority, active }: { slide: Slide; priority: boolean; 
       </div>
       {/* Filtro azul: más intenso a la izquierda (donde va el texto) y suave a la derecha */}
       <div className="banner-tint absolute inset-0" />
+      {/* En celular el texto va centrado: oscurecemos parejo para que se lea */}
+      <div className="absolute inset-0 bg-navy-950/30 lg:hidden" />
     </div>
   );
 }
@@ -159,19 +161,19 @@ export default function HeroCarousel() {
             >
               <Visual slide={s} priority={i === 0} active={active} />
               <div className="relative z-20 mx-auto max-w-7xl">
-              <div key={active ? `on-${index}` : "off"} className={`${active ? "hero-in" : ""} relative z-20 flex min-h-[600px] flex-col justify-end px-6 pt-40 pb-24 text-white sm:min-h-[600px] sm:px-12 lg:min-h-[620px] ${s.imageFit === "side" ? "lg:w-[60%]" : "lg:w-full"} lg:justify-center lg:py-20 lg:pr-24 lg:pl-24 xl:pr-16 xl:pl-16`}>
+              <div key={active ? `on-${index}` : "off"} className={`${active ? "hero-in" : ""} relative z-20 flex min-h-[560px] flex-col items-center justify-center px-6 py-16 text-center text-white sm:min-h-[600px] sm:px-12 lg:min-h-[620px] lg:items-start lg:text-left ${s.imageFit === "side" ? "lg:w-[60%]" : "lg:w-full"} lg:justify-center lg:py-20 lg:pr-24 lg:pl-24 xl:pr-16 xl:pl-16`}>
                 {s.logo && (
-                  <Image src={s.logo.src} alt={s.logo.alt} width={s.logo.width} height={s.logo.height} className="mb-4 h-auto w-64 drop-shadow-[0_4px_18px_rgba(0,0,0,0.4)] sm:w-80 lg:w-[26rem]" />
+                  <Image src={s.logo.src} alt={s.logo.alt} width={s.logo.width} height={s.logo.height} className="mb-4 h-auto w-56 drop-shadow-[0_4px_18px_rgba(0,0,0,0.4)] sm:w-80 lg:w-[26rem]" />
                 )}
                 {s.eyebrow && (
-                  <span className="mb-5 inline-flex items-center gap-2 self-start rounded-full bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-white ring-1 ring-white/25 backdrop-blur">
+                  <span className="mb-5 inline-flex items-center gap-2 self-center rounded-full lg:self-start bg-white/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-white ring-1 ring-white/25 backdrop-blur">
                     <span className="h-1.5 w-1.5 rounded-full bg-sky-accent" />
                     {s.eyebrow}
                   </span>
                 )}
                 <h2
                   // Mismo tamaño en todos los banners; en escritorio cada renglón forzado entra completo
-                  className="whitespace-normal text-4xl leading-tight tracking-tight text-white drop-shadow-md sm:text-[3.25rem] lg:whitespace-pre lg:text-[min(3.6rem,4vw)] lg:leading-[1.08]"
+                  className="whitespace-normal text-[2rem] leading-tight min-[400px]:text-4xl tracking-tight text-white drop-shadow-md sm:text-[3.25rem] lg:whitespace-pre lg:text-[min(3.6rem,4vw)] lg:leading-[1.08]"
                 >
                   <span className="font-medium">{s.title.endsWith("\n") ? s.title : `${s.title} `}</span>
                   <span
@@ -182,9 +184,9 @@ export default function HeroCarousel() {
                     {s.highlight}
                   </span>
                 </h2>
-                {s.text && <p className="mt-4 max-w-2xl text-base text-white/85 sm:text-lg">{s.text}</p>}
+                {s.text && <p className="mt-4 max-w-2xl text-[0.95rem] text-white/85 sm:text-lg">{s.text}</p>}
                 {s.primary && (
-                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <div className="mt-8 flex w-full flex-col items-center gap-3 sm:w-auto sm:flex-row lg:items-start">
                     <CtaLink cta={s.primary} variant="primary" tabIndex={active ? 0 : -1} />
                     {s.secondary && <CtaLink cta={s.secondary} variant="secondary" tabIndex={active ? 0 : -1} />}
                   </div>
@@ -204,7 +206,7 @@ export default function HeroCarousel() {
         })}
       </div>
 
-      {/* Flechas: a los costados del banner (en celular, abajo para no tapar el texto) */}
+      {/* Flechas a los costados (solo en pantallas grandes; en celular se desliza con el dedo) */}
       {[
         { d: -1, label: "Banner anterior", rot: "rotate-180", pos: "left-6 sm:left-12 lg:left-4" },
         { d: 1, label: "Banner siguiente", rot: "", pos: "right-6 sm:right-12 lg:right-4" },
@@ -214,7 +216,7 @@ export default function HeroCarousel() {
           type="button"
           onClick={() => go(index + b.d)}
           aria-label={b.label}
-          className={`absolute bottom-8 z-30 flex h-12 w-12 items-center justify-center text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)] transition hover:scale-110 hover:text-white lg:top-1/2 lg:bottom-auto lg:-translate-y-1/2 ${b.pos}`}
+          className={`absolute top-1/2 z-30 hidden h-12 w-12 -translate-y-1/2 items-center justify-center text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)] transition hover:scale-110 hover:text-white lg:flex ${b.pos}`}
         >
           <svg viewBox="0 0 24 24" className={`h-9 w-9 ${b.rot}`} fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
             <path d="M9 4l8 8-8 8" />
