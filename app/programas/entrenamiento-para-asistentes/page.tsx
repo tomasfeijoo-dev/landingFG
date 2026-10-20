@@ -72,12 +72,14 @@ export default function EntrenamientoAsistentesPage() {
             <div className={`mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.8fr_1.2fr] ${alt ? "lg:grid-cols-[1.2fr_0.8fr]" : ""}`}>
               <div className={`reveal relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20 ${alt ? "lg:order-2" : ""}`}>
                 <Image src={c.image} alt={c.alt} fill sizes="(min-width: 1024px) 24rem, 90vw" className="object-cover transition duration-1000 hover:scale-105" />
-              </div>
-              <div className="reveal">
-                <span className="block bg-gradient-to-b from-sky-accent/60 to-sky-accent/10 bg-clip-text text-7xl leading-[0.9] font-extrabold tracking-tight text-transparent sm:text-8xl" aria-hidden>
+                {/* Número grande del curso, como en el resto de la web */}
+                <div className="pointer-events-none absolute inset-x-0 top-0 h-2/5 bg-gradient-to-b from-navy-950/55 to-transparent" aria-hidden />
+                <span className="pointer-events-none absolute -top-5 right-4 text-[8.5rem] leading-none font-extrabold tracking-tight text-white/35 select-none" aria-hidden>
                   0{i + 1}
                 </span>
-                <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">{c.title}</h2>
+              </div>
+              <div className="reveal">
+                <h2 className="text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">{c.title}</h2>
                 <dl className="mt-6 space-y-4 leading-relaxed text-navy-900/75">
                   <div>
                     <dt className="font-bold text-navy-900">Audiencia objetivo</dt>
