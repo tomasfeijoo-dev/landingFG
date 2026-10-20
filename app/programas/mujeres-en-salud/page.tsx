@@ -226,7 +226,7 @@ export default function MujeresEnSaludPage() {
             </h2>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 icon: "heart",
@@ -248,27 +248,27 @@ export default function MujeresEnSaludPage() {
                 <p className="mt-3 leading-relaxed text-navy-900/70">{c.text}</p>
               </article>
             ))}
+
+            {/* Publicación relacionada, en formato de nota */}
+            <Link
+              href="/novedades#poster-brecha-genero"
+              className="reveal-pop group flex flex-col overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-[#3f2b6e]/10 transition hover:-translate-y-1 hover:shadow-xl md:col-span-2 lg:col-span-1"
+            >
+              <div className="relative aspect-[16/10] overflow-hidden bg-brand-50">
+                <Image src="/publicaciones/poster-3.webp" alt="Póster Brecha de género en el liderazgo de sistemas de salud" fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover object-top transition duration-700 group-hover:scale-110" />
+                <span className="absolute top-4 left-4 z-10 rounded-full bg-white px-3 py-1 text-xs font-bold text-[#c8396d] shadow-md">Publicación</span>
+              </div>
+              <div className="flex flex-1 flex-col p-6 sm:p-7">
+                <h3 className="text-xl font-extrabold leading-snug text-navy-900">
+                  Brecha de género en el liderazgo de sistemas de salud: un ejemplo en la gastroenterología
+                </h3>
+                <span className="mt-auto inline-flex items-center gap-1.5 pt-5 font-semibold text-[#3f2b6e] transition group-hover:text-[#c8396d]">
+                  Ver publicación <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />
+                </span>
+              </div>
+            </Link>
           </div>
 
-          {/* Publicación relacionada */}
-          <Link
-            href="/novedades#poster-brecha-genero"
-            className="reveal group mt-10 flex flex-col items-center gap-6 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-[#3f2b6e]/10 transition hover:-translate-y-0.5 hover:shadow-lg sm:flex-row sm:p-6"
-          >
-            <div className="relative aspect-square w-28 flex-none overflow-hidden rounded-2xl bg-brand-50 ring-1 ring-navy-900/5">
-              <Image src="/publicaciones/poster-3.webp" alt="Póster Brecha de género en el liderazgo de sistemas de salud" fill sizes="112px" className="object-cover object-top" />
-            </div>
-            <div className="flex-1 text-center sm:text-left">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#c8396d]">Publicación</p>
-              <p className="mt-1 text-lg font-extrabold leading-snug text-navy-900">
-                Brecha de género en el liderazgo de sistemas de salud: un ejemplo en la gastroenterología
-              </p>
-              <p className="mt-1 text-sm text-navy-900/60">Póster científico de Fundación Gedyt.</p>
-            </div>
-            <span className="inline-flex flex-none items-center gap-2 rounded-full bg-[#3f2b6e] px-6 py-3 text-sm font-semibold text-white transition group-hover:bg-[#c8396d]">
-              Ver publicación <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-0.5" />
-            </span>
-          </Link>
         </div>
       </section>
 
