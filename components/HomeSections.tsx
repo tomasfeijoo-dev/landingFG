@@ -64,7 +64,7 @@ export function StatsAndHighlights() {
     },
   ];
   return (
-    <section className="px-4 sm:px-6">
+    <section className="px-4 pt-16 sm:px-6 sm:pt-24">
       {/* Cifra principal con el mapa de los programas territoriales de fondo */}
       <div className="reveal relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] ring-1 ring-brand-100">
         <ArgentinaMap focusX={0.74} fade="bg-gradient-to-r from-white/95 via-white/80 to-white/0 max-lg:to-white/60" />
