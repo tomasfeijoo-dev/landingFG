@@ -283,7 +283,7 @@ export default function GalaPage() {
             <Icon name="heart" className="h-5 w-5 text-cta" /> Doná ahora
             <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />
           </a>
-          <a href={nocheAzul.reserveUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full px-9 py-4 font-semibold text-white ring-1 ring-white/30 transition hover:bg-white/10">
+          <a href={nocheAzul.reserveUrl} className="inline-flex items-center justify-center gap-2 rounded-full px-9 py-4 font-semibold text-white ring-1 ring-white/30 transition hover:bg-white/10">
             Reservá tu lugar
           </a>
         </div>

@@ -31,8 +31,6 @@ export function FloatingDonate() {
   return (
     <a
       href={nocheAzul.reserveUrl}
-      target="_blank"
-      rel="noopener noreferrer"
       className={`fixed right-4 bottom-4 z-40 flex items-center gap-2 rounded-full bg-gradient-to-r from-cta to-sky-accent px-6 py-3.5 font-semibold text-white shadow-xl shadow-navy-950/30 ring-4 ring-white/60 transition-all duration-500 hover:scale-105 sm:right-6 sm:bottom-6 ${
         show ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-6 opacity-0"
       }`}
@@ -256,22 +254,25 @@ export function Participacion() {
         {tab === "personas" ? (
           <div className="grid items-center gap-8 md:grid-cols-[1.4fr_1fr]">
             <div className="space-y-4 text-navy-900/75">
-              <p className="text-2xl font-extrabold text-navy-900">Viví la Noche Azul</p>
+              <span className="inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em] text-cta ring-1 ring-brand-100">
+                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-cta" /> En organización
+              </span>
+              <p className="text-2xl font-extrabold text-navy-900">Ya estamos organizando la Gala Noche Azul 2027</p>
               <p>
                 La Noche Azul convoca a todos aquellos que quieren ser parte del cambio. Empresas, organizaciones y personas que eligen acompañar una causa de
-                alto impacto.
+                alto impacto. Si querés ser parte de la próxima edición, reservá tu lugar y te contactamos con todos los detalles.
               </p>
               <p className="text-xs text-navy-900/55">
-                * En caso de realizar la compra mediante Mercado Pago, solicitamos enviar el comprobante a{" "}
-                <a href={`mailto:${nocheAzul.email}`} className="font-semibold text-cta underline-offset-2 hover:underline">
+                Las reservas se reciben por mail a{" "}
+                <a href={nocheAzul.reserveUrl} className="font-semibold text-cta underline-offset-2 hover:underline">
                   {nocheAzul.email}
-                </a>{" "}
-                para acreditar correctamente a los asistentes.
+                </a>
+                .
               </p>
             </div>
             <div className="flex flex-col gap-3">
               <a
-                href={nocheAzul.reserveUrl} target="_blank" rel="noopener noreferrer"
+                href={nocheAzul.reserveUrl}
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-cta px-8 py-4 font-semibold text-white shadow-lg shadow-cta/25 transition hover:bg-cta-hover"
               >
                 Reservá tu lugar <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />

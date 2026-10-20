@@ -73,8 +73,8 @@ export const homeLinks = {
 export const nocheAzul = {
   email: "gala@fundaciongedyt.org.ar",
   // Compra de entradas (Mercado Pago) y modalidades de participación (PDF en Drive)
-  reserveUrl:
-    "https://www.mercadopago.com.ar/checkout/v1/payment/redirect/bdbd29bd-a265-4454-bfc4-5d0af54d92e4/payment-option-form/?source=link&router-request-id=15c8671b-b7c5-427e-8e3f-7b06d296513d&preference-id=341523984-ce496e17-7c68-4180-bf97-47e02e85e971&p=bfe0d38efae61151680afe41791830e7",
+  // Reservas para la Noche Azul 2027: por ahora se reciben por mail
+  reserveUrl: `mailto:gala@fundaciongedyt.org.ar?subject=${encodeURIComponent("Reserva Gala Noche Azul 2027")}`,
   modalidadesUrl: "https://drive.google.com/file/d/1NCrZox9xZitgW14SdeHO0I9WGELSLos9/view?usp=sharing",
   // TODO: link a la galería completa de fotos (Google Photos, Drive, Flickr, etc.)
   galleryUrl: "https://www.facebook.com/Fundacion.Gedyt/photos",
