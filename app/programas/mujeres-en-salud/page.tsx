@@ -249,26 +249,27 @@ export default function MujeresEnSaludPage() {
             ))}
           </div>
 
-          {/* Cierre con la frase y el link al premio */}
-          <div className="reveal relative mt-12 overflow-hidden rounded-[2rem] px-8 py-12 text-white shadow-2xl shadow-[#3f2b6e]/25 sm:px-14 sm:py-16" style={{ background: `linear-gradient(120deg, ${VIOLETA} 0%, #5a2f75 55%, ${ROSA} 100%)` }}>
-            <span className="pointer-events-none absolute -top-10 right-6 text-[12rem] leading-none font-extrabold text-white/10 select-none" aria-hidden>
-              “
-            </span>
-            <div className="relative grid items-center gap-10 lg:grid-cols-[1.6fr_auto]">
-              <blockquote className="text-xl leading-snug font-semibold sm:text-2xl lg:text-[1.7rem]">
-                Porque cuando una institución reconoce el liderazgo, fortalece el presente de la medicina. Y cuando decide invertir en quienes construirán el
-                conocimiento del mañana, también fortalece el futuro del sistema de salud.
-              </blockquote>
-              <a
-                href={premioUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 self-center justify-self-start rounded-full bg-white px-8 py-4 font-semibold text-[#3f2b6e] shadow-lg shadow-black/15 transition hover:-translate-y-0.5 lg:justify-self-end"
-              >
-                Ir a la página del Premio <Icon name="arrow" className="h-4 w-4 -rotate-45" />
-              </a>
-            </div>
-          </div>
+        </div>
+      </section>
+
+      {/* Cierre a todo el ancho, con la frase y el link al premio */}
+      <section className="relative overflow-hidden px-6 py-16 text-white sm:px-12 sm:py-20" style={{ background: `linear-gradient(120deg, ${VIOLETA} 0%, #5a2f75 55%, ${ROSA} 100%)` }}>
+        <span className="pointer-events-none absolute top-2 right-[6%] text-[14rem] leading-none font-extrabold text-white/10 select-none" aria-hidden>
+          “
+        </span>
+        <div className="reveal relative mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.6fr_auto]">
+          <blockquote className="text-xl leading-snug font-semibold sm:text-2xl lg:text-[1.8rem]">
+            Porque cuando una institución reconoce el liderazgo, fortalece el presente de la medicina. Y cuando decide invertir en quienes construirán el
+            conocimiento del mañana, también fortalece el futuro del sistema de salud.
+          </blockquote>
+          <a
+            href={premioUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 self-center justify-self-start rounded-full bg-white px-8 py-4 font-semibold text-[#3f2b6e] shadow-lg shadow-black/15 transition hover:-translate-y-0.5 lg:justify-self-end"
+          >
+            Ir a la página del Premio <Icon name="arrow" className="h-4 w-4 -rotate-45" />
+          </a>
         </div>
       </section>
 
