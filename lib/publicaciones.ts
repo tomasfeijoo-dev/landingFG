@@ -44,9 +44,9 @@ export const anuarios = [
 ];
 
 export const posters = [
-  { title: "Póster CABA Vs NACIÓN", image: "/publicaciones/poster-1.webp", pdf: pubs },
+  { title: "Póster CABA Vs NACIÓN", image: "/publicaciones/poster-1.webp", pdf: "https://drive.google.com/file/d/1cRwn_HVJFjzU0ZFo8VRyIxyU6lVBggWo/view" },
   { title: "Póster Factores De No Realización De Prevención", image: "/publicaciones/poster-2.webp", pdf: pubs },
-  { title: "Póster – MSAL “Brecha De Género En El Liderazgo De Sistemas De Salud Un Ejemplo En La Gastroenterología”", image: "/publicaciones/poster-3.webp", pdf: pubs },
+  { title: "Póster – MSAL “Brecha De Género En El Liderazgo De Sistemas De Salud Un Ejemplo En La Gastroenterología”", image: "/publicaciones/poster-3.webp", pdf: "https://drive.google.com/file/d/1MZLwnAWAi20tNCVFFjcCB-XJs0T1gn8J/view" },
 ];
 
 export const weo = {
