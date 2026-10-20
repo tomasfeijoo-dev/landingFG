@@ -212,7 +212,7 @@ export default function NovedadesPage() {
         <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 px-6 py-16 text-white shadow-2xl shadow-navy-900/20 sm:px-12">
           <div className="pointer-events-none absolute -top-24 -right-24 h-80 w-80 rounded-full border-[44px] border-white/5" aria-hidden />
           <H2 light kicker="Nuestro trabajo, año a año">Anuarios</H2>
-          <div className="relative mt-12 grid gap-8 md:grid-cols-3">
+          <div className="relative mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {anuarios.map((a) => (
               <div key={a.label} className="reveal-pop group text-center">
                 <div className="relative mx-auto aspect-[656/460] overflow-hidden rounded-2xl shadow-2xl shadow-black/40 ring-1 ring-white/10 transition duration-500 group-hover:-translate-y-2 group-hover:rotate-[-1deg]">

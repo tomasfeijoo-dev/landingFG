@@ -40,6 +40,7 @@ export const anuarios = [
     pdf: "https://drive.google.com/file/d/1E_lIViIcn0Lx0E66DDC1hN9eXHSKtzux/view",
   },
   { year: "2024 · 2025", label: "Anuario 2024 · 2025", image: "/publicaciones/anuario-2025.webp", pdf: "https://drive.google.com/file/d/1Q1hVeBBrTrfE0cqfn_uP1yCHNeMucodw/view" },
+  { year: "2026", label: "Anuario 2026", image: "/images/anuario-2026.webp", pdf: "https://drive.google.com/file/d/1yzGB0vsdlE7XWtpkN9RK0qO6r2cbRH57/view" },
 ];
 
 export const posters = [

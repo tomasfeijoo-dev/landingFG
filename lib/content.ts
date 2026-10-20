@@ -58,8 +58,8 @@ export const mercadoPagoLinks = {
   unica: "",
 };
 
-// TODO: pedirle a Juli el link al Anuario 2026 digital (se usa en todos los botones y tarjetas del anuario).
-export const anuarioUrl = "https://fundaciongedyt.org.ar/publicaciones/";
+// Anuario 2026 digital (se usa en todos los botones y tarjetas del anuario).
+export const anuarioUrl = "https://drive.google.com/file/d/1yzGB0vsdlE7XWtpkN9RK0qO6r2cbRH57/view";
 
 // Links de las tarjetas destacadas del inicio
 export const homeLinks = {
@@ -151,6 +151,13 @@ export const slides: Slide[] = [
     primary: { label: "Ver más", href: "/gala-noche-azul" },
   },
   {
+    id: "plan-federal",
+    title: "Impulsamos el\n",
+    highlight: "Plan Federal de Prevención del\nCáncer Colorrectal 2027-2030",
+    text: "Prevenir mejor no es hacer más colonoscopías: es que cada persona llegue a un diagnóstico a tiempo.",
+    primary: { label: "Conocé más sobre el Plan Federal", href: "https://planfederalcolon.com.ar/" },
+  },
+  {
     id: "consejo",
     title: "Integrá el Consejo Directivo de\n",
     highlight: "Fundación GEDYT",
@@ -181,11 +188,12 @@ export const slides: Slide[] = [
   },
   {
     id: "campana-nacional",
-    title: "Campaña",
-    highlight: "Nacional\ny Federal",
+    title: "Campaña de concientización del\n",
+    highlight: "Cáncer de Colon 2026",
     image: "/banners/campana-boca.webp",
     imageAlt: "El plantel de Boca Juniors con la bandera de la campaña #CómoEstáTuColon",
     imagePosition: "center 50%",
+    primary: { label: "Ver más", href: "/campana" },
   },
   {
     id: "cumbre",

@@ -168,7 +168,7 @@ export default function InstitucionalPage() {
           <div className="relative mt-10 grid gap-10 lg:grid-cols-[2fr_1fr]">
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.16em] text-sky-accent">Anuarios</p>
-              <div className="mt-4 grid gap-3 sm:grid-cols-3">
+              <div className="mt-4 grid gap-3 sm:grid-cols-2">
                 {anuarios.map((a) => (
                   <a
                     key={a.label}

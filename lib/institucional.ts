@@ -26,8 +26,6 @@ export const equipo: Person[] = [
   { role: "Directora Operativa", name: "Isabela Esersky", photo: "/equipo/isabela-esersky.webp", linkedin: "https://www.linkedin.com/in/isabelaesersky/" },
   { role: "Directora Administrativa", name: "Lorena Tokatlian", photo: "/equipo/lorena-tokatlian.webp", linkedin: "https://www.linkedin.com/in/lorena-tokatlian-03589922/" },
   { role: "Dirección de Comunicación y Asuntos Institucionales", name: "Juliana Casse", photo: "/equipo/juliana-casse.webp", linkedin: "https://ar.linkedin.com/in/juliana-casse-01934031" },
-  { role: "Asistente de Programas", name: "Sofia Chuchurru", photo: "/equipo/sofia-chuchurru.webp", linkedin: "https://www.linkedin.com/in/sofiachuchurru/" },
-  { role: "Asistente de Procesos de Programas", name: "Nicolás Padovan", photo: "/equipo/nicolas-padovan.webp", linkedin: "https://www.linkedin.com/in/nicolas-padovan-81b5a6213/" },
   { role: "Dirección de Programa de Mujeres", name: "Marcela González", photo: "/equipo/marcela-gonzalez.webp", linkedin: "https://www.linkedin.com/in/marcela-gonzalez-a3260615/" },
   { role: "Co-Director del Proyecto de Misiones", name: "Gonzalo Coria", photo: "/equipo/gonzalo-coria.webp", linkedin: "https://www.linkedin.com/company/fundacion-gedyt/" },
   { role: "Comité de Fundraising", name: "Florencia Torres", photo: "/equipo/florencia-torres.webp", linkedin: "https://www.linkedin.com/in/florencia-torres-66422378/" },
@@ -40,5 +38,6 @@ export const anuarios = [
   { label: "Anuario edición 2023", href: "https://drive.google.com/file/d/1K0EaphzBSnUAMwPTgDStBQa8R4dCt8j2/view" },
   { label: "Anuario edición 2024", href: "https://drive.google.com/file/d/1E_lIViIcn0Lx0E66DDC1hN9eXHSKtzux/view" },
   { label: "Anuario edición 2025", href: "https://drive.google.com/file/d/1Q1hVeBBrTrfE0cqfn_uP1yCHNeMucodw/view" },
+  { label: "Anuario edición 2026", href: "https://drive.google.com/file/d/1yzGB0vsdlE7XWtpkN9RK0qO6r2cbRH57/view" },
 ];
 export const publicacionesUrl = "https://fundaciongedyt.org.ar/publicaciones/";
