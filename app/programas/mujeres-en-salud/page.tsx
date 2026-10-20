@@ -4,6 +4,8 @@ import Link from "next/link";
 import DonateBanner from "@/components/DonateBanner";
 import Icon from "@/components/Icon";
 import ProgramHeader from "@/components/ProgramHeader";
+// Colores propios del programa Mujeres en Salud, usados como detalle sobre la identidad de la Fundación
+import { ROSA, VIOLETA, degradeMujeres, premioHref } from "@/lib/mujeres";
 
 export const metadata: Metadata = {
   title: "Mujeres en Salud · Programas",
@@ -11,11 +13,6 @@ export const metadata: Metadata = {
     "Mujeres en Salud: un programa que promueve el crecimiento de la mujer en gastroenterología a través de la educación, el crecimiento profesional y el desarrollo del liderazgo.",
 };
 
-// Colores propios del programa Mujeres en Salud, usados como detalle sobre la identidad de la Fundación
-const VIOLETA = "#3f2b6e";
-const ROSA = "#c8396d";
-const degradeMujeres = `linear-gradient(90deg, ${VIOLETA}, ${ROSA})`;
-const premioUrl = "https://fundaciongedyt.org.ar/mujeres-gedyt-landing.html";
 
 // Etiqueta con los colores del programa
 function ChipMujeres({ children }: { children: React.ReactNode }) {
@@ -137,15 +134,13 @@ export default function MujeresEnSaludPage() {
               <p className="border-l-4 border-[#c8396d] pl-5 font-semibold text-navy-900">
                 Porque reconocer esos liderazgos también es una forma de fortalecer el sistema de salud.
               </p>
-              <a
-                href={premioUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href={premioHref}
                 className="!mt-8 inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-[#c8396d]/25 transition hover:-translate-y-0.5 hover:shadow-xl"
                 style={{ background: degradeMujeres }}
               >
                 Conocé el Premio Mujeres Destacadas <Icon name="arrow" className="h-4 w-4" />
-              </a>
+              </Link>
             </div>
             <div className="reveal relative pb-8 sm:pl-8">
               <div className="relative aspect-[7/3] overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20 sm:aspect-[2/1]">

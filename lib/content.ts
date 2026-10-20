@@ -179,7 +179,7 @@ export const slides: Slide[] = [
     image: "/banners/mujeres-premio.webp",
     imageAlt: "Entrega del Premio a Mujeres Destacadas en Gastroenterología",
     imagePosition: "center 25%",
-    primary: { label: "Ver más", href: "https://fundaciongedyt.org.ar/mujeres-gedyt-landing.html" },
+    primary: { label: "Ver más", href: "/premio-mujeres-destacadas" },
   },
   {
     id: "fondo-comun",
