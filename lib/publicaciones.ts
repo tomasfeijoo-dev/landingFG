@@ -40,13 +40,13 @@ export const anuarios = [
     pdf: "https://drive.google.com/file/d/1E_lIViIcn0Lx0E66DDC1hN9eXHSKtzux/view",
   },
   { year: "2024 · 2025", label: "Anuario 2024 · 2025", image: "/publicaciones/anuario-2025.webp", pdf: "https://drive.google.com/file/d/1Q1hVeBBrTrfE0cqfn_uP1yCHNeMucodw/view" },
-  { year: "2026", label: "Anuario 2026", image: "/images/anuario-2026.webp", pdf: "https://drive.google.com/file/d/1yzGB0vsdlE7XWtpkN9RK0qO6r2cbRH57/view" },
+  { year: "2026", label: "Anuario 2026", image: "/images/anuario-2026-tapa.webp", pdf: "https://drive.google.com/file/d/1yzGB0vsdlE7XWtpkN9RK0qO6r2cbRH57/view" },
 ];
 
 export const posters = [
-  { title: "Póster CABA Vs NACIÓN", image: "/publicaciones/poster-1.webp", pdf: "https://drive.google.com/file/d/1cRwn_HVJFjzU0ZFo8VRyIxyU6lVBggWo/view" },
-  { title: "Póster Factores De No Realización De Prevención", image: "/publicaciones/poster-2.webp", pdf: pubs },
-  { title: "Póster – MSAL “Brecha De Género En El Liderazgo De Sistemas De Salud Un Ejemplo En La Gastroenterología”", image: "/publicaciones/poster-3.webp", pdf: "https://drive.google.com/file/d/1MZLwnAWAi20tNCVFFjcCB-XJs0T1gn8J/view" },
+  { id: "poster-caba-nacion", title: "Póster CABA Vs NACIÓN", image: "/publicaciones/poster-1.webp", pdf: "https://drive.google.com/file/d/1cRwn_HVJFjzU0ZFo8VRyIxyU6lVBggWo/view" },
+  { id: "poster-factores", title: "Póster Factores De No Realización De Prevención", image: "/publicaciones/poster-2.webp", pdf: "https://drive.google.com/file/d/1lKZp5-N4HxkMJ-PFUJ89QGMdZhvtAI7u/view" },
+  { id: "poster-brecha-genero", title: "Póster – MSAL “Brecha De Género En El Liderazgo De Sistemas De Salud Un Ejemplo En La Gastroenterología”", image: "/publicaciones/poster-3.webp", pdf: "https://drive.google.com/file/d/1MZLwnAWAi20tNCVFFjcCB-XJs0T1gn8J/view" },
 ];
 
 export const weo = {

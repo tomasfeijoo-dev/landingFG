@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import DonateBanner from "@/components/DonateBanner";
 import Icon from "@/components/Icon";
 import ProgramHeader from "@/components/ProgramHeader";
@@ -249,27 +250,38 @@ export default function MujeresEnSaludPage() {
             ))}
           </div>
 
+          {/* Publicación relacionada */}
+          <Link
+            href="/novedades#poster-brecha-genero"
+            className="reveal group mt-10 flex flex-col items-center gap-6 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-[#3f2b6e]/10 transition hover:-translate-y-0.5 hover:shadow-lg sm:flex-row sm:p-6"
+          >
+            <div className="relative aspect-square w-28 flex-none overflow-hidden rounded-2xl bg-brand-50 ring-1 ring-navy-900/5">
+              <Image src="/publicaciones/poster-3.webp" alt="Póster Brecha de género en el liderazgo de sistemas de salud" fill sizes="112px" className="object-cover object-top" />
+            </div>
+            <div className="flex-1 text-center sm:text-left">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#c8396d]">Publicación</p>
+              <p className="mt-1 text-lg font-extrabold leading-snug text-navy-900">
+                Brecha de género en el liderazgo de sistemas de salud: un ejemplo en la gastroenterología
+              </p>
+              <p className="mt-1 text-sm text-navy-900/60">Póster científico de Fundación Gedyt.</p>
+            </div>
+            <span className="inline-flex flex-none items-center gap-2 rounded-full bg-[#3f2b6e] px-6 py-3 text-sm font-semibold text-white transition group-hover:bg-[#c8396d]">
+              Ver publicación <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-0.5" />
+            </span>
+          </Link>
         </div>
       </section>
 
-      {/* Cierre a todo el ancho, con la frase y el link al premio */}
+      {/* Cierre a todo el ancho con la frase */}
       <section className="relative overflow-hidden px-6 py-16 text-white sm:px-12 sm:py-20" style={{ background: `linear-gradient(120deg, ${VIOLETA} 0%, #5a2f75 55%, ${ROSA} 100%)` }}>
         <span className="pointer-events-none absolute top-2 right-[6%] text-[14rem] leading-none font-extrabold text-white/10 select-none" aria-hidden>
           “
         </span>
-        <div className="reveal relative mx-auto grid max-w-6xl items-center gap-10 lg:grid-cols-[1.6fr_auto]">
-          <blockquote className="text-xl leading-snug font-semibold sm:text-2xl lg:text-[1.8rem]">
+        <div className="reveal relative mx-auto max-w-6xl">
+          <blockquote className="text-xl leading-snug font-semibold sm:text-2xl lg:text-[2rem]">
             Porque cuando una institución reconoce el liderazgo, fortalece el presente de la medicina. Y cuando decide invertir en quienes construirán el
             conocimiento del mañana, también fortalece el futuro del sistema de salud.
           </blockquote>
-          <a
-            href={premioUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 self-center justify-self-start rounded-full bg-white px-8 py-4 font-semibold text-[#3f2b6e] shadow-lg shadow-black/15 transition hover:-translate-y-0.5 lg:justify-self-end"
-          >
-            Ir a la página del Premio <Icon name="arrow" className="h-4 w-4 -rotate-45" />
-          </a>
         </div>
       </section>
 

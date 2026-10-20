@@ -234,7 +234,7 @@ export default function NovedadesPage() {
           <H2 kicker="Pósters científicos">Publicaciones</H2>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {posters.map((p) => (
-              <article key={p.title} className="team-card reveal-pop group relative flex flex-col overflow-hidden rounded-3xl bg-white ring-1 ring-navy-900/5">
+              <article key={p.title} id={p.id} className="team-card reveal-pop group relative flex scroll-mt-36 flex-col overflow-hidden rounded-3xl bg-white ring-1 ring-navy-900/5">
                 <div className="relative aspect-square overflow-hidden bg-brand-50">
                   <Image quality={90} src={p.image} alt={p.title} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover object-top transition duration-700 group-hover:scale-105" />
                 </div>

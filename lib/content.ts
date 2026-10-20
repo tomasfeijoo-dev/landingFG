@@ -310,7 +310,7 @@ export const news = [
     title: "Anuario 2026: innovación y compromiso en la tarea de prevenir",
     text: "Los programas, alianzas y resultados de la Fundación durante el último año.",
     href: anuarioUrl,
-    image: "/images/anuario-2026.webp",
+    image: "/images/anuario-2026-tapa.webp",
   },
   {
     tag: "Noche Azul",
