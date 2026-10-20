@@ -74,8 +74,14 @@ export default function MisionesPage() {
               posibilidades de tratamiento exitoso y contribuyendo a salvar vidas.
             </p>
           </div>
-          <div className="reveal relative mx-auto aspect-[4/3] w-full max-w-md overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
-            <Image src="/images/mis-2-v2.webp" alt="Presentación del Programa Provincial de Prevención del Cáncer de Colon en Misiones" fill sizes="(min-width: 1024px) 24rem, 90vw" className="object-cover transition duration-1000 hover:scale-105" />
+          {/* Dos fotos, una arriba de la otra */}
+          <div className="reveal mx-auto grid w-full max-w-md gap-5">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
+              <Image src="/images/mis-2-v2.webp" alt="Presentación del Programa Provincial de Prevención del Cáncer de Colon en Misiones" fill sizes="(min-width: 1024px) 28rem, 90vw" className="object-cover transition duration-1000 hover:scale-105" />
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
+              <Image src="/images/mis-4-v2.webp" alt="Profesionales practicando durante un HANDS ON" fill sizes="(min-width: 1024px) 28rem, 90vw" className="object-cover transition duration-1000 hover:scale-105" />
+            </div>
           </div>
         </div>
       </section>
@@ -142,8 +148,8 @@ export default function MisionesPage() {
               </p>
             </div>
           </div>
-          <div className="reveal relative mt-12 aspect-[4/3] overflow-hidden rounded-[2rem] shadow-2xl shadow-black/30 ring-1 ring-white/10 sm:aspect-[2/1]">
-            <Image src="/images/mis-4-v2.webp" alt="Profesionales practicando durante un HANDS ON" fill sizes="(min-width: 1280px) 72rem, 100vw" className="object-cover object-[center_40%] transition duration-1000 hover:scale-105" />
+          <div className="reveal relative mt-12 aspect-[4/3] overflow-hidden rounded-[2rem] shadow-2xl shadow-black/30 ring-1 ring-white/10 sm:aspect-[8/3]">
+            <Image src="/images/mis-cierre.webp" alt="Equipo de profesionales al cierre de un HANDS ON" fill sizes="(min-width: 1280px) 72rem, 100vw" className="object-cover object-[center_35%] transition duration-1000 hover:scale-105" />
           </div>
         </div>
       </section>
