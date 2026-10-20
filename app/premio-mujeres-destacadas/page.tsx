@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Poppins, Source_Sans_3 } from "next/font/google";
+import Link from "next/link";
 import Image from "next/image";
 import Icon from "@/components/Icon";
 
@@ -7,6 +9,11 @@ export const metadata: Metadata = {
   description:
     "Una iniciativa que reconoce y visibiliza a mujeres que, a través de su trayectoria, liderazgo y compromiso, generan un impacto significativo en la comunidad médica y en la salud de las personas.",
 };
+
+// Tipografías de la landing del premio: Poppins en títulos, Source Sans en textos
+const poppins = Poppins({ subsets: ["latin"], weight: ["600", "700", "800", "900"], variable: "--font-poppins", display: "swap" });
+const sourceSans = Source_Sans_3({ subsets: ["latin"], weight: ["300", "400", "600"], variable: "--font-source", display: "swap" });
+const TT = "font-[family-name:var(--font-poppins)]";
 
 // Textos e imágenes tal cual la landing del premio (mujeres-gedyt-landing.html).
 // La página usa la estructura y tipografía de la web de la Fundación con los colores de Mujeres en Salud.
@@ -71,12 +78,47 @@ const bases: { title: string; list?: string[]; text?: string }[] = [
   },
 ];
 
-// Palabras con letra calada (solo contorno), como en la landing
-function Outline({ children, color, className = "" }: { children: React.ReactNode; color: string; className?: string }) {
+// Palabras con letra calada: mismo SVG que usa la landing (texto en Poppins, solo contorno)
+function OutlineWord({
+  text,
+  viewBox,
+  x = 0,
+  y,
+  size,
+  weight = 700,
+  stroke = "#ffffff",
+  strokeWidth = 1.5,
+  anchor,
+  className = "",
+}: {
+  text: string;
+  viewBox: string;
+  x?: number;
+  y: number;
+  size: number;
+  weight?: number;
+  stroke?: string;
+  strokeWidth?: number;
+  anchor?: "middle";
+  className?: string;
+}) {
   return (
-    <span className={`[-webkit-text-fill-color:transparent] [-webkit-text-stroke-width:1.5px] sm:[-webkit-text-stroke-width:2px] ${className}`} style={{ WebkitTextStrokeColor: color }}>
-      {children}
-    </span>
+    <svg viewBox={viewBox} xmlns="http://www.w3.org/2000/svg" className={`overflow-visible ${className}`} role="img" aria-label={text}>
+      <text
+        x={x}
+        y={y}
+        fontSize={size}
+        fontWeight={weight}
+        fill="none"
+        stroke={stroke}
+        strokeWidth={strokeWidth}
+        paintOrder="stroke"
+        textAnchor={anchor}
+        style={{ fontFamily: "var(--font-poppins), Poppins, sans-serif", letterSpacing: "-0.02em" }}
+      >
+        {text}
+      </text>
+    </svg>
   );
 }
 
@@ -95,70 +137,112 @@ function QuieroParticipar({ light = false }: { light?: boolean }) {
       href={formularioUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group inline-flex items-center gap-2 rounded-full px-8 py-4 font-semibold shadow-lg transition hover:-translate-y-0.5 ${
+      className={`group inline-flex items-center gap-3 rounded-full px-9 py-4 text-sm font-bold tracking-[0.12em] uppercase shadow-lg transition hover:-translate-y-0.5 ${TT} ${
         light ? "bg-white text-[#49297d] shadow-black/20" : "bg-[#dd226c] text-white shadow-[#dd226c]/30 hover:bg-[#c41d5e]"
       }`}
     >
-      Quiero participar <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-0.5" />
+      Quiero participar
+      <svg viewBox="0 0 24 24" className="h-5 w-5 transition group-hover:translate-x-0.5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        <path d="M9 4l8 8-8 8" />
+      </svg>
     </a>
   );
 }
 
 export default function PremioMujeresPage() {
   return (
-    <>
-      {/* Hero */}
-      <section className="px-4 pt-6 sm:px-6 sm:pt-10">
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#280d55] via-[#49297d] to-[#693c98] text-white">
-          <div className="absolute inset-y-0 right-0 w-full md:w-[65%]">
-            <Image src="/images/premio-doctoras.webp" alt="" fill priority sizes="(min-width: 768px) 65vw, 100vw" className="kb-image object-cover object-[center_20%]" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#280d55] via-[#49297d]/70 to-transparent max-md:via-[#49297d]/85" />
-          </div>
-          <div className="relative px-6 pt-14 pb-10 sm:px-12 lg:px-16 lg:pt-20">
-            <span className="fade-up inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/85 ring-1 ring-white/20">
+    <div className={`${poppins.variable} ${sourceSans.variable}`}>
+      {/* Hero, como la landing: a todo el ancho, con el logo del programa y la edición */}
+      <section className="relative overflow-hidden bg-[#280d55] text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_65%_55%_at_85%_35%,rgba(105,60,152,0.7)_0%,transparent_65%),radial-gradient(ellipse_50%_60%_at_15%_75%,rgba(0,163,214,0.12)_0%,transparent_55%),linear-gradient(160deg,#280d55_0%,#49297d_55%,#280d55_100%)]" />
+        <div className="absolute inset-0 bg-[repeating-linear-gradient(90deg,transparent,transparent_79px,rgba(255,255,255,0.02)_80px),repeating-linear-gradient(0deg,transparent,transparent_79px,rgba(255,255,255,0.02)_80px)]" />
+        <div
+          className="absolute inset-y-0 right-0 w-full opacity-50 md:w-[65%]"
+          style={{
+            WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 25%, #000 55%)",
+            maskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 25%, #000 55%)",
+          }}
+        >
+          <Image src="/images/premio-doctoras.webp" alt="" fill priority sizes="(min-width: 768px) 65vw, 100vw" className="object-cover object-[center_20%]" />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-6 pt-8 pb-16 sm:px-12 lg:px-16 lg:pb-20">
+          {/* Logo del programa y edición */}
+          <div className="flex items-center justify-between gap-4">
+            <div>
+              <svg viewBox="0 0 380 44" xmlns="http://www.w3.org/2000/svg" className="h-6 w-auto min-[400px]:h-7 sm:h-9" role="img" aria-label="Mujeres en Gastro & Endo">
+                <g style={{ fontFamily: "var(--font-poppins), Poppins, sans-serif" }}>
+                  <text x="0" y="38" fontWeight="800" fontSize="44" fill="none" stroke="white" strokeWidth="1.8" paintOrder="stroke" style={{ letterSpacing: "-0.01em" }}>
+                    MUJERES
+                  </text>
+                  <text x="222" y="22" fontWeight="700" fontSize="14" fill="white" style={{ letterSpacing: "0.04em" }}>
+                    EN GASTRO
+                  </text>
+                  <text x="222" y="40" fontWeight="700" fontSize="14" fill="white" style={{ letterSpacing: "0.04em" }}>
+                    &amp; ENDO
+                  </text>
+                </g>
+              </svg>
+              <span className="mt-1.5 block text-[11px] tracking-[0.18em] text-white uppercase">Fundación Gedyt</span>
+            </div>
+            <span className={`flex-none rounded-full border-[1.5px] border-[#dd226c] px-3 py-1.5 text-[10px] whitespace-nowrap font-bold tracking-[0.12em] text-[#dd226c] uppercase sm:px-5 sm:text-xs ${TT}`}>
               4.ª Edición 2026
             </span>
-            <p className="fade-up mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white/85" style={{ ["--d" as string]: "100ms" }}>
-              <span className="h-2 w-2 animate-pulse rounded-full bg-[#dd226c]" />
+          </div>
+
+          <Link
+            href="/programas/mujeres-en-salud"
+            className="group mt-8 inline-flex items-center gap-3 rounded-full bg-white/10 py-1.5 pr-5 pl-1.5 text-sm font-semibold text-white ring-1 ring-white/20 transition hover:bg-white hover:text-[#49297d]"
+          >
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/15 transition group-hover:-translate-x-0.5 group-hover:bg-[#dd226c] group-hover:text-white">
+              <Icon name="arrow" className="h-4 w-4 rotate-180" />
+            </span>
+            Mujeres en Salud
+          </Link>
+
+          <div className="mt-10 lg:mt-14">
+            <span className="fade-up inline-flex items-center gap-2.5 rounded-full border border-[#00a3d6]/35 bg-[#00a3d6]/12 px-4 py-1.5 text-[10px] font-semibold tracking-[0.25em] text-[#00a3d6] uppercase sm:text-xs">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#00a3d6]" />
               Postulaciones abiertas · 1 junio — 3 julio 2026
-            </p>
-            <h1 className="fade-up mt-5 text-[2.6rem] leading-[0.93] font-extrabold tracking-tight uppercase min-[400px]:text-5xl sm:text-7xl lg:text-[6.5rem]" style={{ ["--d" as string]: "200ms" }}>
+            </span>
+            <h1 className={`fade-up mt-7 text-[3.2rem] leading-[0.93] font-black tracking-[-0.02em] uppercase min-[400px]:text-[3.6rem] sm:text-[5.5rem] lg:text-[6.75rem] ${TT}`} style={{ ["--d" as string]: "150ms" }}>
               <span className="block">Premio</span>
               <span className="block text-[#dd226c]">Mujeres</span>
-              <Outline color="#ffffff" className="block">Destacadas</Outline>
+              <OutlineWord text="DESTACADAS" viewBox="0 0 450 55" y={50} size={56} className="mt-1 block h-auto w-[92%] max-w-[600px]" />
             </h1>
-            <p className="fade-up mt-5 text-lg font-semibold text-[#00a3d6] sm:text-xl" style={{ ["--d" as string]: "400ms" }}>
+            <p className={`fade-up mt-4 text-lg font-bold tracking-[0.06em] text-[#00a3d6] uppercase sm:text-[1.6rem] lg:text-[2rem] ${TT}`} style={{ ["--d" as string]: "300ms" }}>
               Gastroenterología &amp; Endoscopía Digestiva
             </p>
-            <p className="fade-up mt-5 max-w-xl text-lg text-white/80" style={{ ["--d" as string]: "550ms" }}>
-              Una iniciativa que reconoce y visibiliza a mujeres que, a través de su trayectoria, liderazgo y compromiso, generan un impacto significativo en la
-              comunidad médica y en la salud de las personas.
-            </p>
-            <div className="fade-up mt-9 flex flex-wrap gap-3" style={{ ["--d" as string]: "700ms" }}>
-              <QuieroParticipar />
-              <a
-                href="#criterios"
-                className="inline-flex items-center gap-2 rounded-full bg-white/10 px-8 py-4 font-semibold text-white ring-1 ring-white/30 backdrop-blur transition hover:bg-white/20"
-              >
-                Ver criterios
-              </a>
-            </div>
+            <div className="mt-8 grid items-end gap-10 lg:grid-cols-[1fr_auto]">
+              <div>
+                <p className="fade-up max-w-[560px] font-[family-name:var(--font-source)] text-lg leading-[1.7] font-light text-white/70" style={{ ["--d" as string]: "450ms" }}>
+                  Una iniciativa que reconoce y visibiliza a mujeres que, a través de su trayectoria, liderazgo y compromiso, generan un impacto significativo en la
+                  comunidad médica y en la salud de las personas.
+                </p>
+                <div className="fade-up mt-10 flex flex-wrap items-center gap-8" style={{ ["--d" as string]: "600ms" }}>
+                  <QuieroParticipar />
+                  <a href="#criterios" className={`border-b border-white/25 pb-1 text-[13px] font-semibold tracking-[0.15em] text-white/70 uppercase transition hover:border-white hover:text-white ${TT}`}>
+                    Ver criterios
+                  </a>
+                </div>
+              </div>
 
-            {/* Fechas clave */}
-            <div className="mt-14 max-w-3xl rounded-3xl bg-[#280d55]/60 p-5 ring-1 ring-white/10 backdrop-blur sm:p-6">
-              <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-[#00a3d6]">Fechas clave</p>
-              <div className="mt-4 grid gap-4 sm:grid-cols-3">
-                {fechas.map((f) => (
-                  <div key={f.name} className="border-l-2 border-[#dd226c] pl-4">
-                    <span className="block text-xs font-semibold uppercase tracking-[0.14em] text-white/60">{f.name}</span>
-                    <span className="mt-1 block text-lg font-extrabold">{f.val}</span>
-                  </div>
-                ))}
+              {/* Fechas clave */}
+              <div className="fade-up" style={{ ["--d" as string]: "800ms" }}>
+                <p className="font-[family-name:var(--font-source)] text-[10px] font-semibold tracking-[0.3em] text-[#00a3d6] uppercase">Fechas clave</p>
+                <div className="mt-3 grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+                  {fechas.map((f) => (
+                    <div key={f.name}>
+                      <span className="block font-[family-name:var(--font-source)] text-[13px] font-semibold tracking-[0.1em] text-white/40 uppercase">{f.name}</span>
+                      <span className={`block text-2xl font-extrabold tracking-[0.02em] sm:text-[1.65rem] ${TT}`}>{f.val}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-          <div className="absolute inset-x-0 bottom-0 h-1.5 bg-gradient-to-r from-[#49297d] via-[#dd226c] to-[#00a3d6]" aria-hidden />
         </div>
+        <div className="absolute inset-x-0 bottom-0 h-1.5 bg-gradient-to-r from-[#49297d] via-[#dd226c] to-[#00a3d6]" aria-hidden />
       </section>
 
       {/* Criterios */}
@@ -166,10 +250,11 @@ export default function PremioMujeresPage() {
         <div className="mx-auto max-w-6xl">
           <div className="reveal">
             <Label>El jurado valorará</Label>
-            <h2 className="mt-4 text-4xl leading-[1.05] font-extrabold tracking-tight text-[#280d55] uppercase sm:text-6xl">
+            <h2 className="mt-4 text-4xl leading-[1.05] font-black tracking-tight text-[#280d55] uppercase font-[family-name:var(--font-poppins)] sm:text-6xl">
               Impacto real.
               <br />
-              <span className="text-[#dd226c]">Liderazgo</span> <Outline color="#49297d">visible.</Outline>
+              <span className="text-[#dd226c]">Liderazgo</span>{" "}
+              <OutlineWord text="VISIBLE." viewBox="0 0 290 62" y={56} size={66} weight={900} stroke="#49297d" strokeWidth={1.8} className="relative top-[0.08em] inline-block h-[0.95em] w-auto align-baseline" />
             </h2>
           </div>
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -206,9 +291,9 @@ export default function PremioMujeresPage() {
           </div>
           <div className="reveal">
             <Label>El premio</Label>
-            <h2 className="mt-4 text-4xl leading-[1.02] font-extrabold tracking-tight uppercase sm:text-5xl">
+            <h2 className="mt-4 text-4xl leading-[1.02] font-black tracking-tight uppercase sm:text-5xl font-[family-name:var(--font-poppins)]">
               Una experiencia
-              <Outline color="#ffffff" className="block">internacional</Outline>
+              <OutlineWord text="INTERNACIONAL" viewBox="0 0 500 52" y={46} size={54} className="my-1 block h-auto w-full max-w-[520px]" />
               <span className="block text-5xl text-[#dd226c] sm:text-7xl">única</span>
             </h2>
             <ul className="mt-8 space-y-3">
@@ -231,7 +316,7 @@ export default function PremioMujeresPage() {
         <div className="mx-auto max-w-6xl">
           <div className="reveal">
             <Label>Criterios de admisibilidad</Label>
-            <h2 className="mt-4 text-4xl leading-[1.05] font-extrabold tracking-tight text-[#280d55] uppercase sm:text-6xl">
+            <h2 className="mt-4 text-4xl leading-[1.05] font-black tracking-tight text-[#280d55] uppercase font-[family-name:var(--font-poppins)] sm:text-6xl">
               ¿Podés
               <br />
               <span className="text-[#dd226c]">postularte?</span>
@@ -256,7 +341,7 @@ export default function PremioMujeresPage() {
         <div className="mx-auto max-w-4xl">
           <div className="reveal">
             <Label>Más información</Label>
-            <h2 className="mt-4 text-4xl leading-[1.05] font-extrabold tracking-tight text-[#280d55] uppercase sm:text-6xl">
+            <h2 className="mt-4 text-4xl leading-[1.05] font-black tracking-tight text-[#280d55] uppercase font-[family-name:var(--font-poppins)] sm:text-6xl">
               Bases &amp;
               <br />
               <span className="text-[#dd226c]">condiciones</span>
@@ -294,10 +379,10 @@ export default function PremioMujeresPage() {
       <section className="relative overflow-hidden bg-[#49297d] px-6 py-16 text-white sm:px-12 sm:py-20">
         <div className="pointer-events-none absolute -right-24 -bottom-24 h-80 w-80 rounded-full bg-[#dd226c]/25 blur-3xl" aria-hidden />
         <div className="reveal relative mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[1.1fr_1fr]">
-          <h2 className="text-4xl leading-[1.05] font-extrabold tracking-tight uppercase sm:text-5xl">
+          <h2 className="text-4xl leading-[1.05] font-black tracking-tight uppercase sm:text-5xl font-[family-name:var(--font-poppins)]">
             Si tu trayectoria
             <br />
-            <span className="text-[#dd226c]">inspira</span>, <Outline color="#ffffff">transforma</Outline>
+            <span className="text-[#dd226c]">inspira</span>, <OutlineWord text="TRANSFORMA" viewBox="0 0 480 55" y={48} size={56} weight={900} strokeWidth={1.8} className="relative top-[0.08em] inline-block h-[0.95em] w-auto align-baseline" />
             <br />y deja huella…
           </h2>
           <p className="text-lg leading-relaxed text-white/80">
@@ -312,8 +397,8 @@ export default function PremioMujeresPage() {
         <div className="reveal relative mx-auto max-w-5xl overflow-hidden rounded-[2rem] bg-[#280d55] px-6 py-16 text-center text-white sm:px-12 sm:py-20">
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_70%_at_50%_50%,rgba(73,41,125,0.9),transparent_70%),radial-gradient(ellipse_30%_30%_at_20%_80%,rgba(0,163,214,0.15),transparent_60%)]" aria-hidden />
           <div className="relative">
-            <h2 className="text-4xl leading-[1.02] font-extrabold tracking-tight uppercase sm:text-6xl">
-              <Outline color="#ffffff" className="block">Reconocer</Outline>
+            <h2 className="text-4xl leading-[1.02] font-black tracking-tight uppercase sm:text-6xl font-[family-name:var(--font-poppins)]">
+              <OutlineWord text="RECONOCER" viewBox="0 8 430 52" x={215} y={54} size={64} anchor="middle" className="mx-auto mb-1 block h-auto w-full max-w-[560px]" />
               el impacto de
               <br />
               las <span className="text-[#dd226c]">mujeres</span>
@@ -326,6 +411,6 @@ export default function PremioMujeresPage() {
           <div className="absolute inset-x-0 bottom-0 h-1.5 bg-gradient-to-r from-[#49297d] via-[#dd226c] to-[#00a3d6]" aria-hidden />
         </div>
       </section>
-    </>
+    </div>
   );
 }
