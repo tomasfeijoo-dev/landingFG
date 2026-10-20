@@ -15,7 +15,8 @@ export default function DonateBanner() {
             <p className="mt-3 text-white/80">Tu aporte permite más diagnóstico tempranos y diagnosticar a tiempo salva vidas.</p>
           </div>
           <Link
-            href="/donar"
+            href="/#donar"
+            scroll={false}
             className="group flex flex-none items-center gap-2 whitespace-nowrap rounded-full bg-cta px-8 py-4 font-semibold text-white shadow-lg shadow-black/20 transition hover:bg-cta-hover"
           >
             <Icon name="heart" className="h-5 w-5" />

@@ -293,7 +293,8 @@ export default async function ArticuloPage({ params }: { params: Promise<{ slug:
                 <p className="relative mt-3 text-lg leading-snug font-extrabold">Diagnosticar a tiempo salva vidas</p>
                 <p className="relative mt-2 text-sm text-white/75">Tu aporte financia estudios de prevención en hospitales públicos.</p>
                 <Link
-                  href="/donar"
+                  href="/#donar"
+                  scroll={false}
                   className="relative mt-5 inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-navy-900 transition hover:bg-brand-50"
                 >
                   Doná acá <Icon name="arrow" className="h-4 w-4" />
