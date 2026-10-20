@@ -149,7 +149,7 @@ export default function MujeresEnSaludPage() {
             <div className="reveal relative pb-8 sm:pl-8">
               <div className="relative aspect-[7/3] overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20 sm:aspect-[2/1]">
                 <Image
-                  src="/images/premio-mujeres-ddw.webp"
+                  src="/images/premio-mujeres-ddw-hd.webp"
                   alt="Profesionales argentinos en el Digestive Disease Week"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
