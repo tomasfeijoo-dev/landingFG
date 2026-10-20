@@ -16,7 +16,7 @@ const b = (t: string) => <strong className="text-navy-900">{t}</strong>;
 export default function MisionesPage() {
   return (
     <>
-      <ProgramHeader eyebrow="Programa provincial" title="Misiones: Alianzas Territoriales" image="/banners/misiones-equipo.webp" imagePosition="center 30%" />
+      <ProgramHeader eyebrow="Programa provincial" title="Misiones: Alianzas Territoriales" image="/banners/misiones-equipo-v2.webp" imagePosition="center 35%" />
 
       {/* Innovación y compromiso */}
       <section className="px-4 py-20 sm:px-6 sm:py-24">
