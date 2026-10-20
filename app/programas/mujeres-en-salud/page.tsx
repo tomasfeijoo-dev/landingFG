@@ -89,6 +89,126 @@ export default function MujeresEnSaludPage() {
         </div>
       </section>
 
+      {/* Premio Mujeres Destacadas */}
+      <section className="px-4 py-20 sm:px-6 sm:py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="reveal mx-auto max-w-3xl text-center">
+            <Eyebrow chip>Programa Mujeres en Gastro y Endo</Eyebrow>
+            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-5xl">
+              Reconocer el liderazgo para transformar el futuro de la salud digestiva
+            </h2>
+            <p className="mt-6 text-xl font-semibold leading-relaxed text-cta">
+              La prevención también se construye formando, reconociendo e impulsando a quienes hacen avanzar la medicina.
+            </p>
+          </div>
+
+          <div className="mt-14 grid items-center gap-12 lg:grid-cols-2">
+            <div className="reveal space-y-5 text-lg leading-relaxed text-navy-900/70">
+              <p>
+                Detrás de cada innovación, de cada programa de prevención y de cada mejora en la calidad de atención existen profesionales que dedican años a
+                investigar, enseñar y generar conocimiento. Muchas veces ese trabajo transforma el sistema de salud sin ocupar un lugar visible.
+              </p>
+              <p>
+                Con esa convicción creamos el <strong className="text-navy-900">Premio Mujeres Destacadas en Gastroenterología y Endoscopia Digestiva</strong>,
+                una iniciativa que reconoce a mujeres cuyo recorrido profesional ha contribuido de manera significativa a la investigación, la prevención, la
+                formación de recursos humanos y la ampliación del acceso a la salud digestiva en Argentina.
+              </p>
+              <p className="border-l-4 border-cta pl-5 font-semibold text-navy-900">
+                Porque reconocer esos liderazgos también es una forma de fortalecer el sistema de salud.
+              </p>
+            </div>
+            <div className="reveal relative pb-8 sm:pl-8">
+              <div className="relative aspect-[7/3] overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20 sm:aspect-[2/1]">
+                <Image
+                  src="/images/premio-mujeres-ddw.webp"
+                  alt="Profesionales argentinos en el Digestive Disease Week"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover transition duration-1000 hover:scale-105"
+                />
+              </div>
+              <div className="absolute bottom-0 left-0 flex items-center gap-3 rounded-2xl bg-white px-5 py-4 shadow-xl ring-1 ring-navy-900/5">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50 text-cta">
+                  <Icon name="graduation" className="h-5 w-5" />
+                </span>
+                <span className="text-sm leading-tight">
+                  <strong className="block text-navy-900">Digestive Disease Week</strong>
+                  <span className="text-navy-900/60">DDW 2027</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* La beca */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 px-4 py-20 text-white sm:px-6 sm:py-24">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.1fr_1fr]">
+          <div className="reveal">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-accent">El premio</p>
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Una inversión concreta en quienes impulsan la especialidad</h2>
+            <p className="mt-6 text-lg leading-relaxed text-white/80">
+              La profesional distinguida recibe una <strong className="text-white">beca completa para participar del Digestive Disease Week (DDW) 2027</strong>,
+              uno de los encuentros científicos más importantes del mundo en gastroenterología.
+            </p>
+            <p className="mt-5 text-lg leading-relaxed text-white/80">
+              Más que un reconocimiento, es una oportunidad para acceder a los últimos avances científicos, intercambiar experiencias con referentes
+              internacionales y seguir incorporando conocimiento que luego se traduce en una mejor atención para miles de pacientes.
+            </p>
+            <p className="mt-6 text-xl font-bold text-sky-accent">
+              Invertir en quienes lideran la salud digestiva también es invertir en el futuro de la prevención.
+            </p>
+          </div>
+          <div className="reveal-pop rounded-[2rem] bg-white/[0.07] p-8 ring-1 ring-white/10 backdrop-blur sm:p-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-white/60">La beca incluye</p>
+            <ul className="mt-6 space-y-4">
+              {[
+                { icon: "check", label: "Acreditación", sub: "al congreso DDW 2027" },
+                { icon: "rocket", label: "Pasajes", sub: "ida y vuelta" },
+                { icon: "building", label: "Alojamiento", sub: "durante el encuentro" },
+              ].map((b) => (
+                <li key={b.label} className="flex items-center gap-4 rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
+                  <span className="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-sky-accent/20 text-sky-accent">
+                    <Icon name={b.icon} className="h-6 w-6" />
+                  </span>
+                  <span>
+                    <strong className="block text-lg">{b.label}</strong>
+                    <span className="text-sm text-white/60">{b.sub}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Equidad */}
+      <section className="px-4 py-20 sm:px-6 sm:py-24">
+        <div className="reveal mx-auto max-w-4xl">
+          <Eyebrow>Una agenda de equidad</Eyebrow>
+          <div className="mt-6 grid gap-8 text-lg leading-relaxed text-navy-900/70 md:grid-cols-2">
+            <p>
+              El Premio Mujeres busca contribuir a una agenda de mayor equidad dentro del sistema sanitario, visibilizando trayectorias de excelencia que
+              durante muchos años permanecieron subrepresentadas.
+            </p>
+            <p>
+              Reconocer a mujeres que investigan, enseñan, forman profesionales y transforman la práctica médica no solo pone en valor su recorrido. También
+              amplía los modelos de referencia para nuevas generaciones de médicas, investigadoras y profesionales de la salud que encontrarán en ellas una
+              inspiración para desarrollar su propio camino.
+            </p>
+          </div>
+          <figure className="relative mt-12 rounded-[2rem] bg-gradient-to-br from-brand-50 to-white px-8 pt-12 pb-10 ring-1 ring-brand-100 sm:px-12">
+            <span className="absolute -top-6 left-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-cta text-white shadow-lg shadow-cta/30 sm:left-12">
+              <Icon name="quote" className="h-6 w-6" />
+            </span>
+            <blockquote className="text-xl font-semibold leading-snug text-navy-900 sm:text-2xl">
+              Porque cuando una institución reconoce el liderazgo, fortalece el presente de la medicina. Y cuando decide invertir en quienes construirán el
+              conocimiento del mañana, también fortalece el futuro del sistema de salud.
+            </blockquote>
+          </figure>
+        </div>
+      </section>
+
       <DonateBanner />
     </>
   );
