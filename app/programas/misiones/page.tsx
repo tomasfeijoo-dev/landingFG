@@ -16,13 +16,13 @@ const b = (t: string) => <strong className="text-navy-900">{t}</strong>;
 export default function MisionesPage() {
   return (
     <>
-      <ProgramHeader eyebrow="Programa provincial" title="Misiones: Alianzas Territoriales" />
+      <ProgramHeader eyebrow="Programa provincial" title="Misiones: Alianzas Territoriales" image="/banners/misiones-equipo.webp" imagePosition="center 30%" />
 
       {/* Innovación y compromiso */}
       <section className="px-4 py-20 sm:px-6 sm:py-24">
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div className="reveal relative mx-auto aspect-[2/3] w-full max-w-sm overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
-            <Image src="/images/mis-1.webp" alt="Profesional realizando una práctica de endoscopía" fill sizes="(min-width: 1024px) 24rem, 90vw" className="object-cover transition duration-1000 hover:scale-105" />
+            <Image src="/images/mis-1-v2.webp" alt="Capacitación práctica de endoscopía con un docente de la Fundación" fill sizes="(min-width: 1024px) 24rem, 90vw" className="object-cover transition duration-1000 hover:scale-105" />
           </div>
           <div className="reveal">
             <Eyebrow chip>2024</Eyebrow>
@@ -74,8 +74,8 @@ export default function MisionesPage() {
               posibilidades de tratamiento exitoso y contribuyendo a salvar vidas.
             </p>
           </div>
-          <div className="reveal relative mx-auto aspect-[2/3] w-full max-w-sm overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
-            <Image src="/images/mis-2.webp" alt="Presentación del Programa Provincial y jornada de capacitación en Misiones" fill sizes="(min-width: 1024px) 24rem, 90vw" className="object-cover transition duration-1000 hover:scale-105" />
+          <div className="reveal relative mx-auto aspect-[4/3] w-full max-w-md overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
+            <Image src="/images/mis-2-v2.webp" alt="Presentación del Programa Provincial de Prevención del Cáncer de Colon en Misiones" fill sizes="(min-width: 1024px) 24rem, 90vw" className="object-cover transition duration-1000 hover:scale-105" />
           </div>
         </div>
       </section>
@@ -84,7 +84,7 @@ export default function MisionesPage() {
       <section className="px-4 py-20 sm:px-6 sm:py-24">
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div className="reveal relative mx-auto aspect-[3/4] w-full max-w-sm overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
-            <Image src="/images/mis-3.webp" alt="Práctica con simulador durante un HANDS ON" fill sizes="(min-width: 1024px) 24rem, 90vw" className="object-cover transition duration-1000 hover:scale-105" />
+            <Image src="/images/mis-3-v2.webp" alt="Práctica con simulador durante un HANDS ON" fill sizes="(min-width: 1024px) 24rem, 90vw" className="object-cover transition duration-1000 hover:scale-105" />
           </div>
           <div className="reveal">
             <Eyebrow chip>HANDS ON</Eyebrow>
@@ -142,8 +142,8 @@ export default function MisionesPage() {
               </p>
             </div>
           </div>
-          <div className="reveal relative mt-12 aspect-[11/4] overflow-hidden rounded-[2rem] shadow-2xl shadow-black/30 ring-1 ring-white/10">
-            <Image src="/images/mis-4.webp" alt="Equipo del HANDS ON" fill sizes="(min-width: 1280px) 72rem, 100vw" className="object-cover transition duration-1000 hover:scale-105" />
+          <div className="reveal relative mt-12 aspect-[4/3] overflow-hidden rounded-[2rem] shadow-2xl shadow-black/30 ring-1 ring-white/10 sm:aspect-[2/1]">
+            <Image src="/images/mis-4-v2.webp" alt="Profesionales practicando durante un HANDS ON" fill sizes="(min-width: 1280px) 72rem, 100vw" className="object-cover object-[center_40%] transition duration-1000 hover:scale-105" />
           </div>
         </div>
       </section>
