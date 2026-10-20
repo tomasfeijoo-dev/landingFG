@@ -43,7 +43,7 @@ const pilares = [
 export default function MujeresEnSaludPage() {
   return (
     <>
-      <ProgramHeader eyebrow="Programa · Liderazgo, workshops y webinars" title="Mujeres en Salud" image="/banners/mujeres-hands-on.webp" imagePosition="center 40%" accent={degradeMujeres} />
+      <ProgramHeader eyebrow="Programa · Liderazgo, workshops y webinars" title="Mujeres en Salud" image="/banners/mujeres-hands-on.webp" imagePosition="center 40%" accent={degradeMujeres} tint="violeta" />
 
       {/* El programa */}
       <section className="px-4 py-20 sm:px-6 sm:py-24">
