@@ -66,7 +66,7 @@ function Visual({ slide, priority, active }: { slide: Slide; priority: boolean; 
           <>
             <video
               ref={video}
-              className="absolute inset-0 h-full w-full scale-110 object-cover blur-[5px]"
+              className="absolute inset-0 h-full w-full scale-105 object-cover blur-[2px]"
               src={slide.video}
               poster={slide.image}
               muted
@@ -85,15 +85,19 @@ function Visual({ slide, priority, active }: { slide: Slide; priority: boolean; 
             </div>
           </>
         ) : slide.image ? (
-          <Image
-            src={slide.image}
-            alt={slide.imageAlt ?? ""}
-            fill
-            priority={priority}
-            sizes="100vw"
-            className="object-cover"
-            style={{ objectPosition: slide.imagePosition ?? "center" }}
-          />
+          // Mismo tratamiento que el video de la gala: leve desenfoque y filtro azul
+          <>
+            <Image
+              src={slide.image}
+              alt={slide.imageAlt ?? ""}
+              fill
+              priority={priority}
+              sizes="100vw"
+              className="scale-105 object-cover blur-[2px]"
+              style={{ objectPosition: slide.imagePosition ?? "center" }}
+            />
+            <div className="absolute inset-0 bg-[#0a2a6b]/55 mix-blend-multiply" />
+          </>
         ) : (
           <div className="flex h-full w-full items-center justify-end bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 pr-[8%] max-lg:items-start max-lg:justify-center max-lg:pt-6 max-lg:pr-0">
             <SatinRibbon />

@@ -22,7 +22,7 @@ export default function VideoBanner() {
   return (
     <div className="relative flex min-h-[34rem] w-full items-center justify-center overflow-hidden sm:min-h-[40rem] lg:min-h-[44rem]">
       <video
-        className="absolute inset-0 h-full w-full scale-110 object-cover blur-[6px]"
+        className="absolute inset-0 h-full w-full scale-105 object-cover blur-[2px]"
         src="/gala/noche-azul-2026-loop.mp4"
         poster="/gala/noche-azul-2026-poster.webp"
         autoPlay
