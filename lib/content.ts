@@ -168,7 +168,7 @@ export const slides: Slide[] = [
     image: "/banners/consejo.webp",
     imageAlt: "Reunión de trabajo alrededor de una mesa",
     imagePosition: "center 40%",
-    primary: { label: "Iniciar mi postulación", href: "https://fundaciongedyt.org.ar/consejo/" },
+    primary: { label: "Iniciar mi postulación", href: "/consejo-directivo" },
   },
   {
     id: "mujeres",
