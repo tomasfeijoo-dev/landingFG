@@ -165,10 +165,10 @@ export default function InstitucionalPage() {
         </svg>
         <div className="reveal relative mx-auto max-w-6xl">
           <h2 className="relative text-center text-3xl font-extrabold tracking-tight sm:text-4xl">Conocé nuestro trabajo</h2>
-          <div className="relative mt-10 grid gap-10 lg:grid-cols-[2fr_1fr]">
+          <div className="relative mt-10 grid gap-12">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.16em] text-sky-accent">Anuarios</p>
-              <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <p className="text-center text-sm font-bold uppercase tracking-[0.16em] text-sky-accent">Anuarios</p>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                 {anuarios.map((a) => (
                   <a
                     key={a.label}
@@ -185,7 +185,7 @@ export default function InstitucionalPage() {
                 ))}
               </div>
             </div>
-            <div>
+            <div className="mx-auto w-full max-w-sm text-center">
               <p className="text-sm font-bold uppercase tracking-[0.16em] text-sky-accent">Publicaciones</p>
               <Link
                 href="/novedades#publicaciones"
