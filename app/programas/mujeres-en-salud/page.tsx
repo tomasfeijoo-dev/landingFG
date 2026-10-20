@@ -17,8 +17,8 @@ export const metadata: Metadata = {
 // Etiqueta con los colores del programa
 function ChipMujeres({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-2 rounded-full bg-[#c8396d]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#c8396d] ring-1 ring-[#c8396d]/20">
-      <span className="h-1.5 w-1.5 rounded-full bg-[#c8396d]" />
+    <span className="inline-flex items-center gap-2 rounded-full bg-[#dd226c]/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#dd226c] ring-1 ring-[#dd226c]/20">
+      <span className="h-1.5 w-1.5 rounded-full bg-[#dd226c]" />
       {children}
     </span>
   );
@@ -47,29 +47,29 @@ export default function MujeresEnSaludPage() {
       <section className="px-4 py-20 sm:px-6 sm:py-24">
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2">
           <div className="reveal relative pb-8 sm:pr-8">
-            <div className="relative aspect-[3/2] overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
+            <div className="relative aspect-[3/2] overflow-hidden rounded-[2rem] shadow-2xl shadow-[#280d55]/20">
               <Image src="/images/mujeres-workshop.webp" alt="Workshop del programa Mujeres en Salud" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover transition duration-1000 hover:scale-105" />
             </div>
-            <div className="absolute right-0 bottom-0 flex items-center gap-3 rounded-2xl bg-white px-5 py-4 shadow-xl ring-1 ring-navy-900/5">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#c8396d]/10 text-[#c8396d]">
+            <div className="absolute right-0 bottom-0 flex items-center gap-3 rounded-2xl bg-white px-5 py-4 shadow-xl ring-1 ring-[#280d55]/5">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#dd226c]/10 text-[#dd226c]">
                 <Icon name="sparkle" className="h-5 w-5" />
               </span>
               <span className="text-sm leading-tight">
-                <strong className="block text-navy-900">Workshops</strong>
-                <span className="text-navy-900/60">y webinars</span>
+                <strong className="block text-[#280d55]">Workshops</strong>
+                <span className="text-[#280d55]/60">y webinars</span>
               </span>
             </div>
           </div>
           <div className="reveal">
             <ChipMujeres>El programa</ChipMujeres>
-            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-5xl">Mujeres liderando la{" "}
+            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-[#280d55] sm:text-5xl">Mujeres liderando la{" "}
               <span className="bg-clip-text text-transparent" style={{ backgroundImage: degradeMujeres }}>
                 gastroenterología
               </span>
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-navy-900/70">
+            <p className="mt-6 text-lg leading-relaxed text-[#280d55]/70">
               Este programa promueve el crecimiento de la mujer a través de{" "}
-              <strong className="text-navy-900">la educación, el crecimiento profesional y el desarrollo del liderazgo</strong>. Nuestro enfoque es
+              <strong className="text-[#280d55]">la educación, el crecimiento profesional y el desarrollo del liderazgo</strong>. Nuestro enfoque es
               colaborativo y empoderador. Buscamos la unión de las mujeres en gastroenterología y sus aliados como agentes de cambio y aumentar su visibilidad.
             </p>
           </div>
@@ -77,29 +77,29 @@ export default function MujeresEnSaludPage() {
       </section>
 
       {/* Pilares */}
-      <section className="bg-brand-50/70 px-4 py-20 sm:px-6 sm:py-24">
+      <section className="bg-[#49297d]/[0.06] px-4 py-20 sm:px-6 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <div className="reveal mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#c8396d]">Cómo trabajamos</p>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">El programa se apoya en dos pilares</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#dd226c]">Cómo trabajamos</p>
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#280d55] sm:text-4xl">El programa se apoya en dos pilares</h2>
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {pilares.map((p, i) => (
               <article
                 key={p.title}
                 className={`team-card reveal-pop relative overflow-hidden rounded-3xl p-8 sm:p-10 ${
-                  i === 1 ? "bg-gradient-to-br from-[#3f2b6e] to-navy-900 text-white" : "bg-white ring-1 ring-navy-900/5"
+                  i === 1 ? "bg-gradient-to-br from-[#49297d] to-[#280d55] text-white" : "bg-white ring-1 ring-[#280d55]/5"
                 }`}
               >
                 {i === 0 && <span className="team-sheen" aria-hidden />}
-                <span className={`pointer-events-none absolute -top-4 right-4 text-8xl font-extrabold ${i === 1 ? "text-white/5" : "text-brand-50"}`} aria-hidden>
+                <span className={`pointer-events-none absolute -top-4 right-4 text-8xl font-extrabold ${i === 1 ? "text-white/5" : "text-[#49297d]/[0.07]"}`} aria-hidden>
                   0{i + 1}
                 </span>
-                <span className={`relative flex h-14 w-14 items-center justify-center rounded-2xl ${i === 1 ? "bg-white/10 text-[#f08bb0]" : "bg-[#c8396d]/10 text-[#c8396d]"}`}>
+                <span className={`relative flex h-14 w-14 items-center justify-center rounded-2xl ${i === 1 ? "bg-white/10 text-[#f08bb0]" : "bg-[#dd226c]/10 text-[#dd226c]"}`}>
                   <Icon name={p.icon} className="h-7 w-7" />
                 </span>
-                <h3 className={`relative mt-6 text-2xl font-extrabold tracking-tight ${i === 1 ? "" : "text-navy-900"}`}>{p.title}</h3>
-                <p className={`relative mt-4 leading-relaxed ${i === 1 ? "text-white/80" : "text-navy-900/70"}`}>{p.text}</p>
+                <h3 className={`relative mt-6 text-2xl font-extrabold tracking-tight ${i === 1 ? "" : "text-[#280d55]"}`}>{p.title}</h3>
+                <p className={`relative mt-4 leading-relaxed ${i === 1 ? "text-white/80" : "text-[#280d55]/70"}`}>{p.text}</p>
               </article>
             ))}
           </div>
@@ -111,39 +111,39 @@ export default function MujeresEnSaludPage() {
         <div className="mx-auto max-w-6xl">
           <div className="reveal mx-auto max-w-3xl text-center">
             <ChipMujeres>Programa Mujeres en Gastro y Endo</ChipMujeres>
-            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-5xl">
+            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-[#280d55] sm:text-5xl">
               Reconocer el liderazgo para transformar el futuro de la salud digestiva
             </h2>
             <span className="mx-auto mt-6 block h-1 w-24 rounded-full" style={{ background: degradeMujeres }} aria-hidden />
-            <p className="mt-6 text-xl font-semibold leading-relaxed text-[#3f2b6e]">
+            <p className="mt-6 text-xl font-semibold leading-relaxed text-[#49297d]">
               La prevención también se construye formando, reconociendo e impulsando a quienes hacen avanzar la medicina.
             </p>
           </div>
 
           <div className="mt-14 grid items-center gap-12 lg:grid-cols-2">
-            <div className="reveal space-y-5 text-lg leading-relaxed text-navy-900/70">
+            <div className="reveal space-y-5 text-lg leading-relaxed text-[#280d55]/70">
               <p>
                 Detrás de cada innovación, de cada programa de prevención y de cada mejora en la calidad de atención existen profesionales que dedican años a
                 investigar, enseñar y generar conocimiento. Muchas veces ese trabajo transforma el sistema de salud sin ocupar un lugar visible.
               </p>
               <p>
-                Con esa convicción creamos el <strong className="text-navy-900">Premio Mujeres Destacadas en Gastroenterología y Endoscopia Digestiva</strong>,
+                Con esa convicción creamos el <strong className="text-[#280d55]">Premio Mujeres Destacadas en Gastroenterología y Endoscopia Digestiva</strong>,
                 una iniciativa que reconoce a mujeres cuyo recorrido profesional ha contribuido de manera significativa a la investigación, la prevención, la
                 formación de recursos humanos y la ampliación del acceso a la salud digestiva en Argentina.
               </p>
-              <p className="border-l-4 border-[#c8396d] pl-5 font-semibold text-navy-900">
+              <p className="border-l-4 border-[#dd226c] pl-5 font-semibold text-[#280d55]">
                 Porque reconocer esos liderazgos también es una forma de fortalecer el sistema de salud.
               </p>
               <Link
                 href={premioHref}
-                className="!mt-8 inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-[#c8396d]/25 transition hover:-translate-y-0.5 hover:shadow-xl"
+                className="!mt-8 inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-[#dd226c]/25 transition hover:-translate-y-0.5 hover:shadow-xl"
                 style={{ background: degradeMujeres }}
               >
                 Conocé el Premio Mujeres Destacadas <Icon name="arrow" className="h-4 w-4" />
               </Link>
             </div>
             <div className="reveal relative pb-8 sm:pl-8">
-              <div className="relative aspect-[7/3] overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20 sm:aspect-[2/1]">
+              <div className="relative aspect-[7/3] overflow-hidden rounded-[2rem] shadow-2xl shadow-[#280d55]/20 sm:aspect-[2/1]">
                 <Image
                   src="/images/premio-mujeres-ddw-hd.webp"
                   alt="Profesionales argentinos en el Digestive Disease Week"
@@ -152,13 +152,13 @@ export default function MujeresEnSaludPage() {
                   className="object-cover transition duration-1000 hover:scale-105"
                 />
               </div>
-              <div className="absolute bottom-0 left-0 flex items-center gap-3 rounded-2xl bg-white px-5 py-4 shadow-xl ring-1 ring-navy-900/5">
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#c8396d]/10 text-[#c8396d]">
+              <div className="absolute bottom-0 left-0 flex items-center gap-3 rounded-2xl bg-white px-5 py-4 shadow-xl ring-1 ring-[#280d55]/5">
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#dd226c]/10 text-[#dd226c]">
                   <Icon name="graduation" className="h-5 w-5" />
                 </span>
                 <span className="text-sm leading-tight">
-                  <strong className="block text-navy-900">Digestive Disease Week</strong>
-                  <span className="text-navy-900/60">DDW 2027</span>
+                  <strong className="block text-[#280d55]">Digestive Disease Week</strong>
+                  <span className="text-[#280d55]/60">DDW 2027</span>
                 </span>
               </div>
             </div>
@@ -167,8 +167,8 @@ export default function MujeresEnSaludPage() {
       </section>
 
       {/* La beca */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-[#3f2b6e] px-4 py-20 text-white sm:px-6 sm:py-24">
-        <div className="pointer-events-none absolute -right-24 -bottom-24 h-80 w-80 rounded-full bg-[#c8396d]/25 blur-3xl" aria-hidden />
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#280d55] via-[#280d55] to-[#49297d] px-4 py-20 text-white sm:px-6 sm:py-24">
+        <div className="pointer-events-none absolute -right-24 -bottom-24 h-80 w-80 rounded-full bg-[#dd226c]/25 blur-3xl" aria-hidden />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[1.1fr_1fr]">
           <div className="reveal">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#f08bb0]">El premio</p>
@@ -194,7 +194,7 @@ export default function MujeresEnSaludPage() {
                 { icon: "building", label: "Alojamiento", sub: "durante el encuentro" },
               ].map((b) => (
                 <li key={b.label} className="flex items-center gap-4 rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
-                  <span className="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-[#c8396d]/25 text-[#f08bb0]">
+                  <span className="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-[#dd226c]/25 text-[#f08bb0]">
                     <Icon name={b.icon} className="h-6 w-6" />
                   </span>
                   <span>
@@ -209,11 +209,11 @@ export default function MujeresEnSaludPage() {
       </section>
 
       {/* Equidad */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-white via-[#3f2b6e]/[0.04] to-white px-4 py-20 sm:px-6 sm:py-24">
+      <section className="relative overflow-hidden bg-gradient-to-b from-white via-[#49297d]/[0.04] to-white px-4 py-20 sm:px-6 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <div className="reveal mx-auto max-w-2xl text-center">
             <ChipMujeres>Una agenda de equidad</ChipMujeres>
-            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-[#280d55] sm:text-4xl">
               Visibilizar trayectorias para inspirar a{" "}
               <span className="bg-clip-text text-transparent" style={{ backgroundImage: degradeMujeres }}>
                 nuevas generaciones
@@ -234,30 +234,30 @@ export default function MujeresEnSaludPage() {
                 text: "Reconocer a mujeres que investigan, enseñan, forman profesionales y transforman la práctica médica no solo pone en valor su recorrido. También amplía los modelos de referencia para nuevas generaciones de médicas, investigadoras y profesionales de la salud que encontrarán en ellas una inspiración para desarrollar su propio camino.",
               },
             ].map((c) => (
-              <article key={c.title} className="reveal-pop relative overflow-hidden rounded-3xl bg-white p-8 shadow-sm ring-1 ring-[#3f2b6e]/10 sm:p-10">
+              <article key={c.title} className="reveal-pop relative overflow-hidden rounded-3xl bg-white p-8 shadow-sm ring-1 ring-[#49297d]/10 sm:p-10">
                 <span className="absolute inset-x-0 top-0 h-1" style={{ background: degradeMujeres }} aria-hidden />
-                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#c8396d]/10 text-[#c8396d]">
+                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#dd226c]/10 text-[#dd226c]">
                   <Icon name={c.icon} className="h-7 w-7" />
                 </span>
-                <h3 className="mt-6 text-xl font-extrabold tracking-tight text-navy-900">{c.title}</h3>
-                <p className="mt-3 leading-relaxed text-navy-900/70">{c.text}</p>
+                <h3 className="mt-6 text-xl font-extrabold tracking-tight text-[#280d55]">{c.title}</h3>
+                <p className="mt-3 leading-relaxed text-[#280d55]/70">{c.text}</p>
               </article>
             ))}
 
             {/* Publicación relacionada, en formato de nota */}
             <Link
               href="/novedades#poster-brecha-genero"
-              className="reveal-pop group mx-auto flex w-full max-w-xs flex-col overflow-hidden rounded-3xl bg-white/70 ring-1 ring-[#3f2b6e]/10 transition hover:-translate-y-1 hover:bg-white hover:shadow-lg md:col-span-2 lg:col-span-1 lg:max-w-none lg:self-center"
+              className="reveal-pop group mx-auto flex w-full max-w-xs flex-col overflow-hidden rounded-3xl bg-white/70 ring-1 ring-[#49297d]/10 transition hover:-translate-y-1 hover:bg-white hover:shadow-lg md:col-span-2 lg:col-span-1 lg:max-w-none lg:self-center"
             >
-              <div className="relative aspect-[4/3] overflow-hidden bg-brand-50">
+              <div className="relative aspect-[4/3] overflow-hidden bg-[#49297d]/[0.06]">
                 <Image src="/publicaciones/poster-3.webp" alt="Póster Brecha de género en el liderazgo de sistemas de salud" fill sizes="(min-width: 1024px) 20vw, 320px" className="object-cover object-top opacity-90 transition duration-700 group-hover:scale-105 group-hover:opacity-100" />
-                <span className="absolute top-3 left-3 z-10 rounded-full bg-white px-2.5 py-0.5 text-[11px] font-bold text-[#c8396d] shadow-sm">Publicación</span>
+                <span className="absolute top-3 left-3 z-10 rounded-full bg-white px-2.5 py-0.5 text-[11px] font-bold text-[#dd226c] shadow-sm">Publicación</span>
               </div>
               <div className="flex flex-1 flex-col p-5">
-                <h3 className="text-sm font-bold leading-snug text-navy-900/85">
+                <h3 className="text-sm font-bold leading-snug text-[#280d55]/85">
                   Brecha de género en el liderazgo de sistemas de salud: un ejemplo en la gastroenterología
                 </h3>
-                <span className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-semibold text-[#3f2b6e] transition group-hover:text-[#c8396d]">
+                <span className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-semibold text-[#49297d] transition group-hover:text-[#dd226c]">
                   Ver publicación <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />
                 </span>
               </div>
@@ -268,7 +268,7 @@ export default function MujeresEnSaludPage() {
       </section>
 
       {/* Cierre a todo el ancho con la frase */}
-      <section className="relative overflow-hidden px-6 py-16 text-white sm:px-12 sm:py-20" style={{ background: `linear-gradient(120deg, ${VIOLETA} 0%, #5a2f75 55%, ${ROSA} 100%)` }}>
+      <section className="relative overflow-hidden px-6 py-16 text-white sm:px-12 sm:py-20" style={{ background: `linear-gradient(120deg, ${VIOLETA} 0%, #693c98 55%, ${ROSA} 100%)` }}>
         <span className="pointer-events-none absolute top-2 right-[6%] text-[14rem] leading-none font-extrabold text-white/10 select-none" aria-hidden>
           “
         </span>
@@ -280,7 +280,7 @@ export default function MujeresEnSaludPage() {
         </div>
       </section>
 
-      <DonateBanner />
+      <DonateBanner violeta />
     </>
   );
 }

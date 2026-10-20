@@ -25,19 +25,19 @@ export default function ProgramHeader({
   const violeta = tint === "violeta";
   return (
     <section className="px-4 pt-6 sm:px-6 sm:pt-10">
-      <div className={`relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br ${violeta ? "from-[#1f1538] via-[#2e1f52] to-[#3f2b6e]" : "from-navy-950 via-navy-900 to-navy-800"} px-6 py-14 text-white sm:px-12 lg:px-16 lg:py-16`}>
+      <div className={`relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-gradient-to-br ${violeta ? "from-[#280d55] via-[#280d55] to-[#49297d]" : "from-navy-950 via-navy-900 to-navy-800"} px-6 py-14 text-white sm:px-12 lg:px-16 lg:py-16`}>
         {image && (
           <>
             <Image src={image} alt="" fill priority sizes="(min-width: 1280px) 1280px, 100vw" className="scale-105 object-cover blur-[2px]" style={{ objectPosition: imagePosition }} />
-            <div className={`absolute inset-0 mix-blend-multiply ${violeta ? "bg-[#3f2b6e]/70" : "bg-[#0a2a6b]/55"}`} />
-            <div className={`absolute inset-0 bg-gradient-to-r ${violeta ? "from-[#1f1538]/85 via-[#3f2b6e]/55 to-[#3f2b6e]/25" : "from-navy-950/80 via-navy-900/55 to-navy-800/30"}`} />
+            <div className={`absolute inset-0 mix-blend-multiply ${violeta ? "bg-[#49297d]/70" : "bg-[#0a2a6b]/55"}`} />
+            <div className={`absolute inset-0 bg-gradient-to-r ${violeta ? "from-[#280d55]/85 via-[#49297d]/55 to-[#49297d]/25" : "from-navy-950/80 via-navy-900/55 to-navy-800/30"}`} />
           </>
         )}
         <Link
           href="/programas#nuestros-programas"
-          className="group relative inline-flex items-center gap-3 rounded-full bg-white/10 py-2 pr-6 pl-2 text-base font-semibold text-white ring-1 ring-white/20 transition hover:bg-white hover:text-navy-900"
+          className={`group relative inline-flex items-center gap-3 rounded-full bg-white/10 py-2 pr-6 pl-2 text-base font-semibold text-white ring-1 ring-white/20 transition hover:bg-white ${violeta ? "hover:text-[#280d55]" : "hover:text-navy-900"}`}
         >
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15 transition group-hover:-translate-x-0.5 group-hover:bg-cta group-hover:text-white">
+          <span className={`flex h-10 w-10 items-center justify-center rounded-full bg-white/15 transition group-hover:-translate-x-0.5 group-hover:text-white ${violeta ? "group-hover:bg-[#dd226c]" : "group-hover:bg-cta"}`}>
             <Icon name="arrow" className="h-5 w-5 rotate-180" />
           </span>
           Volver a Programas
