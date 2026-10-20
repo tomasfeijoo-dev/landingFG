@@ -50,7 +50,7 @@ const cursos = [
 export default function EntrenamientoAsistentesPage() {
   return (
     <>
-      <ProgramHeader eyebrow="Entrenamiento para profesionales" title="Entrenamiento para asistentes de endoscopistas" />
+      <ProgramHeader eyebrow="Entrenamiento para profesionales" title="Entrenamiento para asistentes de endoscopistas" image="/banners/prog-asistentes.webp" imagePosition="center 30%" />
 
       {/* Índice de cursos */}
       <nav className="mx-auto mt-8 flex max-w-fit flex-wrap justify-center gap-2 px-4">

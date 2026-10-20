@@ -91,7 +91,7 @@ function Accordion({ title, open = false, children }: { title: string; open?: bo
 export default function EntrenamientoEndoscopistasPage() {
   return (
     <>
-      <ProgramHeader eyebrow="Entrenamiento para profesionales" title="Entrenamiento para endoscopistas" />
+      <ProgramHeader eyebrow="Entrenamiento para profesionales" title="Entrenamiento para endoscopistas" image="/banners/prog-endoscopistas.webp" imagePosition="center 35%" />
 
       {/* La situación actual */}
       <section className="px-4 py-20 sm:px-6 sm:py-24">
