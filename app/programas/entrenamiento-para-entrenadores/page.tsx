@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function EntrenamientoEntrenadoresPage() {
   return (
     <>
-      <ProgramHeader eyebrow="Entrenamiento para profesionales" title="Entrenamiento para entrenadores" image="/banners/prog-entrenadores.webp" imagePosition="center 40%" />
+      <ProgramHeader eyebrow="Entrenamiento para profesionales" title="Entrenamiento para entrenadores" image="/banners/prog-entrenadores-v2.webp" imagePosition="center 45%" />
 
       {/* La propuesta */}
       <section className="px-4 py-20 sm:px-6 sm:py-24">
