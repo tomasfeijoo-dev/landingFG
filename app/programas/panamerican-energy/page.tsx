@@ -40,7 +40,7 @@ const ejes = [
 export default function PanAmericanEnergyPage() {
   return (
     <>
-      <ProgramHeader eyebrow="Prevenir es cuidar · Caso de éxito" title="Pan American Energy" />
+      <ProgramHeader eyebrow="Prevenir es cuidar · Caso de éxito" title="Pan American Energy" image="/banners/pae-test-fit.webp" imagePosition="center 45%" />
 
       {/* Un FIT, una oportunidad de vivir */}
       <section className="px-4 py-20 sm:px-6 sm:py-24">
@@ -83,7 +83,6 @@ export default function PanAmericanEnergyPage() {
 
       {/* Resultados */}
       <section className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800 px-6 py-20 text-white sm:px-12 sm:py-24">
-        <div className="pointer-events-none absolute -bottom-40 -left-40 h-[28rem] w-[28rem] rounded-full border-[48px] border-white/5" aria-hidden />
         <div className="relative mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-center">
           <div className="reveal">
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-sky-accent">1 empresa, 1 programa, un nuevo modelo de salud preventiva</p>
