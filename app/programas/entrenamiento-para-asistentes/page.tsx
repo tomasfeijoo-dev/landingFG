@@ -74,7 +74,7 @@ export default function EntrenamientoAsistentesPage() {
                 <Image src={c.image} alt={c.alt} fill sizes="(min-width: 1024px) 24rem, 90vw" className="object-cover transition duration-1000 hover:scale-105" />
                 {/* Número grande del curso, como en el resto de la web */}
                 <div className="pointer-events-none absolute inset-x-0 top-0 h-2/5 bg-gradient-to-b from-navy-950/55 to-transparent" aria-hidden />
-                <span className="pointer-events-none absolute -top-5 right-4 text-[8.5rem] leading-none font-extrabold tracking-tight text-white/35 select-none" aria-hidden>
+                <span className={`pointer-events-none absolute -top-5 ${alt ? "right-4" : "left-4"} text-[8.5rem] leading-none font-extrabold tracking-tight text-white/35 select-none`} aria-hidden>
                   0{i + 1}
                 </span>
               </div>
