@@ -155,6 +155,9 @@ export const slides: Slide[] = [
     title: "Impulsamos el\n",
     highlight: "Plan Federal de Prevención del\nCáncer Colorrectal 2027-2030",
     text: "Prevenir mejor no es hacer más colonoscopías: es que cada persona llegue a un diagnóstico a tiempo.",
+    image: "/banners/plan-federal.webp",
+    imageAlt: "Equipo de salud de un centro de atención primaria que participa de la prevención del cáncer colorrectal",
+    imagePosition: "center 35%",
     primary: { label: "Conocé más sobre el Plan Federal", href: "https://planfederalcolon.com.ar/" },
   },
   {
