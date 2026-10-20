@@ -97,7 +97,7 @@ export default function EntrenamientoEndoscopistasPage() {
       <section className="px-4 py-20 sm:px-6 sm:py-24">
         <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-[0.8fr_1.2fr]">
           <div className="reveal relative mx-auto aspect-[2/3] w-full max-w-sm overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
-            <Image src="/images/endo-1.webp" alt="Profesionales de la salud atendiendo a un paciente" fill sizes="(min-width: 1024px) 24rem, 90vw" className="object-cover transition duration-1000 hover:scale-105" />
+            <Image src="/images/endo-1-v2.webp" alt="Profesionales de la salud atendiendo a un paciente" fill sizes="(min-width: 1024px) 24rem, 90vw" className="object-cover transition duration-1000 hover:scale-105" />
           </div>
           <div className="reveal">
             <Eyebrow chip>Diagnóstico</Eyebrow>
@@ -151,7 +151,7 @@ export default function EntrenamientoEndoscopistasPage() {
             </ol>
           </div>
           <div className="reveal relative mx-auto aspect-[2/3] w-full max-w-sm overflow-hidden rounded-[2rem] shadow-2xl shadow-navy-900/20">
-            <Image src="/images/endo-2.webp" alt="Médica sosteniendo un modelo anatómico" fill sizes="(min-width: 1024px) 24rem, 90vw" className="object-cover transition duration-1000 hover:scale-105" />
+            <Image src="/images/endo-2-v2.webp" alt="Médica sosteniendo un modelo anatómico" fill sizes="(min-width: 1024px) 24rem, 90vw" className="object-cover transition duration-1000 hover:scale-105" />
           </div>
         </div>
       </section>
