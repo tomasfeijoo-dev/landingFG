@@ -213,38 +213,61 @@ export default function MujeresEnSaludPage() {
       </section>
 
       {/* Equidad */}
-      <section className="px-4 py-20 sm:px-6 sm:py-24">
-        <div className="reveal mx-auto max-w-4xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#c8396d]">Una agenda de equidad</p>
-          <div className="mt-6 grid gap-8 text-lg leading-relaxed text-navy-900/70 md:grid-cols-2">
-            <p>
-              El Premio Mujeres busca contribuir a una agenda de mayor equidad dentro del sistema sanitario, visibilizando trayectorias de excelencia que
-              durante muchos años permanecieron subrepresentadas.
-            </p>
-            <p>
-              Reconocer a mujeres que investigan, enseñan, forman profesionales y transforman la práctica médica no solo pone en valor su recorrido. También
-              amplía los modelos de referencia para nuevas generaciones de médicas, investigadoras y profesionales de la salud que encontrarán en ellas una
-              inspiración para desarrollar su propio camino.
-            </p>
+      <section className="relative overflow-hidden bg-gradient-to-b from-white via-[#3f2b6e]/[0.04] to-white px-4 py-20 sm:px-6 sm:py-24">
+        <div className="mx-auto max-w-6xl">
+          <div className="reveal mx-auto max-w-2xl text-center">
+            <ChipMujeres>Una agenda de equidad</ChipMujeres>
+            <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">
+              Visibilizar trayectorias para inspirar a{" "}
+              <span className="bg-clip-text text-transparent" style={{ backgroundImage: degradeMujeres }}>
+                nuevas generaciones
+              </span>
+            </h2>
           </div>
-          <figure className="relative mt-12 rounded-[2rem] bg-gradient-to-br from-[#3f2b6e]/[0.06] via-white to-[#c8396d]/[0.06] px-8 pt-12 pb-10 ring-1 ring-[#3f2b6e]/10 sm:px-12">
-            <span className="absolute -top-6 left-8 flex h-12 w-12 items-center justify-center rounded-2xl text-white shadow-lg shadow-[#c8396d]/30 sm:left-12" style={{ background: degradeMujeres }}>
-              <Icon name="quote" className="h-6 w-6" />
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {[
+              {
+                icon: "heart",
+                title: "Más equidad en el sistema sanitario",
+                text: "El Premio Mujeres busca contribuir a una agenda de mayor equidad dentro del sistema sanitario, visibilizando trayectorias de excelencia que durante muchos años permanecieron subrepresentadas.",
+              },
+              {
+                icon: "users",
+                title: "Nuevos modelos de referencia",
+                text: "Reconocer a mujeres que investigan, enseñan, forman profesionales y transforman la práctica médica no solo pone en valor su recorrido. También amplía los modelos de referencia para nuevas generaciones de médicas, investigadoras y profesionales de la salud que encontrarán en ellas una inspiración para desarrollar su propio camino.",
+              },
+            ].map((c) => (
+              <article key={c.title} className="reveal-pop relative overflow-hidden rounded-3xl bg-white p-8 shadow-sm ring-1 ring-[#3f2b6e]/10 sm:p-10">
+                <span className="absolute inset-x-0 top-0 h-1" style={{ background: degradeMujeres }} aria-hidden />
+                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#c8396d]/10 text-[#c8396d]">
+                  <Icon name={c.icon} className="h-7 w-7" />
+                </span>
+                <h3 className="mt-6 text-xl font-extrabold tracking-tight text-navy-900">{c.title}</h3>
+                <p className="mt-3 leading-relaxed text-navy-900/70">{c.text}</p>
+              </article>
+            ))}
+          </div>
+
+          {/* Cierre con la frase y el link al premio */}
+          <div className="reveal relative mt-12 overflow-hidden rounded-[2rem] px-8 py-12 text-white shadow-2xl shadow-[#3f2b6e]/25 sm:px-14 sm:py-16" style={{ background: `linear-gradient(120deg, ${VIOLETA} 0%, #5a2f75 55%, ${ROSA} 100%)` }}>
+            <span className="pointer-events-none absolute -top-10 right-6 text-[12rem] leading-none font-extrabold text-white/10 select-none" aria-hidden>
+              “
             </span>
-            <blockquote className="text-xl font-semibold leading-snug text-navy-900 sm:text-2xl">
-              Porque cuando una institución reconoce el liderazgo, fortalece el presente de la medicina. Y cuando decide invertir en quienes construirán el
-              conocimiento del mañana, también fortalece el futuro del sistema de salud.
-            </blockquote>
-          </figure>
-          <div className="mt-10 text-center">
-            <a
-              href={premioUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#3f2b6e] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-[#3f2b6e]/25 transition hover:bg-[#c8396d]"
-            >
-              Ir a la página del Premio <Icon name="arrow" className="h-4 w-4 -rotate-45" />
-            </a>
+            <div className="relative grid items-center gap-10 lg:grid-cols-[1.6fr_auto]">
+              <blockquote className="text-xl leading-snug font-semibold sm:text-2xl lg:text-[1.7rem]">
+                Porque cuando una institución reconoce el liderazgo, fortalece el presente de la medicina. Y cuando decide invertir en quienes construirán el
+                conocimiento del mañana, también fortalece el futuro del sistema de salud.
+              </blockquote>
+              <a
+                href={premioUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 self-center justify-self-start rounded-full bg-white px-8 py-4 font-semibold text-[#3f2b6e] shadow-lg shadow-black/15 transition hover:-translate-y-0.5 lg:justify-self-end"
+              >
+                Ir a la página del Premio <Icon name="arrow" className="h-4 w-4 -rotate-45" />
+              </a>
+            </div>
           </div>
         </div>
       </section>
