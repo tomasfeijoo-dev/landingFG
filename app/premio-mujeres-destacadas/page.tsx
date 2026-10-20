@@ -12,8 +12,9 @@ export const metadata: Metadata = {
 
 // Tipografías de la landing del premio: Poppins en títulos, Source Sans en textos
 const poppins = Poppins({ subsets: ["latin"], weight: ["600", "700", "800", "900"], variable: "--font-poppins", display: "swap" });
-const sourceSans = Source_Sans_3({ subsets: ["latin"], weight: ["300", "400", "600"], variable: "--font-source", display: "swap" });
+const sourceSans = Source_Sans_3({ subsets: ["latin"], weight: ["300", "400", "600", "700"], variable: "--font-source", display: "swap" });
 const TT = "font-[family-name:var(--font-poppins)]";
+const SS = "font-[family-name:var(--font-source)]";
 
 // Textos e imágenes tal cual la landing del premio (mujeres-gedyt-landing.html).
 // La página usa la estructura y tipografía de la web de la Fundación con los colores de Mujeres en Salud.
@@ -131,14 +132,14 @@ function Label({ children, center = false }: { children: React.ReactNode; center
   );
 }
 
-function QuieroParticipar({ light = false }: { light?: boolean }) {
+function QuieroParticipar({ big = false }: { big?: boolean }) {
   return (
     <a
       href={formularioUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group inline-flex items-center gap-3 rounded-full px-9 py-4 text-sm font-bold tracking-[0.12em] uppercase shadow-lg transition hover:-translate-y-0.5 ${TT} ${
-        light ? "bg-white text-[#49297d] shadow-black/20" : "bg-[#dd226c] text-white shadow-[#dd226c]/30 hover:bg-[#c41d5e]"
+      className={`group inline-flex items-center gap-3 rounded-full bg-[#dd226c] font-bold tracking-[0.12em] text-white uppercase transition hover:-translate-y-0.5 hover:bg-[#c41d5e] hover:shadow-[0_12px_32px_rgba(221,34,108,0.45)] ${TT} ${
+        big ? "px-12 py-5 text-base" : "px-9 py-4 text-sm"
       }`}
     >
       Quiero participar
@@ -270,43 +271,43 @@ export default function PremioMujeresPage() {
         </div>
       </section>
 
-      {/* Premio */}
-      <section className="relative overflow-hidden bg-[#280d55] px-4 py-20 text-white sm:px-6 sm:py-24">
-        <div className="absolute inset-y-0 left-0 w-full md:w-1/2">
-          <Image src="/images/premio-ddw-ciudad.webp" alt="" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#280d55]/50 to-[#280d55] max-md:bg-[#280d55]/70" />
+      {/* Premio, como la landing */}
+      <section className="relative overflow-hidden bg-[linear-gradient(160deg,#49297d_0%,#280d55_60%)] px-6 py-20 text-white md:px-[60px] md:py-[110px]">
+        <div className="absolute inset-y-0 left-0 w-1/2 opacity-55 [mask-image:linear-gradient(to_right,#000_60%,transparent_100%)]" aria-hidden>
+          <Image src="/images/premio-ddw-ciudad.webp" alt="" fill sizes="50vw" className="object-cover" />
         </div>
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
-          <div className="reveal-pop mx-auto flex aspect-square w-full max-w-sm items-center justify-center">
-            <div className="relative flex aspect-square w-full items-center justify-center rounded-full ring-1 ring-white/15">
-              <div className="absolute inset-6 rounded-full ring-1 ring-[#dd226c]/40" aria-hidden />
-              <div className="absolute inset-12 rounded-full ring-1 ring-[#00a3d6]/40" aria-hidden />
-              <div className="relative flex aspect-square w-[62%] flex-col items-center justify-center rounded-full bg-gradient-to-br from-[#49297d] to-[#dd226c] text-center shadow-2xl shadow-black/40">
-                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/80">Beca completa</span>
-                <span className="mt-1 text-3xl font-extrabold sm:text-4xl">DDW 2027</span>
-                <span className="mt-1 text-xs text-white/80">Digestive Disease Week</span>
-                <span className="mt-2 text-xs font-semibold text-[#00a3d6]">Estados Unidos</span>
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2 md:gap-20">
+          <div className="reveal-pop flex h-[280px] items-center justify-center md:h-[420px]">
+            <div className="relative h-60 w-60 md:h-[300px] md:w-[300px]">
+              <div className="absolute inset-0 rounded-full border-[1.5px] border-[#00a3d6]/50" aria-hidden />
+              <div className="absolute -inset-[22px] rounded-full border-[1.5px] border-[#dd226c]/25" aria-hidden />
+              <div className="absolute -inset-12 rounded-full border-[1.5px] border-[#49297d]/40" aria-hidden />
+              <div className="absolute inset-0 flex flex-col items-center justify-center rounded-full bg-[radial-gradient(circle,rgba(73,41,125,0.7)_0%,rgba(40,13,85,0.9)_100%)] p-6 text-center">
+                <span className={`${SS} mb-1.5 text-[11px] font-bold tracking-[0.3em] text-[#00a3d6] uppercase`}>Beca completa</span>
+                <span className={`${TT} text-[36px] leading-none font-black`}>DDW 2027</span>
+                <span className={`${SS} mt-2 text-[13px] leading-[1.4] text-white/70`}>Digestive Disease Week</span>
+                <span className={`${SS} mt-2.5 text-xs font-semibold tracking-[0.1em] text-[#dd226c] uppercase`}>Estados Unidos</span>
               </div>
             </div>
           </div>
           <div className="reveal">
             <Label>El premio</Label>
-            <h2 className="mt-4 text-4xl leading-[1.02] font-black tracking-tight uppercase sm:text-5xl font-[family-name:var(--font-poppins)]">
+            <h2 className={`${TT} mt-5 mb-7 text-[clamp(36px,4.5vw,58px)] leading-[0.97] font-black uppercase`}>
               Una experiencia
-              <OutlineWord text="INTERNACIONAL" viewBox="0 0 500 52" y={46} size={54} className="my-1 block h-auto w-full max-w-[520px]" />
-              <span className="block text-5xl text-[#dd226c] sm:text-7xl">única</span>
+              <OutlineWord text="INTERNACIONAL" viewBox="0 0 500 52" y={46} size={54} className="block h-auto w-full" />
+              <span className="-mt-1 block text-[clamp(48px,6vw,78px)] leading-none text-[#dd226c]">única</span>
             </h2>
-            <ul className="mt-8 space-y-3">
+            <ul className={`${SS} mb-3.5 flex flex-col gap-3.5`}>
               {premio.map((p) => (
-                <li key={p} className="flex items-center gap-4 rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
-                  <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-[#dd226c] text-white">
-                    <Icon name="check" className="h-4 w-4" />
+                <li key={p} className="flex items-center gap-3.5 text-base leading-normal text-white/70">
+                  <span className="flex h-[22px] w-[22px] flex-none items-center justify-center rounded-full border-[1.5px] border-[#dd226c] bg-[#dd226c]/20 text-[11px] font-bold text-[#dd226c]" aria-hidden>
+                    ✓
                   </span>
-                  <span className="font-semibold">{p}</span>
+                  {p}
                 </li>
               ))}
             </ul>
-            <p className="mt-4 text-sm text-white/55">* Traslados internos y gastos personales a cargo de la ganadora.</p>
+            <p className={`${SS} text-xs font-light text-white/40 italic`}>* Traslados internos y gastos personales a cargo de la ganadora.</p>
           </div>
         </div>
       </section>
@@ -375,40 +376,38 @@ export default function PremioMujeresPage() {
         </div>
       </section>
 
-      {/* Frase */}
-      <section className="relative overflow-hidden bg-[#49297d] px-6 py-16 text-white sm:px-12 sm:py-20">
-        <div className="pointer-events-none absolute -right-24 -bottom-24 h-80 w-80 rounded-full bg-[#dd226c]/25 blur-3xl" aria-hidden />
-        <div className="reveal relative mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[1.1fr_1fr]">
-          <h2 className="text-4xl leading-[1.05] font-black tracking-tight uppercase sm:text-5xl font-[family-name:var(--font-poppins)]">
+      {/* Frase, como la landing */}
+      <section className="relative overflow-hidden border-y border-t-[#dd226c]/30 border-b-[#00a3d6]/20 bg-[#49297d] px-6 py-[60px] text-white md:px-[60px] md:py-20">
+        <div className="pointer-events-none absolute -top-1/2 -right-[10%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(40,13,85,0.5)_0%,transparent_70%)]" aria-hidden />
+        <div className="reveal relative mx-auto grid max-w-7xl items-center gap-7 md:grid-cols-[55fr_45fr] md:gap-[60px]">
+          <h2 className={`${TT} text-[clamp(32px,4vw,54px)] leading-none font-black uppercase`}>
             Si tu trayectoria
             <br />
-            <span className="text-[#dd226c]">inspira</span>, <OutlineWord text="TRANSFORMA" viewBox="0 0 480 55" y={48} size={56} weight={900} strokeWidth={1.8} className="relative top-[0.08em] inline-block h-[0.95em] w-auto align-baseline" />
+            <span className="sm:whitespace-nowrap">
+              <span className="text-[#dd226c]">inspira</span>,{" "}
+              <OutlineWord text="TRANSFORMA" viewBox="0 0 480 55" y={48} size={56} weight={900} strokeWidth={1.8} className="relative top-[0.08em] inline-block h-[0.95em] w-auto align-baseline" />
+            </span>
             <br />y deja huella…
           </h2>
-          <p className="text-lg leading-relaxed text-white/80">
+          <p className={`${SS} text-[17px] leading-[1.75] font-light text-white/70`}>
             Este reconocimiento es para vos. Presentá tu candidatura o nominá a una profesional que inspire con su trayectoria. El jurado valorará el impacto
             real, el liderazgo visible y el compromiso genuino con la especialidad y la comunidad médica argentina.
           </p>
         </div>
       </section>
 
-      {/* CTA final */}
-      <section id="postulacion" className="px-4 py-20 sm:px-6 sm:py-24">
-        <div className="reveal relative mx-auto max-w-5xl overflow-hidden rounded-[2rem] bg-[#280d55] px-6 py-16 text-center text-white sm:px-12 sm:py-20">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_70%_at_50%_50%,rgba(73,41,125,0.9),transparent_70%),radial-gradient(ellipse_30%_30%_at_20%_80%,rgba(0,163,214,0.15),transparent_60%)]" aria-hidden />
-          <div className="relative">
-            <h2 className="text-4xl leading-[1.02] font-black tracking-tight uppercase sm:text-6xl font-[family-name:var(--font-poppins)]">
-              <OutlineWord text="RECONOCER" viewBox="0 8 430 52" x={215} y={54} size={64} anchor="middle" className="mx-auto mb-1 block h-auto w-full max-w-[560px]" />
-              el impacto de
-              <br />
-              las <span className="text-[#dd226c]">mujeres</span>
-            </h2>
-            <p className="mt-5 text-xl font-semibold text-white/80">es impulsar el futuro de la medicina.</p>
-            <div className="mt-9">
-              <QuieroParticipar light />
-            </div>
-          </div>
-          <div className="absolute inset-x-0 bottom-0 h-1.5 bg-gradient-to-r from-[#49297d] via-[#dd226c] to-[#00a3d6]" aria-hidden />
+      {/* CTA final, como la landing */}
+      <section id="postulacion" className="relative overflow-hidden bg-[#280d55] px-6 py-[90px] text-center text-white md:px-[60px] md:py-[130px]">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_55%_70%_at_50%_50%,rgba(73,41,125,0.75)_0%,transparent_70%),radial-gradient(ellipse_30%_30%_at_20%_80%,rgba(0,163,214,0.1)_0%,transparent_60%)]" aria-hidden />
+        <div className="reveal relative mx-auto max-w-[680px]">
+          <h2 className={`${TT} mb-2.5 text-[clamp(44px,6.5vw,88px)] leading-[0.88] font-black uppercase`}>
+            <OutlineWord text="RECONOCER" viewBox="0 8 430 52" x={215} y={54} size={64} anchor="middle" className="mx-auto -mb-1.5 block h-auto w-full max-w-[680px]" />
+            el impacto de
+            <br />
+            las <span className="text-[#dd226c]">mujeres</span>
+          </h2>
+          <p className={`${SS} mt-1.5 mb-12 text-[22px] leading-[1.4] font-light text-white/70 sm:text-[26px]`}>es impulsar el futuro de la medicina.</p>
+          <QuieroParticipar big />
         </div>
       </section>
     </div>

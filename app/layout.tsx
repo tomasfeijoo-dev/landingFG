@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
+import BackToTop from "@/components/BackToTop";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Newsletter from "@/components/Newsletter";
@@ -40,6 +41,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Newsletter />
         <Footer />
         <VideoModal />
+        <BackToTop />
         <RevealObserver />
       </body>
     </html>
