@@ -226,7 +226,7 @@ export default function MujeresEnSaludPage() {
             </h2>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-[1fr_1fr_0.62fr]">
             {[
               {
                 icon: "heart",
@@ -252,17 +252,17 @@ export default function MujeresEnSaludPage() {
             {/* Publicación relacionada, en formato de nota */}
             <Link
               href="/novedades#poster-brecha-genero"
-              className="reveal-pop group flex flex-col overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-[#3f2b6e]/10 transition hover:-translate-y-1 hover:shadow-xl md:col-span-2 lg:col-span-1"
+              className="reveal-pop group mx-auto flex w-full max-w-xs flex-col overflow-hidden rounded-3xl bg-white/70 ring-1 ring-[#3f2b6e]/10 transition hover:-translate-y-1 hover:bg-white hover:shadow-lg md:col-span-2 lg:col-span-1 lg:max-w-none lg:self-center"
             >
-              <div className="relative aspect-[16/10] overflow-hidden bg-brand-50">
-                <Image src="/publicaciones/poster-3.webp" alt="Póster Brecha de género en el liderazgo de sistemas de salud" fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover object-top transition duration-700 group-hover:scale-110" />
-                <span className="absolute top-4 left-4 z-10 rounded-full bg-white px-3 py-1 text-xs font-bold text-[#c8396d] shadow-md">Publicación</span>
+              <div className="relative aspect-[4/3] overflow-hidden bg-brand-50">
+                <Image src="/publicaciones/poster-3.webp" alt="Póster Brecha de género en el liderazgo de sistemas de salud" fill sizes="(min-width: 1024px) 20vw, 320px" className="object-cover object-top opacity-90 transition duration-700 group-hover:scale-105 group-hover:opacity-100" />
+                <span className="absolute top-3 left-3 z-10 rounded-full bg-white px-2.5 py-0.5 text-[11px] font-bold text-[#c8396d] shadow-sm">Publicación</span>
               </div>
-              <div className="flex flex-1 flex-col p-6 sm:p-7">
-                <h3 className="text-xl font-extrabold leading-snug text-navy-900">
+              <div className="flex flex-1 flex-col p-5">
+                <h3 className="text-sm font-bold leading-snug text-navy-900/85">
                   Brecha de género en el liderazgo de sistemas de salud: un ejemplo en la gastroenterología
                 </h3>
-                <span className="mt-auto inline-flex items-center gap-1.5 pt-5 font-semibold text-[#3f2b6e] transition group-hover:text-[#c8396d]">
+                <span className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-semibold text-[#3f2b6e] transition group-hover:text-[#c8396d]">
                   Ver publicación <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />
                 </span>
               </div>
