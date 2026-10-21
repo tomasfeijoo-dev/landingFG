@@ -20,7 +20,8 @@ function Row({ logos: base, reverse = false, size, plain }: { logos: Logo[]; rev
             aria-hidden={i >= base.length}
             className={`flex flex-none items-center justify-center ${plain ? "" : "rounded-2xl bg-white shadow-sm ring-1 ring-navy-900/5"} ${tile}`}
           >
-            <Image unoptimized src={l.src} alt={i < base.length ? l.name : ""} width={l.width} height={l.height} loading="eager" className="max-h-[70%] w-auto max-w-full object-contain" />
+            {/* Los escudos y logos altos ocupan más alto del recuadro para no verse chicos */}
+            <Image unoptimized src={l.src} alt={i < base.length ? l.name : ""} width={l.width} height={l.height} loading="eager" className={`${l.height / l.width > 0.7 ? "max-h-[90%]" : l.height / l.width > 0.4 ? "max-h-[80%]" : "max-h-[70%]"} w-auto max-w-full object-contain`} />
           </li>
         ))}
       </ul>

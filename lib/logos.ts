@@ -51,7 +51,7 @@ export const allies: Logo[] = [
   { name: "Racing Solidario", src: "/logos/racing-solidario.webp", width: 544, height: 595 },
   { name: "River Plate", src: "/logos/river-plate.webp", width: 487, height: 733 },
   { name: "Rojo Solidario", src: "/logos/rojo-solidario.webp", width: 1305, height: 463 },
-  { name: "Liga Profesional de Fútbol", src: "/logos/lpf.webp", width: 257, height: 113 },
+  { name: "Liga Profesional de Fútbol", src: "/logos/lpf.webp", width: 257, height: 114 },
   { name: "Argentinos Juniors", src: "/logos/argentinos-juniors.webp", width: 179, height: 218 },
 ];
 
@@ -86,7 +86,7 @@ export const campanaAliados: Logo[] = [
   { name: "Racing Solidario", src: "/logos/racing-solidario.webp", width: 544, height: 595 },
   { name: "River Plate", src: "/logos/river-plate.webp", width: 487, height: 733 },
   { name: "Rojo Solidario", src: "/logos/rojo-solidario.webp", width: 1305, height: 463 },
-  { name: "Liga Profesional de Fútbol", src: "/logos/lpf.webp", width: 1000, height: 440 },
+  { name: "Liga Profesional de Fútbol", src: "/logos/lpf.webp", width: 1000, height: 445 },
   { name: "Argentinos Juniors", src: "/logos/argentinos-juniors.webp", width: 716, height: 873 },
   { name: "Fundación Social Argentinos Juniors", src: "/logos/fsaj.webp", width: 444, height: 444 },
 ];
