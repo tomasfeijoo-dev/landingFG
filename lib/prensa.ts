@@ -28,7 +28,7 @@ const ext = (title: string, medio: string, fecha: string, categoria: Categoria, 
 });
 
 const recientes: Nota[] = [
-  // Noche Azul 2026
+  // De la más nueva a la más vieja
   ext(
     "“Noche Azul”: cómo fue la gala solidaria que impulsa la prevención y detección temprana del cáncer de colon",
     "Infobae",
@@ -77,7 +77,14 @@ const recientes: Nota[] = [
     "https://diariolaopinion.com.ar/amp/cancer-de-colon-fundacion-gedyt-avanza-en-el-armado-de-un-plan-nacional-de-deteccion-temprana.htm",
     "/banners/plan-federal.webp",
   ),
-  // Día Mundial del Cáncer de Colon 2026: campaña “La prevención del cáncer de colon es tu mejor jugada”
+  ext(
+    "Cáncer de colon: por qué aconsejan iniciar antes los controles y una buena para los +50",
+    "Clarín",
+    "31 de marzo de 2026",
+    "Prevención",
+    "https://www.clarin.com/buena-vida/cancer-colon-45-nuevos-50-aconsejan-adelantar-controles_0_h1YaRnH0Jd.html",
+    "/images/programa-pae.webp",
+  ),
   ext(
     "“El 90% de los casos de cáncer de colon pueden curarse”: los últimos avances en pruebas diagnósticas y prevención",
     "Infobae",
@@ -93,38 +100,6 @@ const recientes: Nota[] = [
     "Testimonios",
     "https://www.radionacional.com.ar/confirman-que-el-90-de-los-casos-de-cancer-de-colon-pueden-curarse/",
     "/banners/prog-entrenadores-v2.webp",
-  ),
-  ext(
-    "Cáncer de colon: cómo es la campaña que impulsa la prevención y la detección temprana en Argentina",
-    "Infobae",
-    "17 de marzo de 2026",
-    "Campañas",
-    "https://www.infobae.com/salud/2026/03/17/cancer-de-colon-como-es-la-campana-que-impulsa-la-prevencion-y-la-deteccion-temprana-en-argentina/",
-    "/banners/campana-boca.webp",
-  ),
-  ext(
-    "Harán un test muy sencillo en puestos callejeros para prevenir el segundo cáncer más frecuente",
-    "Clarín",
-    "17 de marzo de 2026",
-    "Campañas",
-    "https://www.clarin.com/sociedad/haran-test-sencillo-puestos-callejeros-prevenir-segundo-cancer-frecuente_0_fNIub3D2gK.html",
-    "/images/campana-folletos.webp",
-  ),
-  ext(
-    "Cáncer de colon: por qué aconsejan iniciar antes los controles y una buena para los +50",
-    "Clarín",
-    "31 de marzo de 2026",
-    "Prevención",
-    "https://www.clarin.com/buena-vida/cancer-colon-45-nuevos-50-aconsejan-adelantar-controles_0_h1YaRnH0Jd.html",
-    "/images/programa-pae.webp",
-  ),
-  ext(
-    "Refuerzan la importancia del testeo de uno de los tumores más prevenibles y curables",
-    "TV Pública",
-    "17 de marzo de 2026",
-    "Prevención",
-    "https://www.tvpublica.com.ar/post/refuerzan-la-importancia-del-testeo-de-uno-de-los-tumores-mas-prevenibles-y-curables",
-    "/prensa-hd/prensa-2026-tvp.webp",
   ),
   ext(
     "Cáncer de colon: lanzan tests gratuitos para detectar la enfermedad a tiempo",
@@ -158,14 +133,37 @@ const recientes: Nota[] = [
     "https://curecompass.com.ar/cancer-de-colon-lalcec-gedyt-merck-y-el-gobierno-porteno-lanzan-una-campana/",
     "/banners/prog-endoscopistas.webp",
   ),
-  // 2025
   ext(
-    "El gastroenterólogo Luis Caro fue nombrado Personalidad Destacada de la Ciudad de Buenos Aires",
+    "Cáncer de colon: cómo es la campaña que impulsa la prevención y la detección temprana en Argentina",
     "Infobae",
-    "3 de septiembre de 2025",
-    "Testimonios",
-    "https://www.infobae.com/salud/2025/09/03/el-gastroenterologo-luis-caro-fue-nombrado-personalidad-destacada-de-la-ciudad-de-buenos-aires/",
-    "/images/caro-recorte.webp",
+    "17 de marzo de 2026",
+    "Campañas",
+    "https://www.infobae.com/salud/2026/03/17/cancer-de-colon-como-es-la-campana-que-impulsa-la-prevencion-y-la-deteccion-temprana-en-argentina/",
+    "/banners/campana-boca.webp",
+  ),
+  ext(
+    "Harán un test muy sencillo en puestos callejeros para prevenir el segundo cáncer más frecuente",
+    "Clarín",
+    "17 de marzo de 2026",
+    "Campañas",
+    "https://www.clarin.com/sociedad/haran-test-sencillo-puestos-callejeros-prevenir-segundo-cancer-frecuente_0_fNIub3D2gK.html",
+    "/images/campana-folletos.webp",
+  ),
+  ext(
+    "Refuerzan la importancia del testeo de uno de los tumores más prevenibles y curables",
+    "TV Pública",
+    "17 de marzo de 2026",
+    "Prevención",
+    "https://www.tvpublica.com.ar/post/refuerzan-la-importancia-del-testeo-de-uno-de-los-tumores-mas-prevenibles-y-curables",
+    "/prensa-hd/prensa-2026-tvp.webp",
+  ),
+  ext(
+    "Fundación Gedyt recaudó $ 265 M para prevenir el cáncer de colon",
+    "CureCompass",
+    "Septiembre de 2025",
+    "Noche Azul",
+    "https://curecompass.com.ar/fundacion-gedyt-2/",
+    "/images/equipo-gala.webp",
   ),
   ext(
     "El look de las famosas en la Gala Solidaria de Fundación GEDYT: Noche Azul contra el cáncer de colon",
@@ -176,12 +174,12 @@ const recientes: Nota[] = [
     "/banners/noche-azul-brindis.webp",
   ),
   ext(
-    "Fundación Gedyt recaudó $ 265 M para prevenir el cáncer de colon",
-    "CureCompass",
-    "Septiembre de 2025",
-    "Noche Azul",
-    "https://curecompass.com.ar/fundacion-gedyt-2/",
-    "/images/equipo-gala.webp",
+    "El gastroenterólogo Luis Caro fue nombrado Personalidad Destacada de la Ciudad de Buenos Aires",
+    "Infobae",
+    "3 de septiembre de 2025",
+    "Testimonios",
+    "https://www.infobae.com/salud/2025/09/03/el-gastroenterologo-luis-caro-fue-nombrado-personalidad-destacada-de-la-ciudad-de-buenos-aires/",
+    "/images/caro-recorte.webp",
   ),
   ext(
     "Noche Azul: una gala solidaria para prevenir y detectar el cáncer de colon",
