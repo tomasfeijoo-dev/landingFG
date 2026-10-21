@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import ConsejoForm from "@/components/ConsejoForm";
 import Icon from "@/components/Icon";
 import { Words } from "@/components/ui";
@@ -77,7 +78,17 @@ export default function ConsejoDirectivoPage() {
         <Image src="/banners/consejo.webp" alt="Reunión de trabajo alrededor de una mesa" fill priority sizes="100vw" className="kb-image object-cover" style={{ objectPosition: "center 40%" }} />
         <div className="banner-tint banner-shine absolute inset-0" />
         <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_55%,rgb(140_29_75/0.35)_100%)]" aria-hidden />
-        <div className="relative mx-auto max-w-7xl px-6 pt-20 pb-16 sm:px-12 sm:pt-28 sm:pb-20 lg:px-16">
+        <div className="relative mx-auto max-w-7xl px-6 pt-10 pb-16 sm:px-12 sm:pt-14 sm:pb-20 lg:px-16">
+          <Link
+            href="/"
+            className="group mb-8 inline-flex items-center gap-3 rounded-full bg-white/10 py-2 pr-6 pl-2 text-base font-semibold text-white ring-1 ring-white/20 backdrop-blur transition hover:bg-white hover:text-navy-900"
+          >
+            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white/15 transition group-hover:-translate-x-0.5 group-hover:bg-cta group-hover:text-white">
+              <Icon name="arrow" className="h-5 w-5 rotate-180" />
+            </span>
+            Volver al inicio
+          </Link>
+          <br />
           <span className="fade-up inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold tracking-[0.16em] uppercase ring-1 ring-white/20 backdrop-blur" style={{ ["--d" as string]: "100ms" }}>
             <span className="h-1.5 w-1.5 rounded-full bg-[#e0607f]" />
             Convocatoria abierta 2026 · Consejo Directivo
