@@ -45,7 +45,7 @@ export default function PressGrid() {
   const [cat, setCat] = useState<Categoria | "Todas">("Todas");
   const [shown, setShown] = useState(PAGE);
   const list = cat === "Todas" ? notas : notas.filter((n) => n.categoria === cat);
-  // La nota destacada va arriba en grande; el resto conserva el orden original.
+  // La nota más nueva (o la marcada como destacada) va arriba en grande; el resto sigue en orden, de la más nueva a la más vieja.
   const featured = list.find((n) => n.destacada) ?? list[0];
   const rest = list.filter((n) => n !== featured);
   const visible = rest.slice(0, shown - 1);

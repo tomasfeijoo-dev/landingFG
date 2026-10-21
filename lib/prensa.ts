@@ -229,11 +229,7 @@ const base: Omit<Nota, "image" | "href">[] = [
   { title: "De Luli Fernández a Flor Torrente, los mejores y peores looks en la gala de la “Noche Azul”", categoria: "Noche Azul" },
   { title: "De Araceli González y Flor Torrente a Luis Novaresio y Claudia Villafañe: los looks de los famosos en el evento La noche Azul", categoria: "Noche Azul" },
   { title: "24 fotos: la Noche Azul, se llevó a cabo otra edición de la gala a beneficio de Fundación Gedyt", categoria: "Noche Azul" },
-  {
-    title: "Los 7 mitos más comunes sobre el cáncer de colon que aumentan el riesgo de la enfermedad",
-    categoria: "Prevención",
-    destacada: true,
-  },
+  { title: "Los 7 mitos más comunes sobre el cáncer de colon que aumentan el riesgo de la enfermedad", categoria: "Prevención" },
   {
     title: "Día Mundial contra el Cáncer de Colon: se puede prevenir, pero en el país suma 15.000 casos por año y afecta cada vez a gente más joven",
     categoria: "Prevención",
