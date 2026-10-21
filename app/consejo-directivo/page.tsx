@@ -75,9 +75,10 @@ export default function ConsejoDirectivoPage() {
     <>
       {/* Banner, igual al del inicio */}
       <section className="relative overflow-hidden bg-navy-950 text-white">
-        <Image src="/banners/consejo.webp" alt="Reunión de trabajo alrededor de una mesa" fill priority sizes="100vw" className="kb-image object-cover" style={{ objectPosition: "center 40%" }} />
-        <div className="banner-tint banner-shine absolute inset-0" />
-        <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_55%,rgb(140_29_75/0.35)_100%)]" aria-hidden />
+        <Image src="/banners/consejo.webp" alt="Reunión de trabajo alrededor de una mesa" fill priority sizes="100vw" className="kb-image object-cover opacity-45" style={{ objectPosition: "center 40%" }} />
+        {/* Filtro de color fuerte para que el texto se lea bien */}
+        <div className="banner-shine absolute inset-0 bg-[linear-gradient(100deg,rgb(0_41_59/0.92)_0%,rgb(1_64_92/0.8)_45%,rgb(1_64_92/0.55)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(115deg,transparent_50%,rgb(140_29_75/0.45)_100%)]" aria-hidden />
         <div className="relative mx-auto max-w-7xl px-6 pt-10 pb-16 sm:px-12 sm:pt-14 sm:pb-20 lg:px-16">
           <Link
             href="/"
