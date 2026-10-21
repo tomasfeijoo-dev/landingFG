@@ -130,6 +130,8 @@ export type Slide = {
   art?: "ribbon";
   // Agranda la parte destacada del título (en em) para emparejar el ancho de los renglones
   highlightScale?: number;
+  /** Agranda todo el título de este banner (1 = tamaño común) */
+  titleScale?: number;
   badge?: { value: string; label: string };
   // Botón principal (opcional: hay banners sin botón)
   primary?: { label: string; href: string; interest?: string };
@@ -143,6 +145,7 @@ export const slides: Slide[] = [
     id: "noche-azul",
     title: "Mirá cómo fue la gala\n",
     highlight: "Noche Azul 2026",
+    titleScale: 1.3,
     text: "Cada edición de La Noche Azul reúne a referentes de la salud, el mundo empresarial y figuras públicas en una noche irrepetible con un objetivo común: hacer que más personas accedan a la detección temprana del cáncer de colon.",
     image: "/gala/noche-azul-2026-poster.webp",
     imageAlt: "Salón de la gala Noche Azul 2026",
