@@ -67,7 +67,7 @@ export function StatsAndHighlights() {
     <section className="px-4 pt-16 sm:px-6 sm:pt-24">
       {/* Cifra principal con el mapa de los programas territoriales de fondo */}
       <div className="reveal relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] ring-1 ring-brand-100">
-        <ArgentinaMap focusX={0.74} fade="bg-gradient-to-r from-white/95 via-white/80 to-white/0 max-lg:to-white/60" />
+        <ArgentinaMap focusX={0.74} fade="bg-gradient-to-r from-white/95 via-white/80 to-white/0 max-lg:via-white/85 max-lg:to-white/80" />
         <div className="relative px-6 pt-16 pb-40 sm:px-12 sm:pt-20 lg:max-w-[60%] lg:px-16 lg:pb-44">
           <p className="text-[2.5rem] leading-[1.05] font-extrabold tracking-tight text-cta sm:text-6xl">
             <CountUp value="+10.000" /> <span className="text-navy-800">personas chequeadas</span>

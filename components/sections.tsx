@@ -162,7 +162,7 @@ export function NetworkSection({ withLink = false }: { withLink?: boolean }) {
   return (
     <div className="reveal relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] ring-1 ring-brand-100 lg:min-h-[32rem]">
       {/* Fondo: mapa animado que recorre los lugares donde trabajamos */}
-      <ArgentinaMap focusX={0.72} fade="bg-gradient-to-r from-white/95 via-white/80 to-white/0 max-lg:to-white/60" />
+      <ArgentinaMap focusX={0.72} fade="bg-gradient-to-r from-white/95 via-white/80 to-white/0 max-lg:via-white/85 max-lg:to-white/80" />
       <div className="relative p-8 sm:p-12 lg:max-w-[56%]">
         <Eyebrow chip>Alianzas y red de prevención</Eyebrow>
         <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-navy-900 sm:text-4xl">Sumate a la red de prevención de Fundación Gedyt</h2>

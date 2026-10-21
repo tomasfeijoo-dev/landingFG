@@ -253,6 +253,8 @@ export default function ArgentinaMap({
         <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
       </div>
       {fade && <div className={`absolute inset-0 ${fade}`} />}
+      {/* En celular y tablet el mapa queda detrás del texto: los puntos también se atenúan */}
+      <div className="absolute inset-0 max-lg:opacity-30">
       {PINS.map((p) => {
           const on = active === p.id;
           return (
@@ -282,6 +284,7 @@ export default function ArgentinaMap({
             </div>
           );
         })}
+      </div>
     </div>
   );
 }

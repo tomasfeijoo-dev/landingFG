@@ -27,7 +27,7 @@ export default function ProgramasPage() {
               {iniciativas.after}
             </>
           }
-          background={<ArgentinaMap focusX={0.7} speed={1.8} quickStart fade="bg-gradient-to-r from-white/95 via-white/75 to-white/0 max-md:to-white/50" />}
+          background={<ArgentinaMap focusX={0.7} speed={1.8} quickStart fade="bg-gradient-to-r from-white/95 via-white/75 to-white/0 max-md:via-white/85 max-md:to-white/80" />}
         />
       </div>
 
