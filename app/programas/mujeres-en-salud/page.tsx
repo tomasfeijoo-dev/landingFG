@@ -134,13 +134,6 @@ export default function MujeresEnSaludPage() {
               <p className="border-l-4 border-[#dd226c] pl-5 font-semibold text-[#280d55]">
                 Porque reconocer esos liderazgos también es una forma de fortalecer el sistema de salud.
               </p>
-              <Link
-                href={premioHref}
-                className="!mt-8 inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-[#dd226c]/25 transition hover:-translate-y-0.5 hover:shadow-xl"
-                style={{ background: degradeMujeres }}
-              >
-                Conocé el Premio Mujeres Destacadas <Icon name="arrow" className="h-4 w-4" />
-              </Link>
             </div>
             <div className="reveal relative pb-8 sm:pl-8">
               <div className="relative aspect-[7/3] overflow-hidden rounded-[2rem] shadow-2xl shadow-[#280d55]/20 sm:aspect-[2/1]">
@@ -162,6 +155,19 @@ export default function MujeresEnSaludPage() {
                 </span>
               </div>
             </div>
+          </div>
+
+          <div className="reveal mt-14 flex justify-center">
+            <Link
+              href={premioHref}
+              className="group inline-flex items-center gap-3 rounded-full px-7 py-4 text-base font-bold text-white shadow-xl shadow-[#dd226c]/35 ring-4 ring-[#dd226c]/15 transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#dd226c]/45 sm:px-12 sm:py-5 sm:text-xl"
+              style={{ background: degradeMujeres }}
+            >
+              Conocé el Premio Mujeres Destacadas
+              <span className="flex h-9 w-9 flex-none items-center justify-center rounded-full bg-white/20 transition group-hover:translate-x-1">
+                <Icon name="arrow" className="h-5 w-5" />
+              </span>
+            </Link>
           </div>
         </div>
       </section>
@@ -221,7 +227,7 @@ export default function MujeresEnSaludPage() {
             </h2>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-[1fr_1fr_0.62fr]">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-[1.3fr_1.3fr_0.6fr]">
             {[
               {
                 icon: "heart",
@@ -253,11 +259,14 @@ export default function MujeresEnSaludPage() {
                 <Image src="/publicaciones/poster-3.webp" alt="Póster Brecha de género en el liderazgo de sistemas de salud" fill sizes="(min-width: 1024px) 20vw, 320px" className="object-cover object-top opacity-90 transition duration-700 group-hover:scale-105 group-hover:opacity-100" />
                 <span className="absolute top-3 left-3 z-10 rounded-full bg-white px-2.5 py-0.5 text-[11px] font-bold text-[#dd226c] shadow-sm">Publicación</span>
               </div>
-              <div className="flex flex-1 flex-col p-5">
-                <h3 className="text-sm font-bold leading-snug text-[#280d55]/85">
+              <div className="flex flex-1 flex-col p-4 sm:p-5 lg:p-4">
+                <h3 className="mb-4 text-sm font-bold leading-snug text-[#280d55]/85">
                   Brecha de género en el liderazgo de sistemas de salud: un ejemplo en la gastroenterología
                 </h3>
-                <span className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-semibold text-[#49297d] transition group-hover:text-[#dd226c]">
+                <span
+                  className="mt-auto inline-flex items-center justify-center gap-1.5 self-stretch whitespace-nowrap rounded-full px-3 py-2.5 text-[13px] font-bold text-white shadow-md shadow-[#dd226c]/25 transition group-hover:shadow-lg"
+                  style={{ background: degradeMujeres }}
+                >
                   Ver publicación <Icon name="arrow" className="h-4 w-4 transition group-hover:translate-x-1" />
                 </span>
               </div>
@@ -269,14 +278,15 @@ export default function MujeresEnSaludPage() {
 
       {/* Cierre a todo el ancho con la frase */}
       <section className="relative overflow-hidden px-6 py-16 text-white sm:px-12 sm:py-20" style={{ background: `linear-gradient(120deg, ${VIOLETA} 0%, #693c98 55%, ${ROSA} 100%)` }}>
-        <span className="pointer-events-none absolute top-2 right-[6%] text-[14rem] leading-none font-extrabold text-white/10 select-none" aria-hidden>
-          “
-        </span>
-        <div className="reveal relative mx-auto max-w-6xl">
-          <blockquote className="text-xl leading-snug font-semibold sm:text-2xl lg:text-[2rem]">
-            Porque cuando una institución reconoce el liderazgo, fortalece el presente de la medicina. Y cuando decide invertir en quienes construirán el
-            conocimiento del mañana, también fortalece el futuro del sistema de salud.
+        <div className="reveal relative mx-auto max-w-7xl">
+          <blockquote className="relative text-lg leading-snug font-semibold sm:pr-32 sm:text-xl lg:pr-0 lg:text-[1.1rem] xl:text-[1.3rem]">
+            Porque cuando una institución reconoce el liderazgo, fortalece el presente de la medicina.
+            <br className="hidden lg:block" /> Y cuando decide invertir en quienes construirán el conocimiento del mañana,
+            <br className="hidden lg:block" /> también fortalece el futuro del sistema de salud.
           </blockquote>
+          <span className="pointer-events-none absolute top-1/2 -right-2 hidden -translate-y-[30%] font-serif text-[14rem] leading-none font-black text-white/20 select-none sm:block lg:text-[19rem]" aria-hidden>
+            ”
+          </span>
         </div>
       </section>
 
