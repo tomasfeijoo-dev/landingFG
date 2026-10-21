@@ -161,6 +161,26 @@ h1, h2, h3, h4, p, li, a { overflow-wrap: break-word; }
   .emoji-anim { animation: none !important; }
 }
 
+/* Caki pensativo: se balancea y ladea la cabeza como quien piensa */
+@keyframes caki-think {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  20% { transform: translateY(-10px) rotate(-5deg); }
+  35% { transform: translateY(-12px) rotate(-6deg); }
+  50% { transform: translateY(0) rotate(0deg); }
+  65% { transform: translateY(-8px) rotate(4deg); }
+  80% { transform: translateY(-6px) rotate(3deg); }
+}
+@keyframes caki-think-shadow {
+  0%, 50%, 100% { transform: scale(1); opacity: 1; }
+  35% { transform: scale(0.82); opacity: 0.65; }
+  70% { transform: scale(0.88); opacity: 0.75; }
+}
+.caki-think { transform-origin: 50% 90%; animation: caki-think 4.2s ease-in-out infinite; }
+.caki-think-shadow { animation: caki-think-shadow 4.2s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .caki-think, .caki-think-shadow { animation: none; }
+}
+
 /* Cursor que señala la opción más elegida */
 @keyframes cursor-bounce {
   0%, 100% { transform: translate(0, 0) rotate(-12deg); }

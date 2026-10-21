@@ -121,8 +121,10 @@ export default function CampanaPage() {
             </InterestLink>
           </div>
           <div className="relative mx-auto w-44 pb-6 sm:w-56 md:mx-0 md:w-full md:max-w-[17rem] md:justify-self-end md:self-end lg:mr-8">
-            <div className="absolute bottom-3 left-1/2 h-4 w-3/4 -translate-x-1/2 rounded-[50%] bg-navy-950/40 blur-[5px]" aria-hidden />
-            <Image src="/images/caki-pensando-hd.webp" alt="Caki, pensativo, se pregunta cómo está su colon" width={1070} height={1120} sizes="(min-width: 768px) 272px, 224px" className="relative h-auto w-full drop-shadow-2xl" />
+            <div className="absolute bottom-3 left-1/2 h-4 w-3/4 -translate-x-1/2" aria-hidden>
+              <div className="caki-think-shadow h-full w-full rounded-[50%] bg-navy-950/40 blur-[5px]" />
+            </div>
+            <Image src="/images/caki-pensando-hd.webp" alt="Caki, pensativo, se pregunta cómo está su colon" width={1070} height={1120} sizes="(min-width: 768px) 272px, 224px" className="caki-think relative h-auto w-full drop-shadow-2xl" />
           </div>
         </div>
       </section>
