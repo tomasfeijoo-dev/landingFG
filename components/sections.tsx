@@ -41,9 +41,10 @@ export function ProgramCards() {
 }
 
 // Lazo azul "de tubo" dibujado en vector, como fondo del banner de concientización.
+// En celular el lazo queda detrás del texto: se baja la opacidad para que se lea bien.
 export function CampaignRibbon() {
   return (
-    <svg className="absolute inset-0 h-full w-full" viewBox="0 0 1200 420" preserveAspectRatio="xMaxYMid slice" aria-hidden>
+    <svg className="absolute inset-0 h-full w-full opacity-25 md:opacity-100" viewBox="0 0 1200 420" preserveAspectRatio="xMaxYMid slice" aria-hidden>
       <defs>
         <linearGradient id="tube" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stopColor="#3cb4e6" />
