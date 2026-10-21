@@ -278,15 +278,15 @@ export default function MujeresEnSaludPage() {
 
       {/* Cierre a todo el ancho con la frase */}
       <section className="relative overflow-hidden px-6 py-16 text-white sm:px-12 sm:py-20" style={{ background: `linear-gradient(120deg, ${VIOLETA} 0%, #693c98 55%, ${ROSA} 100%)` }}>
-        <div className="reveal relative mx-auto max-w-7xl">
-          <blockquote className="relative text-lg leading-snug font-semibold sm:pr-32 sm:text-xl lg:pr-0 lg:text-[1.1rem] xl:text-[1.3rem]">
-            Porque cuando una institución reconoce el liderazgo, fortalece el presente de la medicina.
-            <br className="hidden lg:block" /> Y cuando decide invertir en quienes construirán el conocimiento del mañana,
-            <br className="hidden lg:block" /> también fortalece el futuro del sistema de salud.
-          </blockquote>
-          <span className="pointer-events-none absolute top-1/2 -right-2 hidden -translate-y-[30%] font-serif text-[14rem] leading-none font-black text-white/20 select-none sm:block lg:text-[19rem]" aria-hidden>
-            ”
+        <div className="reveal relative mx-auto w-fit max-w-full pt-14 sm:pt-16 lg:pt-20 lg:pl-14">
+          <span className="pointer-events-none absolute -top-10 -left-2 font-serif text-[10rem] leading-none font-black text-white/25 select-none sm:-top-12 sm:text-[12rem] lg:-top-6 lg:-left-4 lg:text-[13rem]" aria-hidden>
+            “
           </span>
+          <blockquote className="relative text-left text-xl leading-snug font-semibold sm:text-2xl lg:text-[1.15rem] xl:text-[1.6rem]">
+            Porque cuando una institución reconoce el liderazgo, fortalece el presente
+            <br className="hidden lg:block" /> de la medicina. Y cuando decide invertir en quienes construirán el conocimiento
+            <br className="hidden lg:block" /> del mañana, también fortalece el futuro del sistema de salud.
+          </blockquote>
         </div>
       </section>
 
