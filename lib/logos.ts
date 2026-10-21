@@ -19,7 +19,7 @@ export const sponsors: Logo[] = [
 export const institutions: Logo[] = [
   { name: "CEGED", src: "/logos/ceged.webp", width: 142, height: 134 },
   { name: "CEGO", src: "/logos/cego.webp", width: 195, height: 79 },
-  { name: "CNC", src: "/logos/cnc.webp", width: 205, height: 154 },
+  { name: "CNC", src: "/logos/cnc.webp", width: 205, height: 64 },
   { name: "Centro Médico Caballito", src: "/logos/caballito.webp", width: 160, height: 123 },
   { name: "CIGEBA", src: "/logos/cigeba.webp", width: 135, height: 151 },
   { name: "Clínica Privada Centro", src: "/logos/cpc.webp", width: 231, height: 86 },
@@ -43,7 +43,7 @@ export const institutions: Logo[] = [
   { name: "VIDT Oncología Radiante", src: "/logos/vidt.webp", width: 216, height: 78 },
   { name: "Instituto GEO", src: "/logos/geo.webp", width: 222, height: 113 },
   { name: "Gastroenterología Hospital de Clínicas", src: "/logos/hospital-clinicas.webp", width: 200, height: 157 },
-  { name: "GIO Salud Integral", src: "/logos/gio.webp", width: 272, height: 207 },
+  { name: "GIO Salud Integral", src: "/logos/gio.webp", width: 272, height: 272 },
   { name: "GENDA", src: "/logos/genda.webp", width: 201, height: 47 },
 ];
 
@@ -70,7 +70,7 @@ export const campanaInstituciones: Logo[] = [
   { name: "CED Centro de Estudios Digestivos", src: "/logos/ced.webp", width: 620, height: 229 },
   { name: "CEGED", src: "/logos/ceged.webp", width: 568, height: 534 },
   { name: "CEGO", src: "/logos/cego.webp", width: 780, height: 316 },
-  { name: "CNC", src: "/logos/cnc.webp", width: 820, height: 616 },
+  { name: "CNC", src: "/logos/cnc.webp", width: 820, height: 256 },
   { name: "Centro Médico Caballito", src: "/logos/caballito.webp", width: 640, height: 492 },
   { name: "D'Agostino Bruno", src: "/logos/dagostino-bruno.webp", width: 672, height: 673 },
   { name: "IPC Instituto Médico", src: "/logos/ipc.webp", width: 492, height: 232 },
