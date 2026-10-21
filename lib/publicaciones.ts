@@ -44,9 +44,9 @@ export const anuarios = [
 ];
 
 export const posters = [
-  { id: "poster-caba-nacion", title: "Póster CABA Vs NACIÓN", image: "/publicaciones/poster-1.webp", pdf: "https://drive.google.com/file/d/1cRwn_HVJFjzU0ZFo8VRyIxyU6lVBggWo/view" },
-  { id: "poster-factores", title: "Póster Factores De No Realización De Prevención", image: "/publicaciones/poster-2.webp", pdf: "https://drive.google.com/file/d/1lKZp5-N4HxkMJ-PFUJ89QGMdZhvtAI7u/view" },
-  { id: "poster-brecha-genero", title: "Póster – MSAL “Brecha De Género En El Liderazgo De Sistemas De Salud Un Ejemplo En La Gastroenterología”", image: "/publicaciones/poster-3.webp", pdf: "https://drive.google.com/file/d/1MZLwnAWAi20tNCVFFjcCB-XJs0T1gn8J/view" },
+  { id: "poster-caba-nacion", title: "Póster CABA Vs NACIÓN", image: "/publicaciones/poster-1.webp", pdf: "https://drive.google.com/file/d/1cRwn_HVJFjzU0ZFo8VRyIxyU6lVBggWo/view?usp=sharing" },
+  { id: "poster-factores", title: "Póster Factores De No Realización De Prevención", image: "/publicaciones/poster-2.webp", pdf: "https://drive.google.com/file/d/1lKZp5-N4HxkMJ-PFUJ89QGMdZhvtAI7u/view?usp=sharing" },
+  { id: "poster-brecha-genero", title: "Póster – MSAL “Brecha De Género En El Liderazgo De Sistemas De Salud Un Ejemplo En La Gastroenterología”", image: "/publicaciones/poster-3.webp", pdf: "https://drive.google.com/file/d/1MZLwnAWAi20tNCVFFjcCB-XJs0T1gn8J/view?usp=sharing" },
 ];
 
 export const weo = {
