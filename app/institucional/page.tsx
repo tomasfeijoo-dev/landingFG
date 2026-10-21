@@ -149,9 +149,9 @@ export default function InstitucionalPage() {
               </article>
             ))}
           </div>
-          <p className="reveal mt-12 rounded-2xl bg-brand-50/70 px-6 py-5 text-center text-navy-900/75 ring-1 ring-brand-100">
+          <p className="reveal mt-12 rounded-2xl bg-brand-50/70 px-3 py-5 text-center text-navy-900/75 ring-1 ring-brand-100 sm:px-6">
             Escribinos para <strong className="text-navy-900">alianzas</strong> y <strong className="text-navy-900">voluntariado</strong>:{" "}
-            <a href={`mailto:${institucionalEmail}`} className="font-semibold break-all text-cta underline-offset-2 hover:underline">
+            <a href={`mailto:${institucionalEmail}`} className="mt-1 block text-[clamp(10px,3.3vw,14px)] font-semibold tracking-tight whitespace-nowrap text-cta underline-offset-2 hover:underline sm:mt-0 sm:inline sm:text-base sm:tracking-normal">
               {institucionalEmail}
             </a>
           </p>
@@ -164,7 +164,10 @@ export default function InstitucionalPage() {
           <path d="M10 -10 C 60 90, 170 110, 210 60 C 240 20, 200 -5, 180 25 C 155 65, 230 120, 320 100" stroke="#3fa5d4" strokeWidth="14" fill="none" strokeLinecap="round" opacity="0.7" />
         </svg>
         <div className="reveal relative mx-auto max-w-6xl">
-          <h2 className="relative text-center text-3xl font-extrabold tracking-tight sm:text-4xl">Conocé nuestro trabajo</h2>
+          <h2 className="relative text-center text-3xl font-extrabold tracking-tight sm:text-4xl">
+            Conocé <br className="sm:hidden" />
+            nuestro trabajo
+          </h2>
           <div className="relative mt-10 grid gap-12">
             <div>
               <p className="text-center text-sm font-bold uppercase tracking-[0.16em] text-sky-accent">Anuarios</p>
