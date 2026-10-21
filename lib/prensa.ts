@@ -92,6 +92,7 @@ const recientes: Nota[] = [
     "19 de marzo de 2026",
     "Testimonios",
     "https://www.radionacional.com.ar/confirman-que-el-90-de-los-casos-de-cancer-de-colon-pueden-curarse/",
+    "/banners/prog-entrenadores-v2.webp",
   ),
   ext(
     "Cáncer de colon: cómo es la campaña que impulsa la prevención y la detección temprana en Argentina",
@@ -99,6 +100,7 @@ const recientes: Nota[] = [
     "17 de marzo de 2026",
     "Campañas",
     "https://www.infobae.com/salud/2026/03/17/cancer-de-colon-como-es-la-campana-que-impulsa-la-prevencion-y-la-deteccion-temprana-en-argentina/",
+    "/banners/campana-boca.webp",
   ),
   ext(
     "Harán un test muy sencillo en puestos callejeros para prevenir el segundo cáncer más frecuente",
@@ -106,6 +108,7 @@ const recientes: Nota[] = [
     "17 de marzo de 2026",
     "Campañas",
     "https://www.clarin.com/sociedad/haran-test-sencillo-puestos-callejeros-prevenir-segundo-cancer-frecuente_0_fNIub3D2gK.html",
+    "/images/campana-folletos.webp",
   ),
   ext(
     "Cáncer de colon: por qué aconsejan iniciar antes los controles y una buena para los +50",
@@ -113,6 +116,7 @@ const recientes: Nota[] = [
     "31 de marzo de 2026",
     "Prevención",
     "https://www.clarin.com/buena-vida/cancer-colon-45-nuevos-50-aconsejan-adelantar-controles_0_h1YaRnH0Jd.html",
+    "/images/programa-pae.webp",
   ),
   ext(
     "Refuerzan la importancia del testeo de uno de los tumores más prevenibles y curables",
@@ -128,6 +132,7 @@ const recientes: Nota[] = [
     "19 de marzo de 2026",
     "Campañas",
     "https://www.cronista.com/informacion-gral/cancer-de-colon-lanzan-tests-gratuitos-para-detectar-la-enfermedad/",
+    "/banners/pae-test-fit.webp",
   ),
   ext(
     "Refuerzan la importancia del testeo de uno de los tumores más prevenibles y curables",
@@ -135,6 +140,7 @@ const recientes: Nota[] = [
     "18 de marzo de 2026",
     "Prevención",
     "https://noticiasargentinas.com/sociedad/refuerzan-la-importancia-del-testeo-de-uno-de-los-tumores-mas-prevenibles-y-curables_a69ba80a3c331fb25189e5a8b",
+    "/images/causas-manos-hd.webp",
   ),
   ext(
     "El cáncer de colon: prevención y detección temprana como claves en la lucha",
@@ -142,6 +148,7 @@ const recientes: Nota[] = [
     "18 de marzo de 2026",
     "Prevención",
     "https://www.cadena3.com/noticia/sociedad/el-cancer-de-colon-prevencion-y-deteccion-temprana-como-claves-en-la-lucha_530585",
+    "/images/lazo-manos.webp",
   ),
   ext(
     "Cáncer de colon: LALCEC, GEDyT, Merck y el Gobierno porteño lanzan una campaña",
@@ -149,6 +156,7 @@ const recientes: Nota[] = [
     "18 de marzo de 2026",
     "Campañas",
     "https://curecompass.com.ar/cancer-de-colon-lalcec-gedyt-merck-y-el-gobierno-porteno-lanzan-una-campana/",
+    "/banners/prog-endoscopistas.webp",
   ),
   // 2025
   ext(
@@ -157,6 +165,7 @@ const recientes: Nota[] = [
     "3 de septiembre de 2025",
     "Testimonios",
     "https://www.infobae.com/salud/2025/09/03/el-gastroenterologo-luis-caro-fue-nombrado-personalidad-destacada-de-la-ciudad-de-buenos-aires/",
+    "/images/caro-recorte.webp",
   ),
   ext(
     "El look de las famosas en la Gala Solidaria de Fundación GEDYT: Noche Azul contra el cáncer de colon",
@@ -164,6 +173,7 @@ const recientes: Nota[] = [
     "10 de septiembre de 2025",
     "Noche Azul",
     "https://www.ciudad.com.ar/look/2025/09/10/el-look-de-las-famosas-en-la-gala-solidaria-de-fundacion-gedyt-noche-azul-contra-el-cancer-de-colon/",
+    "/banners/noche-azul-brindis.webp",
   ),
   ext(
     "Fundación Gedyt recaudó $ 265 M para prevenir el cáncer de colon",
@@ -171,6 +181,7 @@ const recientes: Nota[] = [
     "Septiembre de 2025",
     "Noche Azul",
     "https://curecompass.com.ar/fundacion-gedyt-2/",
+    "/images/equipo-gala.webp",
   ),
   ext(
     "Noche Azul: una gala solidaria para prevenir y detectar el cáncer de colon",
@@ -178,6 +189,7 @@ const recientes: Nota[] = [
     "29 de agosto de 2025",
     "Noche Azul",
     "https://www.lanacion.com.ar/sociedad/noche-azul-una-gala-solidaria-para-prevenir-y-detectar-el-cancer-de-colon-nid29082025/",
+    "/images/abrazo.webp",
   ),
   ext(
     "Cáncer de colon: cómo es el test simple e innovador con el que muchas personas podrían evitar la colonoscopia",
@@ -185,6 +197,7 @@ const recientes: Nota[] = [
     "31 de marzo de 2025",
     "Prevención",
     "https://www.infobae.com/salud/2025/03/31/cancer-de-colon-como-es-el-test-simple-e-innovador-con-el-que-muchas-personas-podrian-evitar-la-colonoscopia/",
+    "/images/manos.webp",
   ),
 ];
 
