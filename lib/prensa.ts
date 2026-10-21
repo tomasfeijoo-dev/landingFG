@@ -187,7 +187,7 @@ const recientes: Nota[] = [
     "29 de agosto de 2025",
     "Noche Azul",
     "https://www.lanacion.com.ar/sociedad/noche-azul-una-gala-solidaria-para-prevenir-y-detectar-el-cancer-de-colon-nid29082025/",
-    "/images/abrazo.webp",
+    "/prensa-hd/prensa-2025-lanacion-gala.webp",
   ),
   ext(
     "Cáncer de colon: cómo es el test simple e innovador con el que muchas personas podrían evitar la colonoscopia",
@@ -195,7 +195,7 @@ const recientes: Nota[] = [
     "31 de marzo de 2025",
     "Prevención",
     "https://www.infobae.com/salud/2025/03/31/cancer-de-colon-como-es-el-test-simple-e-innovador-con-el-que-muchas-personas-podrian-evitar-la-colonoscopia/",
-    "/images/manos.webp",
+    "/prensa-hd/prensa-2025-infobae-test.webp",
   ),
 ];
 
