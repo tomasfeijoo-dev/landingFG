@@ -34,14 +34,47 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Faltan datos obligatorios" }, { status: 400 });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONSEJO_TO || consejoEmail;
-  const from = process.env.CONTACT_FROM || "Web Fundación Gedyt <onboarding@resend.dev>";
-
-  if (!apiKey) {
-    console.error("RESEND_API_KEY no configurada; postulación no enviada", data);
+  // 1) Guardar en la hoja de Google Sheets (Apps Script publicado como aplicación web).
+  // 2) Avisar por mail con Resend. Alcanza con que uno de los dos funcione.
+  const results = await Promise.all([guardarEnSheets(data), avisarPorMail(data, get).catch((): Resultado => "error")]);
+  if (results.every((r) => r === "sin-configurar")) {
+    console.error("Ni Google Sheets ni Resend están configurados; postulación no guardada", data);
     return NextResponse.json({ error: "Envío no configurado" }, { status: 503 });
   }
+  if (!results.includes("ok")) return NextResponse.json({ error: "No se pudo enviar" }, { status: 502 });
+  return NextResponse.json({ ok: true });
+}
+
+type Resultado = "ok" | "error" | "sin-configurar";
+
+async function guardarEnSheets(data: [string, string][]): Promise<Resultado> {
+  const url = process.env.SHEETS_CONSEJO_URL;
+  if (!url) return "sin-configurar";
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      // El secreto evita que cualquiera que conozca la URL cargue filas en la hoja
+      body: JSON.stringify({ secret: process.env.SHEETS_SECRET ?? "", fecha: new Date().toISOString(), campos: data }),
+      redirect: "follow",
+    });
+    const body = await res.text();
+    if (!res.ok || !body.includes('"ok":true')) {
+      console.error("Error de Google Sheets", res.status, body.slice(0, 300));
+      return "error";
+    }
+    return "ok";
+  } catch (e) {
+    console.error("Error de Google Sheets", e);
+    return "error";
+  }
+}
+
+async function avisarPorMail(data: [string, string][], get: (k: string) => string): Promise<Resultado> {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) return "sin-configurar";
+  const to = process.env.CONSEJO_TO || consejoEmail;
+  const from = process.env.CONTACT_FROM || "Web Fundación Gedyt <onboarding@resend.dev>";
 
   const rows = data
     .filter(([, v]) => v)
@@ -62,8 +95,7 @@ export async function POST(req: Request) {
 
   if (!res.ok) {
     console.error("Error de Resend", res.status, await res.text());
-    return NextResponse.json({ error: "No se pudo enviar" }, { status: 502 });
+    return "error";
   }
-
-  return NextResponse.json({ ok: true });
+  return "ok";
 }
