@@ -277,9 +277,9 @@ export default function MujeresEnSaludPage() {
       </section>
 
       {/* Cierre a todo el ancho con la frase */}
-      <section className="relative overflow-hidden px-6 py-16 text-white sm:px-12 sm:py-20" style={{ background: `linear-gradient(120deg, ${VIOLETA} 0%, #693c98 55%, ${ROSA} 100%)` }}>
-        <div className="reveal relative mx-auto w-fit max-w-full pt-14 sm:pt-16 lg:pt-20 lg:pl-14">
-          <span className="pointer-events-none absolute -top-10 -left-2 font-serif text-[10rem] leading-none font-black text-white/25 select-none sm:-top-12 sm:text-[12rem] lg:-top-6 lg:-left-4 lg:text-[13rem]" aria-hidden>
+      <section className="relative overflow-hidden px-6 py-10 text-white sm:px-12 sm:py-12" style={{ background: `linear-gradient(120deg, ${VIOLETA} 0%, #693c98 55%, ${ROSA} 100%)` }}>
+        <div className="reveal relative mx-auto w-fit max-w-full pt-12 sm:pt-14 lg:pt-14 lg:pl-14">
+          <span className="pointer-events-none absolute -top-10 -left-2 font-serif text-[10rem] leading-none font-black text-white/25 select-none sm:-top-12 sm:text-[12rem] lg:-top-10 lg:-left-4 lg:text-[12rem]" aria-hidden>
             “
           </span>
           <blockquote className="relative text-left text-xl leading-snug font-semibold sm:text-2xl lg:text-[1.15rem] xl:text-[1.6rem]">
