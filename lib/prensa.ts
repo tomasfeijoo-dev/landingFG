@@ -83,7 +83,7 @@ const recientes: Nota[] = [
     "31 de marzo de 2026",
     "Prevención",
     "https://www.clarin.com/buena-vida/cancer-colon-45-nuevos-50-aconsejan-adelantar-controles_0_h1YaRnH0Jd.html",
-    "/images/programa-pae.webp",
+    "/prensa-hd/prensa-2026-clarin-controles.webp",
   ),
   ext(
     "“El 90% de los casos de cáncer de colon pueden curarse”: los últimos avances en pruebas diagnósticas y prevención",
@@ -99,7 +99,7 @@ const recientes: Nota[] = [
     "19 de marzo de 2026",
     "Testimonios",
     "https://www.radionacional.com.ar/confirman-que-el-90-de-los-casos-de-cancer-de-colon-pueden-curarse/",
-    "/banners/prog-entrenadores-v2.webp",
+    "/prensa-hd/prensa-2026-radio-nacional.webp",
   ),
   ext(
     "Cáncer de colon: lanzan tests gratuitos para detectar la enfermedad a tiempo",
@@ -107,7 +107,7 @@ const recientes: Nota[] = [
     "19 de marzo de 2026",
     "Campañas",
     "https://www.cronista.com/informacion-gral/cancer-de-colon-lanzan-tests-gratuitos-para-detectar-la-enfermedad/",
-    "/banners/pae-test-fit.webp",
+    "/prensa-hd/prensa-2026-cronista.webp",
   ),
   ext(
     "Refuerzan la importancia del testeo de uno de los tumores más prevenibles y curables",
@@ -139,7 +139,7 @@ const recientes: Nota[] = [
     "17 de marzo de 2026",
     "Campañas",
     "https://www.infobae.com/salud/2026/03/17/cancer-de-colon-como-es-la-campana-que-impulsa-la-prevencion-y-la-deteccion-temprana-en-argentina/",
-    "/banners/campana-boca.webp",
+    "/prensa-hd/prensa-2026-infobae-campana.webp",
   ),
   ext(
     "Harán un test muy sencillo en puestos callejeros para prevenir el segundo cáncer más frecuente",
@@ -147,7 +147,7 @@ const recientes: Nota[] = [
     "17 de marzo de 2026",
     "Campañas",
     "https://www.clarin.com/sociedad/haran-test-sencillo-puestos-callejeros-prevenir-segundo-cancer-frecuente_0_fNIub3D2gK.html",
-    "/images/campana-folletos.webp",
+    "/prensa-hd/prensa-2026-clarin-test.webp",
   ),
   ext(
     "Refuerzan la importancia del testeo de uno de los tumores más prevenibles y curables",
