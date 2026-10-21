@@ -115,7 +115,7 @@ const recientes: Nota[] = [
     "18 de marzo de 2026",
     "Prevención",
     "https://noticiasargentinas.com/sociedad/refuerzan-la-importancia-del-testeo-de-uno-de-los-tumores-mas-prevenibles-y-curables_a69ba80a3c331fb25189e5a8b",
-    "/images/causas-manos-hd.webp",
+    "/prensa-hd/prensa-2026-testeo.webp",
   ),
   ext(
     "El cáncer de colon: prevención y detección temprana como claves en la lucha",
@@ -123,7 +123,7 @@ const recientes: Nota[] = [
     "18 de marzo de 2026",
     "Prevención",
     "https://www.cadena3.com/noticia/sociedad/el-cancer-de-colon-prevencion-y-deteccion-temprana-como-claves-en-la-lucha_530585",
-    "/images/lazo-manos.webp",
+    "/prensa-hd/prensa-2026-testeo.webp",
   ),
   ext(
     "Cáncer de colon: LALCEC, GEDyT, Merck y el Gobierno porteño lanzan una campaña",
@@ -131,7 +131,7 @@ const recientes: Nota[] = [
     "18 de marzo de 2026",
     "Campañas",
     "https://curecompass.com.ar/cancer-de-colon-lalcec-gedyt-merck-y-el-gobierno-porteno-lanzan-una-campana/",
-    "/banners/prog-endoscopistas.webp",
+    "/prensa-hd/prensa-2026-dia-mundial.webp",
   ),
   ext(
     "Cáncer de colon: cómo es la campaña que impulsa la prevención y la detección temprana en Argentina",
@@ -163,7 +163,7 @@ const recientes: Nota[] = [
     "Septiembre de 2025",
     "Noche Azul",
     "https://curecompass.com.ar/fundacion-gedyt-2/",
-    "/images/equipo-gala.webp",
+    "/prensa-hd/prensa-2025-recaudacion.webp",
   ),
   ext(
     "El look de las famosas en la Gala Solidaria de Fundación GEDYT: Noche Azul contra el cáncer de colon",
@@ -171,7 +171,7 @@ const recientes: Nota[] = [
     "10 de septiembre de 2025",
     "Noche Azul",
     "https://www.ciudad.com.ar/look/2025/09/10/el-look-de-las-famosas-en-la-gala-solidaria-de-fundacion-gedyt-noche-azul-contra-el-cancer-de-colon/",
-    "/banners/noche-azul-brindis.webp",
+    "/prensa-hd/prensa-2025-ciudad-looks.webp",
   ),
   ext(
     "El gastroenterólogo Luis Caro fue nombrado Personalidad Destacada de la Ciudad de Buenos Aires",
@@ -179,7 +179,7 @@ const recientes: Nota[] = [
     "3 de septiembre de 2025",
     "Testimonios",
     "https://www.infobae.com/salud/2025/09/03/el-gastroenterologo-luis-caro-fue-nombrado-personalidad-destacada-de-la-ciudad-de-buenos-aires/",
-    "/images/caro-recorte.webp",
+    "/prensa-hd/prensa-2025-caro-legislatura.webp",
   ),
   ext(
     "Noche Azul: una gala solidaria para prevenir y detectar el cáncer de colon",
