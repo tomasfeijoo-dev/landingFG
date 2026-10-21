@@ -91,7 +91,7 @@ const recientes: Nota[] = [
     "19 de marzo de 2026",
     "Testimonios",
     "https://www.infobae.com/salud/2026/03/19/el-90-de-los-pacientes-con-cancer-de-colon-pueden-curarse-los-ultimos-avances-en-pruebas-diagnosticas-y-prevencion/",
-    "/prensa-hd/caro-infobae.webp",
+    "/prensa-hd/prensa-2026-infobae-90.webp",
   ),
   ext(
     "Confirman que el 90% de los casos de cáncer de colon pueden curarse",
@@ -123,7 +123,7 @@ const recientes: Nota[] = [
     "18 de marzo de 2026",
     "Prevención",
     "https://www.cadena3.com/noticia/sociedad/el-cancer-de-colon-prevencion-y-deteccion-temprana-como-claves-en-la-lucha_530585",
-    "/prensa-hd/prensa-2026-testeo.webp",
+    "/prensa-hd/prensa-2026-cadena3.webp",
   ),
   ext(
     "Cáncer de colon: LALCEC, GEDyT, Merck y el Gobierno porteño lanzan una campaña",
