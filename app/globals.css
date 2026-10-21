@@ -203,6 +203,8 @@ h1, h2, h3, h4, p, li, a { overflow-wrap: break-word; }
   mask-composite: exclude;
   opacity: 0;
   transition: opacity 0.4s;
+  /* Solo es un borde decorativo: no tiene que tapar los botones de la card */
+  pointer-events: none;
 }
 .team-card:hover { box-shadow: 0 18px 40px -16px rgb(1 64 92 / 0.35); }
 .team-card:hover::before { opacity: 1; }
