@@ -51,12 +51,14 @@ function SatinRibbon() {
 
 function Visual({ slide, priority, active }: { slide: Slide; priority: boolean; active: boolean }) {
   const video = useRef<HTMLVideoElement>(null);
-  // El video solo corre mientras su banner está a la vista
+  // El video solo corre mientras su banner está a la vista y arranca siempre desde el principio
   useEffect(() => {
     const v = video.current;
     if (!v) return;
-    if (active) v.play().catch(() => {});
-    else v.pause();
+    if (active) {
+      v.currentTime = 0;
+      v.play().catch(() => {});
+    } else v.pause();
   }, [active]);
 
   return (
