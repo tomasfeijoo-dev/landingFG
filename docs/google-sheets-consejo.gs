@@ -1,5 +1,5 @@
 /**
- * Postulaciones al Consejo Directivo → Google Sheets
+ * Formularios de la web → Google Sheets (una pestaña por formulario: Postulaciones, Newsletter, Contacto)
  *
  * Cómo instalarlo (una sola vez):
  * 1. Crear una hoja de cálculo en Google Drive (desde la cuenta de la Fundación).
@@ -29,7 +29,8 @@ function doPost(e) {
     if (body.secret !== SECRET) return json({ ok: false, error: "no autorizado" });
 
     const ss = SpreadsheetApp.getActiveSpreadsheet();
-    const sheet = ss.getSheetByName(HOJA) || ss.insertSheet(HOJA);
+    const nombreHoja = body.hoja || HOJA; // "Postulaciones", "Newsletter" o "Contacto"
+    const sheet = ss.getSheetByName(nombreHoja) || ss.insertSheet(nombreHoja);
     const campos = body.campos; // [[título, valor], ...]
 
     // Encabezados la primera vez (y si se suman campos nuevos al formulario)

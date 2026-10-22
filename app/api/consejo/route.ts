@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { guardarEnSheets, sheetsSecret, sheetsUrl, type Resultado } from "@/lib/sheets";
 import { competencias, consejoEmail } from "@/lib/consejo";
 
 const clean = (v: unknown, max = 2000) => (typeof v === "string" ? v.trim().slice(0, max) : "");
@@ -36,41 +37,13 @@ export async function POST(req: Request) {
 
   // 1) Guardar en la hoja de Google Sheets (Apps Script publicado como aplicación web).
   // 2) Avisar por mail con Resend. Alcanza con que uno de los dos funcione.
-  const results = await Promise.all([guardarEnSheets(data), avisarPorMail(data, get).catch((): Resultado => "error")]);
+  const results = await Promise.all([guardarEnSheets("Postulaciones", data), avisarPorMail(data, get).catch((): Resultado => "error")]);
   if (results.every((r) => r === "sin-configurar")) {
     console.error("Ni Google Sheets ni Resend están configurados; postulación no guardada", data);
     return NextResponse.json({ error: "Envío no configurado" }, { status: 503 });
   }
   if (!results.includes("ok")) return NextResponse.json({ error: "No se pudo enviar" }, { status: 502 });
   return NextResponse.json({ ok: true });
-}
-
-type Resultado = "ok" | "error" | "sin-configurar";
-
-// La clave tal como se cargó en Vercel, sin espacios ni comillas sobrantes
-const sheetsSecret = () => (process.env.SHEETS_SECRET ?? "").trim().replace(/^["']|["']$/g, "");
-
-async function guardarEnSheets(data: [string, string][]): Promise<Resultado> {
-  const url = process.env.SHEETS_CONSEJO_URL?.trim();
-  if (!url) return "sin-configurar";
-  try {
-    const res = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      // El secreto evita que cualquiera que conozca la URL cargue filas en la hoja
-      body: JSON.stringify({ secret: sheetsSecret(), fecha: new Date().toISOString(), campos: data }),
-      redirect: "follow",
-    });
-    const body = await res.text();
-    if (!res.ok || !body.includes('"ok":true')) {
-      console.error("Error de Google Sheets", res.status, body.slice(0, 300));
-      return "error";
-    }
-    return "ok";
-  } catch (e) {
-    console.error("Error de Google Sheets", e);
-    return "error";
-  }
 }
 
 async function avisarPorMail(data: [string, string][], get: (k: string) => string): Promise<Resultado> {
@@ -106,7 +79,7 @@ async function avisarPorMail(data: [string, string][], get: (k: string) => strin
 // Diagnóstico de la conexión con Google Sheets: /api/consejo?clave=<SHEETS_SECRET>
 // Agrega una fila "PRUEBA DE CONEXIÓN" y cuenta qué respondió Google.
 export async function GET(req: Request) {
-  const url = process.env.SHEETS_CONSEJO_URL?.trim();
+  const url = sheetsUrl();
   const secret = sheetsSecret();
   const clave = (new URL(req.url).searchParams.get("clave") ?? "").trim();
   if (!url || !secret) {
@@ -135,7 +108,7 @@ export async function GET(req: Request) {
     const res = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ secret, fecha: new Date().toISOString(), campos: [["Nombre", "PRUEBA DE CONEXIÓN"]] }),
+      body: JSON.stringify({ secret, hoja: "Postulaciones", fecha: new Date().toISOString(), campos: [["Nombre", "PRUEBA DE CONEXIÓN"]] }),
       redirect: "follow",
     });
     const body = await res.text();

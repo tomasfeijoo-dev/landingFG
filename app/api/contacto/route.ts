@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { guardarEnSheets, type Resultado } from "@/lib/sheets";
 
 const clean = (v: unknown, max = 2000) => (typeof v === "string" ? v.trim().slice(0, max) : "");
 const escape = (s: string) =>
@@ -24,14 +25,36 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Faltan datos obligatorios" }, { status: 400 });
   }
 
+  // Newsletter: solo se guarda el mail en su pestaña. Contacto: se guarda y además se avisa por mail.
+  if (data.motivo === "newsletter") {
+    const r = await guardarEnSheets("Newsletter", [["Email", data.email]]);
+    if (r === "ok") return NextResponse.json({ ok: true });
+    return NextResponse.json({ error: r === "sin-configurar" ? "Envío no configurado" : "No se pudo guardar" }, { status: r === "sin-configurar" ? 503 : 502 });
+  }
+
+  const campos: [string, string][] = [
+    ["Nombre", data.nombre],
+    ["Email", data.email],
+    ["Teléfono", data.telefono],
+    ["Organización", data.organizacion],
+    ["Motivo", data.motivo],
+    ["Mensaje", data.mensaje],
+  ];
+  const results = await Promise.all([guardarEnSheets("Contacto", campos), avisarPorMail(data).catch((): Resultado => "error")]);
+  if (results.every((r) => r === "sin-configurar")) {
+    console.error("Ni Google Sheets ni Resend están configurados; mensaje no guardado", data);
+    return NextResponse.json({ error: "Envío no configurado" }, { status: 503 });
+  }
+  if (!results.includes("ok")) return NextResponse.json({ error: "No se pudo enviar" }, { status: 502 });
+  return NextResponse.json({ ok: true });
+}
+
+async function avisarPorMail(data: Record<string, string>): Promise<Resultado> {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO || "secretaria@fundaciongedyt.org.ar";
   const from = process.env.CONTACT_FROM || "Web Fundación Gedyt <onboarding@resend.dev>";
 
-  if (!apiKey) {
-    console.error("RESEND_API_KEY no configurada; mensaje no enviado", data);
-    return NextResponse.json({ error: "Envío no configurado" }, { status: 503 });
-  }
+  if (!apiKey) return "sin-configurar";
 
   const rows = Object.entries(data)
     .filter(([, v]) => v)
@@ -52,8 +75,7 @@ export async function POST(req: Request) {
 
   if (!res.ok) {
     console.error("Error de Resend", res.status, await res.text());
-    return NextResponse.json({ error: "No se pudo enviar" }, { status: 502 });
+    return "error";
   }
-
-  return NextResponse.json({ ok: true });
+  return "ok";
 }
