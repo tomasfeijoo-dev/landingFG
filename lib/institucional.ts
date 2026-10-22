@@ -29,6 +29,8 @@ export const equipo: Person[] = [
   { role: "Dirección de Programa de Mujeres", name: "Marcela González", photo: "/equipo/marcela-gonzalez.webp", linkedin: "https://www.linkedin.com/in/marcela-gonzalez-a3260615/" },
   { role: "Co-Director del Proyecto de Misiones", name: "Gonzalo Coria", photo: "/equipo/gonzalo-coria.webp", linkedin: "https://www.linkedin.com/company/fundacion-gedyt/" },
   { role: "Comité de Fundraising", name: "Florencia Torres", photo: "/equipo/florencia-torres.webp", linkedin: "https://www.linkedin.com/in/florencia-torres-66422378/" },
+  { role: "Asistente de Comunicación", name: "Milagros Sosa", photo: "/equipo/milagros-sosa.webp", linkedin: "https://www.linkedin.com/in/milagros-sosa-71b1861b1/" },
+  { role: "Asistente de Comunicación", name: "Agustín Esteves", photo: "/equipo/agustin-esteves.webp", linkedin: "https://www.linkedin.com/in/agust%C3%ADn-esteves-3b29581ab/" },
 ];
 
 export const institucionalEmail = "asuntosinstitucionales@fundaciongedyt.org.ar";
