@@ -3,7 +3,7 @@
 
 export const site = {
   name: "Fundación Gedyt",
-  url: "https://fundaciongedyt.org.ar",
+  url: "https://www.fundaciongedyt.org.ar",
   tagline: "El cáncer colorrectal se puede prevenir. La detección temprana salva vidas.",
   description:
     "Fundación Gedyt trabaja por un acceso equitativo a una salud digestiva de calidad en Argentina: prevención y detección temprana del cáncer colorrectal, formación profesional e investigación.",
