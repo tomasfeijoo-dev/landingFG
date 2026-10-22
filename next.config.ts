@@ -15,6 +15,11 @@ const nextConfig: NextConfig = {
       { source: "/cumbre-interamericana-ccr", destination: "/cumbre/2024", permanent: true },
       { source: "/publicaciones", destination: "/novedades#publicaciones", permanent: true },
       { source: "/premio-mujeres", destination: "/premio-mujeres-destacadas", permanent: true },
+      // Landings sueltas que estaban en el hosting fuera del WordPress
+      { source: "/mujeres-gedyt-landing.html", destination: "/premio-mujeres-destacadas", permanent: true },
+      { source: "/cumbrelatinoamericanadecancercolorrectal/:path*", destination: "/cumbre", permanent: true },
+      { source: "/consejo/:path+", destination: "/consejo-directivo", permanent: true },
+      { source: "/gala-noche-azul/:path+", destination: "/gala-noche-azul", permanent: true },
       // Páginas de la web anterior encontradas indexadas en Google
       { source: "/conocer-fundacion-gedyt", destination: "/institucional", permanent: true },
       { source: "/que-hace-fg", destination: "/programas", permanent: true },
