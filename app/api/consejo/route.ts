@@ -99,3 +99,42 @@ async function avisarPorMail(data: [string, string][], get: (k: string) => strin
   }
   return "ok";
 }
+
+// Diagnóstico de la conexión con Google Sheets: /api/consejo?clave=<SHEETS_SECRET>
+// Agrega una fila "PRUEBA DE CONEXIÓN" y cuenta qué respondió Google.
+export async function GET(req: Request) {
+  const url = process.env.SHEETS_CONSEJO_URL;
+  const secret = process.env.SHEETS_SECRET;
+  const clave = new URL(req.url).searchParams.get("clave");
+  if (!url || !secret) {
+    return NextResponse.json({
+      ok: false,
+      problema: "Faltan variables en Vercel (o no se hizo un deploy nuevo después de cargarlas)",
+      SHEETS_CONSEJO_URL: url ? "cargada" : "FALTA",
+      SHEETS_SECRET: secret ? "cargada" : "FALTA",
+    });
+  }
+  if (clave !== secret) return NextResponse.json({ ok: false, problema: "Agregá ?clave= con la misma clave que SHEETS_SECRET" }, { status: 401 });
+  if (!url.endsWith("/exec")) return NextResponse.json({ ok: false, problema: "SHEETS_CONSEJO_URL tiene que terminar en /exec" });
+
+  try {
+    const res = await fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ secret, fecha: new Date().toISOString(), campos: [["Nombre", "PRUEBA DE CONEXIÓN"]] }),
+      redirect: "follow",
+    });
+    const body = await res.text();
+    let problema: string | undefined;
+    if (body.includes('"ok":true')) problema = undefined;
+    else if (body.includes("no autorizado")) problema = "La clave del script (const SECRET) no coincide con SHEETS_SECRET de Vercel";
+    else if (/accounts\.google\.com|ServiceLogin|Iniciar sesión|Sign in/i.test(body))
+      problema = "Google pide iniciar sesión: en la implementación, 'Quién tiene acceso' tiene que ser 'Cualquier usuario' (no solo la organización)";
+    else if (/getSheetByName|null/i.test(body))
+      problema = "El script no está vinculado a la hoja: hay que crearlo desde la hoja, en Extensiones → Apps Script";
+    else problema = "Respuesta inesperada de Google (ver 'respuesta')";
+    return NextResponse.json({ ok: !problema, problema, estado: res.status, respuesta: body.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").slice(0, 300) });
+  } catch (e) {
+    return NextResponse.json({ ok: false, problema: "No se pudo contactar a Google: revisá la URL", detalle: String(e) });
+  }
+}
