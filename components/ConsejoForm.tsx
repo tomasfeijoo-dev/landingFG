@@ -1,10 +1,46 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Icon from "@/components/Icon";
 import { BORDO, competencias, consejoEmail, niveles } from "@/lib/consejo";
 
 type Status = "idle" | "sending" | "ok" | "error";
+
+// Mensajes que van rotando debajo del loader mientras se envía la postulación
+const mensajes = [
+  "Estamos procesando tus datos…",
+  "Por favor, aguardá unos segundos",
+  "Guardando tu postulación de forma segura…",
+  "Ya casi terminamos…",
+];
+
+// El loader se muestra al menos este tiempo, para que no aparezca y desaparezca de golpe
+const MIN_LOADER_MS = 2400;
+
+function Procesando() {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setI((n) => Math.min(n + 1, mensajes.length - 1)), 1800);
+    return () => clearInterval(t);
+  }, []);
+  // Se monta en <body> para cubrir toda la pantalla (el formulario tiene una animación que encierra lo "fixed")
+  return createPortal(
+    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-navy-950/55 px-6 backdrop-blur-sm" role="status" aria-live="polite">
+      <div className="step-in flex w-full max-w-sm flex-col items-center rounded-[2rem] bg-white px-8 py-10 text-center shadow-2xl">
+        <svg viewBox="0 0 50 50" className="h-16 w-16 animate-spin" aria-hidden>
+          <circle cx="25" cy="25" r="20" fill="none" stroke="#e8edf2" strokeWidth="5" />
+          <circle cx="25" cy="25" r="20" fill="none" stroke={BORDO} strokeWidth="5" strokeLinecap="round" strokeDasharray="90 126" />
+        </svg>
+        <p className="mt-6 text-lg font-extrabold text-navy-900">Enviando tu postulación</p>
+        <p key={i} className="step-in mt-2 min-h-[1.5rem] text-navy-900/65">
+          {mensajes[i]}
+        </p>
+      </div>
+    </div>,
+    document.body,
+  );
+}
 
 const field =
   "mt-1.5 w-full rounded-xl border border-navy-900/15 bg-white px-4 py-3 text-navy-950 outline-none transition placeholder:text-navy-900/40 focus:border-[#8c1d4b] focus:ring-4 focus:ring-[#8c1d4b]/10";
@@ -21,6 +57,12 @@ function Bloque({ children }: { children: React.ReactNode }) {
 export default function ConsejoForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [conflicto, setConflicto] = useState<"" | "Sí" | "No">("");
+  const gracias = useRef<HTMLDivElement>(null);
+
+  // Al terminar, se lleva a la persona directo al mensaje de agradecimiento
+  useEffect(() => {
+    if (status === "ok") gracias.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [status]);
 
   const mailto = `mailto:${consejoEmail}?subject=${encodeURIComponent("Postulación al Consejo Directivo - CV y nota de interés")}`;
 
@@ -28,12 +70,16 @@ export default function ConsejoForm() {
     e.preventDefault();
     const form = e.currentTarget;
     setStatus("sending");
+    const espera = new Promise((r) => setTimeout(r, MIN_LOADER_MS));
     try {
-      const res = await fetch("/api/consejo", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(Object.fromEntries(new FormData(form))),
-      });
+      const [res] = await Promise.all([
+        fetch("/api/consejo", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        }),
+        espera,
+      ]);
       if (!res.ok) throw new Error();
       form.reset();
       setConflicto("");
@@ -45,12 +91,13 @@ export default function ConsejoForm() {
 
   if (status === "ok") {
     return (
-      <div className="reveal rounded-[2rem] bg-white p-10 text-center shadow-xl">
+      <div ref={gracias} className="step-in scroll-mt-28 rounded-[2rem] bg-white p-10 text-center shadow-xl">
         <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full text-white" style={{ background: BORDO }}>
           <Icon name="check" className="h-7 w-7" />
         </span>
-        <p className="mt-5 text-2xl font-extrabold text-navy-900">¡Gracias por postularte!</p>
-        <p className="mt-3 text-navy-900/70">
+        <p className="mt-5 text-2xl font-extrabold text-navy-900">¡Gracias por enviar tu postulación!</p>
+        <p className="mt-3 text-navy-900/70">La recibimos correctamente. Nos vamos a poner en contacto con vos.</p>
+        <p className="mt-4 text-navy-900/70">
           Recordá enviar tu CV y tu nota de interés a{" "}
           <a href={mailto} className="font-semibold underline" style={{ color: BORDO }}>
             {consejoEmail}
@@ -168,6 +215,8 @@ export default function ConsejoForm() {
           </span>
         </label>
       </fieldset>
+
+      {status === "sending" && <Procesando />}
 
       {/* Campo trampa para bots */}
       <input name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden />
