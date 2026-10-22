@@ -47,15 +47,18 @@ export async function POST(req: Request) {
 
 type Resultado = "ok" | "error" | "sin-configurar";
 
+// La clave tal como se cargó en Vercel, sin espacios ni comillas sobrantes
+const sheetsSecret = () => (process.env.SHEETS_SECRET ?? "").trim().replace(/^["']|["']$/g, "");
+
 async function guardarEnSheets(data: [string, string][]): Promise<Resultado> {
-  const url = process.env.SHEETS_CONSEJO_URL;
+  const url = process.env.SHEETS_CONSEJO_URL?.trim();
   if (!url) return "sin-configurar";
   try {
     const res = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       // El secreto evita que cualquiera que conozca la URL cargue filas en la hoja
-      body: JSON.stringify({ secret: process.env.SHEETS_SECRET ?? "", fecha: new Date().toISOString(), campos: data }),
+      body: JSON.stringify({ secret: sheetsSecret(), fecha: new Date().toISOString(), campos: data }),
       redirect: "follow",
     });
     const body = await res.text();
@@ -103,9 +106,9 @@ async function avisarPorMail(data: [string, string][], get: (k: string) => strin
 // Diagnóstico de la conexión con Google Sheets: /api/consejo?clave=<SHEETS_SECRET>
 // Agrega una fila "PRUEBA DE CONEXIÓN" y cuenta qué respondió Google.
 export async function GET(req: Request) {
-  const url = process.env.SHEETS_CONSEJO_URL;
-  const secret = process.env.SHEETS_SECRET;
-  const clave = new URL(req.url).searchParams.get("clave");
+  const url = process.env.SHEETS_CONSEJO_URL?.trim();
+  const secret = sheetsSecret();
+  const clave = (new URL(req.url).searchParams.get("clave") ?? "").trim();
   if (!url || !secret) {
     return NextResponse.json({
       ok: false,
@@ -114,7 +117,18 @@ export async function GET(req: Request) {
       SHEETS_SECRET: secret ? "cargada" : "FALTA",
     });
   }
-  if (clave !== secret) return NextResponse.json({ ok: false, problema: "Agregá ?clave= con la misma clave que SHEETS_SECRET" }, { status: 401 });
+  if (clave !== secret) {
+    // Pistas para comparar sin mostrar la clave guardada
+    return NextResponse.json(
+      {
+        ok: false,
+        problema: "La clave de la dirección no coincide con SHEETS_SECRET de Vercel",
+        clave_en_vercel: { caracteres: secret.length, empieza_con: secret.slice(0, 3), termina_con: secret.slice(-2) },
+        clave_escrita: { caracteres: clave.length, empieza_con: clave.slice(0, 3), termina_con: clave.slice(-2) },
+      },
+      { status: 401 },
+    );
+  }
   if (!url.endsWith("/exec")) return NextResponse.json({ ok: false, problema: "SHEETS_CONSEJO_URL tiene que terminar en /exec" });
 
   try {
