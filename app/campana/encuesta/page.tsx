@@ -22,7 +22,7 @@ export default function EncuestaPage() {
           <CampaignRibbon />
           <div className="banner-tint absolute inset-0 opacity-70" />
           <CampaignEmoji />
-          <div className="relative px-6 pt-10 pb-48 sm:px-12 sm:pb-56 md:w-[60%] md:py-16 lg:px-16">
+          <div className="relative px-6 pt-10 pb-48 sm:px-12 sm:pb-56 md:w-[70%] md:py-16 lg:px-16 xl:w-[72%]">
             <Link
               href="/campana"
               className="group inline-flex items-center gap-3 rounded-full bg-white/10 py-1.5 pr-5 pl-1.5 text-sm font-semibold text-white ring-1 ring-white/20 transition hover:bg-white hover:text-navy-900"
