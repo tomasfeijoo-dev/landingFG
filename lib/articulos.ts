@@ -140,7 +140,6 @@ export const articulos: Articulo[] = [
     bajada:
       "Solo 3 de cada 10 personas se realizan los chequeos preventivos. Con la campaña “Juntos podemos prevenir el Cáncer de Colon y cambiar las estadísticas”, la Fundación busca derribar las barreras que impiden una prevención efectiva.",
     image: img(3),
-    fuente: "https://fundaciongedyt.org.ar/cancer-de-colon-la-baja-tasa-de-testeos-pone-en-riesgo-miles-de-vidas-fundacion-gedyt-lanza-una-campana-de-concientizacion-para-prevenirlo/",
     blocks: [
       p("El cáncer de colon es la segunda causa de muerte por cáncer en la Argentina, con más de 7.000 fallecimientos al año. Sin embargo, la detección temprana reduce hasta en un 90% la tasa de mortalidad. A pesar de ello, solo 3 de cada 10 personas se realizan los chequeos preventivos, lo que expone a miles de argentinos a un riesgo evitable."),
       p("Frente a esta situación, Fundación Gedyt lanza su campaña “Juntos podemos prevenir el Cáncer de Colon y cambiar las estadísticas”, cuyo objetivo es concientizar a la población y derribar las principales barreras que impiden una prevención efectiva."),
@@ -198,7 +197,6 @@ export const articulos: Articulo[] = [
     bajada:
       "Con 15.000 diagnósticos y más de 7.000 muertes por año, es el segundo cáncer más frecuente y de mayor mortalidad en la Argentina. Solo el 30% de la población se hace los chequeos preventivos.",
     image: com(5),
-    fuente: "https://fundaciongedyt.org.ar/cancer-de-colon-el-90-de-los-casos-se-puede-prevenir-y-curar/",
     blocks: [
       p("Con 15.000 diagnósticos y más de 7.000 muertes por año, el cáncer de colon es el segundo más frecuente y de mayor mortalidad en la Argentina. Sin embargo, según datos del Ministerio de Salud, solo el 30% de la población se realiza los chequeos preventivos. Fundación GEDYT realizó una encuesta para visibilizar y concientizar sobre la importancia de los controles periódicos para salvar vidas."),
       stats(["29%", "de la población se realiza el test"], ["75%", "de los diagnosticados no tiene antecedentes"], ["90%", "de los casos puede prevenirse y curarse"]),
@@ -295,7 +293,6 @@ export const articulos: Articulo[] = [
     bajada:
       "La segunda edición de la gala tendrá como objetivo apoyar al Hospital de Clínicas con equipamiento y centros de entrenamiento para profesionales.",
     image: com(9),
-    fuente: "https://fundaciongedyt.org.ar/2022/10/28/fundacion-gedyt-realizara-su-cena-de-gala-noche-azul-una-noche-que-busca-poner-en-agenda-la-prevencion-del-cancer-de-colon-y-salvar-vidas/",
     blocks: [
       p("En una noche teñida de azul, el color que identifica al cáncer de colon, el 6 de septiembre la Fundación GEDYT realizará su segunda cena de gala para concientizar sobre esta enfermedad, la importancia de su prevención y recaudar fondos para seguir capacitando profesionales en calidad endoscópica en todo el país."),
       p("La prevención del cáncer de colon presenta dos grandes problemas en nuestro país: el temor y la desinformación en la comunidad, y la dificultad de acceso a equipamiento y procedimientos de calidad en la salud pública."),

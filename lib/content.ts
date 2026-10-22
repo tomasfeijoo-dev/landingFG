@@ -306,7 +306,7 @@ export const news = [
     tag: "Prevención",
     title: "Cáncer de colon: el 90% de los casos se puede prevenir y curar",
     text: "Por qué el control a partir de los 45 años y la detección temprana cambian el pronóstico.",
-    href: "https://fundaciongedyt.org.ar/2024/11/22/cancer-de-colon-el-90-de-los-casos-se-puede-prevenir-y-curar/",
+    href: "/novedades/el-90-de-los-casos-se-puede-prevenir-y-curar",
   },
   {
     tag: "Institucional",

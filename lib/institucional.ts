@@ -40,4 +40,3 @@ export const anuarios = [
   { label: "Anuario edición 2025", href: "https://drive.google.com/file/d/1Q1hVeBBrTrfE0cqfn_uP1yCHNeMucodw/view" },
   { label: "Anuario edición 2026", href: "https://drive.google.com/file/d/1yzGB0vsdlE7XWtpkN9RK0qO6r2cbRH57/view" },
 ];
-export const publicacionesUrl = "https://fundaciongedyt.org.ar/publicaciones/";

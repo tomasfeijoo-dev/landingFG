@@ -1,7 +1,6 @@
 // Comunicados, anuarios, publicaciones e investigación (textos tal cual figuran en fundaciongedyt.org.ar).
 // Cada comunicado abre su página interna (/novedades/[slug]); el texto completo está en lib/articulos.ts.
 
-const pubs = "https://fundaciongedyt.org.ar/publicaciones/";
 
 const comunicadoSlugs = [
   "cancer-de-colon-mas-de-40-casos-por-dia",
