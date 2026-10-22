@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
     return [
       { source: "/que-hacemos", destination: "/campana", permanent: true },
       { source: "/sumate", destination: "/institucional", permanent: true },
+      // Direcciones de la web anterior (WordPress) que circulan en folletos, redes y buscadores
+      { source: "/comoestatucolon", destination: "/campana", permanent: true },
+      { source: "/consejo", destination: "/consejo-directivo", permanent: true },
+      { source: "/cumbre-interamericana-ccr", destination: "/cumbre/2024", permanent: true },
+      { source: "/publicaciones", destination: "/novedades#publicaciones", permanent: true },
+      { source: "/premio-mujeres", destination: "/premio-mujeres-destacadas", permanent: true },
     ];
   },
 };
