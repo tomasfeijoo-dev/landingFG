@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { guardarEnSheets, sheetsSecret, sheetsUrl, type Resultado } from "@/lib/sheets";
+import { diagnosticoSheets, guardarEnSheets, type Resultado } from "@/lib/sheets";
 import { competencias, consejoEmail } from "@/lib/consejo";
 
 const clean = (v: unknown, max = 2000) => (typeof v === "string" ? v.trim().slice(0, max) : "");
@@ -76,52 +76,8 @@ async function avisarPorMail(data: [string, string][], get: (k: string) => strin
   return "ok";
 }
 
-// Diagnóstico de la conexión con Google Sheets: /api/consejo?clave=<SHEETS_SECRET>
-// Agrega una fila "PRUEBA DE CONEXIÓN" y cuenta qué respondió Google.
+// Diagnóstico de la conexión con la hoja del Consejo: /api/consejo?clave=<SHEETS_SECRET>
 export async function GET(req: Request) {
-  const url = sheetsUrl();
-  const secret = sheetsSecret();
-  const clave = (new URL(req.url).searchParams.get("clave") ?? "").trim();
-  if (!url || !secret) {
-    return NextResponse.json({
-      ok: false,
-      problema: "Faltan variables en Vercel (o no se hizo un deploy nuevo después de cargarlas)",
-      SHEETS_CONSEJO_URL: url ? "cargada" : "FALTA",
-      SHEETS_SECRET: secret ? "cargada" : "FALTA",
-    });
-  }
-  if (clave !== secret) {
-    // Pistas para comparar sin mostrar la clave guardada
-    return NextResponse.json(
-      {
-        ok: false,
-        problema: "La clave de la dirección no coincide con SHEETS_SECRET de Vercel",
-        clave_en_vercel: { caracteres: secret.length, empieza_con: secret.slice(0, 3), termina_con: secret.slice(-2) },
-        clave_escrita: { caracteres: clave.length, empieza_con: clave.slice(0, 3), termina_con: clave.slice(-2) },
-      },
-      { status: 401 },
-    );
-  }
-  if (!url.endsWith("/exec")) return NextResponse.json({ ok: false, problema: "SHEETS_CONSEJO_URL tiene que terminar en /exec" });
-
-  try {
-    const res = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ secret, hoja: "Postulaciones", fecha: new Date().toISOString(), campos: [["Nombre", "PRUEBA DE CONEXIÓN"]] }),
-      redirect: "follow",
-    });
-    const body = await res.text();
-    let problema: string | undefined;
-    if (body.includes('"ok":true')) problema = undefined;
-    else if (body.includes("no autorizado")) problema = "La clave del script (const SECRET) no coincide con SHEETS_SECRET de Vercel";
-    else if (/accounts\.google\.com|ServiceLogin|Iniciar sesión|Sign in/i.test(body))
-      problema = "Google pide iniciar sesión: en la implementación, 'Quién tiene acceso' tiene que ser 'Cualquier usuario' (no solo la organización)";
-    else if (/getSheetByName|null/i.test(body))
-      problema = "El script no está vinculado a la hoja: hay que crearlo desde la hoja, en Extensiones → Apps Script";
-    else problema = "Respuesta inesperada de Google (ver 'respuesta')";
-    return NextResponse.json({ ok: !problema, problema, estado: res.status, respuesta: body.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").slice(0, 300) });
-  } catch (e) {
-    return NextResponse.json({ ok: false, problema: "No se pudo contactar a Google: revisá la URL", detalle: String(e) });
-  }
+  const clave = new URL(req.url).searchParams.get("clave") ?? "";
+  return NextResponse.json(await diagnosticoSheets("consejo", "Postulaciones", clave, { url: "SHEETS_CONSEJO_URL", secret: "SHEETS_SECRET" }));
 }

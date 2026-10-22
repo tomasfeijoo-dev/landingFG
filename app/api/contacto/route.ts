@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { guardarEnSheets, type Resultado } from "@/lib/sheets";
+import { diagnosticoSheets, guardarEnSheets, type Resultado } from "@/lib/sheets";
 
 const clean = (v: unknown, max = 2000) => (typeof v === "string" ? v.trim().slice(0, max) : "");
 const escape = (s: string) =>
@@ -27,7 +27,7 @@ export async function POST(req: Request) {
 
   // Newsletter: solo se guarda el mail en su pestaña. Contacto: se guarda y además se avisa por mail.
   if (data.motivo === "newsletter") {
-    const r = await guardarEnSheets("Newsletter", [["Email", data.email]]);
+    const r = await guardarEnSheets("Newsletter", [["Email", data.email]], "comunicacion");
     if (r === "ok") return NextResponse.json({ ok: true });
     return NextResponse.json({ error: r === "sin-configurar" ? "Envío no configurado" : "No se pudo guardar" }, { status: r === "sin-configurar" ? 503 : 502 });
   }
@@ -40,7 +40,7 @@ export async function POST(req: Request) {
     ["Motivo", data.motivo],
     ["Mensaje", data.mensaje],
   ];
-  const results = await Promise.all([guardarEnSheets("Contacto", campos), avisarPorMail(data).catch((): Resultado => "error")]);
+  const results = await Promise.all([guardarEnSheets("Contacto", campos, "comunicacion"), avisarPorMail(data).catch((): Resultado => "error")]);
   if (results.every((r) => r === "sin-configurar")) {
     console.error("Ni Google Sheets ni Resend están configurados; mensaje no guardado", data);
     return NextResponse.json({ error: "Envío no configurado" }, { status: 503 });
@@ -78,4 +78,12 @@ async function avisarPorMail(data: Record<string, string>): Promise<Resultado> {
     return "error";
   }
   return "ok";
+}
+
+// Diagnóstico de la conexión con la hoja de Comunicación: /api/contacto?clave=<SHEETS_COMUNICACION_SECRET>
+export async function GET(req: Request) {
+  const clave = new URL(req.url).searchParams.get("clave") ?? "";
+  return NextResponse.json(
+    await diagnosticoSheets("comunicacion", "Newsletter", clave, { url: "SHEETS_COMUNICACION_URL", secret: "SHEETS_COMUNICACION_SECRET" }),
+  );
 }
