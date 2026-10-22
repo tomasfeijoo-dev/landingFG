@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
       { source: "/sumate", destination: "/institucional", permanent: true },
       // Direcciones de la web anterior (WordPress) que circulan en folletos, redes y buscadores
       { source: "/comoestatucolon", destination: "/campana", permanent: true },
+      { source: "/campana-prevencion-cancer-de-colon", destination: "/campana/encuesta", permanent: true },
       { source: "/consejo", destination: "/consejo-directivo", permanent: true },
       { source: "/cumbre-interamericana-ccr", destination: "/cumbre/2024", permanent: true },
       { source: "/publicaciones", destination: "/novedades#publicaciones", permanent: true },
