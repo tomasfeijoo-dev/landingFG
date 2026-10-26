@@ -8,9 +8,9 @@ import { track } from "@/lib/track";
 // Etiquetas de medición. Se activan solo si el ID está cargado en Vercel (Environment Variables):
 // NEXT_PUBLIC_GTM_ID (GTM-XXXX), NEXT_PUBLIC_GA_ID (G-XXXX) y NEXT_PUBLIC_META_PIXEL_ID (número del Píxel).
 // Si usan Google Tag Manager, conviene cargar GA4 y el Píxel desde ahí y dejar solo NEXT_PUBLIC_GTM_ID.
-const GTM = process.env.NEXT_PUBLIC_GTM_ID;
-const GA = process.env.NEXT_PUBLIC_GA_ID;
-const PIXEL = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+const GTM = process.env.NEXT_PUBLIC_GTM_ID?.trim();
+const GA = process.env.NEXT_PUBLIC_GA_ID?.trim();
+const PIXEL = process.env.NEXT_PUBLIC_META_PIXEL_ID?.trim();
 
 
 // El Píxel de Meta no detecta solo los cambios de página dentro del sitio: se avisa en cada navegación.
