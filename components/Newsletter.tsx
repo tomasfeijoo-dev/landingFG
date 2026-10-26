@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Icon from "@/components/Icon";
+import { track } from "@/lib/track";
 
 export default function Newsletter() {
   const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
@@ -19,6 +20,7 @@ export default function Newsletter() {
       });
       if (!res.ok) throw new Error();
       form.reset();
+      track("suscripcion_newsletter");
       setStatus("ok");
     } catch {
       setStatus("error");

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Icon from "@/components/Icon";
+import { track } from "@/lib/track";
 import { BORDO, competencias, consejoEmail, niveles } from "@/lib/consejo";
 
 type Status = "idle" | "sending" | "ok" | "error";
@@ -83,6 +84,7 @@ export default function ConsejoForm() {
       if (!res.ok) throw new Error();
       form.reset();
       setConflicto("");
+      track("postulacion_consejo");
       setStatus("ok");
     } catch {
       setStatus("error");

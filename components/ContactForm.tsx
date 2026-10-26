@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { contact, interests } from "@/lib/content";
+import { track } from "@/lib/track";
 
 type Status = "idle" | "sending" | "ok" | "error";
 
@@ -30,6 +31,7 @@ export default function ContactForm() {
       });
       if (!res.ok) throw new Error();
       form.reset();
+      track("formulario_contacto", { motivo: interest });
       setStatus("ok");
     } catch {
       setStatus("error");
